@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>FlipCard Container with different right content types Tests</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/gridx/resources/Gridx.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/gridx/resources/Gridx_rtl.css", "idxStyles");
+		</script>
+	
+		<style id="idxStyles" type="text/css">
+			@import "../../../gridx/resources/Gridx.css";
+			@import "../../gridx/tests/support/common.css";
+			
+            @import "../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+            @import "../../tests/test.css";
+            
+            html, body {
+			    width: 100%;
+			    height: 100%;
+			    margin: 0; 
+			    padding: 0;
+			}
+			
+			.oneui .idxFlipCardContainer .idxFlipCardNavBar .monitorIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -24px 0;
+			}
+			.oneui .idxFlipCardContainer .idxFlipCardNavBar .welcomeIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -264px 0;
+			}
+			.oneui .idxFlipCardContainer .idxFlipCardNavBar .analyzeIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -72px 0;
+			}
+			.oneui .idxFlipCardContainer .idxFlipCardNavBar .searchIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: 0 0;
+			}
+			.oneui .idxFlipCardContainer .idxFlipCardNavBar .settingsIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -120px 0;
+			}
+			.oneui .idxFlipCardContainer .idxFlipCardNavBar .helpIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -144px 0;
+			}
+			
+			
+			/************* customized action *****************/
+			.oneui .portletItem .fpPortlet .refreshActionNode{
+				background: url("resources/images/refresh.png") no-repeat 0 0;
+			}
+			.oneui .portletItem .fpPortlet .loadActionNode{
+				background: url("resources/images/switchLoad.png") no-repeat 0 0;
+			}
+		</style>
+	
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.gfxRenderer = 'svg,canvas,vml';
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dojo._base.lang", // lang.mixin lang.hitch
+				"dijit.registry", 
+				"idx.layout.FlipCardContainer",  
+				"idx.tests._pagefooter._PageFooter"
+			]; 
+			var lang, registry, FlipCardContainer, _PageFooter;
+			
+			function preParse(modules){
+				lang 				= modules["dojo/_base/lang"];
+				registry 			= modules["dijit/registry"];
+				FlipCardContainer   = modules["idx/layout/FlipCardContainer"];
+				_PageFooter   		= modules["idx/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				//navigation data
+				var navigationParams = {
+					identifier: "id",
+					items: [
+						{id:"welcome", name:"welcome", title:"Welcome", icon:"resources/images/blank.png", containerClass:"welcomeContainer", iconClass:"welcomeIcon", descClass:"welcomeDesc", type:"nav"},
+						{id:"analyze", name:"analyze", title:"Analyze", icon:"resources/images/blank.png", containerClass:"analyzeContainer", iconClass:"analyzeIcon", descClass:"analyzeDesc", type:"nav"},
+						{id:"search", name:"search", title:"Search", icon:"resources/images/blank.png", iconClass:"searchIcon", type:"nav"},
+						{id:"monitor", name:"monitor", title:"Monitor", icon:"resources/images/blank.png", iconClass:"monitorIcon", type:"nav", children: [
+							{id: "monitor_tasks", name:"monitor_tasks", title:"Monitor Tasks", type:"nav"},
+							{id: "monitor_ways", name:"monitor_ways", title:"Monitor Ways", type:"separator"},
+							{id: "monitor_common", name:"monitor_common", title:"Monitor Common", type:"nav"},
+							{id: "monitor_special", name:"monitor_special", title:"Monitor Special", type:"nav"}
+						]},
+						{id:"settings", name:"settings", title:"Settings", icon:"resources/images/blank.png", iconClass:"settingsIcon", type:"settings", pressHandler:function(){alert("Settings!")}},
+						{id:"help", name:"help", title:"Help", icon:"resources/images/blank.png", iconClass:"helpIcon", type:"settings", children: [
+							{id: "help_product", name:"help_product", title:"Product", type:"settings", pressHandler:function(){alert(this.flipCardModelId + "Product Help Settings")}},
+							{id: "help_community", name:"help_community", title:"Community", type:"settings", pressHandler:function(){alert(this.flipCardModelId + "Product Help Settings")}}
+						]}
+						//{id:"save", name:"save", title:"Save", icon:"resources/images/save.png", iconClass:"saveIcon", type:"settings"}
+					]
+				};
+				
+				//grid content data
+				var paneItemListParams = {
+					welcome: {name:"welcome", title:"Welcome"},
+					analyze: {name:"analyze", title:"Analyze"},
+					search: {name:"search", title:"Search"}
+				};
+				
+				var contentContainerListParams = {
+					monitor_tasks: {name:"monitor_tasks", title:"Monitor Tasks", items:[]},
+					monitor_common: {name:"monitor_common", title:"Monitor Common", items:[]},
+					monitor_special: {name:"monitor_special", title:"Monitor Special", items:[]}
+				};
+				
+				var j = 0;
+				for(var cItem in paneItemListParams){
+					//set container type: different from grid container with flip-able card inside
+					paneItemListParams[cItem].type = "pane";
+					
+					switch(j++%3){
+						case 0:
+							paneItemListParams[cItem].props = {content: "<img alt='sample_image' src='resources/images/portlet" + (j%6) + ".png' style='width:100%; height: 100%'></div>"};
+							break;
+						case 1:
+							paneItemListParams[cItem].props = {content: "<iframe src='test_ContentPane.html' style='border:none;width:98%;height:97%;overflow:auto' frameborder='0' scrolling='no'></div>"};
+							break;
+						case 2:
+							paneItemListParams[cItem].props = {href: "resources/html/flipCardContainerContent.html"};
+							break;
+						default:
+							break;
+					}
+				}
+				
+				
+				flipCardHandler = function(context){
+					var portlet = registry.getEnclosingWidget(context).getParent();
+					portlet.processFlip();
+				};
+				for(var gItem in contentContainerListParams){
+					for(var i = 0; i < 6; i++){
+						var item = {
+							name: contentContainerListParams[gItem].name + "_" + i,
+							props: {
+								maxable: true,
+								stackable: true,
+								// itemContentScroll: true,
+								main_props: {
+									title: "Sample_" + contentContainerListParams[gItem].title + "_" + i,
+									content: "<img alt='sample_image' src='resources/images/portlet" + (parseInt(Math.random()*10%6)) + ".png' style='width:100%; height: 100%'></div>" + 
+												"<a role='button' tabindex='0'" + 
+													"onclick='flipCardHandler(this)'" + 
+													"onkeydown='if(event.keyCode == 13){flipCardHandler(this)}'" + 
+													"style='position:absolute;top:30px;right:20px;cursor:pointer;font-size:13px;font-weight:bold;text-decoration:underline;color:blue'>" + 
+													"detail" + 
+												"</a>",
+									contentActions:[
+										{id:"file", name:"file", label:"File",type:"text",children:[
+											{id:"new", name:"new", label:"New",pressHandler:function(){alert("New Card!")}},
+											{id:"open", name:"open", label:"Open",pressHandler:function(){alert("Open Card!")}},
+											{id:"exit", name:"exit", label:"Exit",pressHandler:function(){alert("Exit Card!")}}
+										]},
+										{id:"edit", name:"edit", label:"Edit",type:"text",children:[
+											{id:"copy", name:"copy", label:"Copy",pressHandler:function(){alert("Copy Card!")}},
+											{id:"paste", name:"paste", label:"Paste",pressHandler:function(){alert("Paste Card!")}}
+										]},
+										{id:"card", name:"card", label:"Card",type:"text",pressHandler:function(){alert("Card Action!")}},
+										{id:"help", name:"help", label:"Help",type:"text",pressHandler:function(){window.open("http://idx.ibm.com")}}
+									]
+								},
+								detail_props: {
+									title: "Detail_" + contentContainerListParams[gItem].title + "_" + i,
+									href: "resources/html/flipCardContent.html",
+									contentActions:[
+										{id:"refresh", name:"refresh",label:"Refresh",type:"icon",actionClass:"refreshActionNode",pressHandler: function(){this.refreshCard()}},
+										{id:"load", name:"load",label:"Load",type:"icon",actionClass:"loadActionNode",pressHandler: function(){this.set("href", "resources/html/flipCardContentChanged.html");}}
+									]
+								}
+							}
+							
+						};
+						// if(i == 0){
+							// item.props.initItemStatus = "max";
+						// }
+						contentContainerListParams[gItem].items.push(item);
+					}
+				}
+				
+				
+				var fcItemContainer = lang.mixin({}, 
+					paneItemListParams,
+					contentContainerListParams
+				);
+				
+				//init flipcard widget
+				var flipCard = new FlipCardContainer({
+					navList: navigationParams,
+					// navType: "dynamic",
+					contentContainerList: fcItemContainer,
+					flipCardModelId: "myFlipCard"
+				}, "flipcardNode");
+				flipCard.startup();
+				
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui">
+		<script type="text/javascript">applyThemeToBody();</script><!-- only oneui theme is supported -->
+		
+		<div style="width: 100%; height: 100%; margin: 0px; padding: 0px;">
+			<div style="width: 100%; height: 100%;">
+				<div id="flipcardNode"></div>
+			</div>
+		</div>
+	</body>
+</html>

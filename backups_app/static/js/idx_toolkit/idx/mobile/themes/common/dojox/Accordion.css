@@ -1,0 +1,105 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* dojox.mobile.Accordion */
+
+/* Reset common styles. */
+.oneui .mblAccordion,
+.oneui .mblAccordionTitle,
+.oneui .mblAccordionTitle * {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblAccordion {
+	border-bottom-width:1px;
+	border-bottom-style:outset;
+	border-bottom-color:#ddd;
+}
+
+.oneui .mblAccordionRoundRect {
+	margin:7px 9px 16px;
+	padding:0;
+	border:1px solid #aaa;
+	border-radius:5px;
+}
+
+.oneui .mblAccordionRoundRect .mblAccordionTitle:first-child {
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+}
+
+.oneui .mblAccordionRoundRect .mblAccordionTitleLast,.mblAccordionRoundRect .mblAccordionPane:last-child {
+	border-bottom-width:0;
+	border-bottom-right-radius:5px;
+	border-bottom-left-radius:5px;
+}
+
+.oneui .mblAccordionTitle {
+	position:relative;
+	width:100%;
+	height:44px;
+	border-top:1px solid #ddd;
+	background-color:#ededed;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#ededed));
+	color: #222;
+	vertical-align:middle;
+	white-space:nowrap;
+	font-weight:bold;
+	font-size:17px;
+	line-height:44px;
+}
+
+.oneui .mblAccordionTitle:first-child {
+	border-top:none;
+}
+
+.oneui .mblAccordionTitleAnchor {
+	display:block;
+	height:100%;
+	color: #222;
+	text-decoration:none;
+	text-shadow: 0 1px 0 white;
+	white-space:nowrap;
+}
+
+.oneui .mblAccordionIconParent {
+	float:left;
+	margin:15px 9px 0 14px;
+	line-height:normal;
+}
+
+.oneui .mblAccordionIconParent1 {
+	display:block;
+}
+
+.mblAccordionIconParent2 {
+	display:none;
+}
+
+.mblAccordionTitleSelected {
+	border-bottom:1px solid #ddd;
+	background:#f8f8f8;
+}
+
+.mblAccordionTitleSelected .mblAccordionIconParent1 {
+	display:none;
+}
+
+.oneui .mblAccordionTitleSelected .mblAccordionIconParent2 {
+	display:block;
+}

@@ -1,0 +1,551 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/************ Main Container ************/
+.oneui.dark .idxFlipCardContainer{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar{
+	background: rgb(70,70,70); /* Old browsers */
+	background: -moz-linear-gradient(left, #50514F 0%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #50514F), color-stop(100%, #000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #50514F 0%, #000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(left, #50514F 0%, #000000 100%); /* IE10+ */
+	background: linear-gradient(left, #50514F 0%, #000000 100%); /* W3C */
+    height: 100%;
+    width: 38px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 900;
+    overflow:hidden;
+    -webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBarHover{
+	/*width:200px;*/
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar.navSelected{
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar.navExpandoSelected{
+	width: 45px;
+	background: rgb(70,70,70); /* Old browsers */
+	background: -moz-linear-gradient(left, #50514F 0%, #000000 75%, #FFB400 78%, #FFB400 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #50514F), color-stop(75%, #000000), color-stop(78%, #FFB400), color-stop(100%, #FFB400)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #50514F 0%, #000000 75%, #FFB400 78%, #FFB400 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(left, #50514F 0%, #000000 75%, #FFB400 78%, #FFB400 100%); /* IE10+ */
+	background: linear-gradient(left, #50514F 0%, #000000 75%, #FFB400 78%, #FFB400 100%); /* W3C */
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .idxFlipCardNavBarTop{
+	list-style: 0;
+	margin: 0;
+	padding: 0;
+    position: absolute;
+	top: 0;
+    left: 0;
+    width: 200px;
+}
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .idxFlipCardNavBarBottom{
+	list-style: 0;
+	margin: 0;
+	padding: 5px 3px;
+	/*background-color: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid #484848;*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItem{
+	width:100%;
+	height:35px;
+	position: relative;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	-webkit-transition: opacity 0.5s ease;
+	-moz-transition: opacity 0.5s ease;
+	-ms-transition: opacity 0.5s ease;
+	-o-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItemHover{
+	background-color: #FFB400;
+	border-top: 1px solid rgba( 255, 255, 255, .20);
+	border-bottom: 1px solid rgba( 255, 255, 255, .20);
+}
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItemActive{
+	background-color: #FFB400;
+	border-top: 1px solid rgba( 255, 255, 255, .20);
+	border-bottom: 1px solid rgba( 255, 255, 255, .20);
+}
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItemSelected{
+	background-color: #FFB400;
+}
+
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItem .navItemIconContainer{
+	position:absolute;
+	left: 1px;
+	top: 2px;
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItem .navItemIcon{
+	width: 25px;
+	height: 25px;
+	opacity: .7;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+}
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItemHover .navItemIcon{
+	opacity: .9;
+}
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItemActive .navItemIcon{
+	opacity: 1;
+}
+
+.oneui.dark .idxFlipCardContainer .idxFlipCardNavBar .navItem .navItemDesc{
+	position:absolute;
+	left: 45px;
+	top: 5px;
+	height: 30px;
+	color: white;
+	font-weight: bold;
+	opacity: .7;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+
+/************ navigation Container ************/
+.oneui.dark .idxFlipCardContainer .idxFlipCardContent{
+	position: absolute;
+	left: 38px;
+	width: 99%;
+	height: 99%;
+}
+.oneui.dark .idxFlipCardContainer .contentBorder{
+	padding:0;
+	margin:0;
+}
+.oneui.dark .idxFlipCardContainer .dijitBorderContainer{
+	width: 100%;
+	height: 100%;
+}
+
+.oneui.dark .idxFlipCardContainer .centerExpando{
+	background-color: #F5F4F3;
+    color: #CCCCCC;
+    padding: 0;
+    width: 18%;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane {
+	overflow:hidden;
+	z-index:440 !important;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoTitle{
+	background-color: #F5F4F3;
+	border-bottom: 1px solid #444444;
+    color: #686763;
+    margin: 0 0 10px;
+    padding: 10px;
+    text-shadow: 1px 0 0 #000000;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoWrapper {
+	overflow:hidden;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoTitleNode {
+	display:none;
+}
+.dojoxExpandoClosed .dojoxExpandoWrapper * {
+	overflow:hidden !important;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoTitleNode {
+	padding-right:6px; 
+	padding-left:6px;
+}
+
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoIcon .a11yNode {
+	display:none;
+	visibility:hidden;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoBottom .dojoxExpandoIcon,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoTop .dojoxExpandoIcon,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoLeft .dojoxExpandoIcon {
+	float:right;
+	margin-right:2px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoRight .dojoxExpandoIcon {
+	float:left;
+	margin-left:2px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoIcon {
+	width:14px;
+	cursor:pointer;
+	background-position:-60px 0px;
+	background-repeat: no-repeat;
+	height:14px;
+}
+
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoPersistenceIcon {
+	background-image: url("../form/images/checkboxRadioButtonStates.png");
+	background-position: -209px center;
+	display: block;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoPane .dojoxExpandoPersistenceIcon.persistence {
+	background-position: -193px center;
+}
+
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIcon {
+	background-position: 0px 0px;
+	margin:0 auto;
+}
+
+.oneui.dark .idxFlipCardContainer .dijitBorderContainer-dijitExpandoPane {
+	border: none !important; 
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoTitle {
+	font-weight: bold;
+	border:1px solid #769DC0;
+	border-bottom:none;
+    background-color:#cde8ff;
+	background-image: url("images/standardGradient.png");
+    background-position:0px 0px;
+    background-repeat:repeat-x;
+	padding: 5px 7px 2px 7px;
+    min-height:17px;
+    color:#4a4a4a;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoTitle {
+	background: none;
+	background-color: #E6E6E7;
+	border: none;
+	padding:3px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed {
+	background: none;
+	background-color: #E6E6E7;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoRight .dojoxExpandoTitle,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoLeft .dojoxExpandoTitle,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoTitle{
+	background-color: #F5F4F3;
+	border: none;
+	/*border-bottom: 1px solid #444444;*/
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoTitle{
+	background-image: url("images/standardGradient.png");
+	background-position:0 0;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoIcon {
+	background-image: url("images/spriteRoundedIconsSmall.gif");
+	display: none;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconLeft,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconRight,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconTop,
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconBottom {
+	margin-top: 3px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIcon {
+	margin-right:4px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoIconLeft {
+  	background-position: 0 0;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconLeft {
+  	background-position: -30px 0;
+	margin-right: 4px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoIconRight {
+  	background-position: -30px 0;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconRight {
+  	background-position: 0 0;
+	margin-left: 4px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoIconBottom {
+  	background-position: -15px 0;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconBottom {
+  	background-position: -45px 0;
+	margin-top:1px;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoIconTop {
+  	background-position: -45px 0;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoClosed .dojoxExpandoIconTop {
+  	background-position: -15px 0;
+}
+
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .expandoContentPane{
+	width: 99% !important;
+	height: 99%;
+	padding: 0;
+	margin: 0;
+}
+
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenu{
+	border: none;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable {
+	width: 98%;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuItem{
+	color: black;
+	background-color: #F5F4F3;
+	border: none;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuItem .dijitMenuExpand{
+	background-position: -42px 0;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuItemHover{
+	background-color: #000000;
+	color:white;
+	background-image: url("images/standardGradient.png");
+	background-repeat: repeat-x;
+	_background-image: none;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuItemActive{
+	background-color: #000000;
+	color:white;
+	background-image: url("images/standardGradient.png");
+	background-repeat: repeat-x;
+	_background-image: none;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuItemIconCell{
+	border: none !important;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuItemLabel{
+	border: none;
+}
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .dijitMenuArrowCell{
+	border: none;
+}
+
+.oneui.dark .idxFlipCardContainer .dojoxExpandoContent .dijitMenuTable .oneuiMenuHeadingLabel{
+	padding: 5px 0px 5px 15px;
+	background-color: #F5F4F3;
+	font-size: 1em;
+	color: #686763;
+	text-shadow: 1px 0 0 #000;
+	border: none;
+	border-bottom: 1px solid #000;
+}
+
+/********** menu slide **************/
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer{
+	position: relative;
+	overflow: hidden;
+}
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0);
+	-moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0);
+}
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu.slideOut{
+	left:-300px;
+}
+
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu.popupContentMenu{
+	left: 0;
+	top: 0;
+}
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu.popupContentMenu.slideOut{
+	left:300px;
+}
+
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu .flipCardNavigationMenuItem{
+	
+}
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem{
+	color: black;
+	background-color: #F5F4F3;
+}
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem.dijitMenuItemHover{
+	color: white;
+	background-color: #000000;
+}
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem.dijitMenuItemActive{
+	color: white;
+	background-color: #000000;
+}
+
+.oneui.dark .idxFlipCardContainer .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem td.dijitMenuItemLabel{
+	padding: 8px 0;
+}
+
+
+
+.oneui.dark .idxFlipCardContainer .centerContainer{
+	width:100% !important;
+	height:100% !important;
+	padding:0;
+	margin:0;
+	position: relative;
+	overflow: hidden;
+	/*overflow: hidden;*/
+}
+.oneui.dark .idxFlipCardContainer .centerContainer.css3Animations{
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	perspective: 800px;
+}
+.oneui.dark .idxFlipCardContainer .centerGridContainer{
+	position: absolute;
+	
+	/*border: 1px solid #BFBFBF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	border-radius: 4px;*/
+	/*
+	-webkit-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-moz-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-ms-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	*/
+}
+
+
+
+
+/************ for grid container customization *************/
+.oneui.dark .idxFlipCardContainer .centerGridContainer{
+	width:99.5% !important;
+	height:100% !important;
+}
+
+
+
+/************ mobile platform *************/
+.mobilePlatform .oneui.dark .idxFlipCardContainer{
+	
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardHeader{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	height: 45px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	z-index: 900;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+	line-height: 44px;
+	background-color: #2d2d2d;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#0075a3), to(#6b6b6b), color-stop(0.05, #008abf), color-stop(0.06, #1a96c6), color-stop(0.1, #00090d), color-stop(0.12, #131313), color-stop(0.9, #444444), color-stop(0.95, #6b6b6b));
+	background-image: -webkit-linear-gradient(bottom, #0075a3, #0075a3 1px, #008abf 1px, #008abf 3px, #1a96c6 3px, #1a96c6 4px, #00090d 4px, #00090d 5px, #131313 5px, #444444 47px, #6b6b6b 47px, #6b6b6b 48px); 
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardHeader .idxFlipCardHeaderTitle {
+    margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+    font-family: Helvetica Neue,Helvetica,sans-serif;
+    position: absolute;
+	width: 100%;
+	left: 50px;
+	z-index: 1;
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardHeader .idxFlipCardHeaderButton {
+    font-family: Helvetica Neue,Helvetica,sans-serif;
+    font-size: 12px;
+    height:38px;
+	width: 38px;
+    outline: medium none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+    float:left;
+    cursor: pointer;
+    z-index: 910;
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardHeader .idxFlipCardHeaderButton .dijitButtonNode{
+	background-image: -moz-linear-gradient(to top, #121212, #464646);
+	background-image: -webkit-linear-gradient(to top, #121212, #464646);
+	background-image: -o-linear-gradient(to top, #121212, #464646);
+	background-image: -ms-linear-gradient(to top, #121212, #464646);
+	background-image: linear-gradient(to top, #121212, #464646);
+	min-width: 30px;
+	height:35px;
+	width: 35px;
+	padding:0;
+	margin:0;
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardHeader .idxFlipCardHeaderButton .navMenuIcon {
+    background-image: url("images/menuNav.png");
+    background-repeat: no-repeat;
+    height: 25px;
+	width: 30px;
+}
+
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardNavBar{
+	left:0;
+	width: 38px;
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardNavBar.idxFlipCardNavBarHidden{
+	width: 0;
+}
+.mobilePlatform .oneui.dark .idxFlipCardContainer .idxFlipCardContent{
+	width: 100%;
+	left: 0;
+}
+

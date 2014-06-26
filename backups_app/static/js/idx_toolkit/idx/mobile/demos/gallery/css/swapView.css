@@ -1,0 +1,21 @@
+#swapView1 {
+	background-color:#fff;
+}
+#swapView2 {
+	background-color:#fff;
+}
+#swapView3 {
+	background-color:#fff;
+}
+
+#swapView1 > div, #swapView2 > div, #swapView3 > div {
+	text-align:center;
+	vertical-align:middle;
+	position:relative;
+	top: 10%;
+	height:100%;
+}
+
+#swapView1 > div > img, #swapView2 > div > img, #swapView3 > div > img {
+	height: 60%;
+}

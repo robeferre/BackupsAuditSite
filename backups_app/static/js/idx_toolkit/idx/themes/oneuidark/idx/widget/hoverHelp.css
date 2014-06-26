@@ -1,0 +1,215 @@
+/*
+ * Licensed Materials - Property of IBM
+ * 5724-Q36
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or or otherwise 
+ * divested of its trade secrets, irrespective of what has been 
+ * deposited with the U.S. Copyright Office.
+ */
+
+.oneui.dark .idxHoverHelp_idxDefaults {
+	background-image: url("../images/blank.gif?clickToOpen=false&showDelay=600");
+}
+
+.oneui.dark .idxHoverHelpButtonOptions {
+	background-image: url("../images/blank.gif?placement=toolbar&buttonType=help&displayMode=iconOnly");
+}
+.oneui.dark .idxHoverHelpMessage {
+    color: #eee;	
+}
+.oneui.dark a.idxHoverHelpLink {
+    color: #078dc1;	
+	background: url("images/hoverLearnMoreArrow.png") no-repeat right center;
+}
+
+.dijitRtl .oneui.dark a.idxHoverHelpLink {
+	background:url("images/hoverLearnMoreArrow_rtl.png") no-repeat left center;	
+}
+
+/** choose the icon file based on the placement of the button **/
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileStandard .idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileStandard .idxButtonSecondary.idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileStandard .idxButtonSpecial.idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileStandard .idxButtonToolbar.idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileStandard .idxButtonIcon.idxButtonToolbar .dijitIcon {
+	background-image: url("images/hoverHelpQuestionMarkIcon.png");
+}
+
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileCompact .idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileCompact .idxButtonSecondary.idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileCompact .idxButtonSpecial.idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileCompact .idxButtonToolbar.idxButtonIcon .dijitIcon,
+.oneui.dark .idxHoverHelp.idxHoverHelpProfileCompact .idxButtonIcon.idxButtonToolbar .dijitIcon {
+	background-image: url("images/hoverHelpQuestionMarkIcon_12px.png");
+}
+.oneui.dark .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxCompactButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxSecondaryButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxSpecialButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxToolbarButton .idxHoverHelp  .idxButtonDerived_idxDefaults {
+  background-image: url(../images/blank.gif?placement=toolbar);
+}
+
+.oneui.dark .idxCompactButton.idxSecondaryButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxSecondaryButton.idxCompactButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxCompactButton .idxSecondaryButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxSecondaryButton .idxCompactButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxCompactButton.idxSpecialButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxSpecialButton.idxCompactButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxCompactButton .idxSpecialButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxSpecialButton .idxCompactButton .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxCompactButton.idxToolbarButtonn .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxToolbarButton.idxCompactButtonn .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxCompactButton .idxToolbarButtonn .idxHoverHelp .idxButtonDerived_idxDefaults,
+.oneui.dark .idxToolbarButton .idxCompactButtonn .idxHoverHelp .idxButtonDerived_idxDefaults {
+  background-image: url(../images/blank.gif?placement=toolbar&profile=compact);
+}
+
+/** BEGIN WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+.dj_ie .oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitButtonNode,
+.dj_ie .oneui.dark .idxHoverHelp .dijitComboButton.idxButtonToolbar .dijitButtonNode {
+	background: none;
+        filter: none;
+}
+
+.dj_ie .oneui.dark .idxHoverHelp table.idxButtonToolbar.dijitComboButton,
+.dj_ie .oneui.dark .idxHoverHelp table.dijitComboButton.idxButtonToolbar {
+	background: none;
+        filter: none;
+}
+/** END WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+
+.oneui.dark .idxHoverHelp .idxButtonToolbar .dijitButtonText {
+	color:#eee;	
+}
+
+/* hover text color */
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitButtonHover .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButtonHover .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitButtonNodeHover .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitToggleButtonHover .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitButtonHover.idxButtonToolbar .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitDropDownButtonHover.idxButtonToolbar .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitComboButton.idxButtonToolbar  .dijitButtonNodeHover .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitToggleButtonHover.idxButtonToolbar .dijitButtonText
+ {
+	color:#eee;	
+}
+
+/* disabled text color */
+.oneui.dark .idxHoverHelp .dijitDisabled.idxButtonToolbar .dijitButtonText {
+	color: #777;	
+}
+
+/* hover status */
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitButtonHover .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButtonHover .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitButtonNodeHover, 
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitDownArrowButtonHover,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitToggleButtonHover .dijitButtonNode {
+	background: none;
+	filter: none;
+}
+
+/** BEGIN WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+/*
+    NOTE: We cheat a bit for "Hover" since the border and the background are so close in color.
+    Technically, the borders are not visible when we do this CSS on the ButtonNode cells, but 
+    they are replaced with the gradient which is just as dark on IE, and unnoticeable.  The
+    alternative would have been to hover-highlight the entire button instead of the parts
+*/
+.dj_ie .oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitButtonNodeHover, 
+.dj_ie .oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitDownArrowButtonHover {
+	background: none;
+	filter: none;
+}
+/** END WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+
+/* checked status */
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitButtonActive .dijitButtonNode, 
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButtonActive .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButtonActive .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitToggleButtonActive .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitButtonActive.idxButtonToolbar .dijitButtonNode, 
+.oneui.dark .idxHoverHelp .dijitDropDownButtonActive.idxButtonToolbar .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitComboButtonActive.idxButtonToolbar .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitToggleButtonActive.idxButtonToolbar .dijitButtonNode {
+	background: none;
+    filter: none;
+    color: #eee;	
+}
+
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitButtonActive .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButtonActive .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton .dijitButtonNodeActive .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitToggleButtonActive .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitButtonActive.idxButtonToolbar .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitDropDownButtonActive.idxButtonToolbar .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitComboButton.idxButtonToolbar .dijitButtonNodeActive .dijitButtonText,
+.oneui.dark .idxHoverHelp .dijitToggleButtonActive.idxButtonToolbar .dijitButtonText {
+	color:#eee;	
+}
+
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitButtonDisabled .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButtonDisabled .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButtonDisabled .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitToggleButtonDisabled .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitButtonDisabled.idxButtonToolbar .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitDropDownButtonDisabled.idxButtonToolbar .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitComboButtonDisabled.idxButtonToolbar .dijitButtonNode,
+.oneui.dark .idxHoverHelp .dijitToggleButtonDisabled.idxButtonToolbar .dijitButtonNode { 
+	background: none;
+    filter: none;
+	color: #777;	
+	box-shadow:none;
+ 	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+/** BEGIN WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+.dj_ie .oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButtonDisabled .dijitButtonNode,
+.dj_ie .oneui.dark .idxHoverHelp .dijitComboButtonDisabled.idxButtonToolbar .dijitButtonNode {
+	background: none;
+	filter: none;
+}
+
+.dj_ie .oneui.dark .idxHoverHelp table.idxButtonToolbar.dijitComboButtonDisabled,
+.dj_ie .oneui.dark .idxHoverHelp table.dijitComboButtonDisabled.idxButtonToolbar {
+	background: none;
+    filter: none;
+}
+/** END WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDisabled .dijitArrowButtonInner {
+	background-position: -151px 0px;
+}
+
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButton.dijitOpened .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton.dijitOpened .dijitButtonText,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton.idxDropDownOpen .dijitButtonText {
+   color: #eee;	
+}
+
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitDropDownButton.dijitOpened .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton.dijitOpened .dijitButtonNode,
+.oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton.idxDropDownOpen .dijitButtonNode {
+    filter: none;
+    background: none;
+}
+
+/** BEGIN WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+.dj_ie .oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton.dijitOpened .dijitButtonNode,
+.dj_ie .oneui.dark .idxHoverHelp .idxButtonToolbar.dijitComboButton.idxDropDownOpen .dijitButtonNode {
+	background: none;
+        filter: none;
+}
+
+.dj_ie .oneui.dark .idxHoverHelp table.idxButtonToolbar.dijitComboButton.dijitOpened,
+.dj_ie .oneui.dark .idxHoverHelp table.idxButtonToolbar.dijitComboButton.idxDropDownOpen {
+	background-color: none;
+    filter: none;
+}
+/** END WORK AROUND FOR IE GRADIENT FILTER HIDING TABLE CELL BORDERS ON COMBO-BUTTON **/
+

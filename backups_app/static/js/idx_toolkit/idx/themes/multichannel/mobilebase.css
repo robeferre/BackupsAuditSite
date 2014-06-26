@@ -1,0 +1,24 @@
+
+@import url(../../mobile/themes/oneui_ios/dojox/common.css);
+@import url(../../mobile/themes/oneui_ios/dojox/domButtons.css);
+@import url(../../mobile/themes/oneui_ios/dojox/transitions.css);
+
+/*@import url(../../mobile/themes/oneui_ios/dojox/DatePicker.css);*/
+@import url(../../mobile/themes/oneui_ios/dojox/Button.css);
+@import url(../../mobile/themes/oneui_ios/dojox/Switch.css);
+@import url(../../mobile/themes/oneui_ios/dojox/IconContainer.css);
+@import url(../../mobile/themes/oneui_ios/dojox/Opener.css);
+/*@import url(../../mobile/themes/oneui_ios/dojox/Opener-compat.css);*/
+@import url(../../mobile/themes/oneui_ios/dojox/SearchBox.css);
+/*@import url(../../mobile/themes/oneui_ios/dojox/TimePicker.css);*/
+/*@import url(../../mobile/themes/oneui_ios/dojox/ValuePicker.css);*/
+@import url(../../mobile/themes/oneui_ios/dojox/ComboBox.css);
+@import url(../../mobile/themes/oneui_ios/dojox/TextArea.css);
+@import url(../../mobile/themes/oneui_ios/dojox/TextArea-compat.css);
+
+/* idx/mobile widget styles */
+@import url(../../mobile/themes/oneui_ios/idx/About.css);
+@import url(../../mobile/themes/oneui_ios/idx/Launch.css);
+@import url(../../mobile/themes/oneui_ios/idx/Login.css);
+@import url(../../mobile/themes/oneui_ios/idx/ProgressIndicator.css);
+@import url(../../mobile/themes/oneui_ios/idx/Heading.css);

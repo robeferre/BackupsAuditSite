@@ -1,0 +1,53 @@
+.oneui .idxPlatform_mobile.idxMobileCheckBoxSelectError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxMobileSelectError .idxValidationContainer{
+	opacity:1;
+}
+
+.oneui .idxMobileCheckBoxSelect .dijitArrowButton .dijitArrowButtonInner,
+.oneui .idxMobileCheckBoxSelect .dijitSelect .dijitArrowButton .dijitArrowButtonInner,
+.oneui .idxMobileSelect .dijitArrowButton .dijitArrowButtonInner,
+.oneui .idxMobileSelect .dijitSelect .dijitArrowButton .dijitArrowButtonInner{
+	background-position: -155px 53%;
+}
+
+
+.oneui .idxMobileSelect .dijitDownArrowButton .dijitButtonText,
+.oneui .idxMobileSelect .dijitDownArrowButton .dijitButtonText span,
+.oneui .idxMobileCheckBoxSelect .dijitDownArrowButton .dijitButtonText,
+.oneui .idxMobileCheckBoxSelect .dijitDownArrowButton .dijitButtonText span{
+	font-size:12px;
+}
+
+.oneui .idxMobileSelect .dijitSelect .dijitButtonContents,
+.oneui .idxMobileCheckBoxSelect .dijitSelect .dijitButtonContents
+ {
+	border-right-width: 0;
+}
+.oneui .idxMobileSelect .dijitSelectError .dijitButtonContents,
+.oneui .idxMobileCheckBoxSelect .dijitSelectError .dijitButtonContents {
+	background-color: #ffffff;
+}
+.oneui .idxMobileSelectError .dijitSelectError,
+.oneui .idxMobileCheckBoxSelect .dijitSelectError
+{
+	border-color: #aaaaaa;
+}
+/**
+ * 
+ */
+.oneui .idxMobileSelect.mblOverlay .mblHeading {
+	color: #fff;
+	background-image: none;
+}
+
+
+.oneui .idxMobileSelect.mblOverlay .mblSelectCloseButton{
+	background-image: url("../../../oneui/idx/widget/images/popupClose.png");
+	width: 28px;
+	height: 28px;
+	position: absolute;
+	right: 10px;
+	top: 8px;
+	line-height: 0;
+	cursor: pointer;
+}

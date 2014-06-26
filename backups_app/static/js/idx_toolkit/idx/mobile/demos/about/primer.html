@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Primer</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+        @import "../../../demos/demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<div role="main" class="demoContent">
+		<div dir="ltr">
+			<p>
+				Create an idx/mobile/About widget or idx/mobile/AboutPane widget, supplying your product's name,
+				version, build identifier, the applicable copyright year(s), any additional trademark text
+				you need to include, and optionally requesting to include the standard Eclipse logo if applicable.
+				Additional HTML and widget content may also be included in the about panel by placing it within
+				the &lt;div&gt; tag.
+			</p>
+			<p>
+				The idx/mobile/About widget is a dialog which should be used on tablet displays. The
+				idx/mobile/AboutPane widget is a view which should be used on phone displays.
+			</p>
+				
+<pre class="code">&lt;div data-dojo-type="idx/mobile/About" data-dojo-props="
+		name: 'Product Name',
+		version: '3.2',
+		build: 'c5415',
+		copyright: '2013, 2010',
+		trademarks: '&lt;i&gt;[Use exact text from www.ibm.com/legal/copytrade.shtml ' +
+					'for the special non-IBM trademarks that appear on the label. ' +
+					'If you have insufficient space, consult with your Division ' +
+					'Intellectual Property attorney].&lt;/i&gt;'
+	"&gt;
+	&lt;/div&gt;
+</pre>
+		</div>
+	</div>
+</body>
+</html>

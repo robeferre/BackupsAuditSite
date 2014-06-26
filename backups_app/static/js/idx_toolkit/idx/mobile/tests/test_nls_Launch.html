@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>Test nls/About</title>
+	<link rel="stylesheet" type="text/css" href="tests.css" />
+	<style type="text/css" id="idxStyles">
+	@import "../../themes/oneui/oneui.css";
+	@import "../../tests/test_nls.css";
+	</style>
+	<script src="../deviceTheme.js"></script>
+	<script src="dojoVersion.js" data-dojo-config="async:true, parseOnLoad:false, isDebug:true"></script>
+	<script type="text/javascript" src="../../tests/test_nls.js"></script>
+	
+	
+	<script>
+	
+		var show_launch;
+
+		require(["idx/mobile/Launch",
+				 "idx/mobile/tests/_TestUtils",
+				 "dojox/mobile",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/compat"],
+		function(Launch, tu){
+			Launch.hide(true);
+			show_launch = function(){
+				Launch.show();
+				setTimeout(function(){
+					Launch.hide(true);
+				}, 6000);
+			}
+			
+		});
+		
+		
+	</script>
+ 
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<h1 class="testTitle">mobile/nls/Launch</h1>
+	<table class="testInstruction"><tbody>
+		<tr><th>Resource</th><th>Verification</th></tr>
+		<tr><td  class="testHighlightNls">*loadingMessae</td><td>
+			Click the "Open Launch" button to show launch screen.<br/><br/>
+			Verify that the loading message(after IBM logo disappear) is translated.
+		</td></tr>
+	</tbody></table>
+	<hr/>
+	<button id="showLaunch" onclick="show_launch();">Open Launch</button>
+
+</body>
+</html>

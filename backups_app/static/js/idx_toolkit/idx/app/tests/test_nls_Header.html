@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/Header</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require(["dojo/parser", "dijit/Menu", "dijit/MenuBar", "dijit/MenuBarItem", "idx/app/Header","dojo/domReady!"],function(){
+	var w = window,
+		d = document,
+		l = w.location,
+		h = l.href,
+		i = h.indexOf('?'),
+		q = i > -1,
+		b = 'RTL',
+		p = q && h.substr(i + 1).split(/#/)[0].split(/&/)[0].split('='),	//LIMITATION: dir must be the first parameter...
+		v = d.getElementsByTagName('html')[0].dir = 
+			p && p[0] == 'dir' &&
+					(p[1] || '').replace(/[^\w]/g, '').toUpperCase() == b ?	//replace() to avoid XSS attack...
+						b : '';
+	v = v == b ? '' : b;
+	p = d.createElement('a');
+	p.innerHTML = "<button style='position:fixed;top:0;right:0;width:5em;'>" + (v || 'LTR') + "</button>";
+	p.firstChild.onclick = function(){
+		l.href = (q ? h.substr(0, i) : h) + (v && '?dir=' + v);
+	};
+	d.body.appendChild(p.firstChild);
+});
+</script>
+<script src="../../tests/commonTest.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">app/nls/Header</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>ibmlogo</td><td>
+		(This resource is not shown.)
+	</td></tr>
+	
+	<tr><td class="testHighlightNls">*actionSettings</td><td>
+		Place the mouse pointer on the gear icon to show a tooltip.<br/><br/>
+		Verify that the "Settings" toolitp is translated.
+	</td></tr>
+	<tr><td>actionShare</td><td>
+		Place the mouse pointer on the "+" icon to show a tooltip.<br/><br/>
+		Verify that the "Share" toolitp is translated.
+	</td></tr>
+	<tr><td>actionHelp</td><td>
+		Place the mouse pointer on the "?" icon to show a tooltip.<br/><br/>
+		Verify that the "Help" toolitp is translated.
+	</td></tr>
+	<tr><td>searchEntry</td><td>
+		Verify that the place holder text in the search box is translated.
+	</td></tr>
+	<tr><td>searchSubmit</td><td>
+		Place the mouse pointer on the magnifying class icon to show a tooltip.<br/><br/>
+		Verify that the "Search" toolitp is translated.
+	</td></tr>
+	<tr><td class="testHighlightNls">*homeButton</td><td>
+		Place the mouse pointer on the home button icon to show a tooltip.<br/><br/>
+		Verify that the "Home" toolitp is translated.
+	</td></tr>
+	
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div data-dojo-type="dijit.MenuBar" id="nav">
+		<div data-dojo-type="dijit.MenuBarItem"></div>
+	</div>
+	<div data-dojo-type="dijit.Menu" id="testSettingsMenu"></div>
+	<div data-dojo-type="dijit.Menu" id="testHelpMenu"></div>
+	<div data-dojo-type="dijit.Menu" id="testSharingMenu"></div>
+	<div data-dojo-type="idx.app.Header" data-dojo-props="navigation: 'nav', sharing:'testSharingMenu', settings: 'testSettingsMenu', help: 'testHelpMenu', primarySearch: {}"></div>
+</div>
+</body>
+</html>

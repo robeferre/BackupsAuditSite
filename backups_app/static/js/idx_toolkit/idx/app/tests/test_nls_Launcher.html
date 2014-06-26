@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/_Launcher</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"dojo/string",
+	"dijit/registry",
+	"idx/bus",
+	"idx/app/TabMenuLauncher",
+	"idx/app/WorkspaceType",
+	"dojo/domReady!"
+], function(dom, ready, string, registry, bus){
+	var w = window,
+		d = document,
+		l = w.location,
+		h = l.href,
+		i = h.indexOf('?'),
+		q = i > -1,
+		b = 'RTL',
+		p = q && h.substr(i + 1).split(/#/)[0].split(/&/)[0].split('='),	//LIMITATION: dir must be the first parameter...
+		v = d.getElementsByTagName('html')[0].dir = 
+			p && p[0] == 'dir' &&
+					(p[1] || '').replace(/[^\w]/g, '').toUpperCase() == b ?	//replace() to avoid XSS attack...
+						b : '';
+	v = v == b ? '' : b;
+	p = d.createElement('a');
+	p.innerHTML = "<button style='position:fixed;top:0;right:0;width:5em;'>" + (v || 'LTR') + "</button>";
+	p.firstChild.onclick = function(){
+		l.href = (q ? h.substr(0, i) : h) + (v && '?dir=' + v);
+	};
+	d.body.appendChild(p.firstChild);
+	
+	ready(function(){
+		window.test_dir = dojo.isBodyLtr() ? "ltr" : "rtl";
+		bus.userError = function(source, template, args){
+			var message = string.substitute(template, args);
+			test_alert(message);
+		};
+		var launcher = registry.byId("testLauncher");
+		var openButton = dom.byId("testOpenButton");
+		openButton.onclick = function(){
+			launcher.openWorkspace("testWorkspace");
+		};
+	});
+});
+</script>
+<script src="../../tests/commonTest.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">app/nls/_Launcher</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>tooManyOpenWorkspaces</td><td>
+		Click the "Open" button to show a popup window.<br/><br/>
+		Verify that the message in the popup window is translated, except the workspace name, "workspace". 
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div data-dojo-type="idx.app.TabMenuLauncher" id="testLauncher">
+		<div data-dojo-type="idx.app.WorkspaceType" data-dojo-props="workspaceTypeID: 'testWorkspace', workspaceTypeName: 'Javascript', initialOpen: 2, maxOpen: 2"></div> 
+	</div>
+	<button id="testOpenButton">Open</button>
+</div>
+</body>
+</html>

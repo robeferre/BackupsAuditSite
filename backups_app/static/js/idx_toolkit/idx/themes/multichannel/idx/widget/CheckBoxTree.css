@@ -1,0 +1,37 @@
+.mobilePlatform .oneui .dijitTreeNode .idxOneuiTriStateCheckBoxWrap{
+	margin: 0;
+}
+
+.mobilePlatform .oneui .dijitTreeNode .idxOneuiTriStateCheckBoxWrap .idxOneuiTriStateCheckBox{
+	margin: 0 0.5em 0.3em 0;
+}
+.mobilePlatform .oneui .checkboxTreeNode .mblListItemLeftIcon {
+	float: none;
+	position: absolute;
+	left: 0;
+	padding: 1.2em;
+}
+
+.mobilePlatform .oneui .checkboxTreeNode .mblListItemRigthIcon {
+	float: none;
+	position: absolute;
+	right: 0;
+}
+
+.mobilePlatform .oneui .mblListItemLeftIcon .idxOneuiTriStateCheckBoxIcon{
+	margin: 0;
+}
+
+.mobilePlatform .oneui .checkboxTreeNode .mblListItemRightIcon{
+	margin:0;
+	padding: 0.8em;
+}
+
+.mobilePlatform .oneui .checkboxTreeNode .mblListItemLabel{
+	margin-left: 2.5em;
+	overflow: visible;
+}
+
+.mobilePlatform .oneui .checkboxTreeNode{
+	position:relative;
+}

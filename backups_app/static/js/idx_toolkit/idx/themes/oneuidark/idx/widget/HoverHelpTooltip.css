@@ -1,0 +1,60 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxOneuiHoverHelpTooltip,.oneui.dark .idxOneuiHoverHelpTooltipDialog {
+/* the outermost dom node, holding the connector and container */
+	background:transparent;
+/* make the area on the sides of the arrow transparent */
+}
+
+.oneui.dark .idxOneuiHoverHelpTooltipCloseIcon {
+	background-image:url(images/popupClose.png);
+}
+.oneui.dark .idxOneuiHoverHelpTooltipLearnLink span {
+	background:url(images/hoverLearnMoreArrow.png) no-repeat right center;
+}
+.oneui.dark .idxOneuiHoverHelpTooltipContainer {
+/* the part with the text */
+	background-color:#343434;
+	background-repeat:repeat-x;
+	background-position:bottom;
+	border-color: #555;
+	-webkit-box-shadow:0 1px 6px rgba(0,0,0,0.25);
+	-moz-box-shadow:0 1px 6px rgba(0,0,0,0.25);
+	box-shadow:0 1px 6px rgba(0,0,0,0.25);
+	color:#eee;
+}
+.dj_ie6 .oneui.dark .idxOneuiHoverHelpTooltipContainer {
+	background-image:none;
+}
+
+.oneui.dark .idxOneuiHoverHelpTooltipConnector {
+/* the arrow piece */
+	background-image:url(images/popupSharkfin.png);
+	background-repeat:no-repeat;
+}
+
+.dj_ie6 .oneui.dark .idxOneuiHoverHelpTooltipConnector {
+	background-image:url(images/popupSharkfin8bit.gif);
+}
+.oneui.dark .idxOneuiHoverHelpTooltipBelow .idxOneuiHoverHelpTooltipConnector {
+/* the arrow piece for tooltips below an element */
+	background-position:-18px 0;
+}
+
+.oneui.dark .idxOneuiHoverHelpTooltipAbove .idxOneuiHoverHelpTooltipConnector {
+/* the arrow piece for tooltips above an element */
+	background-position:0 0;
+}
+
+.oneui.dark .idxOneuiHoverHelpTooltipLeft .idxOneuiHoverHelpTooltipConnector {
+/* the arrow piece for tooltips to the left of an element, bottom borders aligned */
+	background-position:-36px 0;
+}
+.oneui.dark .idxOneuiHoverHelpTooltipRight .idxOneuiHoverHelpTooltipConnector {
+/* the arrow piece for tooltips to the right of an element, bottom borders aligned */
+	background-position:-54px 0;
+}

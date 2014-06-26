@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Закрити",
+	configureLabel: "Налаштувати",
+	editLabel: "Редагування",
+	filterLabel: "Фільтр",
+	clearFilterLabel: "Очистити",
+	helpLabel: "Довідка",
+	infoLabel: "Інформація",
+	minimizeLabel: "Згорнути",
+	maximizeLabel: "Розгорнути",
+	printLabel: "Друк",
+	refreshLabel: "Оновити",
+	restoreLabel: "Відновити",
+	nextPageLabel: "Далі",
+	previousPageLabel: "Назад",
+	lastPageLabel: "Остання",
+	firstPageLabel: "Перша",
+	closeTip: "Закрити",
+	configureTip: "Налаштувати",
+	editTip: "Редагування",
+	filterTip: "Фільтр",
+	clearFilterTip: "Очистити фільтр",
+	helpTip: "Отримати довідку",
+	infoTip: "Отримати інформацію",
+	minimizeTip: "Згорнути",
+	maximizeTip: "Розгорнути",
+	printTip: "Друк",
+	refreshTip: "Оновити",
+	restoreTip: "Відновити",
+	nextPageTip: "Наступна сторінка",
+	previousPageTip: "Попередня сторінка",
+	lastPageTip: "Остання сторінка",
+	firstPageTip: "Перша сторінка"
+//end v1.x content
+});
+

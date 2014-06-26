@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.widget.Dialog Test</title>
+
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+
+        <style id="idxStyles" type="text/css">
+            @import "../../themes/oneuiLess/theme.css";
+            @import "../../tests/test.css";
+        </style>
+
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dijit/_base/manager",
+				"dijit.form.Button", 
+				"dijit.form.CheckBox",
+				"dijit.layout.TabContainer",   
+				"dijit.layout.ContentPane",
+				"idx.widget.Dialog"]; 
+			
+			var manager = null;
+			var Dialog = null;
+			var ContentPane = null;
+			var TabContainer = null;
+			var Button = null;
+			function preParse(modules) {
+				manager 	 = (modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit);
+				Button  	 = modules["dijit/form/Button"];
+				TabContainer = modules["dijit/layout/TabContainer"];
+				ContentPane  = modules["dijit/layout/ContentPane"];
+				Dialog       = modules["idx/widget/Dialog"];
+			}			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse);
+			
+			function showDialog1() {
+				var dialog1 = manager.byId("dialog1");
+				if(!dialog1){
+					dialog1 = new Dialog({
+						id: "dialog1",
+						title: "Dialog Title",
+						instruction: "Instructional information goes here.",
+						content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+						reference: {
+							name: "Link goes here",
+							link: "http://dojotoolkit.org/"
+						},
+						buttons: [new Button({
+							label: "Button1",
+							onClick: function(){alert("Button1 clicked!")}
+						}),new Button({
+							label: "Button2",
+							onClick: function(){alert("Button2 clicked!")}
+						})],
+						closeButtonLabel: "Cancel"
+					}, "dialog1");
+				}
+				dialog1.show();
+			}
+
+			function showDialog1a() {
+				var dialog1a = manager.byId("dialog1a");
+				if(!dialog1a){
+					dialog1a = new Dialog({
+						id: "dialog1a",
+						title: "Dialog Title",
+						instruction: "Instructional information goes here.",
+						content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+						buttons: [new Button({
+							label: "Button1",
+							onClick: function(){alert("Button1 clicked!")}
+						}),new Button({
+							label: "Button2",
+							onClick: function(){alert("Button2 clicked!")}
+						})],
+						closeButtonLabel: "Cancel"
+					}, "dialog1a");
+				}
+				dialog1a.show();
+			}
+
+			function showDialog1b() {
+				var dialog1b = manager.byId("dialog1b");
+				if(!dialog1b){
+					dialog1b = new Dialog({
+						id: "dialog1b",
+						title: "Dialog Title",
+						instruction: "Instructional information goes here.",
+						content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+						reference: {
+							name: "Link goes here"
+						},
+						buttons: [new Button({
+							label: "Button1",
+							onClick: function(){alert("Button1 clicked!")}
+						}),new Button({
+							label: "Button2",
+							onClick: function(){alert("Button2 clicked!")}
+						})],
+						closeButtonLabel: "Cancel"
+					}, "dialog1b");
+				}
+				dialog1b.show();
+			}
+
+			function showDialog1c() {
+				var dialog1c = manager.byId("dialog1c");
+				if(!dialog1c){
+					dialog1c = new Dialog({
+						id: "dialog1c",
+						title: "Dialog Title",
+						instruction: "Instructional information goes here.",
+						content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+						reference: {
+							link: "http://dojotoolkit.org/"
+						},
+						buttons: [new Button({
+							label: "Button1",
+							onClick: function(){alert("Button1 clicked!")}
+						}),new Button({
+							label: "Button2",
+							onClick: function(){alert("Button2 clicked!")}
+						})],
+						closeButtonLabel: "Cancel"
+					}, "dialog1c");
+				}
+				dialog1c.show();
+			}
+			
+			function showDialog2(){
+				var dialog2 = manager.byId("dialog2");
+				if(!dialog2){
+					var content = new TabContainer({
+						useMenu: false,
+						useSlider: false,
+						style: "height: 175px;"
+					});
+					var tab1 = new ContentPane({
+						title: "Fix This Problem",
+						content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla."
+					});
+					var tab2 = new ContentPane({
+						title: "Get More Help",
+						content: "Nothing here..."
+					});
+					content.addChild(tab1);
+					content.addChild(tab2);
+					
+					dialog2 = new Dialog({
+						id: "dialog2",
+						instruction: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi.",
+						reference: {
+							name: "Link goes here",
+							link: "http://dojotoolkit.org/"
+						}
+					}, "dialog2");
+					dialog2.set("content", content);
+				}
+				dialog2.show(); 
+			}
+			function showDialog3(){
+				manager.byId("dialog3").show();
+			}
+			function showDialog4(){
+				manager.byId("dialog4").show();
+			}
+			
+			
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	
+	<a name="maincontent"></a>
+	<div class="testMain">
+	<h1 class="testTitle">idx.widget.Dialog Test</h1>
+	<!--<p>
+	API ref: <a target="_blank" href=""></a>
+	</p>-->
+	<h3>Programmatic Dialogs</h3>
+	<button dojoType="dijit.form.Button" onClick="showDialog1();">Show Dialog 1</button>
+	<button dojoType="dijit.form.Button" onClick="showDialog1a();">Show Dialog 1 (no link)</button>
+	<button dojoType="dijit.form.Button" onClick="showDialog1b();">Show Dialog 1 (no link href)</button>
+	<button dojoType="dijit.form.Button" onClick="showDialog1c();">Show Dialog 1 (no link name)</button>
+	<button dojoType="dijit.form.Button" onClick="showDialog2();">Show Dialog 2</button>
+	<div id="dialog1"></div>
+	<div id="dialog1a"></div>
+	<div id="dialog1b"></div>
+	<div id="dialog1c"></div>
+	<div id="dialog2"></div>
+	<h3>Declarative Dialog</h3>
+	<button dojoType="dijit.form.Button" onClick="showDialog3();">Show Dialog 3 (Fixed)</button>
+	<h3>Dijit Dialog</h3>
+	<button dojoType="dijit.form.Button" onClick="showDialog4();">Show Dijit Dialog with Action Bar</button>
+	<div data-dojo-type="idx.widget.Dialog" data-dojo-props='
+		id: "dialog3",
+		title: "Declarative Dialog",
+		draggable: false,
+		instruction: "Instructional information goes here.",
+		reference: {
+			name: "Goto DojoToolkit",
+			link: "http://dojotoolkit.org/"
+		}
+	'>
+		<div data-dojo-type="dijit.layout.TabContainer"  data-dojo-props='
+			baseClass:"dijitTabContainerCompact dijitTabContainer",
+			style: "height: 175px"
+			'>
+			<div data-dojo-type="dijit.layout.ContentPane"  data-dojo-props='title:"Tab 1"'>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. 
+				Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. 
+				Nulla facilisi. Maecenas luctus venenatis nulla. In sit amet dui non mi semper iaculis. 
+				Sed molestie tortor at ipsum. Morbi dictum rutrum magna. Sed vitae risus.
+				<br><br>
+				<div data-dojo-type="idx/form/CheckBox" data-dojo-props="label: 'Use Reference', checked: true">
+					<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advise="after">
+					var checked = this.get("checked");
+					var dialog3 = manager.byId("dialog3");
+					dialog3.set("reference", (checked ? { name: "Goto DojoToolkit", link: "http://dojotoolkit.org/"} : null));
+					</script>		
+				</div>
+			</div>
+			<div data-dojo-type="dijit.layout.ContentPane"  data-dojo-props='title:"Tab 2"'>
+				I'm tab2.
+			</div>
+		</div>
+	</div>
+	
+	<div id="dialog4" data-dojo-type="dijit.Dialog" data-dojo-props='title:"ActionBar Dialog 1",
+			onExecute:function(){ console.log("OK button pressed") },
+			onCancel:function(){ console.log("Cancel button pressed") },
+			"aria-describedby":"intro",
+			execute:function(args){ console.log("submitted w/args:\n" + dojo.toJson(args, true)); }'>
+		<div class="dijitDialogPaneContentArea">
+			<div id="ABintro1" style="width:30em;">Introductory information spoken by screen reader if aria-describedby is
+			added to the declaration of dialog above with value equal to the id of the container element for this text. This technique
+			will work in Dojo 1.4. </div>			
+		</div>
+		
+		
+		<div class="dijitDialogPaneActionBar">
+			<button id="ABdialog1button1" data-dojo-type="dijit.form.Button" data-dojo-props='type:"submit" '>OK</button>
+			<button id="ABdialog1button2" data-dojo-type="dijit.form.Button" data-dojo-props='type:"button", onClick:function(){ dijit.byId("dialog4").onCancel(); } 
+					'>Cancel</button>
+		</div>
+	</div>
+
+	
+	</div>
+</body>
+</html>

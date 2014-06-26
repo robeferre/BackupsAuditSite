@@ -1,0 +1,80 @@
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<div data-dojo-type="dijit.layout.TabContainer" aria-label="popup widget section">
+	<div id="hoverhelpTab" aria-label="hover help section" data-dojo-type="dijit.layout.ContentPane" data-dojo-props='selected: true, title:"HoverHelp", style:"padding:15px 15px 15px 10px;"'>
+		<h2>idx.widget.HoverHelpTooltip</h2>
+		<!-- Workaround for embed HoverHelpTooltip into TextBox, would integrate them together in next release-->
+		<div data-dojo-type="idx.form.TextBox" data-dojo-props='
+			label: "Change Password:",
+			id: "input1"
+		'></div>
+		<div id="one" class="dijitInline"
+			style="background-image:url('idx/widget/images/hoverHelpQuestionMarkIcon.png');
+			height:16px; width:16px;vertical-align:top;margin: 0 -5px 0 5px">
+			<span class="messageIconAltText">?</span>
+		</div>
+		<span id="one_tooltip" data-dojo-type="idx.widget.HoverHelpTooltip" data-dojo-props='connectId:["one"],forceFocus: true,showLearnMore:true, learnMoreLinkValue:"http://www.ibm.com", position:["below", "above"]'>
+			Passwords must be between 5 and 20 characters. There must be a combination of alphanumeric characters, starting with a letter and at least one number1.  <br /><br />
+		</span>
+	</div>
+	<div id="hovercardTab" aria-label="hover card section" data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title:"HoverCard", style:"padding:15px 15px 15px 10px;"'>
+		<h2>idx.widget.HoverCard</h2>
+		<a id="card_one" href="#bogus" onmouseover="idx.widget.HoverCard.defaultPosition=['after-centered', 'before-centered']">Preview card normal (hover here)</a>
+		<!--Preview content of HoverCard-->
+		<div data-dojo-type="idx.widget._Preview" data-dojo-props='
+			id: "preview",
+			title: "Preview Card title",
+			image: "../../themes/oneui/idx/images/objectImagePlaceholder90px.png",
+			content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et purus lorem, eu semper massa. Phasellus rutrum, dui non ultrices convallis, nunc nunc dignissim neque, elementum imperdiet sapien massa ut risus<br /><br />"
+		'>
+		</div>
+		<!--Inline content of HoverCard footer-->
+		<!--<div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='
+			id: "inlineAction"
+		'>
+			<label for="input1">Inline action Input field:</label>
+			<input data-dojo-type="dijit.form.TextBox"></input>
+			<button data-dojo-type="dijit.form.Button">Submit</button>
+		</div>-->
+		<!--Declaration of HoverCard 1-->
+		<div id="one_hc" data-dojo-type="idx.widget.HoverCard" 
+			data-dojo-props='
+				target:"card_one", 
+				moreActions:[
+					{label: "Item 1"},
+					{label: "Item 2"},
+					{label: "Item 3"}
+				],
+				actions: [
+					{iconClass: "placeHolderIcon", text:""},
+					{iconClass: "placeHolderIcon", text:""},
+					{iconClass: "placeHolderIcon", content: "inlineAction", text:""}
+				],
+				content: "preview"
+			'>
+		</div>
+		<br><br>
+		<a id="card_two" href="#bogus">Person card normal (hover here)</a>
+		<div dojoType="idx.widget.PersonCard" id="personInfo" query="{email: 'bcaceres@us.ibm.com'}"
+		url="https://w3-connections.ibm.com/profiles/json/profile.do" jsonp="callback"
+		spec="photo,fn,title,org,adr.work,tel.work,email.internet,sametime.awareness"
+		placeHolder="Sametime is not available on your client."></div>
+		
+		<div id="two_hc" data-dojo-type="idx.widget.HoverCard" 
+			data-dojo-props='
+			target:"card_two", 
+			content:"personInfo",
+			position:["after-centered", "before-centered"]
+			'>
+		</div>
+	</div>
+	<div id="dialogTab" aria-label="dialog section" data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title:"Dialogs", style:"padding:15px 15px 15px 10px;"'>
+		<h2>idx.widget.Dialog</h2>
+		<button dojoType="dijit.form.Button" onClick="showDialog1();">Show Dialog 1</button>
+		<button dojoType="dijit.form.Button" onClick="showDialog2();">Show Dialog 2</button>
+	</div>
+</div>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>FlipCard Item Tests</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+	
+		<style id="idxStyles" type="text/css">
+            @import "../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+            @import "../../tests/test.css";
+            
+            html, body {
+			    width: 100%;
+			    height: 100%;
+			    margin: 0; 
+			    padding: 0;
+			}
+			
+			.oneui .portletItem .dojoxPortlet .refreshActionNode{
+				background: url("resources/images/refresh.png") no-repeat 0 0;
+			}
+			.oneui .portletItem .dojoxPortlet .loadActionNode{
+				background: url("resources/images/switchLoad.png") no-repeat 0 0;
+			}
+			
+			/************* different skins sample *****************/
+			.oneui .portletItem.blueSkin .dojoxPortlet .dijitTitlePaneContentOuter{
+				background-color: lightblue;
+				border-color: lightblue;
+				-webkit-box-shadow: 0 2px 5px lightblue;
+				-moz-box-shadow: 0 2px 5px lightblue;
+				-ms-box-shadow: 0 2px 5px lightblue;
+				box-shadow: 0 2px 5px lightblue;
+			}
+			.oneui .portletItem.blueSkin .dojoxPortlet .dijitTitlePaneTitle{
+				background-color: lightblue;
+				border-color: lightblue;
+			}
+			
+			.oneui .portletItem{
+				float:left;
+			}
+			.oneui .cardActions,
+			.oneui .cardBatchActions,
+			.oneui .cardContentActions,
+			.oneui .cardSettingsActions,
+			.oneui .cardCntCustomization{
+				margin:0 30px;
+				float:left;
+			}
+			.oneui .cardAction,
+			.oneui .cardBatchAction,
+			.oneui .cardContentAction,
+			.oneui .cardSettingsAction,
+			.oneui .cardCntCustomizationAction{
+				margin:10px 0;
+			}
+			.oneui .portletItem .portletItemAction .sampleCardIcon{
+				background-image: url("resources/images/navSprite_24.png");
+				background-position: -216px 0;
+			}
+			.oneui .portletItem .portletContentAction .sampleCardContentIcon{
+				background-image: url("resources/images/navSprite_24.png");
+				background-position: -168px -24px;
+			}
+			
+			.oneui .cardContentAction input{
+				width:250px;
+			}
+			
+		</style>
+	
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.gfxRenderer = 'svg,canvas,vml';
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dojo._base.lang", 
+				"dojo.aspect", 
+				"dojo.dom", 
+				"dijit.registry", 
+				// "dojox.css3.fx", 
+				"idx.layout.FlipCardItem",
+				"idx.tests._pagefooter._PageFooter"
+			]; 
+			var lang, aspect, dom, registry, css3fx, FlipCardItem, _PageFooter;
+			
+			function preParse(modules){
+				lang 					= modules["dojo/_base/lang"];
+				aspect 					= modules["dojo/aspect"];
+				dom						= modules["dojo/dom"];
+				registry 				= modules["dijit/registry"];
+				// css3fx 					= modules["dojox/css3/fx"];
+				FlipCardItem			= modules["idx/layout/FlipCardItem"];
+				_PageFooter   			= modules["idx/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				portletHandler = function(context){
+					var portlet = registry.getEnclosingWidget(context).getParent();
+					portlet.switchCardSkin("blueSkin");
+				};
+				
+				flipCardHandler = function(context){
+					var portlet = registry.getEnclosingWidget(context).getParent();
+					portlet.processFlip();
+				};
+				
+				var item = {
+					name: "flip_card_sample",
+					props: {
+						// maxable: true,
+						// stackable: true,
+						// closable: true,
+						itemContentScroll: true,
+						// flipableAction: true,
+						main_props: {
+							title: "flip_card_sample_main",
+							content: "<img alt='sample_image' src='resources/images/portlet1.png' style='width:100%; height: 100%'/>" + 
+										"<a role='button' tabindex='0'" + 
+											"onclick='flipCardHandler(this)'" + 
+											"onkeydown='if(event.keyCode == 13){flipCardHandler(this)}'" + 
+											"style='position:absolute;top:30px;right:20px;cursor:pointer;font-size:13px;font-weight:bold;text-decoration:underline;color:blue'>" + 
+											"detail" + 
+										"</a>",
+							contentActions:[
+								{id:"file", name:"file", label:"File",type:"text",children:[
+									{id:"new", name:"new", label:"New"},
+									{id:"open", name:"open", label:"Open"},
+									{id:"exit", name:"exit", label:"Exit"}
+								]},
+								{id:"edit", name:"edit", label:"Edit",type:"text",children:[
+									{id:"copy", name:"copy", label:"Copy"},
+									{id:"paste", name:"paste", label:"Paste"}
+								]},
+								{id:"card", name:"card", label:"Card",type:"text"},
+								{id:"help", name:"help", label:"Help",type:"text"}
+							]
+						},
+						detail_props: {
+							title: "flip_card_sample_detail",
+							href: "resources/html/flipCardContent.html",
+							preload: false,
+							contentActions:[
+								{id:"refresh", name:"refresh",label:"Refresh",type:"icon",actionClass:"refreshActionNode"},
+								{id:"load", name:"load",label:"Load",type:"icon",actionClass:"loadActionNode"}
+							],
+							settingsAction: {
+								type: "normal",
+								content: "<div> Settings for main <button onclick='portletHandler(this)'>Switch Skin</button></div>"
+							}
+						}
+					}
+				};
+				
+				var cardProps = lang.mixin({
+					initItemHeight: 320,
+        			initItemWidth: 380,
+					flipToMainAction: true,
+					// flipToDetailAction: true,
+					// css3AnimationDisabled: true,
+					// actionsInMainSide: true,
+					itemName: item.name
+				}, item.props);
+				var cardItem = new FlipCardItem(cardProps, "flipCardItem"); 
+				
+				cardItem.startup();
+				
+				
+				//Card Actions
+				addCardAction = function(){
+					var actId = dom.byId("sample_add").value || "sample_action";
+					cardItem.addCardAction({id:actId,name:actId,title:actId}, {forceAdjustPos:true});
+				}
+				addCardActionLeft = function(){
+					var actId = dom.byId("sample_add").value || "sample_action";
+					cardItem.addCardAction({id:actId,name:actId,title:actId}, {forceAdjustPos:true,left:true});
+				}
+				removeCardAction = function(){
+					var actId = dom.byId("sample_remove").value || "sample_action";
+					cardItem.removeCardAction(actId, {forceAdjustPos:true});
+				}
+				updateCardAction = function(){
+					var actId = dom.byId("sample_update").value || "sample_action";
+					cardItem.updateCardAction({id:actId,iconClass:"sampleCardIcon"});
+				}
+				defaultActionHandler = function(actItem){
+					if(actItem && actItem.id){
+						alert(actItem.id + " Clicked!!");
+					}
+				}
+				aspect.after(cardItem, "handle_action_stub", defaultActionHandler, true);
+				
+				//card batch actions 
+				clearCardActions = function(){
+					cardItem.clearCardActions();
+				}
+				clearCardMainContentActions = function(){
+					cardItem.mainContent.clearContentActions();
+				}
+				buildCardActions = function(){
+					// cardItem.addCardAction({id: "close",name: "close",title: "close"}, {extraClass:"actionsMain"});
+					
+					cardItem.set("minable", true);
+					cardItem.set("closable", true);
+					
+					cardItem.addCardActions([
+						{id: "action_sample_1",name: "action_sample_1",title: "action sample 1"},
+						{id: "action_sample_2",name: "action_sample_2",title: "action sample 2"},
+						{id: "action_sample_left_1",name: "action_sample_left_1",title: "action sample left 1"},
+						{id: "action_sample_left_2",name: "action_sample_left_2",title: "action sample left 2"},
+						{id: "action_sample_left_3",name: "action_sample_left_3",title: "action sample left 3"}
+					],{
+						action_sample_left_1:{left:true},
+						action_sample_left_2:{left:true},
+						action_sample_left_3:{left:true,fixed:true}
+					});
+				}
+				buildCardMainContentActions = function(){
+					cardItem.mainContent.addContentActions([
+						{id:"exec", name:"exec", label:"Exec",type:"icon"},
+						{id:"macro", name:"macro", label:"Macro"},
+						{id:"plugins", name:"plugins", label:"Plugins",children:[
+							{id:"converter", name:"converter", label:"Converter"},
+							{id:"debugger", name:"debugger", label:"Debugger"},
+							{id:"sensor", name:"sensor", label:"Sensor"}
+						]},
+						{id:"window", name:"window", label:"Window",children:[
+							{id:"horizontal", name:"horizontal", label:"Horizontal"},
+							{id:"vertical", name:"vertical", label:"Vertical"}
+						]}
+					]);
+				}
+				
+				
+				//Card Content Actions
+				addCardContentActionMain = function(){
+					var actCntId = dom.byId("sample_content_add").value || "sample_ca";
+					cardItem.mainContent.addContentAction({id:actCntId,type:"icon",label:actCntId});
+				}
+				addCardContentActionDetail = function(){
+					var actCntId = dom.byId("sample_content_add").value || "sample_ca";
+					cardItem.detailContent.addContentAction({id:actCntId,type:"text",label:actCntId});
+				}
+				removeCardContentActionMain = function(){
+					var actCntId = dom.byId("sample_content_remove").value || "sample_ca";
+					cardItem.mainContent.removeContentAction(actCntId);
+				}
+				removeCardContentActionDetail = function(){
+					var actCntId = dom.byId("sample_content_remove").value || "sample_ca";
+					cardItem.detailContent.removeContentAction(actCntId);
+				}
+				updateCardContentActionMain = function(){
+					var actCntId = dom.byId("sample_content_update").value || "sample_ca";
+					cardItem.mainContent.updateContentAction({id:actCntId,actionClass:"sampleCardContentIcon"});
+				}
+				updateCardContentActionDetail = function(){
+					var actCntId = dom.byId("sample_content_update").value || "sample_ca";
+					cardItem.detailContent.updateContentAction({id:actCntId,label:"changed"});
+				}
+				defaultMainContentActionHandler = function(actItem){
+					if(actItem.id != "help"){
+						alert("Main side: " + actItem.id + " Clicked!!");
+					}else{
+						window.open("http://idx.ibm.com");
+					}
+				}
+				defaultDetailContentActionHandler = function(actItem){
+					if(actItem.id == "refresh"){
+						this.refreshCard();
+					}else if(actItem.id == "load"){
+						this.set("href", "resources/html/flipCardContentChanged.html");
+						this.refreshCard();
+					}else{
+						alert("Detail side: " + actItem.id + " Clicked!!");
+					}
+				}
+				
+				flipContentActionHandler = function(cardContent, args, e){
+					if(args && args.flipActType == "detail"){ //back to main content flip action
+						console.log("Back to main content flip action clicked!!");
+					}
+				}
+				
+				aspect.after(cardItem.mainContent, "handle_content_action_stub", defaultMainContentActionHandler, true);
+				aspect.after(cardItem.detailContent, "handle_content_action_stub", defaultDetailContentActionHandler, true);
+				aspect.after(cardItem.detailContent, "handle_parent_flip_action", flipContentActionHandler, true);
+				
+				
+				addCardSettingsActionMain = function(){
+					cardItem.mainContent.addContentSettings({
+						title: "Test Settings",
+						type: "dialog",
+						content: "<div> Settings Test </div>"
+					});
+				}
+				addCardSettingsActionDetail = function(){
+					cardItem.detailContent.addContentSettings({
+						title: "Detail Test Settings",
+						type: "normal",
+						content: "<div> Detail Settings Test </div>"
+					});
+				}
+				removeCardSettingsActionMain = function(){
+					cardItem.mainContent.removeContentSettings();
+				}
+				removeCardSettingsActionDetail = function(){
+					cardItem.detailContent.removeContentSettings();
+				}
+				
+				
+				
+				setCardContent = function(){
+					cardItem.mainContent.set("content", dom.byId("sampleCardContent").value);
+				}
+				
+				setCardHref = function(){
+					cardItem.mainContent.set("href", dom.byId("sampleCardHref").value);
+				}
+				
+				
+				var signal_resize = aspect.after(cardItem, "onResizeHandleEnd", function(evt, size){
+					console.log(size);
+				}, true);
+				
+			}
+			
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui">
+		<script type="text/javascript">applyThemeToBody();</script><!-- only oneui theme is supported -->
+		
+		<div style="width: 100%; height: 100%; margin: 0px; padding: 0px;">
+			<div style="width: 96%; height: 96%; padding: 2%;">
+				<h2> This is a sample test case for pure Flip Card Item Widget </h2>
+				<div id="flipCardItem"></div>
+				
+				<div class="cardCntCustomization">
+					<h5> Card Main Content </h5>
+					<div class="cardCntCustomizationAction">
+						<div>
+							<button onclick="setCardContent()">Customize Card Main Content</button>
+						</div>
+						<div>
+							<textarea id="sampleCardContent" cols=80 rows=3>
+								<iframe src='http://www.ibm.com/us/en/' style='border:none;width:1500px;height:5000px;overflow:hidden' frameborder='0' scrolling='no'></iframe>
+							</textarea>
+						</div>
+					</div>
+					<div class="cardCntCustomizationAction">
+						<div>
+							<button onclick="setCardHref()">Customize Card Main Href</button>
+						</div>
+						<div>
+							<textarea id="sampleCardHref" cols=80 rows=3>
+								test_content_A.html
+							</textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="cardBatchActions">
+					<h5> Card Batch Actions Operation </h5>
+					<div class="cardBatchAction_clear cardBatchAction">
+						<button onclick="clearCardActions()">Clear Card Actions</button>
+						<button onclick="clearCardMainContentActions()">Clear Main Side Bar Actions</button>
+					</div>
+					<div class="cardBatchAction_build cardBatchAction">
+						<button onclick="buildCardActions()">Build new Card Actions</button>
+						<button onclick="buildCardMainContentActions()">Build new Main Side Bar Actions</button>
+					</div>
+				</div>
+				
+				<div class="cardActions">
+					<h5> Card Actions </h5>
+					<div class="cardActions_add cardAction">
+						<input id="sample_add" type="text" placeholder="Input Card Action ID"></input>
+						<button onclick="addCardAction()">Add Card Action</button>
+						<button onclick="addCardActionLeft()">Add Card Action At Left</button>
+					</div>
+					<div class="cardActions_remove cardAction">
+						<input id="sample_remove" type="text" placeholder="Input Card Action ID"></input>
+						<button onclick="removeCardAction()">Remove Card Action</button>
+					</div>
+					<div class="cardActions_update cardAction">
+						<input id="sample_update" type="text" placeholder="Input Card Action ID"></input>
+						<button onclick="updateCardAction()">Update Card Action</button>
+					</div>
+				</div>
+				
+				<div class="cardContentActions">
+					<h5> Card Side Bar Actions </h5>
+					<div class="cardContentActions_add cardContentAction">
+						<input id="sample_content_add" type="text" placeholder="Input Card Side Bar Action ID"></input>
+						<button onclick="addCardContentActionMain()">Add Card Main Side Bar Action</button>
+						<button onclick="addCardContentActionDetail()">Add Card Detail Side Bar Action</button>
+					</div>
+					<div class="cardContentActions_remove cardContentAction">
+						<input id="sample_content_remove" type="text" placeholder="Input Card Side Bar Action ID"></input>
+						<button onclick="removeCardContentActionMain()">Remove Card Main Side Bar Action</button>
+						<button onclick="removeCardContentActionDetail()">Remove Card Detail Side Bar Action</button>
+					</div>
+					<div class="cardContentActions_update cardContentAction">
+						<input id="sample_content_update" type="text" placeholder="Input Card Side Bar Action ID"></input>
+						<button onclick="updateCardContentActionMain()">Update Card Main Side Bar Action</button>
+						<button onclick="updateCardContentActionDetail()">Update Card Detail Side Bar Action</button>
+					</div>
+				</div>
+				
+				<div class="cardSettingsActions">
+					<h5> Settings Actions </h5>
+					<div class="cardSettingsActions_add cardSettingsAction">
+						<button onclick="addCardSettingsActionMain()">Add Card Main Settings Action</button>
+						<button onclick="addCardSettingsActionDetail()">Add Card Detail Settings Action</button>
+					</div>
+					<div class="cardSettingsActions_remove cardContentAction">
+						<button onclick="removeCardSettingsActionMain()">Remove Card Main Settings Action</button>
+						<button onclick="removeCardSettingsActionDetail()">Remove Card Detail Settings Action</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

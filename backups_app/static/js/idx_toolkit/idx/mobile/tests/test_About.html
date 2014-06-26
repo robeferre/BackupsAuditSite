@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US"> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>One UI mobile "About" standard test</title>
+
+	<!-- Common style definitions for the test cases -->	
+	<link rel="stylesheet" type="text/css" href="tests.css" />
+	
+	<script src="../deviceTheme.js"></script>
+	<script src="dojoVersion.js" data-dojo-config="async:true, parseOnLoad:false, isDebug:true"></script>
+	
+	<script>
+	
+		var show_about,
+			dialog_log,
+			pane_log;
+
+		require(["idx/mobile/tests/_TestUtils",
+				 "dijit/registry",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/compat",
+				 "dojox/mobile/Button",
+				 "dojox/mobile/ContentPane",
+				 "dojox/mobile/Heading",
+				 "dojox/mobile/ScrollableView",
+				 "idx/mobile/AboutPane",
+				 "idx/mobile/About",
+				 "idx/mobile/tests/_LogPane",
+		         "dojo/domReady!"],
+		function(tu, registry, parser){
+			show_about = function(){
+				registry.byId("aboutdialog").show();
+			}
+			
+			parser.parse();
+			dialog_log = registry.byId("id_dialoglog");
+			pane_log = registry.byId("id_panelog");
+		});
+		
+	</script>
+ 
+</head>
+<body style="visibility:hidden;">
+
+	<div id="aboutdialog" data-dojo-type="idx/mobile/About" data-dojo-props="
+		name: 'Software Name with a Total<br />of 90 Character Maximum for the Length of the Product Name',
+		version: 'n.n',
+		build: 'nn',
+		copyright: '[Year 1], [Year 2]',
+		trademarks: '<i>[Use exact text from www.ibm.com/legal/copytrade.shtml ' +
+					'for the special non-IBM trademarks that appear on the label. ' +
+					'If you have insufficient space, consult with your Division ' +
+					'Intellectual Property attorney].</i>'
+	">
+		<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="hideWhenEmpty: true" id="id_dialoglog"></div>
+		<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Send Logs'" onclick="dialog_log.addMessage('\'Send Logs\' clicked);')" />
+		<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Reset Logs'" onclick="dialog_log.addMessage('\'Reset Logs\' clicked);')" />
+	</div>
+	
+	<div id="mainView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'One UI About test', fixed: 'top'">
+			<span class="phoneOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label: 'About', moveTo: 'aboutView'" style="float: right;"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label: 'About'" onclick="show_about(); return false;" style="float: right;"></span>		
+		</div>
+		
+		<p class="phoneOnly dummyViewContent">
+			This application has detected that it is running on a phone-type device. Press the
+			<b>About</b> button in the heading to show the about information panel as a
+			replacement view. Run this application on a tablet-type device (or emulation)
+			to see the about information panel in a pop-up mode.
+		</p>
+
+		<p class="tabletOnly dummyViewContent">
+			This application has detected that it is running on a tablet-type device. Press the
+			<b>About</b> button in the heading to show the about information panel in a
+			pop-up mode. Run this application on a phone-type device (or emulation)
+			to see the about information panel as a replacement view.
+		</p>
+	
+		<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props="href: 'include_emulation.html'"></div>
+		
+	</div>
+	
+	<div id="aboutView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:false">
+ 
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'About', back: 'Back', moveTo: 'mainView', fixed: 'top'">
+		</div>
+		
+		<div data-dojo-type="idx/mobile/AboutPane" data-dojo-props="
+			name: 'Software Name with a Total<br />of 90 Character Maximum for the Length of the Product Name',
+			version: 'n.n',
+			build: 'nn',
+			copyright: '[Year 1], [Year 2]',
+			trademarks: '<i>[Use exact text from www.ibm.com/legal/copytrade.shtml ' +
+						'for the special non-IBM trademarks that appear on the label. ' +
+						'If you have insufficient space, consult with your Division ' +
+						'Intellectual Property attorney].</i>'
+		">
+			<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="hideWhenEmpty: true" id="id_panelog"></div>
+			<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Send Logs'" onclick="pane_log.addMessage('\'Send Logs\' clicked);')" />
+			<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Reset Logs'" onclick="pane_log.addMessage('\'Reset Logs\' clicked);')" />
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Slider 
+ * 
+ * Styling Slider mainly includes styling the Slider progress bar (dijitSliderProgressBar)
+ * 
+ * Slider progress bar:
+ * 1. Slider progress bar (default styling): 
+ * 		.dijitSliderProgressBarH - progress bar at the middle of horizontal slider
+ * 		.dijitSliderLeftBumper - bar at the left of horizontal slider
+ * 		.dijitSliderRightBumper - bar at the right of horizontal slider
+ * 		.dijitSliderProgressBarV - progress bar at the middle of vertical slider
+ * 		.dijitSliderTopBumper - bar at the top of vertical slider
+ * 		.dijitSliderBottomtBumper - bar at the bottom of vertical slider
+ * 
+ * 2. hovered Slider progress bar (ie, mouse hover on progress bar)
+ * 		.dijitSliderHover .dijitSliderProgressBarH(horizontal) - hovered bar style: background, border
+ * 
+ * 3. focused Slider progress bar (ie, mouse focused on progress bar)
+ * 		.dijitSliderFocused .dijitSliderProgressBarH(horizontal) - focus bar style: background, border
+ * 
+ * 4. disabled/read-only Slider progress bar 
+ * 		.dijitSliderDisabled .dijitSliderProgressBarH(horizontal) - bar styles when slider is disabled
+ * 
+ * 
+ * Slider Thumbs:
+ * 1. Slider Thumbs (default styling): 
+ * 		.dijitSliderImageHandleH / .dijitSliderImageHandleV - styles for the controller on the progress bar
+ * 
+ * 2. hovered Slider Thumbs (ie, mouse hover on slider thumbs)
+ * 		.dijitSliderHover .dijitSliderImageHandleH - hovered controller style
+ * 
+ * 3. focused Slider progress bar (ie, mouse focused on slider thumbs)
+ * 		.dijitSliderFocused .dijitSliderImageHandleV - focused controller style
+ * 
+ * 
+ * Slider Increment/Decrement Buttons:
+ * 1. Slider Increment/Decrement Buttons (default styling): 
+ * 		.dijitSliderDecrementIconH - decrement icon which lies at the left of horizontal slider
+ * 		.dijitSliderIncrementIconH - increment icon which lies at the right of horizontal slider
+ * 		.dijitSliderDecrementIconV - decrement icon which lies at the bottom of vertical slider
+ * 		.dijitSliderIncrementIconV - increment icon which lies at the top of vertical slider
+ * 
+ * 2. hovered Slider Increment/Decrement Buttons (mouse hover on the icons)
+ * 		.dijitSliderHover .dijitSliderDecrementIconH - for background, border
+ * 
+ * 3. active Slider Increment/Decrement Buttons (mouse down on the icons)
+ * 		.dijitSliderActive .dijitSliderIncrementIconV - for background, border
+ * 
+ * 4. disabled/read-only Slider Increment/Decrement Buttons
+ * 		.dijitSliderDisabled .dijitSliderDecrementIconH - styles for the icons in disabled slider
+ * 		.dijitSliderReadOnly .dijitSliderIncrementIconV - styles for the icons in read-only slider
+ */
+.oneui.dark .dijitSliderFocused .dijitSliderBar {
+	border-color:#343434;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderBar {
+	border-color:#343434;
+}
+
+.oneui.dark .dijitSliderDisabled .dijitSliderBar {
+	background-image:none;
+	border-color:#555;
+}
+
+/* Horizontal Slider */
+.oneui.dark .dijitRuleLabelsContainerH {
+	color:#ccc;
+}
+
+.oneui.dark .dijitSlider .dijitSliderProgressBarH,.oneui.dark .dijitSlider .dijitSliderLeftBumper {
+/*
+	background-image: url("images/sliderHorizontal.png");
+	background-repeat: repeat-x;
+	background-position: 0 -20px;
+	*/
+	background-color:#aaa;
+	background-image:-moz-linear-gradient(top,#aaa,#ccc);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#aaa),to(#ccc));
+	background-image:-webkit-linear-gradient(top,#aaa 0%,#ccc 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#aaa 0%,#ccc 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#aaa 0%,#ccc 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#aaa 0%,#ccc 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#b3b3b3', endColorstr='#d5d5d5'); 
+	*/
+	border-top-color:#555;
+	border-bottom-color:#444;
+}
+
+.oneui.dark .dijitSlider .dijitSliderRemainingBarH,.oneui.dark .dijitSlider .dijitSliderRightBumper {
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#222,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#333));
+	background-image:-webkit-linear-gradient(top,#222 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-top-color:#555;
+	border-bottom-color:#444;
+}
+
+.oneui.dark .dijitSliderRightBumper {
+	border-right-color:#555;
+}
+
+.oneui.dark .dijitSliderLeftBumper {
+	border-left-color:#555;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderProgressBarH,.oneui.dark .dijitSliderHover .dijitSliderLeftBumper {
+/*
+	background-position: 0 -20px;
+	*/
+	background-color:#ccc;
+	background-image:-moz-linear-gradient(top,#ccc,#aaa);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#ccc),to(#aaa));
+	background-image:-webkit-linear-gradient(top,#ccc 0%,#aaa 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#ccc 0%,#aaa 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#ccc 0%,#aaa 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#ccc 0%,#aaa 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-top-color:#666;
+	border-bottom-color:#555;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderRemainingBarH,.oneui.dark .dijitSliderHover .dijitSliderRightBumper {
+/*
+	background-position: 0 0;
+	*/
+	background-color:#333;
+	background-image:-moz-linear-gradient(top,#222,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#333));
+	background-image:-webkit-linear-gradient(top,#222 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-top-color:#666;
+	border-bottom-color:#555;
+}
+
+.oneui.dark .dijitSliderFocused .dijitSliderProgressBarH,.oneui.dark .dijitSliderFocused .dijitSliderLeftBumper {
+/*
+	background-position: 0 -30px;
+	*/
+	background-color:#ccc;
+	background-image:-moz-linear-gradient(top,#ccc,#aaa);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#ccc),to(#aaa));
+	background-image:-webkit-linear-gradient(top,#ccc 0%,#aaa 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#ccc 0%,#aaa 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#ccc 0%,#aaa 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#ccc 0%,#aaa 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-top-color:#666;
+	border-bottom-color:#666;
+}
+
+.oneui.dark .dijitSliderFocused .dijitSliderRemainingBarH,.oneui.dark .dijitSliderFocused .dijitSliderRightBumper {
+/*
+	background-position: 0 -9px;
+	*/
+	background-color:#333;
+	background-image:-moz-linear-gradient(top,#222,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#333));
+	background-image:-webkit-linear-gradient(top,#222 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-top-color:#666;
+	border-bottom-color:#666;
+}
+
+.oneui.dark .dijitSliderDisabled .dijitSliderProgressBarH,.oneui.dark .dijitSliderDisabled .dijitSliderLeftBumper {
+	background-color:#222;
+/* left side of slider, fill matches border */
+	background-image:none;
+	border-top-color:#555;
+	border-bottom-color:#555;
+}
+
+.oneui.dark .dijitSliderDisabled .dijitSliderRemainingBarH,.oneui.dark .dijitSliderDisabled .dijitSliderRightBumper {
+	background-color:#222;
+	background-image:none;
+	border-top:1px solid #555;
+	border-bottom:1px solid #555;
+}
+
+/* Vertical Slider */
+.oneui.dark .dijitRuleLabelsContainerV {
+	color:#ddd;
+}
+
+.oneui.dark .dijitSlider .dijitSliderProgressBarV,.oneui.dark .dijitSlider .dijitSliderBottomBumper {
+	background-color:#ccc;
+	background-image:-moz-linear-gradient(left,#ccc,#aaa);
+	background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#ccc),to(#aaa));
+	background-image:-webkit-linear-gradient(left,#ccc 0%,#aaa 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(left,#ccc 0%,#aaa 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(left,#ccc 0%,#aaa 100%);
+/* IE10+ */
+	background-image:linear-gradient(left,#ccc 0%,#aaa 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr='#4d4d4d', endColorstr='#2d2d2d'); 
+	*/
+	border-left-color:#555;
+	border-right-color:#444;
+}
+
+.oneui.dark .dijitSlider .dijitSliderRemainingBarV,.oneui.dark .dijitSlider .dijitSliderTopBumper {
+/*
+	background-image: url("images/sliderVertical.png");
+	background-repeat: repeat-y;
+	background-position: -3px 0;
+	*/
+	background-color:#333;
+	background-image:-moz-linear-gradient(left,#222,#333);
+	background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#222),to(#333));
+	background-image:-webkit-linear-gradient(left,#222 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(left,#222 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(left,#222 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(left,#222 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-left-color:#555;
+	border-right-color:#444;
+}
+
+.oneui.dark .dijitSliderBottomBumper {
+	border-bottom-color:#555;
+}
+
+.oneui.dark .dijitSliderTopBumper {
+	border-top-color:#555;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderProgressBarV,.oneui.dark .dijitSliderHover .dijitSliderBottomBumper {
+/*
+	background-position: -36px 0;
+	*/
+	background-color:#aaa;
+	background-image:-moz-linear-gradient(left,#aaa,#ccc);
+	background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#aaa),to(#ccc));
+	background-image:-webkit-linear-gradient(left,#aaa 0%,#ccc 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(left,#aaa 0%,#ccc 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(left,#aaa 0%,#ccc 100%);
+/* IE10+ */
+	background-image:linear-gradient(left,#aaa 0%,#ccc 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-left-color:#666;
+	border-right-color:#555;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderRemainingBarV,.oneui.dark .dijitSliderHover .dijitSliderTopBumper {
+/*
+	background-position: 0 0;
+	*/
+	background-color:#333;
+	background-image:-moz-linear-gradient(left,#222,#333);
+	background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#222),to(#333));
+	background-image:-webkit-linear-gradient(left,#222 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(left,#222 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(left,#222 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(left,#222 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-left-color:#666;
+	border-right-color:#555;
+}
+
+.oneui.dark .dijitSliderFocused .dijitSliderProgressBarV,.oneui.dark .dijitSliderFocused .dijitSliderBottomBumper {
+/*
+	background-position: -56px 0;
+	*/
+	background-color:#ccc;
+	background-image:-moz-linear-gradient(left,#ccc,#aaa);
+	background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#ccc),to(#aaa));
+	background-image:-webkit-linear-gradient(left,#ccc 0%,#aaa 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(left,#ccc 0%,#aaa 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(left,#ccc 0%,#aaa 100%);
+/* IE10+ */
+	background-image:linear-gradient(left,#ccc 0%,#aaa 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-left-color:#666;
+	border-right-color:#666;
+}
+
+.oneui.dark .dijitSliderFocused .dijitSliderRemainingBarV,.oneui.dark .dijitSliderFocused .dijitSliderTopBumper {
+/*
+	background-position: -18px 0;
+	*/
+	background-color:#333;
+	background-image:-moz-linear-gradient(left,#222,#333);
+	background-image:-webkit-gradient(linear,0% 0%,100% 0%,from(#222),to(#333));
+	background-image:-webkit-linear-gradient(left,#222 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(left,#222 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(left,#222 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(left,#222 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr='#222', endColorstr='#343434'); 
+	*/
+	border-left-color:#666;
+	border-right-color:#666;
+}
+
+.oneui.dark .dijitSliderDisabled .dijitSliderProgressBarV,.oneui.dark .dijitSliderDisabled .dijitSliderBottomBumper {
+	background-color:#555;
+/* bottom side of slider, fill matches border */
+	background-image:none;
+	border-left-color:#555;
+	border-right-color:#555;
+}
+
+.oneui.dark .dijitSliderDisabled .dijitSliderRemainingBarV,.oneui.dark .dijitSliderDisabled .dijitSliderTopBumper {
+	background-color:#555;
+	background-image:none;
+	border-left-color:#555;
+	border-right-color:#555;
+}
+
+/* ------- Thumbs ------- */
+.oneui.dark .dijitSliderImageHandleH {
+/*
+  background-image: url("images/sliderThumbs.png");
+  background-position: 0 0;
+  */
+	background-image:url(images/sliderThumbs.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+}
+
+.dj_ie6 .oneui.dark .dijitSliderImageHandleH {
+	background-image:url(images/sliderThumbs8bit.png);
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderImageHandleH {
+	background-position:-19px 0;
+}
+
+.oneui.dark .dijitSliderFocused .dijitSliderImageHandleH {
+	background-position:-38px 0;
+}
+
+.oneui.dark .dijitSliderProgressBarH .dijitSliderThumbHover {
+	background-position:-19px 0;
+}
+
+.oneui.dark .dijitSliderProgressBarH .dijitSliderThumbActive {
+	background-position:-38px 0;
+}
+
+.oneui.dark .dijitSliderReadOnly .dijitSliderImageHandleH,.oneui.dark .dijitSliderDisabled .dijitSliderImageHandleH {
+	background-position:-57px 0;
+}
+
+.oneui.dark .dijitSliderImageHandleV {
+/*
+  background-image: url("images/sliderThumbs.png");
+  background-position: -289px 0;
+  */
+	background-image:url(images/sliderThumbs.png);
+	background-position:-76px 0;
+	background-repeat:no-repeat;
+}
+
+.dj_ie6 .oneui.dark .dijitSliderImageHandleV {
+	background-image:url(images/sliderThumbs8bit.png);
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderImageHandleV {
+	background-position:-95px 0;
+}
+
+.oneui.dark .dijitSliderFocused .dijitSliderImageHandleV {
+	background-position:-114px 0;
+}
+
+.oneui.dark .dijitSliderProgressBarV .dijitSliderThumbHover {
+	background-position:-95px 0;
+}
+
+.oneui.dark .dijitSliderProgressBarV .dijitSliderThumbActive {
+	background-position:-114px 0;
+}
+
+.oneui.dark .dijitSliderReadOnly .dijitSliderImageHandleV,.oneui.dark .dijitSliderDisabled .dijitSliderImageHandleV {
+	background-position:-133px 0;
+}
+
+.oneui.dark .dijitSliderDecrementIconH,.oneui.dark .dijitSliderIncrementIconH {
+	background-image:url(images/buttonArrows_h.png);
+}
+
+.oneui.dark .dijitSliderDecrementIconV,.oneui.dark .dijitSliderIncrementIconV {
+	background-image:url(images/buttonArrows_v.png);
+}
+
+.dj_ie6 .oneui.dark .dijitSliderDecrementIconH,.dj_ie6 .oneui.dark .dijitSliderIncrementIconH {
+	background-image:url(images/buttonArrows_h8.png);
+}
+
+.dj_ie6 .oneui.dark .dijitSliderDecrementIconV,.dj_ie6 .oneui.dark .dijitSliderIncrementIconV {
+	background-image:url(images/buttonArrows_v8.png);
+}
+
+/*left arrow*/
+.oneui.dark .dijitSliderDecrementIconH {
+/*background-position: -357px 50%;*/
+	background-position:0 0;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderDecrementIconH {
+/*background-position: -393px 50%;*/
+	background-position:-30px 0;
+}
+
+.oneui.dark .dijitSliderActive .dijitSliderDecrementIconH {
+	background-position:-60px 0;
+}
+
+/*right arrow*/
+.oneui.dark .dijitSliderIncrementIconH {
+/*background-position: -251px 50%;*/
+	background-position:-15px 0;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderIncrementIconH {
+/*background-position: -283px 50%;*/
+	background-position:-45px 0;
+}
+
+.oneui.dark .dijitSliderActive .dijitSliderIncrementIconH {
+	background-position:-75px 0;
+}
+
+/*down arrow*/
+.oneui.dark .dijitSliderDecrementIconV {
+/*background-position: -38px 50%;*/
+	background-position:-17px 0;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderDecrementIconV {
+/*background-position: -73px 50%;*/
+	background-position:-51px 0;
+}
+
+.oneui.dark .dijitSliderActive .dijitSliderDecrementIconV {
+	background-position:-85px 0;
+}
+
+/*up arrow*/
+.oneui.dark .dijitSliderIncrementIconV {
+/*background-position: -143px 49%;*/
+	background-position:0 0;
+}
+
+.oneui.dark .dijitSliderHover .dijitSliderIncrementIconV {
+/*background-position: -178px 49%;*/
+	background-position:-34px 0;
+}
+
+.oneui.dark .dijitSliderActive .dijitSliderIncrementIconV {
+	background-position:-68px 0;
+}
+
+/* disabled and readonly */
+.oneui.dark .dijitSliderReadOnly .dijitSliderDecrementIconH,.oneui.dark .dijitSliderDisabled .dijitSliderDecrementIconH {
+/*background-position: -321px 50%;*/
+/*background-color: #fefefe;*/
+	background-position:-90px 0;
+}
+
+.oneui.dark .dijitSliderReadOnly .dijitSliderIncrementIconH,.oneui.dark .dijitSliderDisabled .dijitSliderIncrementIconH {
+/*background-position: -215px 50%;*/
+/*background-color: #fefefe;*/
+	background-position:-105px 0;
+}
+
+.oneui.dark .dijitSliderReadOnly .dijitSliderDecrementIconV,.oneui.dark .dijitSliderDisabled .dijitSliderDecrementIconV {
+/*background-position: -3px 49%;*/
+/*background-color: #fefefe;*/
+	background-position:-119px 0;
+}
+
+.oneui.dark .dijitSliderReadOnly .dijitSliderIncrementIconV,.oneui.dark .dijitSliderDisabled .dijitSliderIncrementIconV {
+/*background-position: -107px 49%;*/
+/*background-color: #fefefe;*/
+	background-position:-102px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerH .dijitSliderDecrementButtonHover {
+	background-position:-30px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerH .dijitSliderDecrementButtonActive {
+	background-position:-60px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerH .dijitSliderIncrementButtonHover {
+	background-position:-45px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerH .dijitSliderIncrementButtonActive {
+	background-position:-75px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerV .dijitSliderDecrementButtonHover {
+	background-position:-34px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerV .dijitSliderDecrementButtonActive {
+	background-position:-68px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerV .dijitSliderIncrementButtonHover {
+	background-position:-51px 0;
+}
+
+.oneui.dark .dijitSliderButtonContainerV .dijitSliderIncrementButtonActive {
+	background-position:-85px 0;
+}
+
+.oneui.dark .dijitSliderDisabled .dijitSliderBar {
+	border-color:#555;
+}
+
+.oneui.dark .dijitSliderReadOnly *,.oneui.dark .dijitSliderDisabled * {
+	border-color:#343434;
+	color:#777;
+}
+
+.dj_ie6 .oneui.dark .dijitSlider .dijitSliderProgressBarH,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderLeftBumper,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderRemainingBarH,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderRightBumper,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderProgressBarV,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderTopBumper,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderRemainingBarV,.dj_ie6 .oneui.dark .dijitSlider .dijitSliderBottomBumper {
+	background-image:none;
+}

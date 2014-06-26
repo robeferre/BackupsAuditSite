@@ -1,0 +1,9 @@
+@import url("mobilebase.css");
+@import url("base.css");
+
+@import url("idx/common.css");
+@import url("idx/app/app.css");
+@import url("idx/form/form.css");
+@import url("idx/layout/layout.css");
+@import url("idx/widget/widget.css");
+	

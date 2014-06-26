@@ -1,0 +1,15 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.dj_iequirks-rtl .oneui.dark .dijitTabListWrapper {
+  /* this strange rule prevents IE6 bug in themeTesterQuirk.html?dir=rtl upon closing
+	 * "Closable" tab, where the other tabs disappear
+	 */
+
+  border-left-color: #343434;	
+  border-right-color: #343434;	
+}

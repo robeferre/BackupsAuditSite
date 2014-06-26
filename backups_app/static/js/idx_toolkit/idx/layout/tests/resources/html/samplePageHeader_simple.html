@@ -1,0 +1,13 @@
+<script type="text/javascript"> 
+	ContentHeaderAction = function(context){
+		alert("Content Action Clicked");
+	};
+</script>
+
+<div style='font-size:20px'>Sample Header Content</div>
+
+<div data-dojo-type="dijit/form/Button" data-dojo-props="
+	onClick:ContentHeaderAction, 
+	label:'Content Sample Action',
+	style:'position:absolute;top:20px;right:20px'
+"></div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US"> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<!-- Common style definitions for the test cases -->	
+	<link rel="stylesheet" type="text/css" href="../../tests/tests.css" />
+	
+	<script src="../../deviceTheme.js"></script>
+	<script src="../../tests/dojoVersion.js"></script>
+	
+	<script>
+	
+		var show_launch;
+
+		require(["idx/mobile/Launch",
+				 "idx/mobile/tests/_TestUtils",
+				 "dojox/mobile",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/compat"]
+		function(Launch, tu){
+
+			var tick = function(){
+				setTimeout(function(){
+					Launch.hide(true);
+					tock();
+				}, 5000);
+			},
+				tock = function(){
+				setTimeout(function(){
+					Launch.show();
+					tick();
+				}, 2000);
+			};
+			
+			tick();
+			
+		});
+		
+	</script>
+ 
+</head>
+<body style="visibility: hidden;">
+	
+</body>
+</html>

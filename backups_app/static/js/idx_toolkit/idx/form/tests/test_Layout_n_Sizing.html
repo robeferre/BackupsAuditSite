@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%; margin: 0px; padding: 0px;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+<link rel="stylesheet" href="../../../../dojo_idt/dojo/resources/dojo.css" />
+<link rel="stylesheet" href="../../../../dojo_idt/dijit/themes/dijit.css" />
+<link rel="stylesheet" href="../../../../dojo_idt/dijit/themes/dijit_rtl.css" />
+<link rel="stylesheet" href="../../themes/oneui/oneui.css" />
+<style>
+	fieldset div{
+		width: 100px;
+	}
+</style>
+
+<script src='../../../../dojo_idt/dojo/dojo.js' 
+	    data-dojo-config="async:true,isDebug:true,parseOnLoad:false,
+	    				  packages:[{name:'idx',location:'../../ibmjs/idx'}]"></script>
+<script>
+var createFields = null;
+
+require([
+	"dojo/parser",
+	"dojo/dom",
+	"dojo/query",
+	"dojo/dom-construct",
+	"dijit/registry",
+	"dojo/data/ItemFileWriteStore",
+	"idx/layout/ContentPane",
+	"idx/form/TextBox",
+	"idx/form/Textarea",
+	"idx/form/DateTextBox",
+	"idx/form/TimeTextBox",
+	"idx/form/DateTimeTextBox",
+	"idx/form/Select",
+	"idx/form/CheckBoxSelect",
+	"idx/form/NumberSpinner",
+	"idx/form/ComboBox",
+	"idx/string",
+	"idx/layout/ContentPane",
+	"dijit/form/Button",
+	"dojo/domReady!"],
+	function(dParser, dDom, dQuery, dDomConstruct, dRegistry, dItemFileWriteStore, iContentPane, iTextBox, iTextArea, iDateTextBox, 
+			 iTimeTextBox, iDateTimeTextBox, iSelect, iCheckBoxSelect, iNumberSpinner, iComboBox, iString) {	
+		dParser.parse();
+		var fields = [];
+		
+		createFields = function() {									
+			var widgetTypes = [ 
+				iNumberSpinner, 
+				iTextBox, 
+				iDateTextBox, 
+				iTimeTextBox,  
+				iSelect,
+				iCheckBoxSelect, 
+				iTextArea,
+				iComboBox];
+			// iDateTimeTextBox, 
+			//					iCheckBoxSelect, iTextArea ];
+		
+			var store = new dItemFileWriteStore({
+				data: {
+					label: "name",
+					identifier: "id",
+					items: [
+						{name: "Alabama", id: "AL"},
+						{name: "Alaska", id: "AK"},
+						{name: "Arizona", id: "AZ"},
+						{name: "Arkansas", id: "AR"},
+						{name: "California", id: "CA"}
+				]}});
+			for (var index = 0; index < fields.length; index++) {
+				fields[index].destroy();	
+			}
+			fields = [];
+			dQuery("tr", dDom.byId("mytable")).forEach(function(node) {
+				console.log("Destroying node: " + node);
+				dDomConstruct.destroy(node);
+			});
+			
+			for (var index = 0; index < widgetTypes.length; index++) {
+				var tr = dDomConstruct.create("tr", null, "mytable", "last");
+				var td1 = dDomConstruct.create("td", {style: "white-space: nowrap;"}, tr, "last");
+//				var td2 = dDomConstruct.create("td", {innerHTML: "&nbsp;"}, tr, "last");
+			
+				var widgetType = widgetTypes[index];
+				console.log("CREATING: " + widgetType.prototype.declaredClass);
+				var widthVal = widthField.get("value");
+				var widthVals = widthVal.split(":");
+				var styleWidth = widthVals[0];
+				var labelWidth = widthVals[1];
+				var fieldWidth = widthVals[2];
+	
+				var options = {required:true,
+							   store: store,
+							   label:widgetType.prototype.declaredClass,
+							   labelAlignment:labelAlignField.get("value")};
+							   
+				if (iString.nullTrim(styleWidth)) {
+					options["style"] = "width: " + styleWidth + ";";
+				}
+				if (iString.nullTrim(labelWidth)) {
+					options["labelWidth"] = labelWidth;
+				}
+				if (iString.nullTrim(fieldWidth)) {
+					options["fieldWidth"] = fieldWidth;
+				}
+				var widget = new widgetType(options);
+				widget.placeAt(td1, "last");
+				widget.startup();
+				fields.push(widget);
+			}
+		};
+	});
+	
+</script>
+<title>Form widget layout@sizing Test</title>
+
+</head>
+
+<body class="oneui" style="height: 100%; width: 100%; margin: 0px; padding: 0px;">
+Widths: <select data-dojo-type="idx/form/Select" data-dojo-id="widthField" data-dojo-props="style: 'width: 300px;'">
+	<option value="100%:30%:70%" selected>Proportional Style, Label & Field</option>
+	<option value="100%:200px:400px">Proportional Style, Fixed Label & Field</option>
+	<option value="100%:200px:">Proportional Style, Fixed Label, No Field</option>
+	<option value="100%::">Proportional Style, No Label & Field</option>
+	<option value="600px:30%:70%">Fixed Style, Proportional Label & Field</option>
+	<option value="600px:200px:400px">Fixed Style, Label & Field</option>
+	<option value="600px::">Fixed Style, No Label & Field</option>
+	<option value=":30%:70%" selected>No Style, Proportional Label & Field</option>
+	<option value=":200px:400px">No Style, Fixed Label & Field</option>
+	<option value="::">No Style, Label or Field</option>
+<select>
+Label Align: <select data-dojo-type="idx/form/Select" data-dojo-id="labelAlignField" data-dojo-props="style: 'width: 150px;'">
+	<option value="vertical" selected>Vertical</option>
+	<option value="horizontal">Horizontal</option>
+<select>
+<div data-dojo-type="dijit/form/Button" data-dojo-props="label: 'Create Fields'">
+	<script type="dojo/aspect" data-dojo-advise="after" data-dojo-method="onClick">
+		createFields();
+	</script>
+</div>
+<br>
+<hr>
+<div data-dojo-type="idx/layout/ContentPane" 
+     data-dojo-props="style: 'padding: 0px; left: 0px; right: 0px; top: 100px; bottom: 0px; width: 100%;'">
+<table style="left: 0px; right: 0px; width: 99%;" id="mytable">
+</table>
+</div>
+</body>
+</html>

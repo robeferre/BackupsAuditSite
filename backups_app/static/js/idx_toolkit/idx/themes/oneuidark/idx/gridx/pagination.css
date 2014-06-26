@@ -1,0 +1,46 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* pagination bar */
+.oneui.dark .gridxPager {
+	background: transparent;
+}
+.oneui.dark .gridxPagerNodeFocus {
+	border-color:cyan;
+}
+
+.oneui.dark .gridxPagerDescription{
+	color: #777;
+}
+
+.oneui.dark .gridxPagerStepperBtn,	
+.oneui.dark .gridxPagerSizeSwitchBtn {
+	color: #00649d;
+}
+
+.oneui.dark .gridxPagerStepperBtn:focus,
+.oneui.dark .gridxPagerSizeSwitchBtn:focus {
+	outline-color: #1673a6;	
+}
+
+.oneui.dark .gridxPagerStepperBtnHover,
+.oneui.dark .gridxPagerSizeSwitchBtnHover {
+	color: #1673a6;	
+}
+
+.oneui.dark .gridxPagerStepperBtnActive,
+.oneui.dark .gridxPagerSizeSwitchBtnActive {
+	color: #eee;	
+}
+
+.oneui.dark .gridxPagerSizeSwitchSeparator {
+	color: #555;	
+}
+
+.oneui.dark .gridxPager .gridxPagerLabel {
+	color: #777;
+}

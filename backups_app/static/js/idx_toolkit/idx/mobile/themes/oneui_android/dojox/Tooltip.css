@@ -1,0 +1,12 @@
+/* delegate to oneui common theme */
+@import url(../../common/dojox/Tooltip.css);
+
+.oneui .mblTooltip .mblHeading .mblToolBarButtonBody {
+	border-color: #000000;
+	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.33);
+	box-shadow: inset 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.33);
+}
+
+.oneui .mblTooltip{
+	z-index: 99999;
+}

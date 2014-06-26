@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.widget.SloshBucket Test</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/gridx/resources/Gridx.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/gridx/resources/Gridx_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+		
+		.tooltipLabel {
+			font-weight: bold; 
+			margin-right: 5px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<!--here it is-->
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.widget.SloshBucket",
+			"dijit/layout/ContentPane",
+			"dijit/_base/manager",
+			"dojo/store/Memory",
+			"idx.tests._pagefooter._PageFooter"];
+		
+		var _PageFooter = null;
+		var SloshBucket = null;
+		var MemoryStore = null;
+		var manager = null;
+		
+		var availableStore, availableStructure, selectedStore, selectedStructure;
+		
+		function preParse(modules){
+			MemoryStore = modules["dojo/store/Memory"];
+			manager = modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit;
+			SloshBucket = modules["idx/widget/SloshBucket"];
+			_PageFooter = modules["idx/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+			
+			var availableArray = [{ id: 1, label: "Label 1"}, { id: 2, label: "Label 2"}, { id: 3, label: "Label 3"}, { id: 4, label: "Label 4"}, { id: 5, label: "Label 5"}, { id: 6, label: "Label 6"}];
+			availableStore = new MemoryStore({ data: availableArray });
+			availableStructure = [ { field: "label", name: "Available Data" } ];
+			
+			var selectedArray = [];
+			selectedStore = new MemoryStore({ data: selectedArray });
+			selectedStructure = [ { field: "label", name: "Selected Data", width: "100%" } ];
+		}
+		
+		function postParse(modules){
+			var div1 = manager.byId("sloshbucket1Div");
+			var sloshbucket1 = new SloshBucket();
+			div1.set("content", sloshbucket1);
+			sloshbucket1.startup();
+			
+			sloshbucket1.setAvailableGridData(availableStore, availableStructure);
+			sloshbucket1.setSelectedGridData(selectedStore, selectedStructure);
+			
+			// *****************************************************
+			
+			var div2 = manager.byId("sloshbucket2Div");
+			var sloshbucket2 = new SloshBucket({ canReoderFixedValues: false });
+			div2.set("content", sloshbucket2);
+			sloshbucket2.startup();
+			
+			var availableArray2 = [ { id: 1, label: "Label 1"}, { id: 2, label: "Label 2"}, { id: 3, label: "Label 3"}, { id: 4, label: "Label 4"}, { id: 5, label: "Label 5"}, { id: 6, label: "Label 6"}, { id: 7, label: "Label 7"}, { id: 8, label: "Label 8"}, { id: 9, label: "Label 9"}, { id: 10, label: "Label 10"}];
+			var availableStore2 = new MemoryStore({ data: availableArray2 });
+			var availableStructure2 = [ { field: "label", name: "Available Data" } ];
+			sloshbucket2.setAvailableGridData(availableStore2, availableStructure2);
+			
+			var selectedArray2 = [ { id: 1, label: "Label 1"}, { id: 2, label: "Label 2"}, { id: 3, label: "Label 3"} ];
+			var fixedValuesArray2 = [ 1 ];
+			var selectedStore2 = new MemoryStore({ data: selectedArray2 });
+			var selectedStructure2 = [ { field: "label", name: "Selected Data" } ];
+			sloshbucket2.setSelectedGridData(selectedStore2, selectedStructure2, fixedValuesArray2);
+			
+			// *****************************************************
+			
+			var div3 = manager.byId("sloshbucket3Div");
+			var sloshbucket3 = new SloshBucket({ canReorderSelectedGridData: false, availableLabel: 'Available food', selectedLabel: 'Shopping List' });
+			div3.set("content", sloshbucket3);
+			sloshbucket3.startup();
+			
+			sloshbucket3.getGridTooltipText = function _getGridTooltipText(grid, item) {
+				if (item) {
+					var toolTip = [];
+					toolTip.push("<div><span class='tooltipLabel'>Food:</span>");
+					toolTip.push("<span class='tooltipValue'>");
+					toolTip.push(item.label);
+					toolTip.push("</span></div>");
+
+					toolTip.push("<div><span class='tooltipLabel'>Type:</span>");
+					toolTip.push("<span class='tooltipValue'>");
+					toolTip.push(item.type);
+					toolTip.push("</span></div>");
+
+					toolTip.push("<div><span class='tooltipLabel'>Id:</span>");
+					toolTip.push("<span class='tooltipValue'>");
+					toolTip.push(item.id);
+					toolTip.push("</span></div>");
+					return toolTip.join("");
+				}
+				return "";
+			};
+			var availableArray3 = [ { id: 1, label: "Apple", type: "fruit"}, { id: 2, label: "Kale", type: "vegetable"}, { id: 3, label: "Orange", type: "fruit"}, { id: 4, label: "Peaches", type: "fruit"}, { id: 5, label: "Squash", type: "vegetable"}, { id: 6, label: "Milk", type: "dairy"}, { id: 7, label: "Eggs", type: "diary"}, { id: 8, label: "Steak", type: "meat"}, { id: 9, label: "Label 9", type: "meat"}, { id: 10, label: "Chicken", type: "meat"}];
+			var availableStore3 = new MemoryStore({ data: availableArray3 });
+			var availableStructure3 = [ { field: "label", name: "Food", width: "75%" }, { field: "type", name: "Type", width: "25%" } ];
+			sloshbucket3.setAvailableGridData(availableStore3, availableStructure3);
+			
+			var selectedArray3 = [ { id: 1, label: "Apple", type: "fruit"}, { id: 2, label: "Kale", type: "vegetable"} ];
+			var selectedStore3 = new MemoryStore({ data: selectedArray3 });
+			var selectedStructure3 = [ { field: "label", name: "Food", width: "75%" }, { field: "type", name: "Type", width: "25%" } ];
+			sloshbucket3.setSelectedGridData(selectedStore3, selectedStructure3);
+			
+			// *****************************************************
+			
+			var div4 = manager.byId("sloshbucket4Div");
+			var sloshbucket4 = new SloshBucket({ disabled: true });
+			div4.set("content", sloshbucket4);
+			sloshbucket4.startup();
+			
+			var availableArray4 = [ { id: 1, label: "Label 1", type: "fruit"}, { id: 2, label: "Label 2", type: "vegetable"}, { id: 3, label: "Label 3", type: "fruit"}, { id: 4, label: "Label 4", type: "fruit"}, { id: 5, label: "Label 5", type: "vegetable"}, { id: 6, label: "Label 6", type: "dairy"}, { id: 7, label: "Label 7", type: "diary"}, { id: 8, label: "Label 8", type: "meat"}, { id: 9, label: "Label 9", type: "meat"}, { id: 10, label: "Label 10", type: "meat"}];
+			var availableStore4 = new MemoryStore({ data: availableArray4 });
+			var availableStructure4 = [ { field: "label", name: "Available Data", width: "75%" }, { field: "type", name: "Type", width: "25%" } ];
+			sloshbucket4.setAvailableGridData(availableStore4, availableStructure4);
+			
+			var selectedArray4 = [ { id: 1, label: "Label 1", type: "fruit"}, { id: 2, label: "Label 2", type: "vegetable"} ];
+			var selectedStore4 = new MemoryStore({ data: selectedArray4 });
+			var selectedStructure4 = [ { field: "label", name: "Selected Data", width: "75%" }, { field: "type", name: "Type", width: "25%" } ];
+			sloshbucket4.setSelectedGridData(selectedStore4, selectedStructure4);
+			
+			// *****************************************************
+			
+			var div5 = manager.byId("sloshbucket5Div");
+			var sloshbucket5 = new SloshBucket({ hideAvailableOnAdd: false });
+			div5.set("content", sloshbucket5);
+			sloshbucket5.startup();
+			
+			var availableArray5 = [ { id: 1, label: "Label 1"}, { id: 2, label: "Label 2"}, { id: 3, label: "Label 3"}, { id: 4, label: "Label 4"}, { id: 5, label: "Label 5"}, { id: 6, label: "Label 6", type: "dairy"}, { id: 7, label: "Label 7", type: "diary"}, { id: 8, label: "Label 8", type: "meat"}, { id: 9, label: "Label 9", type: "meat"}, { id: 10, label: "Label 10", type: "meat"}];
+			var availableStore5 = new MemoryStore({ data: availableArray5 });
+			var availableStructure5 = [ { field: "label", name: "Available Data" } ];
+			sloshbucket5.setAvailableGridData(availableStore5, availableStructure5);
+			
+			var selectedArray5 = [ { id: 1, label: "Label 1", uniqueId: "1"}, { id: 3, label: "Label 3", uniqueId: "2"}, { id: 1, label: "Label 1", uniqueId: "3"}, { id: 2, label: "Label 2", uniqueId: "4"} ];
+			var selectedStore5 = new MemoryStore({ data: selectedArray5, idProperty: "uniqueId" });
+			var selectedStructure5 = [ { field: "label", name: "Selected Data" } ];
+			sloshbucket5.setSelectedGridData(selectedStore5, selectedStructure5);
+		}
+		
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.widget.SloshBucket Test</h1>
+		<h3>SloshBucket 1</h3>
+		<div>
+		Select items in the <b>Available Data</b> list and click the right arrow to move them into the <b>Selected Data</b> list, or double click an item in the <b>Available Data</b> list to move it to the <b>Selected Data</b> list.<br><br>
+		Select items in the <b>Selected Data</b> list and click the up or down arrow to move them up and down within the list.<br><br>
+		Select items in the <b>Selected Data</b> list and click the left arrow to move them into the <b>Available Data</b> list, or double click an item in the <b>Selected Data</b> list to move it to the <b>Available Data</b> list.
+		</div>
+		<div style="width: 100%; height: 150px" id="sloshbucket1Div" data-dojo-type="dijit/layout/ContentPane"></div>
+		<hr>
+			 
+		<h3>SloshBucket 2</h3>
+		<div>Label 1 is fixed in the <b>Selected Data</b> list.  It cannot be removed from the <b>Selected Data</b> list and cannot be moved up or down within the selected grid.  All other items can be moved.</div>
+		<div style="width: 100%; height: 150px" id="sloshbucket2Div" data-dojo-type="dijit/layout/ContentPane"></div>
+		<hr>	 
+			 
+		<h3>SloshBucket 3</h3>
+		<div>
+		Cannot move up or down the items in the <b>Selected Data</b> list.<br><br>
+		Display a tooltip when hover over a row.<br><br>
+		Display labels over top of the <b>Selected Data</b> and <b>Available Data</b> lists.
+		</div>
+		<div style="width: 100%; height: 150px" id="sloshbucket3Div" data-dojo-type="dijit/layout/ContentPane"></div>
+		<hr>	 
+			 
+		<h3>SloshBucket 4</h3>
+		<div>Disabled sloshbucket.</div>
+		<div style="width: 100%; height: 150px" id="sloshbucket4Div" data-dojo-type="dijit/layout/ContentPane"></div>	 
+			 
+		<h3>SloshBucket 5</h3>
+		<div><b>Available Data</b> rows can be added multiple times to <b>Selected Data</b>.<br><br>After the user adds a row from the <b>Available Data</b> to the <b>Selected Data</b>, the row remains in the <b>Available Data</b>. This allows the user to add <b>Available Data</b> rows multiple times to <b>Selected Data</b>.</div>
+		<div style="width: 100%; height: 150px" id="sloshbucket5Div" data-dojo-type="dijit/layout/ContentPane"></div>	 
+		
+		<h3>SloshBucket 6</h3>
+		<div>This is a declaratively created SloshBucket</div>
+		<div data-dojo-type="idx/widget/SloshBucket" data-dojo-props="
+			availableLabel: 'Available Items', 
+			selectedLabel: 'Selected Items',
+			availableGridData: {store: availableStore, layout: availableStructure},
+			selectedGridData: {store: selectedStore, layout: selectedStructure},
+			style: 'width: 100%; height: 180px'
+		"></div>
+		
+	</div>
+</body>
+</html>

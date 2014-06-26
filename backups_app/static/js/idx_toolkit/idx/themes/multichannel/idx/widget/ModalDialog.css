@@ -1,0 +1,12 @@
+
+.mobilePlatform .oneui .idxModalDialog, 
+.mobilePlatform .oneui .idxConfirmDialog{
+	background: #ffffff;
+	width: 262px !important;
+	min-width: 200px;
+}
+
+.mobilePlatform .oneui .compact .dijitTabContainer .dijitTabContainerTop-tabs{
+	padding-left: 0;
+}
+

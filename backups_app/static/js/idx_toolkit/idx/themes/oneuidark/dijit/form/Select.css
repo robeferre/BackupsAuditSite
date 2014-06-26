@@ -1,0 +1,166 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Select
+ * 
+ * Styling Select mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitSelect - for border, background-color
+ * 		.dijitButtonContents - for border
+ *
+ * 2. Arrow
+ * 		.dijitArrowButton - for border, padding and background-color|image
+ * 		.dijitArrowButtonInner - for border, background-color|image, display and width|height
+ * 
+ * 3. Menu
+ * 		.dijitSelectMenu .* - for border, padding
+ * 
+ * 4. Various states
+ * 		.dijitSelectHover|.dijitSelectFocused|.dijitSelectDisabled .* - for border, padding and background-color|image 
+ */
+/* normal status */
+.oneui.dark .dijitSelect {
+	border-color: #555;
+}
+
+.oneui.dark .dijitSelect .dijitButtonContents {
+	border-color: #555;
+	background:#303030;
+}
+
+.dj_ie6 .oneui.dark .dijitSelect,.dj_ie6 .oneui.dark .dijitSelect .dijitButtonNode {
+	background-image:none;
+}
+
+.oneui.dark .dijitSelect .dijitArrowButton {
+	border-color:#555;
+}
+
+.oneui.dark .dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+	background-image:url(images/comboButtonArrows.png);
+	background-repeat:no-repeat;
+	background-position:-149px 53%;
+}
+
+.dj_ie6 .oneui.dark .dijitSelect .dijitArrowButton .dijitArrowButtonInner {
+	background-image:url(images/comboButtonArrows8bit.png);
+}
+
+.oneui.dark .dijitSelect .dijitDownArrowButton {
+	background-image:none;
+	background-color:#444;
+	background-image:-moz-linear-gradient(top,#888,#444);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#888),to(#444));
+	background-image:-webkit-linear-gradient(top,#888 0%,#444 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#888 0%,#444 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#888 0%,#444 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#888 0%,#444 100%);
+/* W3C */
+}
+
+/* ArrowButtonHover*/
+.oneui.dark .dijitSelect .dijitDownArrowButtonHover .dijitArrowButtonInner,.oneui.dark .dijitSelect .dijitDownArrowButtonActive .dijitArrowButtonInner,.oneui.dark .dijitHasDropDownOpen .dijitSelect .dijitArrowButtonInner {
+	background-position:-49px 53%;
+}
+
+.oneui.dark .dijitSelect .dijitDownArrowButtonHover {
+	background-color:#888;
+	background-image:-moz-linear-gradient(top,#bbb,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#bbb),to(#333));
+	background-image:-webkit-linear-gradient(top,#bbb 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#bbb 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#bbb 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#bbb 0%,#333 100%);
+/* W3C */
+}
+
+/* ArrowButtonActive */
+.oneui.dark .dijitSelect .dijitDownArrowButtonActive,.oneui.dark .dijitHasDropDownOpen .dijitSelect .dijitDownArrowButton {
+	border-color:#555;
+	background-image:none;
+	background-color:#333;
+	background-image:-moz-linear-gradient(top,#333,#bbb);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#333),to(#bbb));
+	background-image:-webkit-linear-gradient(top,#333 0%,#bbb 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#333 0%,#bbb 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#333 0%,#bbb 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#333 0%,#bbb 100%);
+/* W3C */
+}
+
+/* hover status*/
+.oneui.dark .dijitSelectHover {
+	border-color: #555;
+}
+
+.oneui.dark .dijitSelectHover .dijitButtonContents {
+	border-color:#555;
+}
+
+/* disable status */
+.oneui.dark .dijitSelectDisabled {
+	border-color: #555;
+	background:#222;
+	background-image:none;
+	color:#777;
+}
+
+.oneui.dark .dijitSelectDisabled .dijitDownArrowButton,.oneui.dark .dijitSelectDisabled .dijitButtonContents {
+	background:#222;
+}
+
+.oneui.dark .dijitSelectDisabled .dijitButtonContents {
+	border-color:#555;
+}
+
+/* readonly status */
+.oneui.dark .dijitSelectReadOnly {
+	border-color: #555;
+}
+
+.oneui.dark .dijitSelectReadOnly .dijitButtonContents {
+	color:#777;
+	border-color: #555;
+}
+
+.oneui.dark .dijitSelectReadOnly .dijitArrowButtonInner,.oneui.dark .dijitSelectReadOnly .dijitDownArrowButtonActive .dijitArrowButtonInner,.oneui.dark .dijitSelectReadOnly .dijitDownArrowButtonHover .dijitArrowButtonInner {
+	background-position:-149px 53%;
+}
+
+.oneui.dark .dijitSelectReadOnly .dijitDownArrowButton {
+	background:#222;
+}
+
+/* Dropdown menu style for select */
+.oneui.dark .dijitMenuPopup .dijitSelectMenu {
+	border-color: #555;
+	-webkit-box-shadow:0 0 1px 1px rgba(234,234,234,0.15);
+	-moz-box-shadow:0 0 1px 1px rgba(234,234,234,0.15);
+	box-shadow:0 0 1px 1px rgba(234,234,234,0.15);
+}
+
+.oneui.dark .dijitMenuPopup .dijitSelectMenu .dijitMenuItemHover {
+	color:#eee;
+	background:#0a4e74;
+}
+
+.oneui.dark .dijitMenuPopup .dijitSelectMenu .dijitMenuItemSelected {
+	color:#eee;
+	background:#078dc1;
+}
+.oneui.dark .dijitSelectMenu .dijitMenuSeparatorTop {
+	border-bottom-color: #769dc0;
+}

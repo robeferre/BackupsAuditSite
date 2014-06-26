@@ -1,0 +1,40 @@
+<div id="widget_${id}" class="dijitReset dijitInline idxComposite">
+    <div class="idxLabel dijitInline dijitHidden" dojoAttachPoint="labelWrap">
+        <span class="idxRequiredIcon">*&nbsp</span>
+        <label id="${id}_label" dojoAttachPoint="compLabelNode">
+        </label>
+    </div>
+    <div class="dijitInline" style="position:relative" dojoAttachPoint="fieldWrap">
+        <table class="dijit dijitReset dijitInline dijitLeft" aria-multiselectable="true" dojoAttachPoint="_aroundNode,_buttonNode,tableNode,focusNode,stateNode,oneuiBaseNode,_popupStateNode" cellspacing='0' cellpadding='0' role="listbox" aria-haspopup="true">
+            <tbody role="presentation">
+                <tr role="presentation">
+                    <td class="dijitReset dijitStretch dijitButtonContents dijitButtonNode" role="presentation">
+                        <span class="dijitReset dijitInline dijitButtonText" dojoAttachPoint="containerNode"></span>
+                        <input type="hidden" ${!nameAttrSetting}  dojoAttachPoint="valueNode" value="${value}" aria-hidden="true" />
+                    </td>
+                    <td class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton" dojoAttachPoint="titleNode" role="presentation">
+                        <div class="dijitReset dijitArrowButtonInner" role="presentation">
+                        </div>
+                        <div class="dijitReset dijitArrowButtonChar" role="presentation">
+                            &#9660;
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class='dijitReset idxValidationContainer dijitInline'>
+            <div class="idxValidationIcon dijitInline">
+                <input class="dijitReset dijitInputField idxValidationInner" value="&#935;" type="text" tabIndex="-1" readonly="readonly" role="presentation" />
+            </div><span dojoattachpoint="validationMessage"></span>
+        </div>
+    </div>
+    <div id="${id}_overlay" class="idxMobileSelect" data-dojo-type="dojox.mobile.Overlay" dojoAttachPoint="selectOverlay">
+        <div dojoAttachPoint="placeHolderNode" style="height:0px;">
+        </div>
+        <h1 data-dojo-type="dojox.mobile.Heading" dojoAttachPoint="header"><span data-dojo-attach-point="closeButtonNode" class="mblSelectCloseButton" dojoAttachEvent="onClick:onCloseButtonClick" role="button" aria-label="Close"></span></h1>
+        <div data-dojo-type="dojox.mobile.ScrollableView" height="auto" dojoAttachPoint="scrollableView">
+            <ul dojoAttachPoint="roundRectList" data-dojo-type="dojox.mobile.EdgeToEdgeList" select="multiple" dojoAttachEvent="onCheckStateChanged:onCheckStateChanged">
+            </ul>
+        </div>
+    </div>
+</div>

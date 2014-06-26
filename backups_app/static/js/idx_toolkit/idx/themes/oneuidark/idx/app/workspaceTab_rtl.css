@@ -1,0 +1,38 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.dijitRtl .oneui.dark div.idxWorkspaceTabTitle {
+  border-left-color: transparent;
+  border-right-color: #003851;
+}
+
+.dijitRtl .oneui.dark div.idxWorkspaceTabTitlePostHovered {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.dijitRtl .oneui.dark div.idxWorkspaceTabTitlePostSelected {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.dijitRtl .oneui.dark div.idxWorkspaceTabTitleHovered {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.dijitRtl .oneui.dark div.idxWorkspaceTabTitleSelected {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.dijitRtl .oneui.dark div.idxWorkspaceTabTitleFirst {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+

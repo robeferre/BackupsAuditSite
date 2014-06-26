@@ -1,0 +1,43 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui .idxLabel .idxTextBoxHoverHelp{
+	background-image: url("../widget/images/hoverHelpQuestionMarkIcon.png");
+	width:16px;height:16px;
+	margin:0 0 1px 4px;
+	cursor: pointer;
+}
+
+.dijitRtl .oneui .idxLabel .idxTextBoxHoverHelp{
+	background-image: url("../widget/images/hoverHelpQuestionMarkIcon_rtl.png");
+}
+
+.dijitRtl .oneui.idx_i18n_il .idxLabel .idxTextBoxHoverHelp{
+	background-image: url("../widget/images/hoverHelpQuestionMarkIcon.png");
+}
+
+.dijitRtl .oneui .idxLabel .idxTextBoxHoverHelp{
+	margin:0 4px 1px 0;
+}
+.oneui .idxTextBoxHoverHelp .idxHelpIconAltText{
+	display: none;
+}
+.dijit_a11y .idxTextBoxHoverHelp .idxHelpIconAltText{
+	display: block;
+	margin: 0 0 0 4px;
+}
+.dijitRtl .dijit_a11y .idxTextBoxHoverHelp .idxHelpIconAltText{
+	margin: 0 4px 0 0;
+}
+/*
+ * Incompelete
+ */
+/*.oneui .idxTextBoxWrapIncompleteRequired .dijitTextBoxRequired {
+    border: 1px solid rgba(221, 115, 28, 0.75);
+	background: #ffffec;
+}
+*/

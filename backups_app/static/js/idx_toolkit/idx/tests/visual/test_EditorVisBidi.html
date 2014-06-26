@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Test idx.bidi.EditorVisBidi</title>
+<script type="text/javascript" src="../dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [ "idx.bidi.visual.EditorVisBidi",
+				"doh",
+				"doh.robot"]; 
+var editor, doh, robot;		
+
+function preParse(modules) {
+	console.log("Performing pre-parse");
+	editor = modules["idx/bidi/visual/EditorVisBidi"];
+	doh = modules["doh"];
+	robot = modules["doh.robot"];
+}
+function postParse(modules){
+				doh.register("Test visual EditorVisBidi", [ 
+				{
+						name:"Test ltr visual EditorVisBidi: base direction and format",
+						timeout:5000,
+
+						setUp: function(){
+							editor = dijit.registry.byId("bidiEditor");
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();		
+							editor.focus();
+							doh.robot.keyPress("",100,{alt:true,shift:true});
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("tcds",100,500);    //אבגד
+							doh.robot.keyPress("",100,{alt:true,shift:true});
+							doh.robot.sequence(d.getTestCallback(function(){
+								var node = editor.focusNode;
+								doh.is(dojo.style(node,"unicodeBidi"),"bidi-override", "Check visual format");
+								if (dojo.isFF)
+									doh.is(dojo.style(node,"textAlign"),"start", "Check base direction (alignment)");
+								else
+									doh.is(dojo.style(node,"textAlign"),"left", "Check base direction (alignment)");
+								doh.is(dojo.style(node,"direction"),"ltr", "Check direction of input(push is off)");
+							}), 900);							
+							return d;
+						},
+
+						tearDown: function(){
+							editor.set("value", "");
+						}
+						
+				},
+				{
+						name:"Test rtl visual EditorVisBidi: base direction and format",
+						timeout:5000,
+
+						setUp: function(){
+							editor = dijit.registry.byId("bidiEditorRtl");
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();	
+							editor.focus();
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("abcd",100,500);    
+							doh.robot.sequence(d.getTestCallback(function(){
+								var node = editor.focusNode;
+								doh.is(dojo.style(node,"unicodeBidi"),"bidi-override", "Check visual format");
+								if (dojo.isFF)
+									doh.is(dojo.style(node,"textAlign"),"start", "Check base direction (alignment)");
+								else
+									doh.is(dojo.style(node,"textAlign"),"right", "Check base direction (alignment)");
+								doh.is(dojo.style(node,"direction"),"rtl", "Check direction of input(push is off)");
+							}), 900);							
+							return d;
+						},
+
+						tearDown: function(){
+							editor.set("value","");
+						}
+						
+			},
+			{
+						name:"Test ltr visual EditorVisBidi: visual buffer",
+						timeout:8000,
+
+						setUp: function(){
+							editor = dijit.registry.byId("bidiEditor");					
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							editor.focus();
+
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("rtaui",100,500);    //ראשון
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							if (!dojo.isFF)
+								doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("second",100,500);    
+							
+							doh.robot.sequence(d.getTestCallback(function(){
+								var value = editor.get("value");
+								doh.is(value,"ראשוןsecond", "Check visual buffer without Unicode markers");								
+							}), 900);
+							
+							return d;
+						},
+
+						tearDown: function(){
+							editor.set("value","");
+						}
+			},
+			{
+						name:"Test rtl visual EditorVisBidi: visual buffer",
+						timeout:8000,
+
+						setUp: function(){
+							editor = dijit.registry.byId("bidiEditorRtl");					
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							editor.focus();
+
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("first",100,500);    
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							if (!dojo.isFF)
+								doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("abh",100,500);    //שני
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							
+							doh.robot.sequence(d.getTestCallback(function(){
+								var value = editor.get("value");
+								doh.is(value,"firstשני", "Check visual buffer without Unicode markers");								
+							}), 900);
+							
+							return d;
+						},
+
+						tearDown: function(){
+							editor.set("value","");
+						}
+			},
+			{
+						name:"Test ltr visual EditorVisBidi: visual buffer with spaces",
+						timeout:10000,
+
+						setUp: function(){
+							editor = dijit.registry.byId("bidiEditor");					
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							//Focus on the editor window
+							dojo.window.scrollIntoView(editor.domNode);
+							doh.robot.sequence(d.getTestErrback(function(){
+								editor.focus();
+							}), 500);
+
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							
+							doh.robot.typeKeys("first",100,500);
+							doh.robot.typeKeys(" ",100,100);    
+							doh.robot.typeKeys("second",100,300);    
+							
+							doh.robot.sequence(function(){
+								var value = editor.get("value");
+								doh.t(value.indexOf("first second") == 0,  "Check English visual buffer with spaces, value = " + value);
+								editor.set("value","");
+							}, 900);
+							
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("rtaui",100,500);    //ראשון
+							doh.robot.typeKeys(" ",100,100);    //space
+							doh.robot.typeKeys("abh",100,300);    //שני
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+						
+							doh.robot.sequence(d.getTestCallback(function(){
+								var value = editor.get("value");
+								doh.t(value.indexOf("ראשון שני") == 0, "Check Hebrew visual buffer with spaces, value = " + value);
+							}), 900);
+	
+							return d;
+						},
+
+						tearDown: function(){
+							editor.set("value","");
+						}
+			},
+			{
+						name:"Test rtl visual EditorVisBidi: visual buffer with spaces",
+						timeout:10000,
+
+						setUp: function(){
+							editor = dijit.registry.byId("bidiEditorRtl");					
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							//Focus on the editor window
+							dojo.window.scrollIntoView(editor.domNode);
+							doh.robot.sequence(d.getTestErrback(function(){
+								editor.focus();
+							}), 500);
+
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							
+							doh.robot.typeKeys("first",100,500);
+							doh.robot.typeKeys(" ",100,100);    
+							doh.robot.typeKeys("second",100,300);    
+							
+							doh.robot.sequence(function(){
+								var value = editor.get("value");
+								doh.t(value.indexOf("first second") == 0,  "Check English visual buffer with spaces, value = " + value);
+								editor.set("value","");
+							}, 900);
+							
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("rtaui",100,500);    //ראשון
+							doh.robot.typeKeys(" ",100,100);    //space
+							doh.robot.typeKeys("abh",100,300);    //שני
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							
+							doh.robot.sequence(d.getTestCallback(function(){
+								var value = editor.get("value");
+								doh.t(value.indexOf("ראשון שני") == 0, "Check Hebrew visual buffer with spaces, value = " + value);								
+							}), 900);
+							
+							return d;
+						},
+
+						tearDown: function(){
+							editor.set("value","");
+						}
+			}
+
+					
+				]);			
+
+				doh.run();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+</script>
+
+<script type="text/javascript" src="../../../idx/tests/commonTest.js"></script>
+</head>
+
+	<body class="claro">
+	<H1 align="center">EditorVisBidi in visual mode</H1>
+	<table align="center">
+	<tr><td><h2 align="center">LTR</h2></td><td><h2 align="center">RTL</h2></td></tr>
+	<tr><td>
+		<div id="bidiEditor" name="bidiEditor" data-dojo-type="idx.bidi.visual.EditorVisBidi" data-dojo-props="isVisualMode: true">
+		</div>
+	</td><td>
+		<div id="bidiEditorRtl" name="bidiEditorRtl" data-dojo-type="idx.bidi.visual.EditorVisBidi" data-dojo-props="isVisualMode: true, dir: 'rtl'">
+		</div>
+	</td></tr></table>
+	</body>
+</html>

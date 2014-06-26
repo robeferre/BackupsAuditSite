@@ -1,0 +1,68 @@
+
+.mobilePlatform .oneui .mblEdgeToEdgeList{
+	margin: 0;
+	padding: 0;
+}
+
+.mobilePlatform .oneui .idxMenu .mblListItem {
+}
+
+.mobilePlatform .oneui .idxMenu .mobileMenuSeparator{
+	background-color: gray;
+	height: 10px;
+}
+.mobilePlatform .oneui .idxMenu .mobileMenuHeading{
+	background-color: #fff;
+}
+
+.mobilePlatform .oneui .idxMenu .mblListItemDisabled {
+	background-color: lightgray;
+	color: #818181;
+}
+
+.mobilePlatform .oneui .mblViewPopup{
+    overflow: hidden !important;
+	background-color: white;
+    border: 3px solid gray;
+}
+.mobilePlatform .oneui .mblTooltip,
+.mobilePlatform .oneui .mblOpener{
+	overflow: hidden !important;
+}
+
+.mobilePlatform .oneui .mblViewPopup .mblHeading .menuMobileButtonClose,
+.mobilePlatform .oneui .mblTooltip .mblHeading .menuMobileButtonClose,
+.mobilePlatform .oneui .mblOpener .mblHeading .menuMobileButtonClose{
+	position:absolute;
+	top: 5px;
+	right: 5px;
+	cursor: pointer;
+}
+
+.mobilePlatform .oneui .mblViewPopup .mblScrollableView{
+	/*position: relative;*/
+}
+
+.mobilePlatform .oneui .mblOverlay .mblHeading .mblToolBarButton{
+	border: inherit;
+	border-bottom-color: inherit;
+	background-color: transparent;
+	background-image: none;
+	box-shadow: inherit;
+	color: inherit;
+	text-shadow: inherit;
+	font-weight: inherit;
+}
+
+
+
+
+/*************** Menu Bar ******************/
+.mobilePlatform .oneui .idxMenuBar .mblTabBarButton{
+	height: 100%;
+}
+
+.mobilePlatform .oneui .mblTabBarTabBar .mblTabBarButtonSelected{
+	border: medium none;
+}
+

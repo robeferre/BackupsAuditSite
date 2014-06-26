@@ -1,0 +1,49 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.GridLayout */
+
+/* Reset common styles. */
+.oneui .mblGridLayout {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblGridLayout {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.oneui .mblGridLayout > div {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  float: left;
+  min-height: 1px;
+}
+.oneui .mblGridItemFirstColumn {
+  clear: left;
+}
+.oneui .mblGridItemTerminator {
+  clear: both;
+}
+.oneui .mblGridItemLastItem:after {
+  content: "";
+  display: block;
+  clear: both;
+}

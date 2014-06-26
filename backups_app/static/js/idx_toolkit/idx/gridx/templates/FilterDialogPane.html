@@ -1,0 +1,15 @@
+<form action="./" onsubmit='return false;' data-dojo-attach-event='onsubmit: _onSubmit'
+	><label id="${id}_MatchOptionLabel" for="${id}_MatchOptionSelect">${module.nls.relationMsgFront}</label
+	><select data-dojo-type="idx/form/Select"
+		data-dojo-attach-point='_sltMatch'
+		id="${id}_MatchOptionSelect"
+		aria-labelledby="${id}_MatchOptionLabel"
+		><option value="all">${module.nls.relationAll}</option
+		><option value="any">${module.nls.relationAny}</option
+	></select
+	><div class="gridxFilterRulesLabel">${module.nls.rules}</div
+	><div class="gridxFilterRules"
+		data-dojo-attach-point='_ruleContainer'
+	></div
+	><input type="submit" value='' tabindex='-1' class="dijitOffScreen" role='presentation' data-dojo-attach-point='submitBtn'
+/></form>

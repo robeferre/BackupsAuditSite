@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>MultiSelect</title>
+	
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+	        @import "../../tests/test.css";
+	        
+	        #select, #select2 {
+				width:255px;
+				height:300px;
+				overflow:auto;
+			}
+			div#sel1, div#sel2 {
+				float: left;
+			}
+			div#leftRightButtons {
+				float: left;
+				padding: 10em 0.5em 0 0.5em;
+			}
+	    </style>
+		
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+	
+		<script type="text/javascript" id="postDojo">
+			/*
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"dijit/form/Form",
+				"dijit/form/MultiSelect",
+				"idx/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, Form, MultiSelect, _PageFooter){
+				ready(function(){
+					new _PageFooter();
+				});
+			});
+			*/
+			var modules = [
+				"dojo._base.json",
+				"dojo._base.array",
+				"dojo._base.lang",
+				"dojo._base.connect",
+				"dojo.query",
+				"dojo.dom",
+				"dojo.dom-class",
+				"dojo.dom-form",
+				"dojo.parser",
+				"dijit.dijit",
+				"dijit.focus",
+				"dijit.registry",
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"dijit.form.MultiSelect",
+				"idx.tests._pagefooter._PageFooter"
+			]; 
+			var json, array, lang, connect, query, dom, domClass, domForm, parser, dijit, focus, registry, 
+				Button, Form, MultiSelect, _PageFooter;
+			
+			function preParse(modules){
+				json 			= modules["dojo/_base/json"];
+				array 			= modules["dojo/_base/array"];
+				lang 			= modules["dojo/_base/lang"];
+				connect 		= modules["dojo/_base/connect"];
+				query 			= modules["dojo/query"];
+				dom 			= modules["dojo/dom"];
+				domClass 		= modules["dojo/dom-class"];
+				domForm 		= modules["dojo/dom-form"];
+				parser 			= modules["dojo/parser"];
+				dijit 			= modules["dijit/dijit"];
+				focus 			= modules["dijit/focus"];
+				registry 		= modules["dijit/registry"];
+				Button 			= modules["dijit/form/Button"];
+				Form  			= modules["dijit/form/Form"];
+				MultiSelect   	= modules["dijit/form/MultiSelect"];
+				_PageFooter   	= modules["idx/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				// ref a clonable node, then split it between two selects
+				var c = query(".clone")[0];
+				var l = -1;
+				opt = function(){
+					return dom.byId((++l % 2 == 0 ? "select" : "select2" ));
+				};
+				// based on the the 'dijit' object
+				var count=0;
+				var select1Values = "dojo._defaultEasing";
+				for(var i in dijit){
+					var n = opt().appendChild(lang.clone(c));
+					n.value = count++;
+					if(l % 2 == 0){
+						select1Values += "," + i;
+					}
+					n.innerHTML = i;
+				}
+	
+				// turn any non-data-dojo-type selects into widgets programatically:
+				query("select").forEach(function(n){
+					if(!registry.byNode(n)){
+						var foo = new MultiSelect({ name: n.name }, n).startup();
+					}
+				});
+	
+				// listen to the "move items" buttons
+				query("button.switch")
+					.on("click",function(e){
+						switch(e.target.id.toString()){
+							case "left" : registry.byId("select").addSelected(registry.byId("select2")); break;
+							case "right" : registry.byId("select2").addSelected(registry.byId("select")); break;
+						}
+				});
+	
+				// listen to the invert buttons
+				query("button.invert")
+					.on("click",function(e){
+						switch(e.target.id.toString()){
+							case "i1" : registry.byId("select").invertSelection(); break;
+							case "i2" : registry.byId("select2").invertSelection(); break;
+						}
+				});
+	
+				// there is only one debug button
+				query(".debug").on("click",function(e){
+					console.log('select value:',registry.byId("select").get('value') + '/' + registry.byId("select").value);
+					console.log('select2 value:',registry.byId("select2").get('value') + '/' + registry.byId("select2").value);
+				});
+	
+				query("#formSubmit").on("click", function(e){
+					// see what the real form says about our widgets:
+					var vals = domForm.toJson("test");
+					console.log(vals);
+				});
+				
+				query("#set1").on("click", function(e){
+					registry.byId('select3').set('value', ['VA', 'WA']);
+				});
+				
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			
+			<h1 class="testTitle">IDX MultiSelect #1:</h1>
+			<p>Select one or more items in First or Second list and move them between lists using the buttons provided.</p>
+			<form action="#" method="get" id="test" onsubmit="return false">
+				<div>
+					<div id="sel1" role="presentation">
+						<label for="select">First list:</label><br>
+						<select id="select" multiple size="7" name="easing" tabindex="1">
+							<option class="clone" value="dojo._defaultEasing">dojo._defaultEasing</option>
+						</select>
+					</div>
+					<div id="leftRightButtons" role="presentation">
+						<span>
+							<button class="switch" id="left" title="Move Items to First list">&lt;</button>
+							<button class="switch" id="right" title="Move Items to Second list">&gt;</button>
+						</span>
+					</div>
+					<div id="sel2" role="presentation">
+						<label for="select2">Second list:</label><br>
+						<select id="select2" multiple size="7" name="second">
+						</select>
+					</div>
+				</div>
+	
+				<br style="clear: both;"/><br>
+	
+				<button class='invert' id="i1">invert first list</button>
+				<button class="invert" id="i2">invert second list</button>
+				<button id="formSubmit" type="submit">Submit</button>
+	
+				<button class="debug">call get('value')</button>
+			</form>
+			
+			<br/>
+			
+			<h1 class="testTitle">IDX MultiSelect #2:</h1>
+			<br/>
+			<div id="sel101" role="presentation">
+				<button class='set' id="set1">set markup list to [VA, WA]</button>
+			</div>
+			<br/>
+			<div id="sel100" role="presentation">
+				<select id="select3" multiple data-dojo-type="dijit.form.MultiSelect"
+					data-dojo-props='name:"select3", baseClass: "dijitMultiSelect",
+					style:{height:"200px", width:"175px"}'>
+		
+					<option value="TN" selected>Tennessee</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="FL">Florida</option>
+					<option value="CA">California</option>
+				</select>
+			</div>
+		</div>
+	</body>
+</html>

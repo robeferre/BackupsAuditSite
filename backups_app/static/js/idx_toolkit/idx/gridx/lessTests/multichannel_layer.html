@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx Multi-Channel Test</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneuiLess/theme.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		html {
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			background: none;
+			height: 100%;
+		}
+		.gridx {
+			width: 100%;
+			height: 100%;
+		}
+		.mobileNameDiv {
+			font-weight: bolder;
+			text-align: center;
+			width: 100%;
+			color: darkblue;
+		}
+
+		@media screen and (max-device-width: 500px) {
+			.gridx .gridxRow .gridxCell {
+				vertical-align: middle !important;
+			}
+		}
+
+		.hasChildren {
+			width: 12px;
+			height: 12px;
+			background: url('../themes/oneui/idx/gridx/images/arrow_lt.png');
+		}
+		.levelUp {
+			width: 12px;
+			height: 12px;
+			background: url('../themes/oneui/idx/gridx/images/arrow_rt.png');
+		}
+	</style>
+	<script type="text/javascript">
+		require([
+			'dojo/parser',
+			'idx/gridx/tests/multichannel_layer',
+			'dojo/domReady!'
+		], function(parser, multichannel){
+
+			store = multichannel.store;
+			layout = multichannel.layout;
+			mods = multichannel.mods;
+			structureSwitchConfig = multichannel.structureSwitchConfig;
+			structureSwitchCondition = multichannel.structureSwitchCondition;
+
+			parser.parse().then(function(){
+				multichannel.onParse(grid);
+			});
+		});
+	</script>
+</head>
+<body class='oneui'>
+	<div id="grid" data-dojo-id="grid" data-dojo-type="gridx/Grid" data-dojo-props="
+		'class': 'gridxWholeRow',
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		paginationBarGotoButton: true,
+		pageSize: 30,
+		bodyPageSize: 'auto',
+		bodyQuickRefresh: true,
+		structureSwitchCondition: structureSwitchCondition,
+		structureSwitchConfig: structureSwitchConfig,
+		structureSwitchDefault: 'desktop',
+		focusEnabled: false,
+		vScrollerTouch: true,
+		modules: mods
+	"></div>
+	<!--
+			'gridx/modules/AutoPagedBody',
+			'gridx/modules/MultiChannelScroller',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/IndirectSelectColumn',
+			'gridx/modules/AutoPagedBody',
+			'gridx/modules/TouchVScroller',
+		structureSwitchPortrait: portrait,
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/Filter',
+			'idx/gridx/modules/filter/QuickFilter',
+			'gridx/modules/Pagination',
+			'idx/gridx/modules/pagination/PaginationBar',
+	-->
+</body>
+</html>

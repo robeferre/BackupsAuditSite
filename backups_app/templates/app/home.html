@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+	<script type="text/javascript">
+	  	
+   		var treeModel;
+   		require(["dojo/ready",
+			"idx/app/Header", "idx/widget/Menu", "dijit/MenuItem",  
+			"idx/widget/MenuBar", "dijit/MenuBarItem", "dijit/PopupMenuBarItem", 
+			"dijit/layout/StackContainer", "dijit/layout/ContentPane",  
+			"dijit/layout/BorderContainer", "idx/layout/HeaderPane", 
+			"dijit/layout/AccordionContainer","dijit/Tree","dijit/layout/TabContainer", 
+			"dojo/data/ItemFileWriteStore",   "dijit/tree/TreeStoreModel","idx/layout/ListNavController"],  
+ 		function(ready, Header, Menu, MenuItem, MenuBar, MenuBarItem, PopupMenuBarItem,StackContainer, ContentPane){ 
+    	var treeData = { 
+       "identifier": "id", 
+   	   "label": "name", 
+   	   "items": [ 
+  	    { "id": "0", "name":"Root", "numberOfItems":1, "children":[ {"_reference": "1"},  {"_reference": "2"},  {"_reference": "3"} ] }, 
+		{ "id": "1", "name":"Item 1", "numberOfItems":0}, 
+  		{ "id": "2", "name":"Item 2", "numberOfItems":0}, 
+  		{ "id": "3", "name":"Item 3", "numberOfItems":0} 
+	   ] 
+	   }; 
+
+		treeStore = new dojo.data.ItemFileWriteStore({ 
+		   data: treeData 
+		}); 
+
+		treeModel = new dijit.tree.TreeStoreModel({ 
+		    store: treeStore, 
+	   		query: {id: "0"} 
+			}); 
+		    ready(function(){ 
+		    }); 
+		}); 
+	
+	</script> 
+
+
+{% endblock %}
+
+{% block body %}
+	<div id="t2_help" data-dojo-type="idx.widget.Menu" style="display:none;"> 
+         <div data-dojo-type="dijit.MenuItem">Help</div> 
+         <div data-dojo-type="dijit.MenuItem">About</div> 
+    </div> 
+    
+    <div id="t2_action" data-dojo-type="idx.widget.Menu" style="display:none"> 
+         <div data-dojo-type="dijit.MenuItem">Change Password</div> 
+         <div data-dojo-type="dijit.MenuItem">Log out</div> 
+    </div> 
+
+    <div data-dojo-type="idx.app.Header" data-dojo-props=" 
+         primaryTitle: 'TSM Management System', 
+         help: 't2_help', 
+         user: { 
+            displayName: 'Roberto Ferreira Junior', 
+            actions: 't2_action' 
+         }, 
+         primaryBannerType: 'thin', 
+         contentContainer: 't2_contentContainer', 
+         secondaryBannerType: 'lightGray', 
+         id: 't2_header' 
+      "> 
+      </div> 
+
+    <div data-dojo-type="dijit.layout.StackContainer" data-dojo-props=" 
+         id: 't2_contentContainer',  
+         style:'width:100%;height:79%;',  
+         doLayout: true"> 
+         <div style= ' margin: auto;' data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Tab 1'"> 
+         <div data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="gutters:false"> 
+                 <div data-dojo-type="dijit.layout.AccordionContainer"  aria-label="leading content" data-dojo-props=' 
+                  style:"width: 20%;", 
+                  autoHeight: true, 
+                  splitter:false,region:"leading"'> 
+                  <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title:"Pane 1"'> 
+                     Pane 1 
+                  </div> 
+                  <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title:"Pane 2"'> 
+                     Pane 2 
+                  </div> 
+                  <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props='title:"Pane 3"'> 
+                     Pane 3 
+                  </div> 
+               </div> 
+               <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props=' 
+                  style:"width:auto;", 
+                  region: "center"'> 
+                  Center column 
+               </div> 
+               <div data-dojo-type="dijit.layout.ContentPane" data-dojo-props=' 
+                  splitter:false,style: "width:15%;", 
+                  region: "trailing" 
+               '> 
+                  <div data-dojo-type="dijit.Tree" aria-label="trailing tree navigation" data-dojo-props=' 
+                     model:treeModel,  
+                     autoExpand:true, 
+                     openOnClick:true 
+                  '> 
+                  </div> 
+               </div> 
+               </div> 
+         </div> 
+            <div style= ' margin: auto;' data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Tab 2'"> 
+               Empty Content... 
+            </div> 
+            <div style= ' margin: auto;' data-dojo-type="dijit.layout.ContentPane" data-dojo-props="title: 'Tab 3'"> 
+               Empty Content... 
+            </div> 
+
+         </div> 
+{% endblock %}

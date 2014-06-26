@@ -1,0 +1,18 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Accordion */
+
+.oneui .mblAccordionTitle {
+	background-image: url(compat/accordion-title-bg.png);
+	background-image: -moz-linear-gradient(top, #fff, #ededed);
+	background-image: linear-gradient(to bottom, #fff, #ededed);
+}
+
+.oneui .mblAccordionTitleSelected {
+	background:#f8f8f8;
+}

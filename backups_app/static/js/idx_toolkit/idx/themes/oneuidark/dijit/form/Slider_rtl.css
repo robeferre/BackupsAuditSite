@@ -1,0 +1,63 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .dijitSliderRtl .dijitSliderProgressBarH,.oneui.dark .dijitSliderRtl .dijitSliderRemainingBarH,.oneui.dark .dijitSliderRtl .dijitSliderLeftBumper,.oneui.dark .dijitSliderRtl .dijitSliderRightBumper,.oneui.dark .dijitSliderRtl .dijitSliderTopBumper {
+	background-position:top right;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderProgressBarV,.oneui.dark .dijitSliderRtl .dijitSliderRemainingBarV,.oneui.dark .dijitSliderRtl .dijitSliderBottomBumper {
+	background-position:bottom right;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderLeftBumper {
+	border-right-color:#7f7f7f;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderRightBumper {
+	border-left-color:#7f7f7f;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderDecrementIconH {
+/*background-position: -251px 50%;*/
+	background-position:-15px 0;
+}
+
+.oneui.dark .dijitSliderRtlHover .dijitSliderDecrementIconH {
+	background-position:-45px 0;
+}
+
+.oneui.dark .dijitSliderRtlActive .dijitSliderDecrementIconH {
+	background-position:-75px 0;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderButtonContainerH .dijitSliderDecrementButtonHover {
+	background-position:-45px 0;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderButtonContainerH .dijitSliderDecrementButtonActive {
+	background-position:-75px 0;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderIncrementIconH {
+/*background-position: -357px 50%;*/
+	background-position:0 0;
+}
+
+.oneui.dark .dijitSliderRtlHover .dijitSliderIncrementIconH {
+	background-position:-30px 0;
+}
+
+.oneui.dark .dijitSliderRtlActive .dijitSliderIncrementIconH {
+	background-position:-60px 0;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderButtonContainerH .dijitSliderIncrementButtonHover {
+	background-position:-30px 0;
+}
+
+.oneui.dark .dijitSliderRtl .dijitSliderButtonContainerH .dijitSliderIncrementButtonActive {
+	background-position:-60px 0;
+}

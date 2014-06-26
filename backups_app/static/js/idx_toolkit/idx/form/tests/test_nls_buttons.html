@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/buttons</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require(["dijit/form/Button", "idx/form/buttons"]);
+</script>
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">form/nls/buttons</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>closeLabel</td><td>
+		Verify that the "Close" button is translated.
+	</td></tr>
+	<tr><td>configureLabel</td><td>
+		Verify that the "Configure" button is translated.
+	</td></tr>
+	<tr><td>editLabel</td><td>
+		Verify that the "Edit" button is translated.
+	</td></tr>
+	<tr><td>filterLabel</td><td>
+		Verify that the "Filter" button is translated.
+	</td></tr>
+	<tr><td>clearFilterLabel</td><td>
+		Verify that the "Clear" button is translated.
+	</td></tr>
+	<tr><td>helpLabel</td><td>
+		Verify that the "Help" button is translated.
+	</td></tr>
+	<tr><td>infoLabel</td><td>
+		Verify that the "Info" button is translated.
+	</td></tr>
+	<tr><td>minimizeLabel</td><td>
+		Verify that the "Minimize" button is translated.
+	</td></tr>
+	<tr><td>maximizeLabel</td><td>
+		Verify that the "Maximize" button is translated.
+	</td></tr>
+	<tr><td>printLabel</td><td>
+		Verify that the "Print" button is translated.
+	</td></tr>
+	<tr><td>refreshLabel</td><td>
+		Verify that the "Refresh" button is translated.
+	</td></tr>
+	<tr><td>restoreLabel</td><td>
+		Verify that the "Restore" button is translated.
+	</td></tr>
+	<tr><td>nextPageLabel</td><td>
+		Verify that the "Next" button is translated.
+	</td></tr>
+	<tr><td>previousPageLabel</td><td>
+		Verify that the "Previous" button is translated.
+	</td></tr>
+	<tr><td>lastPageLabel</td><td>
+		Verify that the "Last" button is translated.
+	</td></tr>
+	<tr><td>firstPageLabel</td><td>
+		Verify that the "First" button is translated.
+	</td></tr>
+	<tr><td>closeTip</td><td>
+		Place the mouse pointer on the "Close" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>configureTip</td><td>
+		Place the mouse pointer on the "Configure" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>editTip</td><td>
+		Place the mouse pointer on the "Edit" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>filterTip</td><td>
+		Place the mouse pointer on the "Filter" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>clearFilterTip</td><td>
+		Place the mouse pointer on the "Clear" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>helpTip</td><td>
+		Place the mouse pointer on the "Help" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>infoTip</td><td>
+		Place the mouse pointer on the "Info" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>minimizeTip</td><td>
+		Place the mouse pointer on the "Minimize" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>maximizeTip</td><td>
+		Place the mouse pointer on the "Maximize" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>printTip</td><td>
+		Place the mouse pointer on the "Print" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>refreshTip</td><td>
+		Place the mouse pointer on the "Refresh" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>restoreTip</td><td>
+		Place the mouse pointer on the "Restore" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>nextPageTip</td><td>
+		Place the mouse pointer on the "Next" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>previousPageTip</td><td>
+		Place the mouse pointer on the "Previous" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>lastPageTip</td><td>
+		Place the mouse pointer on the "Last" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>firstPageTip</td><td>
+		Place the mouse pointer on the "First" button to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'close'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'configure'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'edit'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'filter'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'clearFilter'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'help'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'info'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'minimize'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'maximize'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'print'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'refresh'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'restore'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'nextPage'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'previousPage'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'lastPage'"></button>
+	<button data-dojo-type="dijit.form.Button" data-dojo-props="buttonType: 'firstPage'"></button>
+</div>
+</body>
+</html>

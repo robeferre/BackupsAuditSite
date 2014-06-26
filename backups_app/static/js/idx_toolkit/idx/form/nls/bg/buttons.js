@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Затваряне",
+	configureLabel: "Конфигуриране",
+	editLabel: "Редактиране",
+	filterLabel: "Филтриране",
+	clearFilterLabel: "Изчистване",
+	helpLabel: "Помощ",
+	infoLabel: "Информация",
+	minimizeLabel: "Минимизиране",
+	maximizeLabel: "Максимизиране",
+	printLabel: "Отпечатване",
+	refreshLabel: "Опресняване",
+	restoreLabel: "Възстановяване",
+	nextPageLabel: "Следващ",
+	previousPageLabel: "Предишен",
+	lastPageLabel: "Последен",
+	firstPageLabel: "Първи",
+	closeTip: "Затваряне",
+	configureTip: "Конфигуриране",
+	editTip: "Редактиране",
+	filterTip: "Филтриране",
+	clearFilterTip: "Изчистване на филтър",
+	helpTip: "Получаване на помощ",
+	infoTip: "Получаване на информация",
+	minimizeTip: "Минимизиране",
+	maximizeTip: "Максимизиране",
+	printTip: "Отпечатване",
+	refreshTip: "Опресняване",
+	restoreTip: "Възстановяване",
+	nextPageTip: "Следваща страница",
+	previousPageTip: "Предишна страница",
+	lastPageTip: "Последна страница",
+	firstPageTip: "Първа страница"
+//end v1.x content
+});
+

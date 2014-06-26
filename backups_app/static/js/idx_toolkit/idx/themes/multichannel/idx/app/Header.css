@@ -1,0 +1,70 @@
+
+/** MOBILE **/
+.oneui .idxHeaderMobile.mblOverlay {
+	width: 80%;
+	max-width: 80%;
+}
+
+.oneui .dijitStackContainer.idxHeaderAnimated {
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	perspective: 800px;	
+	
+	-webkit-perspective-origin: 100% 50%;
+	-moz-perspective:  100% 50%;
+	-ms-perspective:  100% 50%;
+	perspective:  100% 50%;
+}
+
+.oneui .dijitStackContainer.idxHeaderAnimated .idxHeaderAnimated {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform .75s linear;
+	-moz-transition: -moz-transform .75s linear;
+	-ms-transition: -ms-transform .75s linear;
+	transition: transform .75s linear;
+}
+
+.oneui .dijitStackContainer.idxHeaderAnimated .idxHeaderAnimated.idxHeaderFlipOut {
+	-webkit-transform: translateX(-110%) rotateY(180deg);
+	-moz-transform: translateX(-110%) rotateY(180deg);
+	-ms-transform: translateX(-110%) rotateY(180deg);
+	transform: translateX(-110%) rotateY(180deg);
+}
+
+.oneui .dijitStackContainer.idxHeaderAnimated .idxHeaderAnimated.idxHeaderPendingFlipIn {
+	-webkit-transform: translateX(110%) rotateY(-180deg);
+	-moz-transform: translateX(110%) rotateY(-180deg);
+	-ms-transform: translateX(110%) rotateY(-180deg);
+	transform: translateX(110%) rotateY(-180deg);
+}
+
+.oneui .dijitStackContainer.idxHeaderAnimated .idxHeaderAnimated.idxHeaderFlipIn {
+	-webkit-transform: translateX(0) rotateY(0);
+	-moz-transform: translateX(0) rotateY(0);
+	-ms-transform: translateX(0) rotateY(0);
+	transform: translateX(0) rotateY(0);
+}
+
+.oneui .idxHeaderOverlay .mblSearchBox {
+	width: 98%;
+}
+
+.oneui .idxHeaderOverlay .mblListItem.dijitDisabled .mblListItemLabel {
+	color: #777777;
+}
+
+.oneui .mblOverlay.idxHeaderOverlay {
+	background-color: #373737;
+}
+
+.oneui .mblOverlay.idxHeaderOverlay .mblRoundRectCategory {
+	color: #ffffff;
+}

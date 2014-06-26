@@ -1,0 +1,118 @@
+<script type="text/javascript">
+  _container_.require("dijit.layout.ContentPane");
+  _container_.require("dojo/_base/xhr");
+  _container_.require("dojo/_base/config");
+  _container_.require("dojo/dom-construct");
+  _container_.require("dojo/query");
+  
+  var welcomeXHRGet = null;
+  var dojoConfigModule = null;
+  var getVersionBaseURL = null;
+  var domConstruct = null;
+  var query = null;
+  
+  var version = {
+  	type : "GA",
+	number: "1.4.0.0"
+  };
+  _container_.registerPreParse(function(modules) {
+	welcomeXHRGet = modules["dojo/_base/xhr"] ? modules["dojo/_base/xhr"].get : dojo.xhrGet;
+	dojoConfigModule = modules["dojo/_base/config"] ? modules["dojo/_base/config"] : dojo.config;
+	getVersionBaseURL = (window["require"]) ? require.toUrl : dojo.moduleUrl;
+	domConstruct = modules["dojo/dom-construct"];
+	query = modules["dojo/query"];
+	query(".versionnum").forEach(function(node){
+		node.innerText =  version.number; 
+	});
+	query(".versiontype").forEach(function(node){
+		node.innerText =  version.type;
+	});
+  });
+</script>
+
+<h2>IBM Extensions Toolkit for Dojo v<span class="versionnum">1.3.0.3</span> (<span class="versiontype">GA</span> Release)</h2>
+<h3>Build: <div data-dojo-type="dijit.layout.ContentPane" style="display: inline;">
+<script type="dojo/connect" event="startup">
+	if (this._versionLoaded) return;
+	this._versionLoaded = true;
+	var contentPane = this;
+	var baseURL = "" + getVersionBaseURL("idx");
+	if (baseURL.charAt(baseURL.length-1) != "/" ) baseURL = baseURL + "/";
+	var versionURL = baseURL + "../version.txt";
+	welcomeXHRGet({url: versionURL,
+			 handleAs: "text",
+			 preventCache: true,
+			 sync: true,
+			 error: function() {
+				var textNode = document.createTextNode("** Missing version.txt -- Build unknown.**");
+				var containerNode = contentPane.containerNode;
+				domConstruct.place(textNode, containerNode, "only");
+
+			 },
+			 load: function(versionText) {
+				var textNode = document.createTextNode(versionText);
+				var containerNode = contentPane.containerNode;
+				domConstruct.place(textNode, containerNode, "only");
+			 }});
+</script>
+</div></h3>
+
+<p>Welcome! This example application contains widgets and other
+	components included in the IBM Extensions Toolkit for Dojo
+	V<span class="versionnum">1.3.0.3</span> (<span class="versiontype">GA</span> Release).&nbsp;</p>
+<p>The&nbsp;IBM Extensions Toolkit for Dojo
+	provides&nbsp;IBM development teams with a faster path to development
+	of Dojo applications aligned with the IBM design standards.
+</p>
+<p>
+All widgets are available in this gallery, but they are today hosted in 
+separate galleries. We will introduce more seamless integration in coming releases. 
+Use the drop-down in the banner to choose the heritage for the widget set.
+</p>
+<p></p>
+<h3>Helpful Links</h3>
+<ul>
+	<li><a target="_blank"
+		href="https://csnext.ibm.com/ram/search/_rlvid.jsp.faces?_rap=_rlnn&_rvip=/search/index.jsp&n=1fGroup%2Cibm_one_ui_dojo_extensions_idx_toolkit%24fState%2Capproved&s=[_version_&d=desc&sart=false&sshdw=false&forum=false">
+		Download IDX version <span class="versionnum">1.3.0.3</span> <span class="versiontype">GA</span> Release
+		</a>
+		&nbsp;(requires login
+		to RAM via login link in top right corner of the screen) download via
+		the yellow button "Download this Asset" in the upper left corner		
+	</li>
+	<li><a target="_blank"
+		href="http://dleadp.torolab.ibm.com/uxd/uxd_oneui.jsp?site=ibmoneui&top=x1&left=y104&vsub=*&hsub=*&options=F&openpanes=0110000000">
+		Complete list of IDX content
+		</a>
+	</li>
+	<li><a target="_blank"
+		href="http://w3.ibm.com/connections/communities/service/forum/topicThread?topicUuid=7f1d0439-77b4-47e8-83c3-099d9e563841&amp;communityUuid=5e4ef040-9433-4f94-84e1-970d145378c1">
+		FAQ page
+		</a>
+	</li>
+	<li><a target="_blank"
+		href="https://csnext.ibm.com/TrioWeb/viewProjectDetails.do?projectID=23052">
+		Join our Community Source Next project
+		</a>
+		&nbsp;(to gain access to our RTC project area).
+	</li>
+	
+	<li>Please report bugs and feature requests in RTC. Go to the <a href="https://csnext.ibm.com:8002/jazz/web/projects/IBM%20Dojo%20Toolkit%20Public" target="_blank">IBM Dojo Toolkit Public project area</a>:  
+	<br /><br />
+	<b>To open a bug report</b> against the IBM One UI Toolkit:
+	<ul><li>Create a new work item.</li>
+		<li>Select "Bug Report" as the type.</li>
+		<li>Select "IDX <span class="versionnum">1.3.0.3</span> - IBM One UI Dojo Extensions Toolkit" in the "Found in" field.</li>
+		<li>Select "IDX" in the "Filed Against" field.</li>
+		<li>Fill in as much information as you can to assist the team in diagnosis of the issue. Please leave the "Owned By" field empty.</li>
+		</ul>
+		</li>
+	
+<!--		
+	<li><a target="_blank"
+		href="http://w3.ibm.com/connections/wikis/home?lang=en#/wiki/W3eec627be8de_4768_bb60_f063cb204266/page/IDX%20Adoption%20-%20Current%20and%20Planned">
+		View a list of other teams adopting IDX
+		</a>
+	</li>
+-->			
+</ul>

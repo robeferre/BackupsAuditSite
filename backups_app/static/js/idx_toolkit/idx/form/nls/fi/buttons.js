@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Sulje",
+	configureLabel: "Määritä kokoonpano",
+	editLabel: "Muokkaa",
+	filterLabel: "Suodatin",
+	clearFilterLabel: "Tyhjennä",
+	helpLabel: "Ohje",
+	infoLabel: "Tiedot",
+	minimizeLabel: "Pienennä",
+	maximizeLabel: "Suurenna",
+	printLabel: "Tulosta",
+	refreshLabel: "Päivitä",
+	restoreLabel: "Palauta",
+	nextPageLabel: "Seuraava",
+	previousPageLabel: "Edellinen",
+	lastPageLabel: "Viimeinen",
+	firstPageLabel: "Ensimmäinen",
+	closeTip: "Sulje",
+	configureTip: "Määritä kokoonpano",
+	editTip: "Muokkaa",
+	filterTip: "Suodatin",
+	clearFilterTip: "Tyhjennä suodatin",
+	helpTip: "Hae ohjeet",
+	infoTip: "Hae tietoja",
+	minimizeTip: "Pienennä",
+	maximizeTip: "Suurenna",
+	printTip: "Tulosta",
+	refreshTip: "Päivitä",
+	restoreTip: "Palauta",
+	nextPageTip: "Seuraava sivu",
+	previousPageTip: "Edellinen sivu",
+	lastPageTip: "Viimeinen sivu",
+	firstPageTip: "Ensimmäinen sivu"
+//end v1.x content
+});
+

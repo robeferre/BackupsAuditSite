@@ -1,0 +1,32 @@
+{
+	identifier: "id",
+	items: [
+		{id:"welcome", name:"welcome", title:"Welcome", icon:"resources/images/blank.png", containerClass:"welcomeContainer", iconClass:"welcomeIcon", descClass:"welcomeDesc", type:"nav"},
+		{id:"analyze", name:"analyze", title:"Analyze", icon:"resources/images/blank.png", containerClass:"analyzeContainer", iconClass:"analyzeIcon", descClass:"analyzeDesc", type:"nav"},
+		{id:"expander", name:"expander", title:"Expander", icon:"resources/images/blank.png", iconClass:"expanderIcon", type:"nav", 
+			children: [
+				{id: "heading_one", name:"heading_one", title:"Heading One", type:"separator"},
+				{id: "heading_one_item_1", name:"heading_one_item_1", title:"Heading One Item 1", type:"nav"},
+				{id: "heading_one_item_2", name:"heading_one_item_2", title:"Heading One Item 2", type:"nav"},
+				{id: "heading_one_item_3", name:"heading_one_item_3", title:"Heading One Item 3", type:"nav"},
+				
+				{id: "heading_two", name:"heading_two", title:"Heading Two", type:"nav", handleNav: false,
+					expandRef:["heading_two_item_1", "heading_two_item_2", "heading_two_item_3"]},
+				{id: "heading_two_item_1", name:"heading_two_item_1", title:"Heading Two Item 1", type:"nav"},
+				{id: "heading_two_item_2", name:"heading_two_item_2", title:"Heading Two Item 2", type:"nav"},
+				{id: "heading_two_item_3", name:"heading_two_item_3", title:"Heading Two Item 3", type:"nav"},
+				
+				{id: "advanced", name:"advanced", title:"Advanced", type:"nav", handleNav: false,
+					expandRef:["advanced_item_1", "advanced_item_2", "advanced_item_3"]},
+				{id: "advanced_item_1", name:"advanced_item_1", title:"Advanced Item 1", type:"nav"},
+				{id: "advanced_item_2", name:"advanced_item_2", title:"Advanced Item 2", type:"nav"},
+				{id: "advanced_item_3", name:"advanced_item_3", title:"Advanced Item 3", type:"nav"}
+			]},
+		{id:"settings", name:"settings", title:"Settings", icon:"resources/images/blank.png", iconClass:"settingsIcon", type:"settings"},
+		{id:"help", name:"help", title:"Help", icon:"resources/images/blank.png", iconClass:"helpIcon", type:"settings",
+			children: [
+				{id: "help_product", name:"help_product", title:"Product", type:"settings"},
+				{id: "help_community", name:"help_community", title:"Community", type:"settings"}
+			]}
+	]
+}

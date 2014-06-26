@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>FlipCard Navigator Tests</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/gridx/resources/Gridx.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/gridx/resources/Gridx_rtl.css", "idxStyles");
+		</script>
+	
+		<style id="idxStyles" type="text/css">
+			@import "../../../gridx/resources/Gridx.css";
+			@import "../../gridx/tests/support/common.css";
+			
+            @import "../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+            @import "../../tests/test.css";
+            
+            html, body {
+			    width: 100%;
+			    height: 100%;
+			    margin: 0; 
+			    padding: 0;
+			}
+			
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .monitorIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -24px 0;
+			}
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .welcomeIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -264px 0;
+			}
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .analyzeIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -72px 0;
+			}
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .searchIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: 0 0;
+			}
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .expanderIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -408px 0;
+			}
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .settingsIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -120px 0;
+			}
+			.oneui .idxFlipCardNavigator .idxFlipCardNavBar .helpIcon{
+				background: url("resources/images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background-position: -144px 0;
+			}
+			
+		</style>
+	
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.gfxRenderer = 'svg,canvas,vml';
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"dojo._base.lang", // lang.mixin lang.hitch
+				"dojo.aspect",
+				"dojo.dom", 
+				"dijit.registry", 
+				"idx.layout.FlipCardNavigator",  
+				"idx.tests._pagefooter._PageFooter"
+			]; 
+			var lang, aspect, dom, registry, FlipCardNavigator, _PageFooter;
+			
+			function preParse(modules){
+				lang 				= modules["dojo/_base/lang"];
+				aspect 				= modules["dojo/aspect"];
+				dom 				= modules["dojo/dom"];
+				registry 			= modules["dijit/registry"];
+				FlipCardNavigator   = modules["idx/layout/FlipCardNavigator"];
+				_PageFooter   		= modules["idx/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				//navigation data
+				/*
+				var navigationParams = {
+					identifier: "id",
+					items: [
+						{id:"welcome", name:"welcome", title:"Welcome", icon:"resources/images/blank.png", containerClass:"welcomeContainer", iconClass:"welcomeIcon", descClass:"welcomeDesc", type:"nav"},
+						{id:"analyze", name:"analyze", title:"Analyze", icon:"resources/images/blank.png", containerClass:"analyzeContainer", iconClass:"analyzeIcon", descClass:"analyzeDesc", type:"nav"},
+						{id:"monitor", name:"monitor", title:"Monitor", icon:"resources/images/blank.png", iconClass:"monitorIcon", type:"nav", 
+							children: [
+								{id: "monitor_tasks", name:"monitor_tasks", title:"Monitor Tasks", type:"nav"},
+								{id: "monitor_ways", name:"monitor_ways", title:"Monitor Ways", type:"separator"},
+								{id: "monitor_common", name:"monitor_common", title:"Monitor Common", type:"nav"},
+								{id: "monitor_special", name:"monitor_special", title:"Monitor Special", type:"nav", children: [
+									{id: "monitor_special_1", name:"monitor_special_1", title:"Monitor Special 1", type:"nav"},
+									{id: "monitor_special_2", name:"monitor_special_1", title:"Monitor Special 2", type:"nav"},
+									{id: "monitor_special_3", name:"monitor_special_1", title:"Monitor Special 3", type:"nav", children:[
+										{id: "monitor_special_3_1", name:"monitor_special_3_1", title:"Monitor Special 3-1", type:"nav"},
+										{id: "monitor_special_3_2", name:"monitor_special_3_2", title:"Monitor Special 3-2", type:"nav"}
+									]}
+								]}
+							]},
+						{id:"settings", name:"settings", title:"Settings", icon:"resources/images/blank.png", iconClass:"settingsIcon", type:"settings"},
+						{id:"help", name:"help", title:"Help", icon:"resources/images/blank.png", iconClass:"helpIcon", type:"settings",
+							children: [
+								{id: "help_product", name:"help_product", title:"Product", type:"settings"},
+								{id: "help_community", name:"help_community", title:"Community", type:"settings"}
+							]}
+					]
+				};
+				*/
+				
+				
+				//init flipcard navigator widget
+				var flipCardNav = new FlipCardNavigator({
+					// navList: navigationParams,
+					navList: "resources/data/nav_list_static.json",
+					labelAttr: "title",
+					customContent: dom.byId("custom_content")
+				}, "flipcardNavNode");
+				
+				var navActionHandler = function(item, e){
+					if(item.id == "welcome"){
+						dom.byId("user_content").innerHTML = dom.byId("welcome_content").innerHTML.toString();
+					}else{
+						dom.byId("user_content").innerHTML = (item.title || item.name) + " Nav Item Selected !";
+					}
+				}
+				var navAllActionHandler = function(item, e){
+					console.log(item);
+				}
+				aspect.after(flipCardNav, "handleNavAction_stub", navActionHandler, true);
+				aspect.after(flipCardNav, "handleAllAction_stub", navAllActionHandler, true);
+				
+				flipCardNav.startup();
+				
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui">
+		<script type="text/javascript">applyThemeToBody();</script><!-- only oneui theme is supported -->
+		
+		<div style="width: 100%; height: 100%; margin: 0px; padding: 0px;">
+			<div style="width: 100%; height: 100%;">
+				<div id="flipcardNavNode"></div>
+			</div>
+			
+		</div>
+		
+		
+		<div style="display:none">
+			<div id="custom_content" style="padding:20px;">
+				<div id="user_content" style="font-size:20px"> </div>
+			</div>
+			<div id="welcome_content">
+				<div style="padding:10px;font-size:15px">
+					<div> Static Navigator </div>
+					<div style="margin:10px">
+						<img src="resources/images/nav_static.png" style="width:500px; height:500px"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

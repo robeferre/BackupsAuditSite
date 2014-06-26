@@ -1,0 +1,46 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*
+ * This file contains additional style imports to work around the
+ * Internet Explorer 31-import limit. Only files with a maximum of
+ * one further level of import should be included here, in order to
+ * avoid exceeding the Internet Explorer 4-import-depth limit.
+ */
+
+/* dojox/mobile widget styles */
+@import url(dojox/Accordion.css);
+@import url(dojox/Badge.css);
+@import url(dojox/Button.css);
+@import url(dojox/Carousel.css);
+@import url(dojox/CheckBox.css);
+@import url(dojox/ComboBox.css);
+@import url(dojox/ContentPane.css);
+@import url(dojox/EdgeToEdgeCategory.css);
+@import url(dojox/EdgeToEdgeList.css);
+@import url(dojox/FixedSplitter.css);
+@import url(dojox/GridLayout.css);
+@import url(dojox/Heading.css);
+@import url(dojox/IconMenu.css);
+@import url(dojox/PageIndicator.css);
+@import url(dojox/Pane.css);
+@import url(dojox/ProgressBar.css);
+@import url(dojox/ProgressIndicator.css);
+@import url(dojox/RadioButton.css);
+@import url(dojox/RoundRect.css);
+@import url(dojox/RoundRectCategory.css);
+@import url(dojox/RoundRectList.css);
+@import url(dojox/ScrollablePane.css);
+@import url(dojox/SimpleDialog.css);
+@import url(dojox/Slider.css);
+@import url(dojox/SpinWheel.css);
+@import url(dojox/Switch.css);
+@import url(dojox/TextArea.css);
+@import url(dojox/TextBox.css);
+@import url(dojox/ToggleButton.css);
+@import url(dojox/ToolBarButton.css);
+@import url(dojox/Tooltip.css);

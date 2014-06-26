@@ -1,0 +1,174 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Time Picker 
+ *
+ * Styling the Time Picker consists of the following: 
+ *
+ * 1. minor time values
+ * 		.dijitTimePickerTick - set text color, size, background color of minor values
+ * 		.dijitTimePickerTickHover - set hover style of minor time values
+ * 		dijitTimePickerTickSelected - set selected style of minor time values
+ *
+ * 2. major time values - 1:00, 2:00, times on the hour 
+ * 		set text color, size, background color, left/right margins for "zoom" affect
+ * 		.dijitTimePickerMarkerHover - to set hover style of major time values
+ * 		.dijitTimePickerMarkerSelected - set selected style of major time values
+ * 
+ * 3. up and down arrow buttons
+ * 		.dijitTimePicker .dijitButtonNode - background-color, border
+ * 		.dijitTimePicker .dijitUpArrowHover, .dijitTimePicker .dijitDownArrowHover - set background-color for hover state
+ *
+ *	Other classes provide the fundamental structure of the TimePicker and should not be modified. 
+ */
+/* override Button.css */
+.oneui.dark .dijitTimePicker {
+	border-color:#555;
+	background-color:#222;
+/* TODO: useless?   Appears to be overridden by settings on individual elements */
+	-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,0.15);
+	-moz-box-shadow:0 0 1px 1px rgba(0,0,0,0.15);
+	box-shadow:0 0 1px 1px rgba(0,0,0,0.15);
+}
+
+.oneui.dark .dijitTimePickerItem {
+/* dijitTimePickerItem refers to both Tick's (minor values like 2:15, 2:30, 2:45) and Marker's (major values like 2PM, 3PM) */
+/*
+  background-image: url("images/commonHighlight.png");
+  background-position: 0 -1px;
+  background-repeat: repeat-x;
+  */
+	background-color:#222;
+	border-top-color:#343434;
+	border-bottom-color:#343434;
+}
+
+/* to make up for lack of alpha transparency in IE6 */
+.dj_ie6 .oneui.dark .dijitTimePickerItem {
+	background-image:none;
+}
+
+.oneui.dark .dijitTimePickerTick {
+/* minor value */
+	color:#eee;
+	background-color:#222;
+}
+
+.oneui.dark .dijitTimePickerMarker {
+/* major value - 1:00, 2:00, times on the hour */
+	background-color:#222;
+	color:#eee;
+}
+
+.oneui.dark .dijitTimePickerTickHover,.oneui.dark .dijitTimePickerMarkerHover,.oneui.dark .dijitTimePickerMarkerSelected,.oneui.dark .dijitTimePickerTickSelected {
+	background-color:#1673a6;
+}
+
+.dj_ie .oneui.dark .dijitTimePickerMarkerSelected,.dj_ie .oneui.dark .dijitTimePickerTickSelected {
+	background-color:#078dc1;
+}
+
+.oneui.dark .dijitTimePicker .dijitButtonNode {
+	border-color:#555;
+/*
+	background-image: url("images/commonHighlight.png");
+	background-position: 0 -1px;
+	background-repeat: repeat-x;
+	*/
+	background-color:#343434;
+	background-image:-moz-linear-gradient(top,#343434,#222);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#343434),to(#222));
+	background-image:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#f4f4f4', endColorstr='#dbdbdb'); 
+	*/
+}
+
+.oneui.dark .dijitTimePicker .dijitUpArrowButton {
+	border-bottom-color:#555;
+}
+
+.oneui.dark .dijitTimePicker .dijitDownArrowButton {
+	border-top-color:#555;
+}
+
+.dj_ie6 .oneui.dark .dijitTimePicker .dijitButtonNode {
+	background-image:none;
+}
+
+.oneui.dark .dijitTimePicker .dijitArrowButtonInner {
+/* hack oneui.button.css */
+/*
+  background-image: url("form/images/commonFormArrows.png");
+  background-repeat: no-repeat;
+  background-position: -140px 45%;
+  */
+	background-image:url(form/images/buttonArrows.png);
+	background-repeat:no-repeat;
+	background-position:-100px 53%;
+}
+
+.dj_ie6 .oneui.dark .dijitTimePicker .dijitArrowButtonInner {
+	background-image:url(form/images/buttonArrows8bit.png);
+}
+
+.oneui.dark .dijitTimePicker .dijitDownArrowButton .dijitArrowButtonInner {
+/*background-position: -35px 45%;*/
+	background-position:-151px 53%;
+}
+
+/* hover */
+.oneui.dark .dijitTimePicker .dijitUpArrowHover,.oneui.dark .dijitTimePicker .dijitDownArrowHover {
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#343434,#222);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#343434),to(#222));
+	background-image:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#fefefe', endColorstr='#cccccc'); 
+	*/
+}
+
+/* active */
+.oneui.dark .dijitTimePicker .dijitUpArrowActive,.oneui.dark .dijitTimePicker .dijitDownArrowActive {
+	background-color:#343434;
+	background-image:-moz-linear-gradient(top,#222,#343434);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#343434));
+	background-image:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#dbdbdb', endColorstr='#f4f4f4'); 
+	*/
+}
+
+.oneui.dark .dijitTimePicker .dijitUpArrowHover .dijitArrowButtonInner {
+/*background-position: -175px 45%;*/
+	background-position:0 53%;
+}
+
+.oneui.dark .dijitTimePicker .dijitDownArrowHover .dijitArrowButtonInner {
+/*background-position: -70px 45%;*/
+	background-position:-51px 53%;
+}

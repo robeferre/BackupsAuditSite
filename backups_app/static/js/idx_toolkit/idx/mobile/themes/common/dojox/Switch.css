@@ -1,0 +1,302 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Switch */
+
+/* Reset common styles. */
+.oneui .mblSwitch,
+.oneui .mblSwitch * {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+/* Switch - common */
+.oneui .mblSwitch {
+	position:relative;
+	display:inline-block;
+	overflow:hidden;
+	margin:0;
+	height:30px;
+	text-align:left;
+	line-height:29px;
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+.oneui .mblListItem .mblSwitch {
+	position:absolute;
+	top:8px;
+	right:12px;
+}
+
+.oneui .mblSwitchInner {
+	position:absolute;
+	top:0;
+	height:27px;
+}
+
+.oneui .mblSwitchAnimation .mblSwitchInner {
+	-webkit-transition-duration:.1s;
+	-webkit-transition-property:left;
+}
+
+.oneui .mblSwitchOn .mblSwitchInner {
+	left:0;
+}
+
+.oneui .mblSwitchBg {
+	position:absolute;
+	top:0;
+	-webkit-box-sizing:border-box;
+	width:94px;
+	height:30px;
+	border:1px solid #bbb;
+	font-weight:700;
+	font-size:14px;
+	line-height:29px;
+}
+
+.oneui .mblSwitchBgLeft {
+	left:0;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#085884),to(#008abf));
+	box-shadow:inset 0 3px 8px rgba(0,0,0,0.13);
+	color:#fff;
+	text-shadow:0 1px 1px rgba(0,0,0,.35);
+}
+
+.oneui .mblSwitchBgRight {
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#dbdbdb),to(#f4f4f4));
+	box-shadow:inset 0 3px 8px rgba(0,0,0,0.13);
+	color:#515151;
+}
+
+.oneui .mblSwitchKnob {
+	position:absolute;
+	top:0;
+	-webkit-box-sizing:border-box;
+	height:30px;
+	border:1px solid #999;
+	background-image:-webkit-gradient(linear,center top,center bottom,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(top,#f4f4f4 0%,#dbdbdb 100%);
+	font-size:1px;
+}
+
+.oneui .mblSwitchText {
+	position:relative;
+	top:0;
+	padding:0;
+	width:53px;
+	height:27px;
+	text-align:center;
+	line-height:28px;
+}
+
+.oneui .mblSwitchTextLeft {
+	left:0;
+}
+
+.oneui .mblSwitchTextRight {
+	left:40px;
+}
+
+/* Square Shape */
+.oneui .mblSwSquareShape {
+	width:94px;
+}
+
+.oneui .mblSwSquareShape.mblSwitchOff .mblSwitchInner {
+	left:-53px;
+}
+
+.oneui .mblSwSquareShape .mblSwitchBg {
+	border-radius:2px;
+}
+
+.oneui .mblSwSquareShape .mblSwitchBgRight {
+	left:53px;
+}
+
+.oneui .mblSwSquareShape .mblSwitchKnob {
+	left:53px;
+	width:41px;
+	border-radius:2px;
+}
+
+.oneui .mblSwSquareShape .mblSwitchText {
+	width:53px;
+}
+
+.oneui .mblSwSquareShape .mblSwitchTextRight {
+	left:40px;
+}
+
+/* Round Shape1 */
+.oneui .mblSwRoundShape1 {
+	width:77px;
+}
+
+.oneui .mblSwRoundShape1.mblSwitchOff .mblSwitchInner {
+	left:-50px;
+}
+
+.oneui .mblSwRoundShape1 .mblSwitchBg {
+	width:77px;
+	border-radius:14px;
+}
+
+.oneui .mblSwRoundShape1 .mblSwitchBgRight {
+	left:50px;
+}
+
+.oneui .mblSwRoundShape1 .mblSwitchKnob {
+	left:50px;
+	width:27px;
+	border-radius:13px;
+}
+
+.oneui .mblSwRoundShape1 .mblSwitchText {
+	width:50px;
+}
+
+.oneui .mblSwRoundShape1 .mblSwitchTextRight {
+	left:26px;
+}
+
+/* Round Shape2 */
+.oneui .mblSwRoundShape2 {
+	width:94px;
+}
+
+.oneui .mblSwRoundShape2.mblSwitchOff .mblSwitchInner {
+	left:-51px;
+}
+
+.oneui .mblSwRoundShape2 .mblSwitchBg {
+	border-radius:14px;
+}
+
+.oneui .mblSwRoundShape2 .mblSwitchBgRight {
+	left:51px;
+}
+
+.oneui .mblSwRoundShape2 .mblSwitchKnob {
+	left:51px;
+	width:43px;
+	border-radius:13px;
+}
+
+.oneui .mblSwRoundShape2 .mblSwitchText {
+	width:51px;
+}
+
+.oneui .mblSwRoundShape2 .mblSwitchTextRight {
+	left:42px;
+}
+
+/* Arc Shape1 */
+.oneui .mblSwArcShape1 {
+	width:77px;
+}
+
+.oneui .mblSwArcShape1.mblSwitchOff .mblSwitchInner {
+	left:-50px;
+}
+
+.oneui .mblSwArcShape1 .mblSwitchBg {
+	width:77px;
+	border-radius:5px/14px;
+}
+
+.oneui .mblSwArcShape1 .mblSwitchBgRight {
+	left:50px;
+}
+
+.oneui .mblSwArcShape1 .mblSwitchKnob {
+	left:50px;
+	width:27px;
+	border-radius:5px/13px;
+}
+
+.oneui .mblSwArcShape1 .mblSwitchText {
+	width:50px;
+}
+
+.oneui .mblSwArcShape1 .mblSwitchTextRight {
+	left:26px;
+}
+
+/* Arc Shape2 */
+.oneui .mblSwArcShape2 {
+	width:94px;
+}
+
+.oneui .mblSwArcShape2.mblSwitchOff .mblSwitchInner {
+	left:-51px;
+}
+
+.oneui .mblSwArcShape2 .mblSwitchBg {
+	border-radius:5px/14px;
+}
+
+.oneui .mblSwArcShape2 .mblSwitchBgRight {
+	left:51px;
+}
+
+.oneui .mblSwArcShape2 .mblSwitchKnob {
+	left:51px;
+	width:43px;
+	border-radius:5px/13px;
+}
+
+.oneui .mblSwArcShape2 .mblSwitchText {
+	width:51px;
+}
+
+.oneui .mblSwArcShape2 .mblSwitchTextRight {
+	left:42px;
+}
+
+/* Default Shape */
+.oneui .mblSwDefaultShape {
+	width:94px;
+}
+
+.oneui .mblSwDefaultShape.mblSwitchOff .mblSwitchInner {
+	left:-53px;
+}
+
+.oneui .mblSwDefaultShape .mblSwitchBg {
+	border-radius:2px;
+}
+
+.oneui .mblSwDefaultShape .mblSwitchBgRight {
+	left:53px;
+}
+
+.oneui .mblSwDefaultShape .mblSwitchKnob {
+	left:53px;
+	width:41px;
+	border-radius:2px;
+}
+
+.oneui .mblSwDefaultShape .mblSwitchText {
+	width:53px;
+}
+
+.oneui .mblSwDefaultShape .mblSwitchTextRight {
+	left:40px;
+}

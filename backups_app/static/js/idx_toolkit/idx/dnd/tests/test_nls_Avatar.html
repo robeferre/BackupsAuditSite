@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+Licensed Materials - Property of IBM
+(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+US Government Users Restricted Rights - Use, duplication or
+disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Test nls/Avatar</title>
+        <script type="text/javascript" src="../../tests/dojoVersion.js">
+        </script>
+		<script type="text/javascript" src="../../tests/test_nls.js"></script>
+        <script type="text/javascript">
+            var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.parseOnLoad = true;
+            dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+            dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+            dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+        </script>
+        <style type="text/css" id="idxStyles">
+            @import "../../themes/oneui/oneui.css";
+            @import "../../tests/test_nls.css";
+        </style>
+        <script type="text/javascript" id="postDojo">
+            require(["dojo/dom", "dojo/ready", "dijit/_base/manager", 
+				"dojo/data/ItemFileWriteStore", 
+				"dijit/tree/ForestStoreModel",
+				"dijit/Tree",
+				"dijit/TitlePane",
+				"idx/dnd/dndSource"
+			], function(dom, ready, manager, ItemFileWriteStore, ForestStoreModel, Tree, TitlePane, dndSource){
+                ready(function(){
+                    //TODO
+                });
+            });
+        </script>
+    <script src="../../tests/commonTest.js"></script>
+	<script src="../../gridx/tests/support/common.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">applyThemeToBody("oneui");</script>
+		<h1 class="testTitle">dnd/nls/Avatar</h1>
+        <table class="testInstruction">
+            <tbody>
+                <tr>
+                    <th>
+                        Resource
+                    </th>
+                    <th>
+                        Verification
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        moveOneText
+                    </td>
+                    <td>
+                        Select a tree item and drag it.
+                        <br/>
+                        <br/>
+                        Verify that the message in avatar is translated.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        copyOneText
+                    </td>
+                    <td>
+                        Select a tree item and drag it with Ctrl key pressed.
+                        <br/>
+                        <br/>
+                        Verify that the message in avatar is translated.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        moveText
+                    </td>
+                    <td>
+                        Select two tree items with Ctrl key pressed and drag them.
+                        <br/>
+                        <br/>
+                        Verify that the message in avatar is translated.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        copyText
+                    </td>
+                    <td>
+                        Select two tree items with Ctrl key pressed and drag them with Ctrl key pressed.
+                        <br/>
+                        <br/>
+                        Verify that the message in avatar is translated.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="testMain">
+            <h1 class="testTitle">Dijit Tree Dnd Test</h1>
+            <div data-dojo-id="catStore" data-dojo-type="dojo.data.ItemFileWriteStore" data-dojo-props='url:"../../widget/tests/_data/categories.json"'>
+            </div>
+            <div data-dojo-id="catModel" data-dojo-type="dijit.tree.TreeStoreModel" data-dojo-props='store:catStore, query:{id: "0"}'>
+            </div>
+            <div data-dojo-type="dijit.TitlePane" data-dojo-props='title:"Reorder tree by Dnd", toggleable: false,
+				 tooltip:"Items in tree can be reordered.",
+				 style:"width: 300px; margin: 0px 10px;" '>
+                <div id="mytree" data-dojo-type="dijit.Tree" data-dojo-props='
+					 model:catModel,
+					 autoExpand:true,
+					 openOnClick:true,
+					 dragThreshold:8,
+					 betweenThreshold:5,
+					 dndController: "idx.dnd.dndSource",
+					 onLoad:function(){  console.log("loaded  mytree (first  tree)"); }
+					
+					'>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

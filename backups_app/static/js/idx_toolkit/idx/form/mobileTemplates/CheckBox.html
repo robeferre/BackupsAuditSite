@@ -1,0 +1,15 @@
+<div id="widget_${id}" class="dijitReset dijitInline idxComposite" >
+    <div class="dijitInline idxMobileCheckBoxContainer" role="presentation" dojoAttachPoint="stateNode,oneuiBaseNode">
+		<div dojoAttachPoint="focusNode" type="${type}" ${checkedAttrSetting} ${!nameAttrSetting} class="idxDiv2Input" role="checkbox" dojoAttachEvent="onclick:_onClick" ></div>
+    </div>
+    <div class="idxLabel dijitInline dijitHidden" dojoAttachPoint="labelWrap">
+        <label dojoAttachPoint="compLabelNode" dojoAttachEvent="onclick:_onClick">
+        </label>
+    </div>
+    <div class='dijitReset idxValidationContainer'>
+        <div class="idxValidationIcon dijitInline">
+            <span class="dijitReset idxValidationInner" tabIndex="-1" readonly="readonly" role="presentation"></span>
+        </div>
+        <span dojoAttachPoint="validationMessage"></span>
+    </div>
+</div>

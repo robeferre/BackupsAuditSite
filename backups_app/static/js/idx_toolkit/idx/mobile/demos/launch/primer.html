@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Primer</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+        @import "../../../demos/demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<div role="main" class="demoContent">
+		<div dir="ltr">
+		
+			<p>
+				Support for the One UI Launch standard is provided by the
+				<span class="codeSnippet">idx/mobile/Launch</span> widget.
+				Use of this widget is straightforward, and requires just
+				three main steps.
+			</p>
+			
+			<h3>Ensure &lt;body&gt; is initially hidden</h3>
+			
+			<p>
+				To ensure that your page content is not seen by the app user before
+				Dojo has been initialised, the parser has run, etc, make your page
+				&lt;body&rt; tag initially invisible. The &lt;body&rt; tag will be
+				automatically shown by the <span class="codeSnippet">idx/mobile/Launch</span>
+				widget during initialisation.
+				
+				<pre class="code">&lt;body style="visibility: hidden;"&gt;</pre>
+			</p>
+			
+			<h3>Require the idx/mobile/Launch widget</h3>
+			
+			<p>
+				The widget will display the launch pane as soon as it executes. To
+				present this at the earliest opportunity, list it first in the
+				<span class="codeSnippet">require()</span> list.
+				
+				<pre class="code">&lt;script&gt;
+	
+	require(["idx/mobile/Launch",
+			 ...
+			 ...],
+	function(Launch, ...){
+		...
+	});
+
+&lt;script&gt;</pre>
+
+			<p>
+				The require of <span class="codeSnippet">idx/mobile/Launch</span>
+				returns a single instance of the widget which is already displayed,
+				and this can be used to hide the launch widget when finished with.
+			</p>
+
+			<h3>Hide the launch pane when the app is ready to display</h3>
+			
+			<p>
+				At a suitable point when your app has loaded, the UI has been
+				built, and the display is ready for the user, the Launch widget
+				should be hidden. 
+				
+				<pre class="code">Launch.hide();</pre>
+			</p>
+			
+			<p>
+				The Launch widget will destroy itself and all its
+				resources during the call to <span class="codeSnippet">hide()</span>.
+				If the Launch widget will be required again, true can be passed as the
+				optional <span class="codeSnippet">keepAvailable</span> parameter:
+				after calling <span class="codeSnippet">hide(true)</span> the widget
+				remains available and can be reshown by calling <span class="codeSnippet">show()</span>.
+				In normal usage, however, the launch pane is only required once.
+			</p>
+				
+		</div>
+	</div>
+</body>
+</html>

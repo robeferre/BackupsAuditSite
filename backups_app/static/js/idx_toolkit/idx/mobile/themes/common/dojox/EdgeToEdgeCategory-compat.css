@@ -1,0 +1,15 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.EdgeToEdgeCategory */
+
+.oneui .mblEdgeToEdgeCategory {
+	background-image: url(compat/edge-to-edge-category-bg.png);
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+	background-image: linear-gradient(to bottom, #f4f4f4 0%, #dbdbdb 100%);
+}

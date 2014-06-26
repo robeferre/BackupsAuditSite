@@ -1,0 +1,331 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Calendar
+ *
+ * Styling Calendar mainly includes:
+ *
+ * 1. Calendar container
+ * 		.dijitCalendar - main container
+ * 		.dijitCalendarHover / .dijitCalendarActive - states e.g. hover,active
+ *
+ * 2. Month
+ * 		.dijitCalendarMonthContainer
+ * 		.dijitCalendarMonthLabel
+ *      .dijitCalendarDecrease / .dijitCalendarDecrease - icons for switching to previous/next month
+ *      .dijitCalendarArrowActive .dijitCalendarDecrease - states e.g. hover,active
+ *
+ * 3. Date
+ * 		.dijitCalendarDayLabelTemplate - week day column header e.g. S M T W T F S
+ * 		.dijitCalendarDateTemplate - date label wrapper
+ * 		.dijitCalendarPreviousMonth .dijitCalendarDateLabel - special labels for previous or next month
+ *      .dijitCalendarSelectedDate .dijitCalendarDateLabel - styles for selected date
+ * 		.dijitCalendarDisabledDate .dijitCalendarDateLabel - styles for disabled date
+ * 		.dijitCalendarActiveDate .dijitCalendarDateLabel - states e.g. hover,active
+ *
+ * 4. Year
+ * 		.dijitCalendarYearContainer
+ * 		.dijitCalendarYearLabel
+ * 		.dijitCalendarPreviousYear /.dijitCalendarNextYear
+ *      .dijitCalendarNextYearHover / .dijitCalendarPreviousYearHover - states e.g. hover,active
+ *
+ * 5. Dropdown Month Menu
+ * 		.dijitCalendarMonthMenu - menu container
+ * 		.dijitCalendarMonthMenu .dijitCalendarMonthLabel - month label in menu item
+ * 		.dijitCalendarMonthMenu .dijitCalendarMonthLabelHover - menu item hover state
+ */
+.oneui.dark .dijitCalendar {
+	border:solid 4px rgba(3,3,3,0.4);
+	background-color:#333;
+	box-shadow:0 0 4px 1px rgba(0,0,0,0.2);
+}
+
+.dj_ie .oneui.dark .dijitCalendar {
+	border-color:#222;
+}
+
+.dj_ie6 .oneui.dark .dijitCalendar {
+	background-image:none;
+}
+
+.oneui.dark .dijitCalendar img {
+	border:none;
+}
+
+.oneui.dark .dijitCalendarMonthLabel {
+	color:#eee;
+}
+
+/* next/previous month arrows, dijitCalendarDecrease */
+.oneui.dark .dijitCalendarIncrementControl {
+	background-image:url(images/calendarArrows.png);
+}
+
+.dj_ie6 .oneui.dark .dijitCalendarIncrementControl {
+	background-image:url(images/calendarArrows8bit.png);
+}
+
+.oneui.dark .dijitCalendarIncrease {
+	background-position:-25px 0;
+}
+
+.oneui.dark .dijitCalendarArrow {
+	border:1px solid #343434;
+}
+
+.oneui.dark .dijitCalendarHover .dijitCalendarArrowHover {
+	border:1px solid #555;
+	background-color:#343434;
+	background-image:-moz-linear-gradient(top,#343434,#222);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#343434),to(#222));
+	background-image:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+}
+
+.oneui.dark .dijitCalendarArrowHover .dijitCalendarDecrease {
+	background-position:-177px 0;
+}
+
+.oneui.dark .dijitCalendarArrowHover .dijitCalendarIncrease {
+	background-position:-125px 0;
+}
+
+.oneui.dark .dijitCalendarActive .dijitCalendarArrowActive {
+	border:1px solid #555;
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#222,#343434);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#343434));
+	background-image:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+}
+
+.oneui.dark .dijitCalendarArrowActive .dijitCalendarDecrease {
+	background-position:-177px 0;
+}
+
+.oneui.dark .dijitCalendarArrowActive .dijitCalendarIncrease {
+	background-position:-125px 0;
+}
+
+.oneui.dark .dijitA11ySideArrow {
+	display:none;
+}
+
+.oneui.dark .dijitCalendarDayLabelTemplate {
+	border-bottom-color:#b5bcc7;
+}
+
+.oneui.dark .dijitCalendarDayLabelTemplate .dijitCalendarDayLabel {
+	color:#eee;
+}
+
+.oneui.dark .dijitCalendarDateTemplate {
+	border-bottom-color:#555;
+	background-color:#222;
+	background-image:url(images/calendarContainerImages.png);
+	background-position:0 0;
+	background-repeat:repeat-x;
+}
+
+.dj_ie6 .oneui.dark .dijitCalendarDateTemplate {
+	background-image:none;
+}
+
+.oneui.dark .dijitCalendarPreviousMonth,.oneui.dark .dijitCalendarNextMonth {
+	border-bottom-color:#555;
+/* todo: redundant with above .dijitCalendarDateTemplate rule */
+	background-color:#343434;
+	background-image:none;
+}
+
+.oneui.dark .dijitCalendarDateTemplate .dijitCalendarDateLabel {
+	border-color:#222;
+	background-color:#222;
+	color:#eee;
+/* intentionally matches background-color, no visible border until hover/selection */
+}
+
+.oneui.dark .dijitCalendarPreviousMonth .dijitCalendarDateLabel,.oneui.dark .dijitCalendarNextMonth .dijitCalendarDateLabel {
+	border-color:#343434;
+	background-color:#343434;
+/* intentionally matches background-color, no visible border until hover/selection */
+	color:#777;
+}
+
+.dj_ie .oneui.dark .dijitCalendarPreviousMonth .dijitCalendarDateLabel,.dj_ie .oneui.dark .dijitCalendarNextMonth .dijitCalendarDateLabel {
+	border-color:#343434;
+	background-color:#343434;
+	color:#777;
+}
+
+.oneui.dark .dijitCalendarNextYear,.oneui.dark .dijitCalendarPreviousYear {
+	border-color:#333;
+	color:#eee;
+}
+
+.oneui.dark .dijitCalendarSelectedYear {
+	color:#eee;
+}
+
+/* End Normal Calendar Style */
+/* Hovered Calendar Style */
+.oneui.dark .dijitCalendarHoveredDate .dijitCalendarDateLabel {
+	border-color:#078dc1;
+	background-color:#1673a6;
+	color:#eee;
+}
+
+.dj_ie .oneui.dark .dijitCalendarHoveredDate .dijitCalendarDateLabel {
+	border-color:#cce8f2;
+	background-color:#cce8f2;
+	color:#222;
+}
+
+.oneui.dark .dijitCalendarNextYearHover,.oneui.dark .dijitCalendarPreviousYearHover {
+	border-color:#1673a6;
+	background-color:#1673a6;
+	background-image:-moz-linear-gradient(top,#078dc1,#1673a6);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#078dc1),to(#1673a6));
+	background-image:-webkit-linear-gradient(top,#078dc1 0%,#1673a6 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#078dc1 0%,#1673a6 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#078dc1 0%,#1673a6 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#078dc1 0%,#1673a6 100%);
+/* W3C */
+	color:#eee;
+}
+
+/* End Hovered Calendar Style */
+/* Active Calendar Style */
+.oneui.dark .dijitCalendarNextYearActive,.oneui.dark .dijitCalendarPreviousYearActive {
+	border-color:#222;
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#222,#343434);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#343434));
+	background-image:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+	color:#222;
+}
+
+/* End Active Calendar Style */
+/* Selected Calendar Style */
+.oneui.dark .dijitCalendarSelectedDate .dijitCalendarDateLabel {
+	border-color:#769dc0;
+	background-color:#078dc1;
+	color:#eee;
+}
+
+.oneui.dark .dijitCalendarActiveDate .dijitCalendarDateLabel {
+	border-color:#fff;
+	background-image:url(images/calendarContainerImages.png);
+	background-position:0 -300px;
+}
+
+.dj_ie .oneui.dark .dijitCalendarActiveDate .dijitCalendarDateLabel {
+	border-color:#fff;
+	background-image:url(images/calendarContainerImages.png);
+	background-position:0 -300px;
+}
+
+.dj_ie6 .oneui.dark .dijitCalendarActiveDate .dijitCalendarDateLabel {
+	background-image:none;
+}
+
+/* End Selected Calendar Style */
+/* Disabled Calendar Style*/
+.oneui.dark .dijitCalendarDisabledDate .dijitCalendarDateLabel {
+	background-color:transparent;
+	color:#777;
+}
+
+/* End Disabled Calendar Style */
+/* Styling for month DropDownButton */
+.oneui.dark .dijitCalendar .dijitDropDownButton .dijitButtonNode {
+	border-color:#333;
+	background-color:transparent;
+	background-image:none;
+	-webkit-box-shadow:0 0 0 rgba(0,0,0,0);
+	-moz-box-shadow:0 0 0 rgba(0,0,0,0);
+	box-shadow:0 0 0 rgba(0,0,0,0);
+	text-shadow:0 1px 0 #333;
+}
+
+.oneui.dark .dijitCalendar .dijitDropDownButtonHover .dijitButtonNode {
+	border-color:#222;
+	background-color:#343434;
+	background-image:-moz-linear-gradient(top,#343434,#222);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#343434),to(#222));
+	background-image:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+}
+
+.oneui.dark .dijitCalendar .dijitDropDownButtonActive .dijitButtonNode {
+	border-color:#222;
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#222,#343434);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#222),to(#343434));
+	background-image:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+/* filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#222', endColorstr='#343434'); */
+}
+
+/* Styling for month drop down list */
+.oneui.dark .dijitCalendarMonthMenu {
+	border-color:#555;
+	background-color:#222;
+	background-image:none;
+	-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,0.15);
+	-moz-box-shadow:0 0 1px 1px rgba(0,0,0,0.15);
+	box-shadow:0 0 1px 1px rgba(0,0,0,0.15);
+	color:#eee;
+}
+
+.oneui.dark .dijitCalendarMonthMenu .dijitCalendarMonthLabel {
+	border-top-color:#555;
+/* intentionally invisible until hover */
+	border-bottom-color:#555;
+	color:#eee;
+}
+
+.oneui.dark .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover {
+	background-color:#1673a6;
+}
+
+.dj_ie6 .oneui.dark .dijitCalendarMonthMenu .dijitCalendarMonthLabelHover {
+	background-image:none;
+}

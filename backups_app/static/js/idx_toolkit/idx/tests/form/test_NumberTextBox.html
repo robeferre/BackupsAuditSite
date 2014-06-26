@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.form.NumberTextBox DoH</title>
+		
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../tests/test.css";
+		</style>
+		<script type="text/javascript" src="../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript">
+			var modules = [
+				"dijit.form.Form",
+				"idx.form.NumberTextBox",
+				"idx.form.NumberSpinner",
+				"idx.form.CurrencyTextBox",
+				"doh"]; 
+			var doh = null
+			function preParse(modules){
+				doh = modules["doh"];
+			}
+			function postParse(modules){
+				doh.register("parse", function(){
+					dojo.parser.parse();
+					doh.t(dijit.byId("numbertextbox"));
+					doh.t(dijit.byId("numberspinner"));
+					doh.t(dijit.byId("currencytextbox"));
+				});
+				
+				doh.register("number_labelAlignment", function(){
+					var widget = dijit.byId("numbertextbox");
+					doh.t(widget.get("labelAlignment") == "horizontal");
+					widget.set('labelAlignment', 'vertical');
+					doh.t(widget.get("labelAlignment") == "vertical");
+				});
+				
+				doh.register("numberValidate", function(){
+				    var widget = dijit.byId("numbertextbox");
+				    console.log(widget.get("value"));
+				    doh.t(isNaN(widget.get("value")));
+				    widget.set("required", true);
+				    doh.f(widget.validate());
+				    widget.set('value', 101);
+				    doh.f(widget.validate());
+				    widget.set('value', '1o1');
+				    doh.f(widget.validate());
+				});
+				
+				doh.register("spinnerValidate", function(){
+				    var widget2 = dijit.byId("numberspinner");
+				    doh.t(isNaN(widget2.get("value")));
+				    widget2.set("required", true);
+				    doh.f(widget2.validate());
+				    widget2.set('value', 'aa');
+				    doh.f(widget2.validate());
+				});
+				
+				doh.register("currencyValidate", function(){
+				    var widget3 = dijit.byId("currencytextbox");
+				    doh.t(isNaN(widget3.get("value")));
+				    widget3.set("required", true);
+				    doh.f(widget3.validate());
+				    widget3.set('value', 'aa');
+				    doh.f(widget3.validate());
+				});   
+					
+				doh.register("CurrencyUnit", function(){
+				    var	widget3 = dijit.byId("currencytextbox");
+				    widget3.set("currency","USD");
+				    doh.t(widget3.get("currency") === "USD");
+				});
+					
+				doh.register("value_Number", function(){
+						var widget = dijit.byId("numbertextbox");
+						doh.t(isNaN(widget.get("value")));
+						widget.set('value', 30);
+						doh.t(widget.get("value") == 30);
+						widget.set('constraints',{max:100000,min:0,places:'0,2'});
+						widget.set('value', 30.123);
+						doh.t(widget.get('value') === 30.12);
+						widget.set('value', 30.128);
+						doh.t(widget.get('value') === 30.13);
+						widget.set('constraints',{max:100,min:-100,fractional:false});
+						widget.set('value', 30.72);
+						doh.t(widget.get('value') === 31);
+						
+				});
+				doh.register("value_Spinner", function(){
+						var widget2 = dijit.byId("numberspinner");
+						doh.t(isNaN(widget2.get("value")));
+						widget2.set('value', 31);
+						doh.t(widget2.get("value") == 31);
+				});		
+					
+				doh.register("value_Currency", function(){		
+						var widget3 = dijit.byId("currencytextbox");
+						doh.t(isNaN(widget3.get("value")));
+						widget3.set('value', 30.11);
+						doh.t(widget3.get("value") == 30.11);
+				 }
+			 );
+				doh.run();
+			}	
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);	
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DoH Test of idx.form.NumberTextBox, NumberSpinner, CurrencyTextBox</h1>
+		<input id="numbertextbox" data-dojo-type="idx.form.NumberTextBox" data-dojo-props='
+			hint: "Enter a number (10 - 100)",
+			hintPosition: "inside",
+			label: "Weight:",
+			labelAlignment: "horizontal",
+			isValid: function(){
+				return this.value >= 10 && this.value <= 100; 
+			}
+		'/>
+		
+		<br/>
+		<input id="numberspinner" data-dojo-type="idx.form.NumberSpinner" data-dojo-props='
+			hint: "Input number",
+			hintPosition: "inside",
+			label: "Number:",
+			labelAlignment: "horizontal",
+			labelWidth: 100,
+			unit: "Items"
+		'/>
+		
+		<br/>
+		<input id="currencytextbox" data-dojo-type="idx.form.CurrencyTextBox" data-dojo-props='
+			hint: "Input currency",
+			hintPosition: "inside",
+			label: "Currency:",
+			labelAlignment: "horizontal",
+			labelWidth: 100
+		'/>
+		
+	</body>
+</html>

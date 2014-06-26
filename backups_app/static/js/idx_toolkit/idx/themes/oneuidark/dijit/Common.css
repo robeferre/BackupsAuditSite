@@ -1,0 +1,78 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* ========= Styling rules to affect widgets ========= */
+.oneui.dark .dijitPopup {
+	-webkit-box-shadow:0 1px 5px rgba(0,0,0,0.25);
+	-moz-box-shadow:0 1px 5px rgba(0,0,0,0.25);
+	box-shadow:0 1px 5px rgba(0,0,0,0.25);
+}
+
+.oneui.dark .dijitTooltipDialogPopup {
+	-moz-box-shadow:none;
+	box-shadow:none;
+/* exception popups: do not use a shadow on these because they aren't rectangular */
+	-webkit-box-shadow:none;
+}
+
+/* The highlight is shown in the ComboBox menu.  TODO: move to form/Common.less */
+.oneui.dark .dijitComboBoxHighlightMatch {
+	background-color:#078dc1;
+}
+
+.oneui.dark .dijitFocusedLabel {
+/* for checkboxes or radio buttons, hatch border around the corresponding label, to indicate focus */
+	outline-color:#1673a6;
+}
+
+.oneui.dark .dijitContentPaneLoading .dijitIconLoading {
+	background:url(images/loadingAnimation.gif) no-repeat left center;
+}
+
+/* .dijitContentPaneError icon renders in a dialog box with the error messsage when  there is an error in a HREF url */
+.oneui.dark .dijitContentPaneError {
+	background:url(../../oneui/dijit/images/commonIconsObjActEnabled.png) no-repeat left center;
+	background-position:-496px;
+}
+
+/* Drag and Drop */
+.oneui.dark .dojoDndItemBefore,.oneui.dark .dojoDndItemAfter {
+	border-top-color:#769dc0;
+}
+
+.oneui.dark table.dojoDndAvatar {
+	border-color:#555;
+	background-color:#222;
+	-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25);
+	-moz-box-shadow:0 1px 3px rgba(0,0,0,0.25);
+	box-shadow:0 1px 3px rgba(0,0,0,0.25);
+}
+
+.oneui.dark.dojoDndMove .dojoDndAvatarHeader,.oneui.dark.dojoDndCopy .dojoDndAvatarHeader {
+	background-image:url(images/dnd.png);
+	background-position:2px -122px;
+	background-repeat:no-repeat;
+}
+
+.oneui.dark.dojoDndMove .dojoDndAvatarHeader {
+	background-color:#722222;
+	background-position:2px -103px;
+}
+
+.oneui.dark.dojoDndCopy .dojoDndAvatarHeader {
+	background-color:#722222;
+	background-position:2px -68px;
+}
+
+.oneui.dark.dojoDndMove .dojoDndAvatarCanDrop .dojoDndAvatarHeader {
+	background-color:#1673a6;
+	background-position:2px -33px;
+}
+
+.oneui.dark.dojoDndCopy .dojoDndAvatarCanDrop .dojoDndAvatarHeader {
+	background-color:#1673a6;
+	background-position:2px 2px;
+}

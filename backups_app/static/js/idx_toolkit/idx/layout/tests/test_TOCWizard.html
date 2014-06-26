@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.layout.TOCWizard Test</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<!--here it is-->
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+   			"idx/layout/WizardPane",
+			"idx/layout/TOCWizard",
+			"dijit/form/ValidationTextBox",
+			"dijit/form/Textarea",
+			"dijit/layout/ContentPane",
+			"dijit/_base/manager",
+			"idx/tests/_pagefooter/_PageFooter"];
+		
+		var _PageFooter = null;
+		var manager = null;
+		var WizardPane = null;
+
+		function preParse(modules){
+			WizardPane = modules["idx/layout/WizardPane"];
+			manager = modules["dijit/_base/manager"] ? modules["dijit/_base/manager"] : dijit;
+			_PageFooter = modules["idx/tests/_pagefooter/_PageFooter"];
+			new _PageFooter();
+		}
+		
+		function postParse(modules){
+		}
+		
+		function createUser() {
+			// Iterate through all the substeps.  Calls substep.getData() to get the data from the pane.  Add the user name to the list of users on the parent step's textarea.
+			var usersPane = manager.byId("usersPane");
+			var wizard = manager.byId("wizard");
+			var textarea = manager.byId("listOfUsersTextarea");
+			var substeps = wizard.getSubsteps(usersPane);
+			for (var i = 0 ; i < substeps.length ; i++) {
+				var substepData = substeps[i].getData();
+				if (i == 0) {
+					var value = substepData.userName;
+					if (substepData.userDescription) {
+						value += " (" + substepData.userDescription + ")";
+					}
+					textarea.set("value", textarea.get("value") ? textarea.get("value") + "\n" + value : value);
+				}
+			}
+			// Clear the substep data and hide the substeps.
+			wizard.clearSubsteps(usersPane);
+			wizard.hideSubsteps(usersPane, true);
+		}
+		
+		function editUser() { 
+			manager.byId('userNamePane').setData({ 'userName': 'User name', 'userDescription': 'Description' }); 
+			manager.byId('usersPane').hideSubsteps(false); 
+			manager.byId('wizard').next(); 
+		}
+		
+		function addChild() {
+			manager.byId("wizard").addChild(new WizardPane({
+				label: "Dynamically added sub-step",
+				substep: true,
+				content: "Dynmically added sub-step content"
+			}), 3);
+		}
+		
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.layout.TOCWizard Test</h1>
+		<div style="width: 100%; height: 350px; margin-top: 5px" data-dojo-type="dijit/layout/ContentPane">
+     		<div data-dojo-type="idx/layout/TOCWizard" 
+          		 data-dojo-props="id: 'wizard',
+          		    			  showSave: true,
+          		 				  isVisitedClickable: true, 
+          		     			  onCancel: function(children, currentPane) { console.debug('Hit cancel'); }, 
+          		    			  onFinish: function(children, currentPane) { console.debug('Hit finish.  Current pane='+currentPane.label); for (var i=0 ; i < children.length; i++) { console.debug('child - label='+children[i].label+' data='+children[i].getData()); } },
+          		    			  onSave: function(children, currentPane) { console.debug('Hit save.  Current pane='+currentPane.label); for (var i=0 ; i < children.length; i++) { console.debug('child - label='+children[i].label+' data='+children[i].getData()); } }">
+          
+          		 <!-- 1st step. -->
+		        <div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Welcome', savable: false">
+       			    Welcome to the table of contents wizard.<br><br>
+       			    Some of the features of the TOCWizard include:
+       			    <ul>
+	       			    <li>To show the Save button in the button bar, set <b>showSave=true</b>.</li>
+    	   			    <li>To allow clicking the visited nodes in the TOC (allowing quick return to visited steps), set <b>isVisitedClickable=true</b>.</li>
+    	   			</ul>
+       			    <br/>Some of the features of this WizardPane include:
+    	   			<ul>    
+    	   			    <li>To disable the Next button, set <b>valid=false</b>.<br/>To update the Next button when the pane is selected, call wizardPane.set("valid", false); or wizardPane.set("valid", true);.</li>
+    	   			    <li>To disable the Save button, set <b>savable=false</b>.</li>
+    	   			    <li>To disable the Finish button, set <b>finishable=false</b>.</li>
+    	   			    <li>To disable a step, set <b>disabled=true</b>.</li>
+    	   			    <li>To hide a step, set <b>hidden=true</b>.</li>
+    	   			    <li>To have a heading step (with no content), set <b>headingOnly=true</b>.</li>
+       			    </ul>
+        		</div>	
+        
+        		<!--  2nd step has conditional sub-steps that are displayed only after the user hits a button to show them. -->
+		        <div data-dojo-type="idx/layout/WizardPane" 
+        		     data-dojo-props="label: 'Step 2', 
+        		                      id: 'step2', 
+        		                      valid: true,
+        		                      savable: false,
+        		                      onSelect: function() { setTimeout(function() { manager.byId('textBox').focus(); }, 500); },
+        		                      onNext: function() { manager.byId('clearSubsequentButton').set('disabled', false); },
+        		                      onClear: function() { manager.byId('textBox').reset(); }, 
+        		                      getData: function() { return { 'textBox': manager.byId('textBox').get('value') } }">
+            		Step 2 content.<br><br>
+            		
+		            <div data-dojo-type="dijit/form/Button" 
+        		         data-dojo-props="id: 'clearSubsequentButton',
+        		                          disabled: true,
+        		                          onClick: function() { manager.byId('wizard').clearSubsequent(); this.set('disabled', true); }">Clear Subsequent Visited Link</div>
+		            <div data-dojo-type="dijit/form/Button"
+        		         data-dojo-props="onClick: function() { manager.byId('step2a').set('hidden', !manager.byId('step2a').get('hidden'));}">Toggle hidden sub-step</div>
+		            <div data-dojo-type="dijit/form/Button"
+        		         data-dojo-props="onClick: function() { manager.byId('step2a').set('hidden', false); manager.byId('wizard').next(); }">Show hidden sub-step and go next</div>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: addChild">Dynamically add sub-step</div>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('wizard').removeChild(manager.byId('step2')); }">Remove Step 2</div>
+		            
+		            <br><br><label for="textBox">Data field:</label><br> 
+        		    <div data-dojo-type="dijit/form/ValidationTextBox" 
+                		 data-dojo-props="id: 'textBox',
+                		 				  required: false, 
+                		 				  trim: true, 
+                		 				  onChange: function() { manager.byId('step2').set('valid', this.isValid()); },
+                		                  onKeyUp: function() { manager.byId('step2').set('valid', this.isValid()); }"></div>
+		        </div>
+        
+        		<!--  2nd step's hidden substep. -->
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 2 substep', 
+        																	 id: 'step2a',
+        																	 hidden: true, 
+        																	 substep: true, 
+        																	 savable: false"> 
+					Sub-step for step 2 that is originally hidden.
+        		</div>
+        
+        		<!-- 3rd step has a heading step with static sub-steps. -->
+		        <div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 3 heading', headingOnly: true">
+        		</div>
+        
+		        <div data-dojo-type="idx/layout/WizardPane" 
+        		     data-dojo-props="label: 'Sub-step 1 label',
+        		     				  id: 'step3_1', 
+        		                      valid: false, 
+        		                      substep: true, 
+        		                      onSelect: function() { setTimeout(function() { manager.byId('textBox2').focus(); }, 500); },
+        		                      onClear: function() { manager.byId('textBox2').reset(); },
+        		                      getData: function() { return { 'textBox2': manager.byId('textBox2').get('value') } }">
+		            This WizardPane has valid: false.  The <b>Next</b> button will only enable after the required field has data in it.  The required field is listening to keyup and will call WizardPane.set("valid", true); when the textField.isValid().<br><br>
+		            <label for="textBox2">Required data field:</label><br> 
+		            <div data-dojo-type="dijit/form/ValidationTextBox" 
+        		         data-dojo-props="id: 'textBox2',
+        		         				  required: true,
+        		         				  trim: true, 
+        		                          onChange: function() { manager.byId('step3_1').set('valid', this.isValid()); },
+        		                          onKeyUp: function() { manager.byId('step3_1').set('valid', this.isValid()); }"></div>        
+		        </div>
+        
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Sub-step 2 label', substep: true, savable: false">
+        		    Sub-step 2 of Step 3 content here.
+		        </div>
+        
+        		<!-- 4th step has intro pane with static sub-steps. -->
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 4', finishable: true">
+		            This pane shows that steps / sub-steps can be disabled, hidden, and visited.</li></ul><br>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('step5').set('disabled', !manager.byId('step5').get('disabled')); }">Toggle disabled of Step 5</div>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('step5a').set('disabled', !manager.byId('step5a').get('disabled')); }">Toggle disabled of Step 5 sub-step 1</div>
+		            <br>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('step5').set('hidden', !manager.byId('step5').get('hidden')); }">Toggle hidden of Step 5</div>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('step5a').set('hidden', !manager.byId('step5a').get('hidden')); }">Toggle hidden of Step 5 sub-step 1</div>
+		            <br>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('step5').set('visited', !manager.byId('step5').get('visited')); }">Toggle visited of Step 5</div>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="onClick: function() { manager.byId('step5a').set('visited', !manager.byId('step5a').get('visited')); }">Toggle visited of Step 5 sub-step 1</div>
+		        </div>
+        
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 4 sub-step 1 label', substep: true, finishable: false">
+        		    Step 4 sub-step 1 content.
+		        </div>
+        
+		        <div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 4 sub-step 2 label', substep: true, finishable: false">
+        		    Step 4 sub-step 2 content.
+		        </div>
+        
+        		<!--  5th step is disabled. -->
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 5', id: 'step5', disabled: true">
+		            Step 5 content here.
+		        </div>
+		        
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 5 sub-step 1 label', id: 'step5a', substep: true">
+        		    Step 5 sub-step 1 content.
+		        </div>
+        
+		        <div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 5 sub-step 2 label', substep: true">
+        		    Step 5 sub-step 2 content.
+		        </div>
+        
+        		<!-- 6th step has intro pane with static sub-steps. -->
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 6 heading', finishable: false, headingOnly: true">
+		        </div>
+        
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 6 sub-step 1 label', substep: true, finishable: false">
+        		    Step 6 sub-step 1 content.
+		        </div>
+        
+		        <div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Step 6 sub-step 2 label', 
+		        															 substep: true, 
+		        															 finishable: false,
+		        															 onNext: function() { this.parent.set('visited', true); }">
+        		    Step 6 sub-step 2 content.<br><br>When the user selects Next, the parent step will show checked / visited.
+		        </div>
+        
+                <!--  7th step displays the list of users.  If the user hits the New User button, the hidden sub-steps display and the user goes to the 1st sub-step.  
+                      When the user hits Next on the last sub-step, all the sub-steps hide and the user goes back to this pane. -->
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'List of Users',
+        																	 id: 'usersPane',
+        																	 valid: false,
+        																	 savable: false,
+															        		 onSelect: function() { this.hideSubsteps(true); this.clearSubsteps(); if (manager.byId('listOfUsersTextarea').get('value')) this.valid = true; setTimeout(function() { manager.byId('addUserButton').focus(); }, 500); }">
+	                <div>At least one user must be created.  Select the <b>New User</b> button.</div><br>        		                      
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="id: 'addUserButton', 
+		                 				  onClick: function() { manager.byId('usersPane').hideSubsteps(false); manager.byId('wizard').next(); }">New User</div>
+		            <div data-dojo-type="dijit/form/Button" 
+		                 data-dojo-props="id: 'editUserButton', 
+		                 				  onClick: editUser">Edit</div>
+		            <br><label for="listOfUsersTextarea">List of users:</label><br>
+		            <textarea data-dojo-type="dijit/form/Textarea" data-dojo-props="id: 'listOfUsersTextarea', readOnly: true, cols: 50"></textarea>
+		        </div>
+		        
+		        <!--  Sub-step where the user enters the user name and description for the new user. -->
+        		<div data-dojo-type="idx/layout/WizardPane" 
+        		     data-dojo-props="label: 'User name',
+        		     				  id: 'userNamePane', 
+        		                      substep: true,
+        		                      savable: false,
+        		                      hidden: true,
+        		                      valid: false,
+        		                      onSelect: function() { setTimeout(function() { manager.byId('userName').focus(); }, 500); },
+        		                      onClear: function() { manager.byId('userName').reset(); manager.byId('userDescription').reset(); },
+        		                      setData: function(data) { if (data) { manager.byId('userName').set('value', data.userName); manager.byId('userDescription').set('value', data.userDescription); } },  
+        		                      getData: function() { return { 'userName': manager.byId('userName').get('value'), 'userDescription': manager.byId('userDescription').get('value') } }">
+		            <span style="color: red">*</span><label for="userName">User Name:</label><br> 
+        		    <div data-dojo-type="dijit/form/ValidationTextBox" 
+                		 data-dojo-props="id: 'userName', 
+                		 				  required: true, 
+                		                  trim: true, 
+                		                  style: { width: '300px' },
+                		                  onChange: function() { manager.byId('userNamePane').set('valid', this.isValid()); },
+                		                  onKeyUp: function() { manager.byId('userNamePane').set('valid', this.isValid()); }"></div>
+		            <br><br>
+		            <label for="userName">Description:</label><br> 
+        		    <div data-dojo-type="dijit/form/ValidationTextBox" 
+                		 data-dojo-props="id: 'userDescription',
+                		 				  required: false, 
+                		                  trim: true, 
+                		                  style: { width: '300px' }"></div> 
+		        </div>
+        
+        		<!--  Sub-step where the user enters the user address for the new user. -->
+		        <div data-dojo-type="idx/layout/WizardPane" 
+		             data-dojo-props="label: 'User address',
+		             				  id: 'userAddressPane', 
+		                              substep: true,
+		                              savable: false,
+		                              hidden: true,
+		                              onSelect: function() { this.set('next', this.parent); },
+		                              onNext: createUser"> 
+        		    Enter the user's address on this pane.
+		        </div>
+        
+        		<!--  Confirmation page before ending the wizard. -->
+        		<div data-dojo-type="idx/layout/WizardPane" data-dojo-props="label: 'Confirmation', savable: false">
+		            Confirmation page.<br><br>Show the data the user entered on the previous panes.
+		        </div>
+     		</div>
+  		</div>
+  	</div>
+</body>
+</html>

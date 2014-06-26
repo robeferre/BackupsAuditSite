@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>CheckBoxSelect Multi Channel</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+			
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../themes/multichannel/multichannel.css";
+	    </style>
+
+	    <!-- required: dojo.js -->
+	    <script type="text/javascript" src="../../tests/idxMultiChannel.js"></script>
+		
+
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+	    <script id="postDojo" type="text/javascript">
+	    	require(["idx/PlatformPluginRegistry"], function(iPlatformPluginRegistry) {
+				iPlatformPluginRegistry.setGlobalTargetPlatformFromURL();
+				
+	    		require(["dojo/parser",
+						 "dijit/registry",
+						 "idx/form/CheckBoxSelect",
+						 "dijit/form/Select",
+					 	 "dojo/domReady!"],
+						function(dParser,dRegistry,iCheckBoxSelect) {
+					dParser.parse();	
+				});
+			});			
+		</script>
+		<script id="postDojo" type="text/javascript" src="../../tests/commonTest.js"></script>
+
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<br>
+		<select data-dojo-type="dijit/form/Select"
+				data-dojo-props="label: 'Global Platform: '">
+				<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+					console.log("VALUE CHANGED: " + this.value);				
+					var self = this;
+					if (self._initialSet) {
+						self._initialSet = false;
+						return;
+					}
+					//require(["idx/PlatformPluginRegistry"], function(PlatformPluginRegistry) {
+					//	var platform = self.get("value");
+					//	PlatformPluginRegistry.setGlobalTargetPlatform(platform);
+					//});
+					var url = "" + window.location.href;
+					var newURL = "";
+					var queryIndex = url.indexOf("?");
+					if (queryIndex < 0) {
+						newURL = url + "?platform=" + this.value;
+					} else {
+						var prefix = url.substr(0, queryIndex);
+						var suffix = url.substr(queryIndex);
+						console.log("SUFFIX = " + suffix);
+						suffix = suffix.replace(/([?&])platform=[^&]*/, "$1platform="+this.value);
+						if (suffix.indexOf("platform=") < 0) {
+							suffix = suffix + "&platform=" + this.value;
+						}
+						newURL = prefix + suffix;
+					}
+					console.log("Going to: " + newURL);
+					window.location.replace(newURL);
+				</script>
+				<script type="dojo/aspect" data-dojo-method="startup" data-dojo-advice="after">
+					var self = this;
+					require(["idx/PlatformPluginRegistry"], function(PlatformPluginRegistry) {
+						var globalPlatform = PlatformPluginRegistry.getGlobalTargetPlatform();
+						if (self.get("value") == globalPlatform) return;
+						self._initialSet = true;
+						self.set("value", globalPlatform);
+					});
+				</script>
+				<option value="desktop">desktop</option>
+				<option value="tablet">tablet</option>
+				<option value="phone">phone</option>
+				<option value="auto">auto</option>
+		</select>
+		<br>
+		<h2>CheckBoxSelect multichannel Example</h2>
+		<select id="checkboxSelect1" data-dojo-type="idx.form.CheckBoxSelect"
+				data-dojo-props='name:"checkBoxSelect",
+				label: "CheckBoxSelect with short menu:",
+				help: "Field-Level help goes here.",
+				fieldWidth: "300px",
+				value: "",
+				hint: "Select One",
+				required: true,
+				targetPlatform: "phone"
+		'>
+			<option value="AK">Alaska</option>
+			<option value="AS">American Samoa</option>
+			<option value="AZ">Arizona</option>
+			<option value="WV">West Virginia</option>
+			<option value="WI">Wisconsin</option>
+			<option value="WY">Wyoming</option>
+		</select>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui .idxDropDownSelect {
+	cursor: pointer;
+	color: #00649d;
+}
+
+.oneui .idxDropDownSelectDisabled,
+.oneui .idxDropDownSelectDisabled.idxDropDownSelect:hover  {
+	cursor: auto;
+	color: #666;
+	text-decoration: none;
+}
+
+.oneui .idxDropDownSelect:hover {
+	color: #05386b;
+	text-decoration: underline;
+}
+

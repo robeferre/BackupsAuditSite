@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>TextBox and TextArea</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+	
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+	        @import "../../tests/test.css";
+		</style>
+		
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+	
+		<script type="text/javascript" id="postDojo">
+			/*
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"dijit/form/Form",
+				"idx/form/TextBox",
+				"idx/form/Textarea",
+				"idx/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, Form, TextBox, Textarea, _PageFooter){
+				
+				ready(function(){
+					new _PageFooter();
+				});
+			});
+			*/
+			var modules = [
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"idx.form.TextBox",
+				"idx.form.Textarea",
+				"idx.tests._pagefooter._PageFooter"
+			]; 
+			var Button, Form, DateTextBox, TimeTextBox, _PageFooter;
+			
+			function preParse(modules){
+				Button 			= modules["dijit/form/Button"];
+				Form  			= modules["dijit/form/Form"];
+				TextBox   		= modules["idx/form/TextBox"];
+				Textarea 		= modules["idx/form/Textarea"];
+				_PageFooter   	= modules["idx/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>	
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+			<div class="testMain" role="main">
+			<h1>TextBox and TextArea </h1>
+			
+			<h2>TextBox</h2>
+			<input data-dojo-type="idx.form.TextBox" data-dojo-props='
+				hint: "Input text here",
+				hintPosition: "inside",
+				label: "Address:",
+				help: "A Help Message.",
+				labelAlignment: "horizontal",
+				labelWidth: 150,
+				trim:true,required:true,regExp:"([A-Za-z0-9][A-Za-z0-9-_\.]*)",
+				value: ""
+			'/>
+			<br/>
+			<input data-dojo-type="idx.form.TextBox" data-dojo-props='
+				hint: "Input text here",
+				hintPosition: "outside",
+				label: "Address:",
+				labelAlignment: "horizontal",
+				labelWidth: 150
+			'/>
+			<br/>
+			<input data-dojo-type="idx.form.TextBox" disabled data-dojo-props='
+				hint: "Input text here",
+				hintPosition: "inside",
+				label: "Address:",
+				labelAlignment: "horizontal",
+				labelWidth: 150,
+				value: "Disabled"
+			'/>
+			<br/>
+			<input data-dojo-type="idx.form.TextBox" readOnly data-dojo-props='
+				hint: "Input text here",
+				hintPosition: "inside",
+				label: "Address:",
+				labelAlignment: "horizontal",
+				labelWidth: 150,
+				value: "ReadOnly"
+			'/>
+			<br/>
+			
+			<input data-dojo-type="idx.form.TextBox" readOnly data-dojo-props='
+				hint: "Input text here",
+				hintPosition: "inside",
+				label: "Address:",
+				help: "A Help Message",
+				labelAlignment: "horizontal",
+				labelWidth: 150,
+				value: "ReadOnly With Help"
+			'/>
+			<br/>
+			<h2>TextArea</h2>
+			<textarea data-dojo-type="idx.form.Textarea" data-dojo-props='
+				rows: 3,
+				cols: 20,
+				trim: true,
+				hint: null,
+				hintPosition: "inside",
+				help: "",
+				label: "Textarea:",
+				labelAlignment: "horizontal",
+				required: true,
+				labelWidth: 150
+			'>
+			</textarea>
+			<br>
+			<br>
+			<br>
+			<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="style: 'padding: 0px; left: 0px; right: 0px; width: 100%;'">
+				<textarea data-dojo-type="idx.form.Textarea" data-dojo-props='
+					rows: 2,
+					trim: true,
+					hint: "Input text",
+					hintPosition: "inside",
+					help: "A Help Message.",
+					label: "<b>Textarea with \"width\" specified</b><br>(style: \"width:100%\", labelWidth:\"30%\", fieldWidth:\"70%\")",
+					labelAlignment: "horizontal",
+					style: "width: 100%;",
+					labelWidth: "30%",
+					fieldWidth: "70%",
+					value: "",
+					required: true
+				'>
+				</textarea>
+			</div>
+			</div>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Chiudi",
+	configureLabel: "Configura",
+	editLabel: "Modifica",
+	filterLabel: "Filtra",
+	clearFilterLabel: "Cancella i dati",
+	helpLabel: "Guida",
+	infoLabel: "Informazioni",
+	minimizeLabel: "Riduci a icona",
+	maximizeLabel: "Ingrandisci",
+	printLabel: "Stampa",
+	refreshLabel: "Aggiorna",
+	restoreLabel: "Ripristina",
+	nextPageLabel: "Successivo",
+	previousPageLabel: "Precedente",
+	lastPageLabel: "Ultimo",
+	firstPageLabel: "Primo",
+	closeTip: "Chiudi",
+	configureTip: "Configura",
+	editTip: "Modifica",
+	filterTip: "Filtra",
+	clearFilterTip: "Cancella filtro",
+	helpTip: "Richiama guida",
+	infoTip: "Richiama informazioni",
+	minimizeTip: "Riduci a icona",
+	maximizeTip: "Ingrandisci",
+	printTip: "Stampa",
+	refreshTip: "Aggiorna",
+	restoreTip: "Ripristina",
+	nextPageTip: "Pagina successiva",
+	previousPageTip: "Pagina precedente",
+	lastPageTip: "Ultima pagina",
+	firstPageTip: "Prima pagina"
+//end v1.x content
+});
+

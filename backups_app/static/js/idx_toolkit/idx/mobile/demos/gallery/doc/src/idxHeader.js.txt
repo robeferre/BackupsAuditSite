@@ -1,0 +1,75 @@
+define(["dojo/on","dojo/dom", "dojo/_base/array", "dojo/string", "dijit/registry",
+		"dojox/mobile/sniff",
+		"dojox/mobile/iconUtils", 
+		"dojox/mobile/ToolBarButton",
+		"dojox/mobile/ToggleButton"],
+  function(on, dom, array, string, registry, has, iconUtils, ToolBarButton){
+	return {
+		init: function(){
+			
+			//idx header
+			var useSpinner = (dojox.mobile.currentTheme === "oneui_android");
+			if(useSpinner) {
+				registry.byId("id_heading").set("label", "");
+			}
+			var mainView = registry.byId("header");
+			var mainLog = registry.byId("id_mainLog");
+			var navigationMenuTooltip = registry.byId("id_navigationMenuTooltip");
+			var spinner = registry.byId("id_spinner");
+			var tabletMenuButton = registry.byId("id_tabletMenuButton");
+			var overflowButton = registry.byId("id_overflowButton");
+			var overflowMenuTooltip = registry.byId("id_overflowMenuTooltip");
+			var showingMenu = null;
+			var showingMenuButton = null;
+			var showHideMenu = function(menuButton, menu, show, domNode) {
+				if(show) {
+					if((menu !== showingMenu) || (menuButton != showingMenuButton))
+					{
+						if (showingMenu)
+							showingMenu.hide();
+						if (showingMenuButton)
+							showingMenuButton.set("selected", false);
+						menu.show(domNode, ['below']);
+						menuButton.set("selected", true);
+						showingMenu = menu;
+						showingMenuButton = menuButton;
+					}
+				}
+				else {
+					if (showingMenu)
+					{
+						showingMenu.hide();
+						showingMenu = null;
+					}
+					if (showingMenuButton)
+					{
+						showingMenuButton.set("selected", false);
+						showingMenuButton = null;
+					}
+				}
+			} 
+			on(spinner, "touchend, click", function(event){
+				showHideMenu(spinner, navigationMenuTooltip, !(navigationMenuTooltip === showingMenu), spinner.domNode);
+				event.preventDefault();
+			});
+			on(tabletMenuButton, "touchend, click", function(event){
+				showHideMenu(tabletMenuButton, navigationMenuTooltip, !(navigationMenuTooltip === showingMenu), tabletMenuButton.domNode);
+				event.preventDefault();
+			});
+			on(overflowButton, "touchend, click", function(event){
+				showHideMenu(overflowButton, overflowMenuTooltip, !(overflowMenuTooltip === showingMenu), overflowButton.domNode);
+				event.preventDefault();
+			});
+//			on(mainView, "click", function(){
+//				if(showingMenu)
+//					showHideMenu(null, showingMenu, false);
+//			});
+			on(navigationMenuTooltip, "click", function(){
+				showHideMenu(null, navigationMenuTooltip, false);
+			});
+			on(overflowMenuTooltip, "click", function(){
+				showHideMenu(null, overflowMenuTooltip, false);
+			});
+		}
+	};
+});

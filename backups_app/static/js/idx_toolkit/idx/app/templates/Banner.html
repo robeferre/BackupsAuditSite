@@ -1,0 +1,24 @@
+<div class="idxBanner">
+	<div class="idxBannerInnerContainer">
+		<div data-dojo-attach-point="containerNode" class="idxBannerContainer"
+			 id="${id}_Container"></div>
+		<div data-dojo-attach-point="_trailerNode" class="idxBannerTrailer">
+			<div data-dojo-attach-point="actionsButton" 
+					data-dojo-type="dijit.form.DropDownButton"
+					data-dojo-props="iconClass: 'idxBannerActionButtonIcon'">
+				<span></span>
+				<div data-dojo-type="dijit.Menu" data-dojo-attach-point="actionsMenu" data-dojo-props="style: 'display: none;'">
+				</div>
+			</div>
+			<div data-dojo-attach-point="helpButton" 
+					data-dojo-type="dijit.form.Button"
+					data-dojo-props="showLabel: false, iconClass: 'idxBannerHelpButtonIcon'">
+			</div>
+		</div>
+		<div class="idxBannerLogoArea">
+			<div class="idxBannerLogo" role="img" aria-labelledby="${id}_logoText"><span 
+				id="${id}_logoText" class="idxBannerLogoText" data-dojo-attach-point="logoTextNode"></span></div>
+		</div>
+	</div>
+	<div class="idxBannerBottomBar"></div>
+</div>

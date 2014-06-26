@@ -1,0 +1,69 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+ 
+.oneui.dark .dijitLayoutContainer .dijitSplitterH .dojoxToggleSplitterIcon {
+	background-image: url('images/toggleArrowsH.png');
+}
+
+.oneui.dark .dijitLayoutContainer .dijitSplitterV .dojoxToggleSplitterIcon {
+	background-image: url('images/toggleArrowsV.png');
+	background-repeat: no-repeat;
+}
+
+.dj_ie .oneui.dark .dijitLayoutContainer .dijitSplitterH .dojoxToggleSplitterIcon{
+	background-image: url('images/toggleArrowsH8bits.png');
+}
+
+.dj_ie .oneui.dark .dijitLayoutContainer .dijitSplitterV .dojoxToggleSplitterIcon{
+	background-image: url('images/toggleArrowsV8bits.png');
+}
+
+/* Horizontal Toggle Arrow*/
+.oneui.dark .dijitSplitterHHover .dojoxToggleSplitterTopIconOpen, .dijitSplitterHActive .dojoxToggleSplitterTopIconOpen,
+.oneui.dark .dijitSplitterHHover .dojoxToggleSplitterBottomIconClosed, .dijitSplitterHActive .dojoxToggleSplitterBottomIconClosed {
+	background-position: 0 -15px !important;
+}
+
+.oneui.dark .dijitSplitterHHover .dojoxToggleSplitterBottomIconOpen, .dijitSplitterHActive .dojoxToggleSplitterBottomIconOpen,
+.oneui.dark .dijitSplitterHHover .dojoxToggleSplitterTopIconClosed, .dijitSplitterHActive .dojoxToggleSplitterTopIconClosed {
+	background-position: 0 -10px !important;
+}
+
+.oneui.dark .dojoxToggleSplitterTopIconOpen, 
+.oneui.dark .dojoxToggleSplitterBottomIconClosed,
+.oneui.dark .dojoxToggleSplitter .dojoxToggleSplitterTopIconOpenHover {
+	background-position: 0 -5px !important;
+}
+
+.oneui.dark .dojoxToggleSplitterBottomIconOpen, 
+.oneui.dark .dojoxToggleSplitterTopIconClosed {
+	background-position: 0 0 !important;
+}
+
+/*Vertical Toggle Arrow*/
+.oneui.dark .dijitSplitterVHover .dojoxToggleSplitterLeftIconOpen, .dijitSplitterVActive .dojoxToggleSplitterLeftIconOpen,
+.oneui.dark .dijitSplitterVHover .dojoxToggleSplitterRightIconClosed, .dijitSplitterVActive .dojoxToggleSplitterRightIconClosed {
+	background-position: -15px 0 !important;
+}
+
+.oneui.dark .dijitSplitterVHover .dojoxToggleSplitterRightIconOpen, .dijitSplitterVActive .dojoxToggleSplitterRightIconOpen, 
+.oneui.dark .dijitSplitterVHover .dojoxToggleSplitterLeftIconClosed, .dijitSplitterVActive .dojoxToggleSplitterLeftIconClosed {
+	background-position: -10px 0 !important;
+}
+
+.oneui.dark .dojoxToggleSplitterLeftIconOpen,
+.oneui.dark .dojoxToggleSplitterRightIconClosed,
+.oneui.dark .dojoxToggleSplitter .dojoxToggleSplitterLeftIconOpenHover,
+.oneui.dark .dojoxToggleSplitter .dojoxToggleSplitterRightIconClosedHover {
+	background-position: -5px 0 !important;
+}
+
+.oneui.dark .dojoxToggleSplitterRightIconOpen,
+.oneui.dark .dojoxToggleSplitterLeftIconClosed,
+.oneui.dark .dojoxToggleSplitter .dojoxToggleSplitterRightIconOpenHover{
+	background-position: 0 0 !important;
+}

@@ -1,0 +1,60 @@
+/*
+ * CheckBoxList CSS Style
+ */
+.oneui .idxMobileCheckBoxList .idxCheckBoxList{
+	margin: 7px 9px 16px;
+	padding: 0;
+}
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem{
+	position: relative;
+	overflow: hidden;
+	padding: 0 15px;
+	height: 43px;
+	
+	background-color: #fff;
+	list-style-type: none;
+	font-weight: 700;
+	line-height: 43px;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(255,255,255,0);
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: #ccc;
+}
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem  .idxMobileCheckBoxContainer div.idxDiv2Input{
+	margin: -.8em 0 0 0;
+}
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem.dijitInline{
+	border-width: 1px 1px 1px 0;
+	border-style: solid;
+	border-color: #ccc;
+}
+
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem:first-child{
+	border-radius: 8px 8px 0 0 ;
+	border: 1px solid #ccc;
+}
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem:last-child{
+	border-radius: 0 0 8px 8px;
+}
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem.dijitInline:first-child{
+	border-radius: 8px 0 0 8px;
+	border: 1px solid #ccc;
+}
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListItem.dijitInline:last-child{
+	border-radius: 0 8px 8px 0;
+}
+
+.oneui .idxMobileCheckBoxList .mblCheckBoxContainer{
+	margin-bottom: 0.3em;
+}
+
+.oneui .idxMobileCheckBoxList .idxCheckBoxListWrapSelectedOption.idxCheckBoxListItem{
+	background-color: #f0f0f0;
+}

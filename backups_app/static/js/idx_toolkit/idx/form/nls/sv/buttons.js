@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Stäng",
+	configureLabel: "Konfigurera",
+	editLabel: "Redigera",
+	filterLabel: "Filtrera",
+	clearFilterLabel: "Rensa",
+	helpLabel: "Hjälp",
+	infoLabel: "Information",
+	minimizeLabel: "Minimera",
+	maximizeLabel: "Maximera",
+	printLabel: "Skriv ut",
+	refreshLabel: "Uppdatera",
+	restoreLabel: "Återställ",
+	nextPageLabel: "Nästa",
+	previousPageLabel: "Föregående",
+	lastPageLabel: "Senaste",
+	firstPageLabel: "Första",
+	closeTip: "Stäng",
+	configureTip: "Konfigurera",
+	editTip: "Redigera",
+	filterTip: "Filtrera",
+	clearFilterTip: "Rensa filter",
+	helpTip: "Få hjälp",
+	infoTip: "Få information",
+	minimizeTip: "Minimera",
+	maximizeTip: "Maximera",
+	printTip: "Skriv ut",
+	refreshTip: "Uppdatera",
+	restoreTip: "Återställ",
+	nextPageTip: "Nästa sida",
+	previousPageTip: "Föregående sida",
+	lastPageTip: "Sista sidan",
+	firstPageTip: "Första sidan"
+//end v1.x content
+});
+

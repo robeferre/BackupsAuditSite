@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx OneUI Pagination Test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src='support/common.js'></script>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneuiLess/theme.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		.gridx {
+			width: 800px;
+			height: 400px;
+			margin: 20px;
+		}
+	</style>
+	<script type="text/javascript" src='test_grid_oneui_pagination.js'></script>
+</head>
+<body class='claro oneui'>
+	<h1>Gridx OneUI Pagination Test</h1>
+	<h2>Bottom Pagination Bar</h2>
+	<div id="grid1" data-dojo-id="grid1" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		paginationBarGotoButton: true,
+		modules: [
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/Pagination',
+			'gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/pagination/PaginationBar'
+		]
+	"></div>
+	<h2>Bottom & Top</h2>
+	<div id="grid2" data-dojo-id="grid2" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		paginationBarPosition: 'both',
+		paginationBarGotoButton: false,
+		paginationBarDescription: 'bottom',
+		paginationBarSizeSwitch: 'top',
+		modules: [
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/Pagination',
+			'gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/pagination/PaginationBar'
+		]
+	"></div>
+	<h2>Drop-Down Version</h2>
+	<div id="grid3" data-dojo-id="grid3" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		modules: [
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/Pagination',
+			'gridx/modules/VirtualVScroller',
+			'idx/gridx/modules/pagination/PaginationBarDD'
+		]
+	"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Demo</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../demos/demo.css";
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		dojoRequireModules(["idx.demos._PageProxyContentPane"], null, currentDojoVersion.async, null, null);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+<body role="main">
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+
+    <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'Overview', selected: true, mobilesrc: 'mobiledemo.html'" style="min-height: 900px;"></div>
+</body>
+</html>

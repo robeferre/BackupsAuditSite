@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Date and Time TextBox</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneuiLess/theme.css";
+			@import "../../tests/_pagefooter/_PageFooter.css";
+			@import "../../tests/test.css";
+	    </style>
+	
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.isDebug = true
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+	
+		<script type="text/javascript" id="postDojo">
+			/*
+			require([
+				"dojo/ready",
+				"dijit/_base/manager",
+				"dijit/form/Button",
+				"dijit/form/Form",
+				"idx/form/DateTextBox",
+				"idx/form/TimeTextBox",
+				"dijit/form/DateTextBox",
+				"dijit/form/TimeTextBox",
+				"idx/tests/_pagefooter/_PageFooter"],
+			function(ready, manager, Button, Form, DateTextBox, TimeTextBox, a,b, _PageFooter){
+				ready(function(){
+					new _PageFooter();
+					dojo.parser.parse();
+				});
+			});
+			*/
+			var modules = [
+				"dijit._base.manager",
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"idx.form.DateTextBox",
+				"idx.form.TimeTextBox",
+				"idx.form.DateTimeTextBox",
+				"idx.tests._pagefooter._PageFooter"
+			]; 
+			var manager, Button, Form, DateTextBox, TimeTextBox, _PageFooter;
+			
+			function preParse(modules){
+				manager 			= modules["dijit/_base/manager"];
+				Button 				= modules["dijit/form/Button"];
+				Form  				= modules["dijit/form/Form"];
+				DateTextBox   		= modules["idx/form/DateTextBox"];
+				TimeTextBox 		= modules["idx/form/TimeTextBox"];
+				DateTimeTextBox 	= modules["idx/form/DateTimeTextBox"];
+				_PageFooter   		= modules["idx/tests/_pagefooter/_PageFooter"];
+			}
+			function postParse() {
+				new _PageFooter();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+			function validate() {
+				var dp = manager.byId("datetimetextbox");
+				alert(dp.validate()? "success":"failure");
+			}
+		
+			function setvalue() {
+				var dp = manager.byId("datetimetextbox");
+				dp.set("value", new Date());
+			}
+			
+			function getvalue() {
+				var dp = manager.byId("datetimetextbox");
+				console.debug("dp.attr('value') = " + dp.attr("value"));
+				console.debug("dp.value = " + dp.value);
+			}
+		
+			function clear() {
+				var dp = manager.byId("datetimetextbox");
+		
+				dp.reset();
+			}
+		
+			function toggleDisable() {
+				var dp = manager.byId("datetimetextbox");
+				dp.set("disabled", !dp.disabled);
+			}
+		
+			function toggleReadOnly() {
+				var dp = manager.byId("datetimetextbox");
+				dp.set("readOnly", !dp.get("readOnly"));
+			}
+		
+			function toggleRequired() {
+				var dp = manager.byId("datetimetextbox");
+				dp.set("required", !dp.get("required"));
+			}
+		
+			function validateForm() {
+				alert(form.validate());
+			}
+		</script>
+		<script type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		
+		<div class="testMain">
+			<h1>Date and Time TextBox</h1>
+			
+			<h2>idx.form.DateTextBox</h2>
+			<input id="datetextbox" data-dojo-type="idx.form.DateTextBox" data-dojo-props='
+				hint: "some tip",
+				hintPosition: "inside",
+				label: "Date:",
+				help: "Field help goes here.",
+				labelAlignment: "horizontal"
+			'/>
+			<br/>
+			<br/>
+			
+			<h2>idx.form.TimeTextBox</h2>
+			<input id="timetextbox" data-dojo-type="idx.form.TimeTextBox" data-dojo-props='
+				hint: "some tip",
+				hintPosition: "inside",
+				help: "Field help goes here.",
+				label: "Time:",
+				labelAlignment: "horizontal"
+			'/>
+			
+			
+			<!--
+			<h2>Dijit DateTextBox</h2>
+			<input data-dojo-type="dijit.form.DateTextBox" data-dojo-props='
+				name:"datetest", value:"2008-12-31", type:"text"
+			'/>
+			<br/>
+			
+			<h2>Dijit TimeTextBox</h2>
+			<input data-dojo-type="dijit.form.TimeTextBox" data-dojo-props='
+				type:"text", name:"timetest", value:"T17:45:00"
+			'/>
+			-->
+			
+			<br/>
+			<br/>
+			
+			<h2>idx.form.DateTimeTextBox</h2>
+			
+			<div dojoType="dijit.form.Form" jsId="form">
+				<input id="datetimetextbox" data-dojo-type="idx.form.DateTimeTextBox" data-dojo-props="
+					showPickerIcon: true, 
+					label: 'Date and Time:',
+					help: 'DateTimeTextBox help goes here.',
+					labelAlignment: 'horizontal'
+				"/>
+			</div>
+			
+			<br/>
+			
+			<div dojoType="dijit.form.Button"
+				id="validateButton"
+				label="Validate"
+				onclick="validate"
+			></div>
+			<div dojoType="dijit.form.Button"
+				id="getvalue"
+				label="Get Value"
+				onclick="getvalue"
+			></div>
+			<div dojoType="dijit.form.Button"
+				id="setvalue"
+				label="Set Current Date"
+				onclick="setvalue"
+			></div>
+			<div dojoType="dijit.form.Button"
+				label="Clear"
+				onclick="clear"
+			></div>
+			<div dojoType="dijit.form.Button"
+				label="Toggle Disable"
+				onclick="toggleDisable"
+			></div>
+			<div dojoType="dijit.form.Button"
+				label="Toggle ReadOnly"
+				onclick="toggleReadOnly"
+			></div>
+			<div dojoType="dijit.form.Button"
+				label="Toggle Required"
+				onclick="toggleRequired"
+			></div>
+			<div dojoType="dijit.form.Button"
+				label="Validate Form"
+				onclick="validateForm"
+			></div>
+		</div>
+	</body>
+</html>

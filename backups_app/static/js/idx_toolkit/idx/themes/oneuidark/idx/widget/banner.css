@@ -1,0 +1,102 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or 
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark.dark .idxBanner {
+	background:#111;
+	background:-moz-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3e3e3e),color-stop(100%,#131313));
+	background:-webkit-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:-o-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:-ms-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3e3e3e',endColorstr='#131313',GradientType=0);
+}
+.oneui.dark .idxBanner .idxBannerInnerContainer {
+	color:#ddd;
+}
+
+.oneui.dark .idxBanner .idxBannerContainer {
+	color:#fff;
+}
+.oneui.dark .idxBanner .idxBannerLogoArea .idxBannerLogo {
+	background:transparent url(images/bannerLogo.png) center no-repeat;
+}
+.oneui.dark .idxBanner .idxBannerHelpButtonIcon {
+	border-left-color: #3d3d3d;
+	background-image:url(images/help.png);
+	background-position:right;
+	background-repeat:no-repeat;
+}
+
+.dijitRtl .oneui.dark .idxBanner .idxBannerHelpButtonIcon {
+	border-right:1px solid #3d3d3d;
+	background-position:left;
+}
+
+.oneui.dark .idxBanner .dijitButton,.oneui.dark .idxBanner .dijitDropDownButton,.oneui.dark .idxBanner .dijitButtonNode,.oneui.dark .idxBanner .dijitButtonActive .dijitButtonNodeHover,.oneui.dark .idxBanner .dijitDropDownButton .dijitButtonNodeHover,.oneui.dark .idxBanner .dijitDropDownButton .dijitDownArrowButtonHover {
+	background:none!important;
+	-webkit-box-shadow:none!important;
+	-moz-box-shadow:none!important;
+	box-shadow:none!important;
+}
+.oneui.dark .idxBanner .dijitButtonFocused .dijitButtonNode,.oneui.dark .idxBanner .dijitDropDownButtonFocused .dijitButtonNode {
+	outline-color:#ddd;
+}
+
+.oneui.dark .idxBanner .dijitArrowButtonInner {
+	background-image:url(images/bannerArrow.png);
+	background-position:center;
+}
+.oneui.dark .idxBanner .dijitButtonContents .dijitButtonText,.oneui.dark .idxBanner a,.oneui.dark .idxBanner A:link,.oneui.dark .idxBanner a:visited {
+	color:#ddd;
+	text-shadow:0 1px rgba(0,0,0,0.3);
+}
+
+.oneui.dark .idxBanner a,.oneui.dark .idxBanner A:link,.oneui.dark .idxBanner a:visited {
+	border-right-color: transparent;
+	border-left-color: transparent;
+}
+
+.oneui.dark .idxBanner .dijitButtonContents .dijitButtonText:hover,.oneui.dark .idxBanner a:hover {
+	color:#fff;
+}
+
+.oneui.dark .idxBanner a:hover {
+	border-color:#1f1f1f;
+	background:#111;
+	background:-moz-linear-gradient(top,#000,#222 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#000),color-stop(100%,#222));
+	background:-webkit-linear-gradient(top,#000 0%,#222 100%);
+	background:-o-linear-gradient(top,#000 0%,#222 100%);
+	background:-ms-linear-gradient(top,#000 0%,#222 100%);
+	background:linear-gradient(top,#000 0%,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#585858',endColorstr='#1a1a1a',GradientType=0);
+}
+
+.oneui.dark .idxBanner a.idxLinkSelected,.oneui.dark .idxBanner a.idxLinkSelected:hover {
+	border-color:#1f1f1f;
+	background:#3c3c3c;
+	background:-moz-linear-gradient(top,#585858,#1a1a1a 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#585858),color-stop(100%,#1a1a1a));
+	background:-webkit-linear-gradient(top,#585858 0%,#1a1a1a 100%);
+	background:-o-linear-gradient(top,#585858 0%,#1a1a1a 100%);
+	background:-ms-linear-gradient(top,#585858 0%,#1a1a1a 100%);
+	background:linear-gradient(top,#585858 0%,#1a1a1a 100%);
+	color:#fff;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#585858',endColorstr='#1a1a1a',GradientType=0);
+	cursor:auto;
+}
+
+.oneui.dark.dark .idxBanner .idxBannerBottomBar {
+	background:#1a96c6;
+	background:-moz-linear-gradient(top,#1a96c6 0%,#0075a3 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#1a96c6),color-stop(100%,#0075a3));
+	background:-webkit-linear-gradient(top,#1a96c6 0%,#0075a3 100%);
+	background:-o-linear-gradient(top,#1a96c6 0%,#0075a3 100%);
+	background:-ms-linear-gradient(top,#1a96c6 0%,#0075a3 100%);
+	background:linear-gradient(top,#1a96c6 0%,#0075a3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a96c6',endColorstr='#0075a3',GradientType=0);
+}

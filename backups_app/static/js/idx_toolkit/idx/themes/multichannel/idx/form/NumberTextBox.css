@@ -1,0 +1,8 @@
+.oneui .idxPlatform_mobile.idxNumberTextBoxWrapError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxNumberTextBoxWrapFocused .idxCompositeHelpContainer{
+	opacity: 1;
+}
+.oneui .idxPlatform_mobile.idxNumberTextBoxWrapError .idxCompositeHelpContainer{
+	opacity:0;
+	z-index:0;
+}

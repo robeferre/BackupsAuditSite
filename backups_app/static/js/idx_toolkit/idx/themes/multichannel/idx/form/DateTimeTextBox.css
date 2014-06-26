@@ -1,0 +1,9 @@
+.oneui .idxPlatform_mobile.idxDateTimeTextBoxWrap .idxDateTextBoxWrap,
+.oneui .idxPlatform_mobile.idxDateTimeTextBoxWrap .idxTimeTextBoxWrap{
+	margin: 0;
+}
+
+
+.oneui .idxPlatform_mobile.idxDateTimeTextBoxWrap .dijitTimeTextBox{
+	overflow:hidden;
+}

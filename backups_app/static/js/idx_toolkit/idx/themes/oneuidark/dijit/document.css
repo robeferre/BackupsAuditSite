@@ -1,0 +1,112 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* ======= .oneui.dark is 12px for body text, UI controls, feeds, ellipses, etc ======== */
+.oneui.dark {
+	color:#eee;
+	background:#000;
+}
+
+/* ======= .oneui.dark pageHeader1 is 30px; content area ======== */
+.oneui.dark .pageHeader1 {
+	color:#222;
+}
+
+/* ======= .oneui.dark pageHeader2 is 18px; content area ======== */
+.oneui.dark .pageHeader2 {
+	color:#222;
+}
+
+/* ======= .oneui.dark portletHeader1 is 14px; content area ======== */
+.oneui.dark .portletHeader1 {
+	color:#222;
+}
+
+/* ======= .oneui.dark portletHeader2 is 12px; content area ======== */
+.oneui.dark .portletHeader2 {
+	color:#222;
+}
+
+/* ======= .oneui.dark messagesContrast is 11px for secondary message info such as ID (CAT123456) and date/timestamp and message filters ; content area======== */
+.oneui.dark .messagesContrast {
+	color:#ccc;
+}
+
+/* ======= .oneui.dark .informational2 is 12px e.g hover person card information; content area ======== */
+.oneui.dark .informational2 {
+	color:#ccc;
+}
+
+/* ======= .oneui.dark .informational3 is 22px e.g hover person card information, spefically the person's name; content area ======== */
+.oneui.dark .informational3 {
+	color:#00649d;
+}
+
+/* ======= .oneui.dark .legal: for copyright and trademark information in login, about, welcome screen, video, 11px; content area   ======== */
+.oneui.dark .legal {
+	color:#666;
+}
+
+/* ======= .oneui.dark .activeMessage2 is 14px; content area   ======== */
+.oneui.dark .activeMessage2 {
+	color:#b8471b;
+}
+
+/* ======= .oneui.dark .activeMessage3 is 11px; content area   ======== */
+.oneui.dark .activeMessage3 {
+	color:#b8471b;
+}
+
+/* ======= .oneui.dark .chartMarkers is 12px; content area   ======== */
+.oneui.dark .chartMarkers {
+	color:#666;
+}
+
+/* ======= .oneui.dark .chartLegend is 11px; content area   ======== */
+.oneui.dark .chartLegend {
+	color:#666;
+}
+
+/* ======= .oneui.dark .sliderMarkers is 10px ; content area  ======== */
+.oneui.dark .sliderMarkers {
+	color:#333;
+}
+
+/* ======= .oneui.dark breadcrumb is 11px; content area; content area  ======== */
+.oneui.dark .breadcrumb a {
+	color:#078dc1;
+}
+
+.oneui.dark .breadcrumb a:visited {
+	color:#69bfe0;
+}
+
+.oneui.dark .breadcrumb a:hover {
+	color:#3eb3e0;
+}
+
+.oneui.dark .breadcrumb a:active {
+	color:#078dc1;
+}
+
+/* ======= .oneui.dark default linked text; content area ======== */
+.oneui.dark a:link {
+	color:#078dc1;
+}
+
+.oneui.dark a:visited {
+	color:#69bfe0;
+}
+
+.oneui.dark a:hover {
+	color:#3eb3e0;
+}
+
+.oneui.dark a:active {
+	color:#078dc1;
+}
+
+/* =======end of content area font styles ======== */

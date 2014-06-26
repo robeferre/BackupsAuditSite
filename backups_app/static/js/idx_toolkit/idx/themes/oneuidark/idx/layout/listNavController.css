@@ -1,0 +1,87 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .dijitStackController.idxListNavController {
+	background-color:#222;
+}
+
+.oneui.dark .dijitStackController.idxListNavController .idxListNavButton {
+	background-color:#222;
+}
+
+.oneui.dark .dijitStackController.idxListNavController .dijitButtonNode {
+	background-color:transparent;
+	background-image:none;
+}
+
+.oneui.dark .dijitStackController.idxListNavController .idxListNavButtonHover .dijitButtonNode,.oneui.dark .dijitStackController.idxListNavController .idxListNavButtonCheckedHover .dijitButtonNode,.oneui.dark .idxSectionedNavigation .dojoxGrid .dojoxGridRowOver {
+	background-color:#1676a3;
+	background-image:none;
+}
+
+.oneui.dark .dijitStackController.idxListNavController .idxListNavButtonFocused .dijitButtonNode,.oneui.dark .dijitStackController.idxListNavController .idxListNavButtonChecked .dijitButtonNode,.oneui.dark .idxSectionedNavigation .dojoxGrid .dojoxGridRowSelected {
+	background-color:#078dc1;
+	background-image:none;
+}
+
+/*ContentPane grouping navigation list items*/
+.oneui.dark .idxListNavigation {
+	background-color:#222;
+}
+
+.oneui.dark .idxNestedNavigation,.oneui.dark .idxSectionedNavigation {
+	background-color:#222;
+}
+
+/*TitlePanes and Grids that make up Nested and Sectioned List Navigation*/
+.oneui.dark .idxNestedNavigation .dijitTitlePane,.oneui.dark .idxSectionedNavigation .dijitTitlePane {
+	-webkit-box-shadow:0 0 0 rgba(234,234,234,0);
+	-moz-box-shadow:0 0 0 rgba(234,234,234,0);
+	box-shadow:0 0 0 rgba(234,234,234,0);
+}
+
+.oneui.dark .idxNestedNavigation .dijitTitlePaneTitle {
+	background:none;
+	background-image:none;
+	text-shadow:none;
+}
+
+.oneui.dark .idxNestedNavigation .dijitTitlePaneTitleHover {
+	background-color:#1676a3;
+}
+
+.oneui.dark .idxNestedNavigation .dijitTitlePane .dijitArrowNode {
+	background-image:url(images/leftNavArrows.png);
+}
+
+.oneui.dark .idxNestedNavigation .dijitTitlePane .dijitClosed .dijitArrowNode {
+	background-position:0 0;
+}
+
+.oneui.dark .idxNestedNavigation .dijitTitlePane .dijitOpen .dijitArrowNode {
+	background-position:-16px 0;
+}
+
+.oneui.dark .idxNestedNavigation .dijitTitlePaneRtl .dijitClosed .dijitArrowNode {
+	background-position:-30px 0;
+}
+
+.oneui.dark .idxSectionedNavigation .dojoxGridHeader .dojoxGridCell {
+	border-left-color:#343434;
+}
+
+.oneui.dark .idxSectionedNavigation .dojoxGridCell,.oneui.dark .idxSectionedNavigation .dojoxGridRow {
+	border-left-color:#343434;
+	border-right-color:transparent;
+}
+
+.oneui.dark .idxSectionedNavigation .dojoxGridRowTable tr {
+	background-color:inherit;
+}
+
+.oneui.dark .idxSectionedNavigation .dojoxGridMasterHeader {
+	border-bottom-color:#c2bfb3;
+}

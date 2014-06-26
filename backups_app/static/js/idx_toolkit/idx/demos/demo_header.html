@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+	<title>Creating a header with the IBM One UI Toolkit</title>
+	
+
+	<script type="text/javascript" src="../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+	dojoCSSImport("../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+	dojoCSSImport("../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+	</script>
+
+    <style id="idxStyles" type="text/css">
+		@import "../themes/oneui/oneui.css";
+        @import "demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.app.Header",
+			"idx.widget.MenuBar",
+			"dijit.MenuBarItem",
+			"dijit.layout.StackContainer",
+			"idx.demos._PageProxyContentPane"];
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, null);
+	</script>
+	
+	<script type="text/javascript" src="../tests/commonTest.js"></script>
+</head>
+<body class="oneui">
+	<a class="dijitOffScreen" role="navigation" href="#maincontent">Skip to main content</a>
+
+	<div id="_nav" data-dojo-type="idx.widget.MenuBar">
+		<div data-dojo-type="dijit.MenuBarItem" onclick="location.href='http://uxd.torolab.ibm.com/uxd/uxd_oneui.jsp?site=uxd';">UXD</div>
+		<div data-dojo-type="dijit.MenuBarItem" onclick="location.href='http://uxd.torolab.ibm.com/uxd/uxd_oneui.jsp?site=ibmoneui';">IBM One UI</div>
+		<div data-dojo-type="dijit.MenuBarItem" onclick="location.href='http://maqetta.austin.ibm.com/maqetta/';">Maqetta</div>
+	</div>
+	
+	<div data-dojo-type="idx.app.Header" data-dojo-props="
+		primaryTitle: 'IBM Design',
+		navigation: '_nav',
+		primaryBannerType: 'thin',
+		secondaryTitle: 'Creating a header with the IBM One UI Toolkit',
+		contentContainer: '_pages',
+		secondaryBannerType: 'lightGray'
+	"></div>
+
+    <div role="main" id="_pages" data-dojo-type="dijit.layout.StackContainer" data-dojo-props="doLayout: false" style="width: auto; height: auto;">
+	<a name="maincontent"></a>
+        <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'Overview', selected: true, iframesrc: 'header/overview.html'"></div>
+        <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'Primer', iframesrc: 'header/primer.html'"></div>
+        <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'Demo', iframesrc: 'header/demo.html'"></div>
+        <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'Demo source code', textsrc: 'header/demo.html'"></div>
+        <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'Detailed examples', iframesrc: 'header/examples.html'"></div>
+        <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="title: 'API documentation', iframesrc: 'header/api.html'"></div>
+    </div>
+
+</body>
+</html>

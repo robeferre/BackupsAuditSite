@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx OneUI Style Variations</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src="support/common.js"></script>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		.gridx {
+			width: 800px;
+			height: 350px;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script type="text/javascript" src='test_grid_oneui_stylevariations.js'></script>
+</head>
+<body class='oneui'>
+	<h1>Gridx OneUI Style Variations</h1>
+	<h2>Style A</h2>
+	<p>Airy grid with cell outlines.</p>
+	<div jsid="gridA" data-dojo-type="gridx.Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style B</h2>
+	<p>Airy grid with row striping and no cell outlines.</p>
+	<div jsid="gridB" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'gridxAlternatingRows gridxWholeRow',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style C</h2>
+	<p>Airy grid with row striping and column outlines.<p>
+	<div jsid="gridC" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'gridxAlternatingRows',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style D</h2>
+	<p>Airy grid with row outlines.</p>
+	<div jsid="gridD" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'gridxWholeRow',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style E</h2>
+	<p>Compact grid with cell outlines.</p>
+	<div jsid="gridE" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'compact',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style F</h2>
+	<p>Compact grid with row striping and no cell outlines.</p>
+	<div jsid="gridF" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'compact gridxAlternatingRows gridxWholeRow',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style G</h2>
+	<p>Compact grid with row striping and column outlines.</p>
+	<div jsid="gridG" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'compact gridxAlternatingRows',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style H</h2>
+	<p>Compact grid with rows outlines.</p>
+	<div jsid="gridH" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'compact gridxWholeRow',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style I</h2>
+	<p>Airy full page grid with row striping.</p>
+	<div jsid="gridI" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'gridxFullPage gridxAlternatingRows',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+
+	<h2>Style J</h2>
+	<p>Airy full page grid with row lines.</p>
+	<div jsid="gridJ" data-dojo-type="gridx.Grid" data-dojo-props="
+		'class': 'gridxFullPage',
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store,
+		structure: layout,
+		autoWidth: true,
+		selectRowTriggerOnCell: true,
+		bodyRowHoverEffect: false,
+		modules: [
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/VirtualVScroller',
+			'gridx/modules/ToolBar',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/QuickFilter',
+			'idx/gridx/modules/Sort'
+		]
+	"></div>
+</body>
+</html>

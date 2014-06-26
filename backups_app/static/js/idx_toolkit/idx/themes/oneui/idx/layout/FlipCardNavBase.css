@@ -1,0 +1,448 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/************ Main Container ************/
+.oneui .idxFlipCardNavBase{
+	width: 100%;
+	height: 100%;
+}
+
+
+/***************** bar *****************/
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar{
+	background: rgb(70,70,70); /* Old browsers */
+	background: -moz-linear-gradient(left, #71706F 0%, #939290 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #71706F), color-stop(100%, #939290)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #71706F 0%, #939290 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(left, #71706F 0%, #939290 100%); /* IE10+ */
+	background: linear-gradient(left, #71706F 0%, #939290 100%); /* W3C */
+    height: 100%;
+    width: 38px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 900;
+    overflow:hidden;
+    -webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	-ms-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.idxFlipCardNavBarExtended{
+/*** for slide nav bar desc, set in js ***/
+	/*width:200px;*/
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.navSelected{
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.navExpandoSelected{
+	width: 40px;
+	background: rgb(70,70,70); /* Old browsers */
+	background: -moz-linear-gradient(left, #71706F 0%, #939290 90%, #FFB400 95%, #FFB400 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #71706F), color-stop(90%, #939290), color-stop(95%, #FFB400), color-stop(100%, #FFB400)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #71706F 0%, #939290 90%, #FFB400 95%, #FFB400 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(left, #71706F 0%, #939290 90%, #FFB400 95%, #FFB400 100%); /* IE10+ */
+	background: linear-gradient(left, #71706F 0%, #939290 90%, #FFB400 95%, #FFB400 100%); /* W3C */
+	
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .idxFlipCardNavBarActions{
+	list-style: 0;
+	margin: 0;
+	padding: 0;
+    position: absolute;
+	top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(70,70,70); /* Old browsers */
+	background: -moz-linear-gradient(left, #000000 0%, #939290 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #000000), color-stop(100%, #939290)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #000000 0%, #939290 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(left, #000000 0%, #939290 100%); /* IE10+ */
+	background: linear-gradient(left, #000000 0%, #939290 100%); /* W3C */
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .idxFlipCardNavBarTop{
+	list-style: 0;
+	margin: 0;
+	padding: 0;
+    position: absolute;
+	top: 0;
+    left: 0;
+    width: 100%;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .idxFlipCardNavBarBottom{
+	list-style: 0;
+	margin: 0;
+	padding: 5px 3px;
+	/*background-color: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid #484848;*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+/**************** nav item **********************/
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItem{
+	width:100%;
+	height:35px;
+	position: relative;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction{
+	width:100%;
+	height:30px;
+	position: relative;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItemHover{
+	background-color: #FFB400;
+	border-top: 1px solid rgba( 255, 255, 255, .20);
+	border-bottom: 1px solid rgba( 255, 255, 255, .20);
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItemActive{
+	background-color: #FFB400;
+	border-top: 1px solid rgba( 255, 255, 255, .20);
+	border-bottom: 1px solid rgba( 255, 255, 255, .20);
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItemSelected{
+	background-color: #FFB400;
+}
+
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItem .navItemIconContainer{
+	position:absolute;
+	left: 5px;
+	top: 2px;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	-ms-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.idxFlipCardNavBarExtended .navItem .navItemIconContainer{
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .navActionIconContainer{
+	position:absolute;
+	right: 5px;
+	top: 3px;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	-ms-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.idxFlipCardNavBarExtended .navAction .navActionIconContainer{
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItem .navItemIcon{
+	width: 25px;
+	height: 25px;
+	opacity: .7;
+	-webkit-transition: all 0.3s ease-in-out; 
+	-moz-transition: all 0.3s ease-in-out; 
+	-o-transition: all 0.3s ease-in-out; 
+	-ms-transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .navActionIcon{
+	width: 20px;
+	height: 20px;
+	opacity: .7;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .navActionIcon_a11y{
+	display: none;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItem .defaultNavItemIcon{
+	background: url("images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background-position: -168px 0;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .defaultNavActionIcon{
+	background: url("images/navSprite_24.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background-position: -384px 0;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .toggleNavBarActionIcon{
+	background: url("images/toggleNav.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background-position: 0 0;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.idxFlipCardNavBarExtended .navAction .toggleNavBarActionIcon{
+	background: url("images/toggleNavReverse.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background-position: 0 0;
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItemHover .navItemIcon{
+	opacity: .9;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItemActive .navItemIcon{
+	opacity: 1;
+}
+
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItem .navItemDesc{
+	position:absolute;
+	left: 50px;
+	top: 5px;
+	height: 30px;
+	color: white;
+	font-weight: bold;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.idxFlipCardNavBarExtended .navItem .navItemDesc{
+	opacity: 1;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .navActionDesc{
+	position:absolute;
+	left: 5px;
+	top: 5px;
+	height: 20px;
+	color: white;
+	font-weight: bold;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.oneui .idxFlipCardNavBase .idxFlipCardNavBar.idxFlipCardNavBarExtended .navAction .navActionDesc{
+	opacity: 1;
+}
+
+
+/************ navigation Container ************/
+.oneui .idxFlipCardNavBase .idxFlipCardContent{
+	position: absolute;
+	left: 38px;
+	width: 95%;
+	height: 99%;
+	
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+.oneui .idxFlipCardNavBase .contentBorder{
+	padding:0;
+	margin:0;
+}
+.oneui .idxFlipCardNavBase .contentBorder{
+	width: 100%;
+	height: 100%;
+}
+
+.oneui .idxFlipCardNavBase .centerExpando{
+	background-color: #A9A7A5;
+    color: #CCCCCC;
+    padding: 0;
+    width: 18%;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoPane {
+	overflow:hidden;
+	z-index:440 !important;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoTitle{
+	background-color: #A9A7A5;
+	border-bottom: 1px solid #444444;
+    color: #F0F0F0;
+    margin: 0 0 10px;
+    padding: 10px;
+    text-shadow: 1px 0 0 #000000;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoWrapper {
+	overflow:hidden;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoTitleNode {
+	display:none;
+}
+.dojoxExpandoClosed .dojoxExpandoWrapper * {
+	overflow:hidden !important;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoTitleNode {
+	padding-right:6px; 
+	padding-left:6px;
+}
+
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoIcon .a11yNode {
+	display:none;
+	visibility:hidden;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoBottom .dojoxExpandoIcon,
+.oneui .idxFlipCardNavBase .dojoxExpandoTop .dojoxExpandoIcon,
+.oneui .idxFlipCardNavBase .dojoxExpandoLeft .dojoxExpandoIcon {
+	float:right;
+	margin-right:2px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoRight .dojoxExpandoIcon {
+	float:left;
+	margin-left:2px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoIcon {
+	width:14px;
+	cursor:pointer;
+	background-position:-60px 0px;
+	background-repeat: no-repeat;
+	height:14px;
+}
+
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoPersistenceIcon {
+	background-image: url("../form/images/checkboxRadioButtonStates.png");
+	background-position: -209px center;
+	display: block;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoPane .dojoxExpandoPersistenceIcon.persistence {
+	background-position: -193px center;
+}
+
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIcon {
+	background-position: 0px 0px;
+	margin:0 auto;
+}
+
+.oneui .idxFlipCardNavBase .dijitBorderContainer-dijitExpandoPane {
+	border: none !important; 
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoTitle {
+	font-weight: bold;
+	border:1px solid #769DC0;
+	border-bottom:none;
+    background-color:#cde8ff;
+	background-image: url("images/standardGradient.png");
+    background-position:0px 0px;
+    background-repeat:repeat-x;
+	padding: 5px 7px 2px 7px;
+    min-height:17px;
+    color:#4a4a4a;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoTitle {
+	background: none;
+	background-color: #E6E6E7;
+	border: none;
+	padding:3px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed {
+	background: none;
+	background-color: #E6E6E7;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoRight .dojoxExpandoTitle,
+.oneui .idxFlipCardNavBase .dojoxExpandoLeft .dojoxExpandoTitle,
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoTitle{
+	background-color: #A9A7A5;
+	border: none;
+	/*border-bottom: 1px solid #444444;*/
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoTitle{
+	background-image: url("images/standardGradient.png");
+	background-position:0 0;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoIcon {
+	background-image: url("images/spriteRoundedIconsSmall.gif");
+	display: none;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconLeft,
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconRight,
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconTop,
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconBottom {
+	margin-top: 3px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIcon {
+	margin-right:4px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoIconLeft {
+  	background-position: 0 0;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconLeft {
+  	background-position: -30px 0;
+	margin-right: 4px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoIconRight {
+  	background-position: -30px 0;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconRight {
+  	background-position: 0 0;
+	margin-left: 4px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoIconBottom {
+  	background-position: -15px 0;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconBottom {
+  	background-position: -45px 0;
+	margin-top:1px;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoIconTop {
+  	background-position: -45px 0;
+}
+.oneui .idxFlipCardNavBase .dojoxExpandoClosed .dojoxExpandoIconTop {
+  	background-position: -15px 0;
+}
+
+.oneui .idxFlipCardNavBase .dojoxExpandoContent .expandoContentPane{
+	width: 99% !important;
+	height: 99%;
+	padding: 0;
+	margin: 0;
+}
+
+
+
+.oneui .idxFlipCardNavBase .centerContainer{
+	width:100% !important;
+	height:100% !important;
+	padding:0;
+	margin:0;
+	position: relative;
+	overflow: hidden;
+}
+.oneui .idxFlipCardNavBase .centerContainer.css3Animations{
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-ms-perspective: 800px;
+	perspective: 800px;
+}
+
+
+.oneui .idxFlipCardNavBase.css3AnimationsDisabled,
+.oneui .idxFlipCardNavBase.css3AnimationsDisabled .idxFlipCardNavBar,
+.oneui .idxFlipCardNavBase.css3AnimationsDisabled .idxFlipCardNavBar *,
+.oneui .idxFlipCardNavBase.css3AnimationsDisabled .idxFlipCardContent{
+	-webkit-transition: none !important; 
+	-moz-transition: none !important; 
+	-o-transition: none !important; 
+	-ms-transition: none !important; 
+	transition: none !important; 
+}
+
+
+
+
+/**************** a11y *********************/
+.dj_a11y.oneui .idxFlipCardNavBase .centerExpando{
+	border: 1px solid #A9A7A5;
+}
+.dj_a11y.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navAction .navActionIcon_a11y{
+	display: inline;
+}
+.dj_a11y.oneui .idxFlipCardNavBase .idxFlipCardNavBar .navItem .navItemDesc{
+	left: 0;
+	opacity: 1;
+}

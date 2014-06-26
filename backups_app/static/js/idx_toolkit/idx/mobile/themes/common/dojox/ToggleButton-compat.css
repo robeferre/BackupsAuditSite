@@ -1,0 +1,31 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.ToggleButton */
+
+.mblToggleButton {
+	background-size: 1px 100%;
+	background-repeat: repeat-x;
+	background-image: url(compat/button-bg.png);
+	background-image: -moz-linear-gradient(top, #f4f4f4, #dbdbdb);
+	background-image: linear-gradient(to bottom, #f4f4f4, #dbdbdb);
+}
+
+.mblToggleButtonSelected {
+	background-size: 1px 100%;
+	background-repeat: repeat-x;
+	background-image: url(compat/button-sel-bg.png);
+	background-image: -moz-linear-gradient(top, #dbdbdb, #f4f4f4);
+	background-image: linear-gradient(to bottom, #dbdbdb, #f4f4f4);
+}
+
+.mblToggleButtonChecked:after {
+	-moz-transform: rotate(45deg) skew(10deg);
+	-moz-transform-origin: 50% 50%;
+	-ms-transform: rotate(45deg) skew(10deg);
+	-ms-transform-origin: 50% 50%;
+}

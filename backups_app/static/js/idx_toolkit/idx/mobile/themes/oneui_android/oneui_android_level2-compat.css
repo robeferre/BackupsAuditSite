@@ -1,0 +1,46 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*
+ * This file contains additional style imports to work around the
+ * Internet Explorer 31-import limit. Only files with a maximum of
+ * one further level of import should be included here, in order to
+ * avoid exceeding the Internet Explorer 4-import-depth limit.
+ */
+
+/* dojox/mobile widget styles */
+@import url(dojox/Accordion-compat.css);
+@import url(dojox/Badge-compat.css);
+@import url(dojox/Button-compat.css);
+@import url(dojox/Carousel-compat.css);
+@import url(dojox/CheckBox-compat.css);
+@import url(dojox/ComboBox-compat.css);
+@import url(dojox/ContentPane-compat.css);
+@import url(dojox/EdgeToEdgeCategory-compat.css);
+@import url(dojox/EdgeToEdgeList-compat.css);
+@import url(dojox/FixedSplitter-compat.css);
+@import url(dojox/GridLayout-compat.css);
+@import url(dojox/Heading-compat.css);
+@import url(dojox/IconMenu-compat.css);
+@import url(dojox/PageIndicator-compat.css);
+@import url(dojox/Pane-compat.css);
+@import url(dojox/ProgressBar-compat.css);
+@import url(dojox/ProgressIndicator-compat.css);
+@import url(dojox/RadioButton-compat.css);
+@import url(dojox/RoundRect-compat.css);
+@import url(dojox/RoundRectCategory-compat.css);
+@import url(dojox/RoundRectList-compat.css);
+@import url(dojox/ScrollablePane-compat.css);
+@import url(dojox/SimpleDialog-compat.css);
+@import url(dojox/Slider-compat.css);
+@import url(dojox/SpinWheel-compat.css);
+@import url(dojox/Switch-compat.css);
+@import url(dojox/TextArea-compat.css);
+@import url(dojox/TextBox-compat.css);
+@import url(dojox/ToggleButton-compat.css);
+@import url(dojox/ToolBarButton-compat.css);
+@import url(dojox/Tooltip-compat.css);

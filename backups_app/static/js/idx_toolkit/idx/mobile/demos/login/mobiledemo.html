@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US"> 
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+
+	<title>One UI mobile "Login" standard test</title>
+
+	<!-- Common style definitions for the test cases -->	
+	<link rel="stylesheet" type="text/css" href="../../tests/tests.css" />
+	
+	<script src="../../deviceTheme.js"></script>
+	<script src="../../tests/dojoVersion.js"></script>
+	
+	<script>
+	
+		var show_login, registry;
+
+		require(["idx/mobile/tests/_TestUtils",
+				 "dijit/registry",
+				 "dojox/mobile",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/Button",
+				 "dojox/mobile/ContentPane",
+				 "dojox/mobile/Heading",
+				 "dojox/mobile/ScrollableView",
+				 "idx/mobile/Login",
+				 "idx/mobile/tests/_LogPane"],
+		function(tu, _registry){
+			registry = _registry;
+			
+			show_login = function(){
+				registry.byId("logindialog").show();
+			}
+			
+			handle_login = function(dialog, name, password){
+				// for demo, handle various special user name values
+				switch(name){
+					case 'f-immediate':
+						dialog.showMessage("The user name or password is not correct. Please enter a valid user name and password.");
+						break;
+						
+					case 's-immediate':
+						dialog.hide();
+						registry.byId("id_mainLog").addMessage("(immediate) Login successful, name='" + name + "', password='" + password + "''");
+						break;
+						
+					case 'f-slow':
+						setTimeout(function(){
+							dialog.showMessage("(slow asynchronous) The user name '" + name + "' or password is not correct. Please enter a valid user name and password.");
+						}, 4000);
+						break;
+					
+					case 's-slow':
+						setTimeout(function(){
+							dialog.hide();
+							registry.byId("id_mainLog").addMessage("(slow asynchronous) Login successful, name='" + name + "', password='" + password + "''");
+						}, 4000);
+						break;
+						
+					case 'f-fast':
+						setTimeout(function(){
+							dialog.showMessage("(fast asynchronous) The user name '" + name + "' or password is not correct. Please enter a valid user name and password.");
+						}, 100);
+						break;
+					
+					case 's-fast':
+					default:
+						setTimeout(function(){
+							dialog.hide();
+							registry.byId("id_mainLog").addMessage("(fast asynchronous) Login successful, name='" + name + "', password='" + password + "''");
+						}, 100);
+						break;
+				}
+			}
+		});
+		
+	</script>
+ 
+</head>
+<body style="visibility:hidden;">
+
+	<div id="logindialog" data-dojo-type="idx/mobile/Login" data-dojo-props="name: 'Software Name with a Total<br />of 90 Character Maximum for the Length of the Product Name', copyright: '[Year 1], [Year 2]'" onlogin="handle_login(this, arguments[0].name, arguments[0].password);"></div>
+	
+	<div id="mainView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'One UI Login test', fixed: 'top'">
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label: 'Login'" onclick="show_login(); return false;" style="float: right;"></span>		
+		</div>
+		
+		<p class="phoneOnly dummyViewContent">
+			This application has detected that it is running on a phone-type device. Press the
+			<b>Login</b> button in the heading to show the login panel as a
+			full-viewport overlay. Run this application on a tablet-type device (or emulation)
+			to see the login panel in a pop-up mode.
+		</p>
+
+		<p class="tabletOnly dummyViewContent">
+			This application has detected that it is running on a tablet-type device. Press the
+			<b>Login</b> button in the heading to show the login panel in a
+			pop-up mode. Run this application on a phone-type device (or emulation)
+			to see the login panel as a full-viewport overlay.
+		</p>
+		
+		<div class="dummyViewContent">
+			<p>
+				Is login mandatory: <span data-dojo-type="dojox.mobile.Switch" data-dojo-props="value: 'off', leftLabel: 'Yes', rightLabel: 'No'" onstatechanged="registry.byId('logindialog').set('cancelable', this.value == 'off');"></span>
+			</p>
+			
+			<p>
+				For test purposes, try entering one of the following special values as the login user name:
+				<ul>
+					<li><b>f-immediate</b> &mdash; simulates login failure detected immediately (synchronously in the callback)</li>
+					<li><b>s-immediate</b> &mdash; simulates login success detected immediately (synchronously in the callback)</li>
+					<li><b>f-fast</b> &mdash; simulates login failure detected asynchronously but quickly (0.1 sec)</li>
+					<li><b>s-fast</b> &mdash; simulates login success detected asynchronously but quickly (0.1 sec)</li>
+					<li><b>f-slow</b> &mdash; simulates login failure detected asynchronously after 4 seconds' wait</li>
+					<li><b>s-slow</b> &mdash; simulates login success detected asynchronously after 4 seconds' wait</li>
+				</ul>
+				(any other value as the login user name is treated exactly like <b>s-fast</b>)
+			</p>
+		</div>
+	
+		<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="placeHolder: 'Informational messages will appear here when login is completed'" id="id_mainLog"></div>
+		<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props="href: '../../tests/include_emulation.html'"></div>
+		
+	</div>
+	
+</body>
+</html>

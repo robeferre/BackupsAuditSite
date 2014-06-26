@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US"> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>One UI mobile header standard test</title>
+
+	<!-- Load deviceTheme.js here. We load this BEFORE loading dojo.js
+	     in order that the theme files are loaded before widgets initialise -->
+	<script src="../deviceTheme.js"></script>
+
+	<!-- Common style definitions for the test cases -->	
+	<link rel="stylesheet" type="text/css" href="tests.css" />
+	
+	<script src="dojoVersion.js" data-dojo-config="async:true, parseOnLoad:false, isDebug:true"></script>
+	<script>
+		var logMain;
+		var logText;
+		
+		require(["idx/mobile/tests/_TestUtils",
+				 "dojo/dom",
+				 "dojo/on",
+				 "dojo/sniff",
+				 "dijit/registry",
+				 "dojox/mobile/parser", 
+				 "dojox/mobile", 
+				 "dojox/mobile/compat", 
+		         "dojox/mobile/ContentPane",
+		         "dojox/mobile/Heading",
+		         "dojox/mobile/EdgeToEdgeList",
+		         "dojox/mobile/ListItem",
+		         "dojox/mobile/ScrollableView",
+		         "dojox/mobile/TabBar",
+		         "dojox/mobile/TabBarButton",
+		         "dojox/mobile/ToolBarButton",
+		         "dojox/mobile/Tooltip",
+		         "idx/mobile/tests/_LogPane",
+		         "dojo/domReady!"],
+		function(tu, dom, on, sniff, registry, parser) {
+		
+			/*
+			   This is a monkey-patch workaround for IDT defect 8536
+			   (https://csnext.ibm.com:8002/jazz/web/projects/IBM%20Dojo%20Toolkit%20Public#action=com.ibm.team.workitem.viewWorkItem&id=8536)
+			 */
+			registry.getEnclosingWidget = function(node){
+				while(node){
+					var id = (node.nodeType == 1) && node.getAttribute("widgetId");
+					if(id){
+						return registry._hash[id];
+					}
+					node = node.parentNode;
+				}
+				return null;
+			}		
+		
+			parser.parse();
+			
+			// On Android the title in the Heading is not needed because there
+			// is a ToolBarButton styled as a spinner instead.
+			var useSpinner = (dojox.mobile.currentTheme === "oneui_android");
+			if(useSpinner) {
+				registry.byId("id_heading").set("label", "");
+			}
+			
+			// UI Event handlers.
+			var mainView = registry.byId("id_mainView");
+			var mainLog = registry.byId("id_mainLog");
+			var textLog = registry.byId("id_textLog");
+			var navigationMenuTooltip = registry.byId("id_navigationMenuTooltip");
+			var spinner = registry.byId("id_spinner");
+			var tabletMenuButton = registry.byId("id_tabletMenuButton");
+			var overflowButton = registry.byId("id_overflowButton");
+			var overflowMenuTooltip = registry.byId("id_overflowMenuTooltip");
+			
+			var showingMenu = null;
+			var showingMenuButton = null;
+			var showHideMenu = function(menuButton, menu, show, domNode) {
+				if(show) {
+					if((menu !== showingMenu) || (menuButton != showingMenuButton))
+					{
+						if (showingMenu)
+							showingMenu.hide();
+						if (showingMenuButton)
+							showingMenuButton.set("selected", false);
+						menu.show(domNode, ['below']);
+						menuButton.set("selected", true);
+						showingMenu = menu;
+						showingMenuButton = menuButton;
+					}
+				}
+				else {
+					if (showingMenu)
+					{
+						showingMenu.hide();
+						showingMenu = null;
+					}
+					if (showingMenuButton)
+					{
+						showingMenuButton.set("selected", false);
+						showingMenuButton = null;
+					}
+				}
+			}
+			
+			logMain = function(message){
+				mainLog.addMessage(message);
+			}
+
+			logText = function(message){
+				textLog.addMessage(message);
+			}
+
+			// Show/hide the navigation menu tooltip when the Android spinner is
+			// clicked or the iOS menu button is clicked on a tablet device.
+			on(spinner, "click", function(evt){
+				showHideMenu(spinner, navigationMenuTooltip, !(navigationMenuTooltip === showingMenu), spinner.domNode);
+				evt.preventDefault();
+				evt.stopPropagation();
+			});
+			on(tabletMenuButton, "click", function(evt){
+				showHideMenu(tabletMenuButton, navigationMenuTooltip, !(navigationMenuTooltip === showingMenu), tabletMenuButton.domNode);
+				evt.preventDefault();
+				evt.stopPropagation();
+			});
+
+			// Show/hide the overflow menu tooltip when the Android overflow
+			// button is clicked.
+			on(overflowButton, "click", function(evt){
+				showHideMenu(overflowButton, overflowMenuTooltip, !(overflowMenuTooltip === showingMenu), overflowButton.domNode);
+				evt.preventDefault();
+				evt.stopPropagation();
+			});
+						
+			// Hide the navigation menu and overflow tooltips whenever a menu item or 
+			// something else is clicked.
+			var hideMenuOnMainViewClick = function(evt) {
+				if(showingMenu) {
+					if(!dom.isDescendant(evt.target, showingMenuButton.domNode))
+						showHideMenu(null, showingMenu, false);
+				}
+			};
+			on(mainView, "click", hideMenuOnMainViewClick);
+			on(mainView, "touchend", hideMenuOnMainViewClick);
+			on(navigationMenuTooltip, "click", function(){
+				showHideMenu(null, navigationMenuTooltip, false);
+			});
+			on(overflowMenuTooltip, "click", function(){
+				showHideMenu(null, overflowMenuTooltip, false);
+			});
+		});
+	</script>
+ 
+</head>
+<body style="visibility:hidden;">
+	<!--
+		Main view, showing basic header that adapts appropriately between
+		iOS/Android and phone/tablet.  
+	-->
+	<div id="id_mainView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+
+		<!-- Heading. --> 
+		<div id="id_heading" data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', fixed:'top'">
+    		<span id="id_spinner" class="androidOnly mblIdxHeadingSpinner" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="toggle:true">Product name</span>
+			<span id="id_overflowButton" class="androidOnly tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingOverflowIcon', toggle:true" style="float:right;"></span>
+			<span id="id_tabletMenuButton" class="tabletOnly iosOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingMenuIcon'" style="float:right;"></span>
+			<span id="id_phoneMenuButton" class="phoneOnly iosOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingMenuIcon', moveTo:'id_navigationMenuView'" style="float:right;"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingHelpIcon'" style="float:right;"  onClick="logMain('Help clicked')"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingShareIcon'" style="float:right;"  onClick="logMain('Share clicked')"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingUserIcon'" style="float:right;"  onClick="logMain('User clicked')"></span>
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSearchIcon'" style="float:right;"  onClick="logMain('Search clicked')"></span>
+		</div>
+		
+		<!-- Content. -->
+		<div class="dummyViewContent">
+			This is a view with a basic header. On Android phone devices it will also
+			show a split actions footer instead of an overflow menu.
+		</div> 
+		<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="placeHolder: 'Informational messages will appear here when buttons are activated'" id="id_mainLog"></div>
+		<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props="href: 'include_emulation.html'"></div>
+ 
+ 		<!-- Footer (split actions for Android phone only). -->
+		<div class="androidOnly phoneOnly mblIdxHeadingSplitActionBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props="fixed:'bottom'">
+			<span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitShareIcon'" onClick="logMain('Split share clicked')"></span>
+			<span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitUserIcon'" onClick="logMain('Split user clicked')"></span>
+			<span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitOverflowIcon'" onClick="logMain('Split overflow clicked')"></span>
+		</div>
+	</div>
+	
+	
+	<!--
+		A secondary view showing a header with tabs and a back button.
+	-->
+	<div id="id_tabbedHeaderView" data-dojo-type="dojox/mobile/View" data-dojo-props="selected:false">
+		<!-- Heading. --> 
+		<div class="iosOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="back:'Back', moveTo:'id_mainView', fixed:'top'">
+			<div class="tabletOnly" style="position:absolute; width:100%; height:100%; text-align:center; z-index:1">	
+				<div data-dojo-type="dojox.mobile.TabBar" data-dojo-props="barType:'segmentedControl'">
+					<div data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true'>First view</div>
+					<div data-dojo-type="dojox.mobile.TabBarButton">Second (long titled) view</div>
+					<div data-dojo-type="dojox.mobile.TabBarButton">Last view</div>
+				</div>
+			</div>	
+		</div>
+		<div class="androidOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="back:'Back', moveTo:'id_mainView', fixed:'top', label:'Tabs'">
+			<div class="tabletOnly" data-dojo-type="dojox.mobile.TabBar" data-dojo-props="barType:'flatTab', center:false">
+				<div data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true'>First view</div>
+				<div data-dojo-type="dojox.mobile.TabBarButton">Second (long titled) view</div>
+				<div data-dojo-type="dojox.mobile.TabBarButton">Last view</div>
+			</div>
+		</div>
+		
+		<!-- Content. -->
+		<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:true">
+			<div class="dummyViewContent">
+				A view with a header that contains tabs (on tablet devices only) and a back button. 
+			</div>
+		</div>
+	</div>
+
+
+	<!--
+		A secondary view showing a header with text buttons and a back button.
+	-->
+	<div id="id_textButtonHeaderView" data-dojo-type="dojox/mobile/View" data-dojo-props="selected:false">
+		<!-- Heading. --> 
+		<div class="iosOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed:'top', label:'Text buttons'">
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Save'" style="float:right;" onClick="logText('Save clicked')"></span>
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Cancel', moveTo:'id_mainView', transitionDir:-1" style="float:left;"></span>
+		</div>
+		<div class="androidOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed:'top', label:'Text buttons'">
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Save'" style="float:right;" onClick="logText('Save clicked')"></span>
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Cancel', moveTo:'id_mainView', transitionDir:-1" style="float:right;"></span>
+		</div>
+		
+		<!-- Content. -->
+		<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:true">
+			<div class="dummyViewContent">
+				A view with a header that contains text buttons. (Text buttons are not 
+				normally used on Android.) 
+			</div>
+		
+			<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="placeHolder: 'Informational messages will appear here when buttons are activated'" id="id_textLog"></div>
+		</div>
+	</div>
+
+
+	<!--
+		A view-based version of the navigation menu, for use on phone format
+		devices.
+	 -->	
+	<div id="id_navigationMenuView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:false">
+		<!-- Heading. --> 
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', back:'Back', moveTo:'id_mainView', fixed:'top'">
+		</div>
+
+		<!-- Navigation menu list. -->
+		<ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_tabbedHeaderView"'>Header with tabs (tablet only)</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_textButtonHeaderView"'>Header with text buttons</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('View 3 clicked')">View 3</li>
+		</ul>
+	</div>
+		
+
+	<!--
+		A tooltip-based version of the navigation menu for use on tablet format 
+		devices.
+	-->
+	<div class="mblIdxHeadingDropDown" id="id_navigationMenuTooltip" data-dojo-type="dojox/mobile/Tooltip" style="width:350px">
+		<ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_tabbedHeaderView"'>Header with tabs (tablet only)</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_textButtonHeaderView"'>Header with text buttons</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('View 3 clicked')">View 3</li>
+		</ul>
+	</div>
+
+	<!--
+		A tooltip for the android action overflow menu.
+	-->
+	<div class="mblIdxHeadingDropDown" id="id_overflowMenuTooltip" data-dojo-type="dojox/mobile/Tooltip" style="width:250px">
+		<ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+			<li class="phoneOnly" data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('Account settings clicked')">Account settings</li>
+			<li class="phoneOnly" data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('Share clicked')">Share</li>
+			<li class="phoneOnly" data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('Help clicked')">Help</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('About clicked')">About</li>
+		</ul>
+	</div>
+</body>
+</html>

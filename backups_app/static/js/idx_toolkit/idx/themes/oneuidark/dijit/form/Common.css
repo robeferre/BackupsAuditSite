@@ -1,0 +1,121 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* oneui/form/Common.css */
+/*========================= common css =========================*/
+/* 'dijitTextBox' refers to 'dijit(TextBox|DateTextBox|CurrencyTextBox|...)' */
+.oneui.dark .dijitTextBoxError .dijitValidationContainer {
+	background:url(images/msgIcons_24bit.png) no-repeat;
+	background-position:-2px -2px;
+	border-color:#2f2222;
+}
+
+.oneui.dark .dijitTextBoxError .dijitValidationIcon {
+	background-color:transparent!important;
+/* so the INPUT doesn't obscure the border in rtl+a11y */
+}
+
+/* Padding for the input area of TextBox based widgets, and corresponding padding for the
+ * down arrow button and the placeholder.   placeholder is explicitly listed  because
+ * dijitPlaceHolder is absolutely positioned, so padding set on dijitInputField
+ * won't affect it
+ */
+.oneui.dark .dijitTextBox .dijitInputField {
+	color:#eee;
+}
+
+.oneui.dark .dijitInputField .dijitPlaceHolder,.oneui.dark .dijitInputContainer .dijitPlaceHolder {
+	color:#aaa;
+}
+
+.oneui.dark .dijitTextArea {
+	color:#eee;
+}
+
+.oneui.dark .dijitHintOuter {
+	color:#555;
+}
+
+.oneui.dark .dijitTextBox,.oneui.dark .dijitTextBox .dijitButtonNode {
+/* color for (outer) border on *TextBox widgets, and border between input and buttons on ComboBox and Spinner */
+	border-color:#555;
+}
+
+.oneui.dark .dijitTextBox {
+	border-color:#555;
+	background-color:#303030;
+}
+
+/* hover */
+.oneui.dark .dijitTextBoxHover,.oneui.dark .dijitTextBoxHover .dijitButtonNode {
+	border-color:#66d0e9;
+}
+
+/* error state */
+.oneui.dark .dijitTextBoxError,.oneui.dark .dijitTextBoxError .dijitButtonNode {
+	border-color:#cd321a;
+}
+
+.oneui.dark .dijitTextBoxError,.oneui.dark .dijitTextBoxError .dijitInputContainer {
+	background-color:#2f2222;
+}
+
+/* focused state */
+.oneui.dark .dijitTextBoxFocused,.oneui.dark .dijitTextBoxFocused .dijitButtonNode {
+	border-color:#008abf!important;
+}
+
+.oneui.dark .dijitTextBoxFocused .dijitInputContainer {
+	background:#222;
+}
+
+.oneui.dark .dijitTextBoxErrorFocused,.oneui.dark .dijitTextBoxErrorFocused .dijitButtonNode {
+	border-color:#ce4f4f;
+}
+
+/* disabled state */
+.oneui.dark .dijitTextBoxDisabled,.oneui.dark .dijitTextBoxDisabled .dijitButtonNode {
+	border-color:#555;
+}
+
+.oneui.dark .dijitTextBoxDisabled,.oneui.dark .dijitTextBoxDisabled .dijitInputContainer,.oneui.dark .dijitTextBoxDisabled .dijitInputField .dijitPlaceHolder {
+	background:#222;
+	color:#333;
+}
+
+.oneui.dark .dijitTextBoxReadOnly {
+	border-color:#555;
+}
+
+.oneui.dark .dijitTextBoxReadOnly .dijitInputField {
+	color:#777;
+}
+
+.dj_webkit .oneui.dark .dijitTextBoxDisabled .dijitInputInner {
+	color:#777;
+	background-color:inherit!important;
+}
+
+/* Simple Text Area */
+.oneui.dark .dijitSimpleTextArea {
+	color:#eee;
+}
+
+.oneui.dark .dijitSimpleTextAreaDisabled {
+	background:#222;
+	color:#777;
+	border-color:#555;
+}
+
+.oneui.dark .dijitSimpleTextAreaReadOnly {
+	color:#777;
+	border-color:#555;
+}
+
+/* ie6 doesn't support transparent background img */
+.dj_ie6 .oneui.dark .dijitTextBox,.dj_ie6 .oneui.dark .dijitComboBox .dijitButtonNode {
+	background-image:none;
+}

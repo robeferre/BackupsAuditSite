@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/dialogs</title>
+<script type="text/javascript" src="../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoScriptImport("../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../themes/oneui/oneui.css";
+@import "../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"idx/dialogs"
+], function(dom, ready, dialogs){
+	ready(function(){
+		var infoButton = dom.byId("testInfoButton");
+		infoButton.onclick = function(){
+			dialogs.info("");
+		};
+		var warnButton = dom.byId("testWarnButton");
+		warnButton.onclick = function(){
+			dialogs.warn("");
+		};
+		var errorButton = dom.byId("testErrorButton");
+		errorButton.onclick = function(){
+			dialogs.error("");
+		};
+		var confirmButton = dom.byId("testConfirmButton");
+		confirmButton.onclick = function(){
+			dialogs.confirm("");
+		};
+		var progressButton = dom.byId("testProgressButton");
+		progressButton.onclick = function(){
+			dialogs.showProgressDialog("", 5000);
+		};
+	});
+});
+</script>
+<script src="commonTest.js"></script>
+<script src="../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">nls/dialogs</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>information</td><td>
+		Click the "Information" button to show a dialog.<br/><br/>
+		Verify that the "Information" dialog message is translated.
+	</td></tr>
+	<tr><td>close</td><td>
+		Verify that the "Close" button is translated.
+	</td></tr>
+	<tr><td>warning</td><td>
+		Dismiss the dialog and click the "Warning" button to show another dialog.<br/><br/>
+		Verify that the "Warning" dialog message is translated.
+	</td></tr>
+	<tr><td>error</td><td>
+		Dismiss the dialog and click the "Error" button to show another dialog.<br/><br/>
+		Verify that the "Error" dialog message is translated.
+	</td></tr>
+	<tr><td>confirmation</td><td>
+		Dismiss the dialog and click the "Confirmation" button to show another dialog.<br/><br/>
+		Verify that the "Confirmation" dialog message is translated.
+	</td></tr>
+	<!--<tr><td>progress</td><td>
+		Dismiss the dialog and click the "Progress" button to show another dialog.<br/><br/>
+		Verify that the "Progress" dialog message is translated.
+	</td></tr>-->
+	<tr><td>loading</td><td>
+		Verify that the "Loading" message is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<button id="testInfoButton">Information</button>
+	<button id="testWarnButton">Warning</button>
+	<button id="testErrorButton">Error</button>
+	<button id="testConfirmButton">Confirmation</button>
+	<button id="testProgressButton">Progress</button>
+</div>
+</body>
+</html>

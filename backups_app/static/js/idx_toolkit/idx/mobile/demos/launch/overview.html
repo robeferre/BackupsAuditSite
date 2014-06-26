@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Overview</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../demos/demo.css";
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.demos._PageProxyContentPane"];
+			
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, null);
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body role="main">
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+
+	<div class="demoContent">
+		<div dir='ltr'>
+			<p>
+				The IDX toolkit provides assistance with complying with the
+				<a href="http://dleadt.torolab.ibm.com/uxd/uxd_oneui.jsp?site=mobileref&top=x1&left=y510&vsub=*&hsub=*&options=M&openpanes=10001000000100" target="_blank">
+					IBM One UI mobile 'Launch' standard</a>
+				for mobile application development.
+			</p>
+			<p>
+				The toolkit provides an additional module, <b>idx/mobile/Launch</b>,
+				which can be used to provide the appropriate start-up presentation
+				for your app.
+			</p>
+
+			<div class="demoBox">
+				<div class="demoSampleWide">
+					<div class="demoSampleNotice">Working sample</div>
+				    <div data-dojo-type="idx/demos/_PageProxyContentPane" data-dojo-props="mobilesrc: 'mobiledemo_overview.html', width: 240, height: 160, theme: 'Android', showControls: false" style="min-height: 160px;"></div>
+				</div>
+			</div>
+
+		</div>
+		
+		<!-- reserve space for the drop-down from the Header -->
+		<div style="height: 250px"></div>
+	</div>
+</body>
+</html>

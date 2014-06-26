@@ -1,0 +1,112 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+
+.oneui .idxMobileCheckBox{
+	position:relative;
+}
+
+.oneui .idxMobileCheckBox .dijitCheckBox{
+	background: none;
+}
+
+.oneui .idxMobileCheckBox .dijitCheckBoxFocused{
+	outline: none;
+}
+
+.oneui .idxMobileCheckBoxContainer{
+	margin-right: .6em;
+	font-size: 15px;
+}
+
+
+/**
+ * TriState CheckBox Css
+ */
+
+.oneui .idxMobileTriStateCheckBox{
+	position: relative;
+}
+
+.oneui .idxMobileTriStateCheckBox .idxOneuiTriStateCheckBox{
+	background: none;
+}
+
+.oneui .idxMobileTriStateCheckBox .idxOneuiTriStateCheckBoxFocused{
+	outline: none;
+}
+
+.oneui .idxMobileTriStateCheckBoxContainer{
+	margin-right: .6em;
+	font-size: 15px;
+}
+
+
+.oneui .idxMobileTriStateCheckBoxContainer input:disabled,
+.oneui .idxMobileTriStateCheckBoxContainer input:checked:disabled {
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#f4f4f4));
+}
+/**
+ * other css
+ */
+.oneui .mblListItemChecked {
+	color: #314e84;
+}
+.oneui .idxCheckBoxListItem.idxCheckBoxListItemActive
+{
+	background-color: #f0f0f0;
+}
+
+.oneui .dijitFocusedLabel, .mobilePlatform .oneui .dijitCheckBoxFocused{
+	outline: none;
+}
+
+.oneui .idxPlatform_mobile.idxComposite.idxMobileCheckBoxError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxComposite.idxMobileTriStateCheckBoxError .idxValidationContainer{
+	opacity: 1;
+}
+
+.oneui .dijitDisabled .idxDiv2Input{
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f4f4f4));
+	background-image: -moz-linear-gradient(top,#fff, #f4f4f4 );
+}
+
+.idxDiv2Input{
+	overflow: hidden;
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	position: relative;
+	border: 1px solid #888;
+	border-width: 1px;
+	border-style: outset;
+	border-radius: 2px;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#d4d4d4),to(#fdfdfd));
+	background-image: -moz-linear-gradient(top,#d4d4d4, #fdfdfd );
+}
+
+
+.idxDiv2Input[value="mixed"]::after
+{
+	content: "■";
+	color: #737373;
+	font-size: 26px;				
+	left: 1px;
+	position: absolute;
+	top: -10px;
+}
+
+.idxDiv2Input[value="on"]::after,
+.idxDiv2Input[value="true"]::after{
+	font-weight:bold;
+	content: "√";
+	font-size: 24px;	
+	color: #737373;			
+	left: 1px;
+	position: absolute;
+	top: -5px;
+}

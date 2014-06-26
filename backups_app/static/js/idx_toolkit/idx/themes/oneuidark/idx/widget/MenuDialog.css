@@ -1,0 +1,73 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .oneuiMenuDialogPopup {
+	pointer-events:none;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+
+.oneuiMenuDialog .dijitTooltipConnector {
+	background:none;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected .dijitTooltipConnector {
+	background-image:url(images/menuDialogConnector.png);
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected.dijitTooltipAbove .dijitTooltipConnector {
+	background-position:-16px 0;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected.dijitTooltipBelow {
+	padding-top:6px;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected.dijitTooltipBelow .dijitTooltipConnector {
+	background-position:-32px 0;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected.dijitTooltipLeft .dijitTooltipConnector {
+	background-position:0 0;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected.dijitTooltipRight .dijitTooltipConnector {
+	background-position:-48px 0;
+}
+
+.oneuiMenuDialog .dijitTooltipContainer {
+	background-color:#343434;
+	-webkit-box-shadow:1px 0 1px rgba(34,34,34,0.2),-1px 0 1px rgba(34,34,34,0.2),0 2px 0 rgba(34,34,34,0.2);
+	-moz-box-shadow:1px 0 1px rgba(34,34,34,0.2),-1px 0 1px rgba(34,34,34,0.2),0 2px 0 rgba(34,34,34,0.2);
+	box-shadow:1px 0 1px rgba(34,34,34,0.2),-1px 0 1px rgba(34,34,34,0.2),0 2px 0 rgba(34,34,34,0.2);
+}
+
+.dijit_a11y .oneuiMenuDialog .dijitTooltipContainer {
+	border-color:#555;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected .dijitTooltipContainer {
+	border-color:#000;
+	-webkit-box-shadow:2px 0 4px rgba(34,34,34,0.25),-2px 0 4px rgba(34,34,34,0.25),0 2px 4px rgba(34,34,34,0.25);
+	-moz-box-shadow:2px 0 4px rgba(34,34,34,0.25),-2px 0 4px rgba(34,34,34,0.25),0 2px 4px rgba(34,34,34,0.25);
+	box-shadow:2px 0 4px rgba(34,34,34,0.25),-2px 0 4px rgba(34,34,34,0.25),0 2px 4px rgba(34,34,34,0.25);
+}
+
+.oneuiMenuDialog .dijitTooltipContents {
+	background-color:#222;
+}
+
+.oneuiMenuDialog.oneuiMenuDialogConnected .dijitTooltipContents {
+	border-color:#555;
+}
+
+/* Menus embedded within MenuDialogs need to lose box shadows. */
+.oneui.dark .oneuiMenuDialog .dijitMenu {
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}

@@ -1,0 +1,26 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxCalendarIcon {
+	background-image:url(images/datepicker16.png);
+}
+
+.oneui.dark .idxTimeIcon {
+	background-image:url(images/time_picker16.png);
+}
+
+.oneui.dark .idxPickerIcon {
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.oneui.dark .idxIconPicker .dijitTextBoxDisabledFocused .dijitInputContainer {
+	background-color:#333!important;
+}
+
+.oneui.dark.dijit_a11y .idxPickerTextIcon {
+	color:#000;
+}

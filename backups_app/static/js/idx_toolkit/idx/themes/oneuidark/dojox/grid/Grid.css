@@ -1,0 +1,201 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.dojoxGrid {
+	background-color:#222;
+}
+
+/* master messages */
+.dojoxGridMasterMessages {
+	background-color:#fff;
+}
+
+.dojoxGridHeader {
+	background-color:#222;
+}
+
+.dojoxGridHeader .dojoxGridCell {
+	border-color:#343434 #222 #222 #343434;
+	background:url(images/grid_dx_gradient.gif) #E8E1CF top repeat-x;
+}
+
+.dojoxGridHeader .dojoxGridCellOver {
+	background-image:none;
+	background-color:#222;
+	border-bottom-color:#1673a6;
+}
+
+.dojoxGridHeader .dojoxGridCellFocus {
+	border-color:#1673a6;
+}
+
+.dojoxGridHeader.dojoxGridCellFocus.dojoxGridCellOver {
+	background-image:none;
+	background-color:#222;
+	border-bottom-color:#1673a6;
+}
+
+/* content */
+.dojoxGridScrollbox {
+	background-color:#222;
+}
+
+/* rowbar */
+.dojoxGridRowbar {
+	border:1px solid;
+	border-color:#343434 #222 #222 #343434;
+	border-top:none;
+	background:url(images/grid_dx_gradient.gif) #E8E1CF top repeat-x;
+}
+
+.dojoxGridRowbarInner {
+	border-top:1px solid #343434;
+}
+
+.dojoxGridRowbarOver {
+	background-image:none;
+	background-color:#222;
+	border-top-color:#1673a6;
+	border-bottom-color:#1673a6;
+}
+
+.dojoxGridRowbarSelected {
+	background-color:#078dc1;
+}
+.dojoxGridRow {
+/*border: 1px solid #E8E4D8;*/
+	border-color:#555;
+	background-color:#fff;
+}
+
+.dojoxGridRowOver {
+	border-top-color:#1673a6;
+	border-bottom-color:#1673a6;
+}
+
+.dojoxGridRowOdd {
+	background-color:#343434;
+}
+
+.dojoxGridRowSelected {
+	background-color:#078dc1;
+}
+
+/* cells */
+.dojoxGridCell {
+	border-color:#555;
+	border-right-color:#343434;
+}
+
+.dojoxGridCellFocus {
+	border-color:cyan;
+}
+
+.dojoxGridCellOver {
+	border-color:#1673a6;
+}
+
+.dojoxGridCellFocus.dojoxGridCellOver {
+	border-color: #078dc1;
+}
+
+/* editing */
+.dojoxGridRowEditing td {
+	background-color:#222;
+}
+
+.dojoxGridRow-inserting td {
+	background-color:#222;
+}
+
+.dojoxGridRow-inflight td {
+	background-color:#222;
+}
+
+.dojoxGridRow-error td {
+	background-color:#2f2222;
+}
+
+.dijit_a11y .dojoxGridRowbarSelected {
+	border-top-color: #222;
+	border-bottom-color: #555;
+}
+
+.dijit_a11y .dojoxGridRowbarSelected .dojoxGridRowbarInner {
+	border-top-color: #555;
+}
+
+.dijit_a11y .dojoxGridRowSelected {
+	border-color: #078dc1!important;
+}
+
+/* Drag and Drop */
+
+.dojoxGrid .dojoDndItemBefore {
+	border-left-color:#2f2222;
+}
+
+.dojoxGrid .dojoDndItemAfter {
+	border-right-color:#2f2222;
+}
+
+.dojoxGridDndAvatarItem	td {
+	border-color:#343434 #222 #222 #343434;
+	background:url(images/grid_dx_gradient.gif) #E8E1CF top repeat-x;
+}
+
+.dojoxGridDndAvatarItem	td.dojoxGridDndAvatarItemImage {
+	border-color:#343434 #222 #222 #343434;
+	background-color:transparent;
+}
+
+.dojoDndMove .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
+	background-image:url(images/dndNoMove.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.dojoDndCopy .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
+	background-image:url(images/dndNoCopy.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.dojoDndMove .dojoDndAvatarCanDrop .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
+	background-image:url(images/dndMove.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.dojoDndCopy .dojoDndAvatarCanDrop .dojoxGridDndAvatarItem .dojoxGridDndAvatarItemImage {
+	background-image:url(images/dndCopy.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.dojoxGridColPlaceBottom {
+	background:transparent url(images/grid_sort_up.gif) no-repeat scroll left top;
+}
+
+.dojoxGridColPlaceTop {
+	background:transparent url(images/grid_sort_down.gif) no-repeat scroll left top;
+}
+
+.dojoxGridResizeColLine {
+	background-color:#555;
+}
+
+.dojoxGridColPlaceBottom {
+	background:transparent url(images/grid_sort_up.gif) no-repeat scroll left top;
+}
+
+.dojoxGridColPlaceTop {
+	background:transparent url(images/grid_sort_down.gif) no-repeat scroll left top;
+}
+
+.dojoxGridResizeColLine {
+	background-color:#555;
+}

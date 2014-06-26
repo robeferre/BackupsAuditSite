@@ -1,0 +1,26 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* delegate to oneui common theme */
+@import url(../../common/dojox/ToolBarButton-compat.css);
+
+.oneui .mblHeading .mblToolBarButtonArrow {
+	-moz-transform: scale(0.65, 1.05) rotate(45deg);
+	-ms-transform: scale(0.65, 1.05) rotate(45deg);
+}
+
+.oneui.dj_ie .mblHeading .mblToolBarButton .mblToolBarButtonArrow {
+	background-image: url(compat/heading-button-arrow-bg.png); 
+}
+.oneui.dj_ie .mblHeading .mblToolBarButtonSelected .mblToolBarButtonArrow {
+	background-image: url(compat/heading-button-arrow-sel-bg.png); 
+}
+
+.oneui.dj_ie .mblHeading .mblToolBarButtonBody { /* IE renders font 1px too high */
+	line-height: 28px;
+	height: 27px;
+}

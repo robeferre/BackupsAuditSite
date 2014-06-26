@@ -1,0 +1,30 @@
+<div id="idxLaunch" data-dojo-type="dojox/mobile/ScrollableView">
+	<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'One UI Launch test', fixed: 'top'">
+	</div>
+	<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+		<p style="margin: 10px 15px">
+			Select one of the following options to re-initialise the
+			Launch widget and dismiss it after the specified time.
+		</p>
+		
+		<ul data-dojo-type="dojox/mobile/RoundRectList">
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(100, true);">Relaunch: 0.1 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(500, true);">Relaunch: 0.5 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(1000, true);">Relaunch: 1 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(2000, true);">Relaunch: 2 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(3000, true);">Relaunch: 3 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(4000, true);">Relaunch: 4 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(5000, true);">Relaunch: 5 sec</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(20000, true);">Relaunch: 20 sec</li>
+		</ul>
+		
+		<p style="margin: 10px 15px">
+			The following option re-initialises the Launch widget and
+			dismisses and destroys it after two seconds. None of the
+			options above will work once this has been done!
+		
+		<ul data-dojo-type="dojox/mobile/RoundRectList">
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="anchorLabel: true" onclick="show_launch(2000, false);">Relaunch and destroy</li>
+		</ul>
+	</div>
+</div>

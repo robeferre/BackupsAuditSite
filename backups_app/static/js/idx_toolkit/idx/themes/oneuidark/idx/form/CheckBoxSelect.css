@@ -1,0 +1,69 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* readonly status */
+.oneui.dark .idxCheckBoxSelectReadOnly .dijitDownArrowButton {
+	background-image:none;
+	background:#343434;
+/* Old browsers */
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+}
+
+.oneui.dark .idxCheckBoxSelectReadOnly .dijitDownArrowButtonHover {
+	background:#4d4d4d;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+}
+
+.oneui.dark .idxCheckBoxSelectReadOnly .dijitDownArrowButtonActive {
+	background:#aaa;
+/* Old browsers */
+	background:-moz-linear-gradient(top,#222 0%,#343434 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#222),color-stop(100%,#343434));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+}
+.oneui.dark .dijitMenuPopup .idxCheckBoxSelectMenu .dijitMenuItemReadOnly {
+	color:#777;
+	background:#222;
+}
+.oneui.dark .idxCheckBoxSelectWrapError .idxCheckBoxSelectError {
+	border-color: #cd321a;
+}
+
+.oneui.dark .idxCheckBoxSelectWrapError .idxCheckBoxSelectError .dijitButtonContents {
+	background:#2f2222;
+}

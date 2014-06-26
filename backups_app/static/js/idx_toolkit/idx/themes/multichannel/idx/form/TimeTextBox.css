@@ -1,0 +1,78 @@
+
+.oneui .idxMobileTimePickerOpener .mblHeading.timeTextBoxOpenerHeader{
+	background-color: #131313;
+	background-image: -moz-linear-gradient(top, #6b6b6b, #131313);
+	background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#6b6b6b),to(#131313));
+	background-image: -webkit-linear-gradient(top,  #6b6b6b 0%,#131313 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(top,  #6b6b6b 0%,#131313 100%); /* Opera 11.10+ */
+	background-image: -ms-linear-gradient(top,  #6b6b6b 0%,#131313 100%); /* IE10+ */
+	background-image: linear-gradient(top,  #6b6b6b 0%,#131313 100%); /* W3C */
+}
+.oneui .idxMobileTimePickerOpener .mblHeading.timeTextBoxOpenerHeader .mblHeadingSpanTitle{
+	color: #fff;
+}
+
+.oneui .idxMobileTimePickerOpener .mblHeading .timePickerMobileDone{
+	position:absolute;
+	width:45px;
+	right:0;
+}
+.oneui .idxMobileTimePickerOpener .mblHeading .timePickerMobileCancel{
+	position:absolute;
+	width:45px;
+	left:0;
+}
+.oneui .idxPlatform_mobile.idxTimeTextBoxWrapError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxTimeTextBoxWrapFocused .idxCompositeHelpContainer{
+	/*display: block;*/
+	opacity:1;
+}
+.oneui .idxPlatform_mobile.idxTimeTextBoxWrapError .idxCompositeHelpContainer{
+	opacity:0;
+	z-index:0;
+}
+
+.oneui .idxMobileTimePickerOpener .mblSpinWheelTimePicker{
+	width: 260px !important;
+	padding: 0 25px;
+}
+.oneui .idxMobileTimePickerOpener .mblSpinWheelTimePicker .mblSpinWheelSlot{
+	padding: 0 35px;
+}
+
+.oneui .idxMobileTimePickerOpener .mblSpinWheelTimePicker .mblSpinWheelBar{
+	left:0;
+}
+.oneui .idxMobileTimePickerOpener.mblTooltipAbove{
+	margin-top: 30px;
+}
+.oneui .idxMobileTimePickerOpener .mblTooltipAnchor{
+	display:none;
+}
+
+/********** android specific *************/
+.androidPlatform .oneui .mblValuePickerPopup .mblValuePickerTimePicker{
+	width: 280px !important;
+	background-color: #fff;
+}
+
+.androidPlatform .oneui .mblValuePickerPopup .mblValuePickerTimePicker > .mblToolBarButtonBody{
+	position:relative;
+	display:inline-block;
+	overflow:hidden;
+	padding: 0 10px;
+	height: 32px;
+	line-height: 32px;
+	top:45px;
+	
+	border:1px solid;
+	border-color:#191919 #1f1f1f #000 #1c1c1c;
+	border-radius:3px;
+	box-shadow:0 1px 0 rgba(255,255,255,0.35);
+	text-shadow:rgba(0,0,0,1) 0 1px 0;
+	background-color: #dbdbdb;
+	background-image:-webkit-gradient(linear,center top,center bottom,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(top,#f4f4f4 0%,#dbdbdb 100%);
+	text-shadow:0 1px 0 #fff;
+}
+

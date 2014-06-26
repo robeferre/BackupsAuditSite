@@ -1,0 +1,28 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* InlineEditBox
+ * 
+ * Styling InlineEditBox mainly includes:
+ * 
+ * 1. Normal state
+ * 		.dijitInlineEditBoxDisplayMode  - for border
+ * 
+ * 2. Hover state
+ * 		.dijitInlineEditBoxDisplayModeHover - for border and background color
+ */
+.oneui.dark .dijitInlineEditBoxDisplayMode {
+	border-color:transparent;
+}
+
+.oneui.dark .dijitInlineEditBoxDisplayModeHover {
+	background-color:#078dc1;
+	border-color:#1673a6;
+}
+
+.dj_ie6 .oneui.dark .dijitInlineEditBoxDisplayMode {
+	border:none;
+}

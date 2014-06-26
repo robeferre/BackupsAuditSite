@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>TextBox Multi Channel</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../themes/multichannel/multichannel.css";
+			#platform{
+				color: blue;
+			}
+	    </style>
+	    <script>
+		    dojoConfig= {
+			      parseOnLoad: false,
+			      async: true,
+			      has: {
+			      	"dojo-firebug": false,
+			      	"dojo-debug-messages": false
+			      },
+			      packages: [{name: "idx", location: "../../ibmjs/idx" }]
+		    };
+		</script>
+	    <!-- required: dojo.js -->
+		<script type="text/javascript" src="../../../../dojo_idt/dojo/dojo.js">
+		</script>
+		
+	    <script id="postDojo" type="text/javascript">
+	    	require(["idx/PlatformPluginRegistry"], function(iPlatformPluginRegistry){
+				iPlatformPluginRegistry.setGlobalTargetPlatformFromURL();
+				require(["dojo/parser","dijit/registry","idx/form/TextBox","idx/form/Textarea","dojo/domReady!"], function(dParser,dRegistry,iTextBox){
+					dParser.parse();
+					dojo.byId("platform").innerHTML = iPlatformPluginRegistry.getGlobalTargetPlatform()
+				});
+			});
+		</script>
+		<script id="postDojo" type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 20px;">
+		<h2>Current platform is: <span id="platform"></span></h2>
+		<input id="textbox" data-dojo-type="idx/form/TextBox" data-dojo-props='
+			hint: "Tap to enter...",
+			hintPosition: "inside",
+			label: "TextBox:",
+			help: "Field help goes here.",
+			required: true,
+			labelWidth: 150,
+			fieldWidth: 200
+		'/>
+		<br><br>
+		<textarea data-dojo-type="idx.form.Textarea" data-dojo-props='
+			rows: 2,
+			hint: "Input text",
+			hintPosition: "inside",
+			help: "Help text goes here",
+			label: "Textarea:",
+			required: true,
+			labelWidth: 150,
+			fieldWidth: 200
+		'></textarea>
+		<br><br>
+		<a href="?platform=phone">Phone Platform</a><br><br>
+		<a href="?platform=desktop">Desktop Platform</a><br><br>
+		<a href="?platform=auto">Auto Platform</a><br><br>
+	</body>
+</html>

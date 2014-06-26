@@ -1,0 +1,67 @@
+/* Stylesheet that can be used for testing the robustness of widgets against
+ * user styling of common document elements. It should be included into a 
+ * testcase for the widget and the class of 'outrageous' added to the body
+ * tag in the testcase.
+ */
+  
+.outrageous a,
+.outrageous div,
+.outrageous dd,
+.outrageous dl,
+.outrageous dt,
+.outrageous h1,
+.outrageous h2,
+.outrageous h3,
+.outrageous h4,
+.outrageous h5,
+.outrageous h6,
+.outrageous hr,
+.outrageous img,
+.outrageous input,
+.outrageous li,
+.outrageous ol,
+.outrageous p,
+.outrageous span,
+.outrageous table,
+.outrageous tbody,
+.outrageous td,
+.outrageous tfoot,
+.outrageous th,
+.outrageous thead,
+.outrageous tr,
+.outrageous ul {
+	margin: 20px; 
+	padding: 20px;
+	border: 2px dashed lime;
+	color: lime;
+	background-color: aquamarine;
+	font-family: fantasy;
+	font-size: 30px;
+	font-weight: 900;
+	font-style: italic;
+	line-height: 30px;
+	text-align: right;
+	text-shadow: -10px 10px 5px mediumspringgreen; 
+	box-shadow: -10px 10px 5px mediumspringgreen; 
+}
+
+.oneui .not-outrageous {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+/* IE (v9 at least) does not appear to set a default for text-align on the body. */
+.dj_ie body {
+	text-align: left;
+}

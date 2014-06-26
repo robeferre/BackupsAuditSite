@@ -1,0 +1,41 @@
+{
+	identifier: "id",
+	items: [
+		{id:"welcome", name:"welcome", title:"Welcome", icon:"resources/images/blank.png", containerClass:"welcomeContainer", iconClass:"welcomeIcon", descClass:"welcomeDesc", type:"nav"},
+		{id:"monitor", name:"monitor", title:"Monitor", icon:"resources/images/blank.png", iconClass:"monitorIcon", type:"nav", children: [
+			{id: "monitor_tasks", name:"monitor_tasks", title:"Monitor Tasks", type:"nav"},
+			{id: "monitor_ways", name:"monitor_ways", title:"Monitor Ways", type:"separator"},
+			{id: "monitor_common", name:"monitor_common", title:"Monitor Common", type:"nav"},
+			{id: "monitor_special", name:"monitor_special", title:"Monitor Special", type:"nav", children:[
+				{id: "monitor_special_base", name:"monitor_special_base", title:"Monitor Special Item Base", type:"nav"},
+				{id: "monitor_specials", name:"monitor_specials", title:"Monitor Special Details", type:"separator"},
+				{id: "monitor_special_1", name:"monitor_special_1", title:"Monitor Special Item 1", type:"nav"},
+				{id: "monitor_special_2", name:"monitor_special_2", title:"Monitor Special Item 2", type:"nav"},
+				{id: "monitor_special_3", name:"monitor_special_3", title:"Monitor Special Item 3", type:"nav"},
+				{id: "monitor_special_4", name:"monitor_special_4", title:"Monitor Special Item 4", type:"nav", children: [
+					{id: "monitor_deep_item_1", name:"monitor_deep_item_1", title:"Monitor Deep Item 1", type:"nav"},
+					{id: "monitor_deep_item_2", name:"monitor_deep_item_2", title:"Monitor Deep Item 2", type:"nav", children: [
+						{id: "monitor_deep_item_2_1", name:"monitor_deep_item_2_1", title:"Monitor Deep Item 2-1", type:"nav"},
+						{id: "monitor_deep_item_2_2", name:"monitor_deep_item_2_2", title:"Monitor Deep Item 2-2", type:"nav"},
+						{id: "monitor_deep_item_2_3", name:"monitor_deep_item_2_3", title:"Monitor Deep Item 2-3", type:"nav", children: [
+							{id: "monitor_deep_item_2_3_1", name:"monitor_deep_item_2_3_1", title:"Monitor Deep Item 2-3-1", type:"nav"},
+							{id: "monitor_deep_item_2_3_2", name:"monitor_deep_item_2_3_2", title:"Monitor Deep Item 2-3-2", type:"nav"},
+							{id: "monitor_deep_item_2_3_3", name:"monitor_deep_item_2_3_3", title:"Monitor Deep Item 2-3-3", type:"nav"}
+						]}
+					]}
+				]}
+			]}
+		]},
+		{id:"analyze", name:"analyze", title:"Analyze", icon:"resources/images/blank.png", containerClass:"analyzeContainer", iconClass:"analyzeIcon", descClass:"analyzeDesc", type:"nav"},
+		
+		{id:"settings", name:"settings", title:"Settings", icon:"resources/images/blank.png", iconClass:"settingsIcon", type:"settings", 
+			children: [
+				{id: "save_metadata_as", name:"save_metadata_as", title:"Save As ...", type:"settings"},
+				{id: "load_metadata_as", name:"load_metadata_as", title:"Load As ... (HTML5)", type:"settings"},
+				{id: "save_metadata", name:"save_metadata", title:"Save Metadata", type:"settings"},
+				{id: "load_metadata", name:"load_metadata", title:"Load Metadata", type:"settings"},
+				{id: "log_page_metadata", name:"log_page_metadata", title:"Log Page Metadata", type:"settings"}
+			]
+		}
+	]
+}

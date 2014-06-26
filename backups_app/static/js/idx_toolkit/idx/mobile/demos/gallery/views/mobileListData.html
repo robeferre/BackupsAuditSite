@@ -1,0 +1,14 @@
+<div id="mobileLists" dojoType="dojox.mobile.ScrollableView">
+	<ul data-dojo-type="dojox.mobile.TabBar" data-dojo-props='barType:"segmentedControl"'>
+		<li id="mobileListSet1Btn" data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true' onclick="idx.mobile.demos.gallery.src.mobileLists.switchTo(1);">Set 1</li>
+		<li id="mobileListSet2Btn" data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='' onclick="idx.mobile.demos.gallery.src.mobileLists.switchTo(2);">Set 2</li>
+	</ul>
+	<div id="mobileListCtrlPanel">
+		<div id="dataListHint"><span id="listLengthLabel" style="float:left;">5</span> <span style="float:left;padding-left:5px">items</span></div>
+		<div style="right:16px;">
+			<div id="mobileListAddBtn" class="mblDomButtonBluePlus" onclick="idx.mobile.demos.gallery.src.mobileLists.add1()"></div>
+			<div id="mobileListDelBtn" class="mblDomButtonRedMinus" onclick="idx.mobile.demos.gallery.src.mobileLists.delete1()"></div>
+		</div>
+	</div>
+	<ul dojoType="dojox.mobile.RoundRectDataList" id="mobileListsDataList" store="idx.mobile.demos.gallery.src.mobileLists.listsStore" query="{label: '*'}"></ul>
+</div>

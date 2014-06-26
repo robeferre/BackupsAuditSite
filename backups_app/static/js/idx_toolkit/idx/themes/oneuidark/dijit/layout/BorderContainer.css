@@ -1,0 +1,98 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* BorderContainer 
+
+Splitters and gutters separate panes within a BorderContainer. Splitters can be moved up and down (horizonal splitters) or left and right (vertical splitters), while Gutters are static. A "thumb" is the slit on a Splitter that indicates it is movable. 
+
+Styling the BorderContainer widget consists of the following: 
+
+.dijitBorderContainer - for oneui and padding of the entire border container
+
+.dijitSplitContainer-child, .dijitBorderContainer-child - for border or child panes of the border container. By default borders are put on all children of BorderContainer.  
+
+.dijitBorderContainer-dijitTabContainerTop,
+.dijitBorderContainer-dijitTabContainerBottom,
+.dijitBorderContainer-dijitTabContainerLeft,
+.dijitBorderContainer-dijitTabContainerRight,
+.dijitBorderContainer-dijitAccordionContainer   -for border of the border containers within TabContainer or AccordionContainer widget
+
+.dijitBorderContainer-dijitBorderContainer - for border and padding of nested BorderContainers
+
+Splitters and gutters:  
+
+.dijitSplitterH, .dijitGutterH - for height, background, and border of a horizontal splitter and gutter 
+.dijitSplitterH .dijitSplitterThumb - for color, height/width of the thumb on a horizontal splitter
+.dijitSplitterV, .dijitGutterV - - for height, background, and border of a vertical splitter and gutter 
+.dijitSplitterV .dijitSplitterThumb - for color, height/width of the thumb on a vertical splitter
+.dijitSplitterHHover - for background-color of a hovered horizontal splitter
+.dijitSplitterHHover .dijitSplitterThumb - for background-color of a hovered thumb on a horizontal splitter
+.dijitSplitterVHover  - for background-color of a hovered vertical splitter
+.dijitSplitterVHover .dijitSplitterThumb - for background-color of a hovered thumb on a vertical splitter
+.dijitSplitterHActive - for background-color of an active horizontal splitter
+.dijitSplitterVActive - for background-color of an active horizontal splitter
+*/
+.oneui.dark .dijitSplitContainer-child,.oneui.dark .dijitBorderContainer-child {
+/* By default put borders on all children of BorderContainer,
+	 *  to give illusion of borders on the splitters themselves.
+	 */
+	border-color:solid;
+}
+
+/* Splitters and gutters */
+.oneui.dark .dijitSplitterH,.oneui.dark .dijitGutterH {
+	background:none;
+}
+
+.oneui.dark .dijitSplitterH .dijitSplitterThumb {
+	background:url(images/SplitterThumb.png);
+}
+
+.oneui.dark .dijitSplitterV,.oneui.dark .dijitGutterV {
+	background:none;
+}
+
+.oneui.dark .dijitSplitterV .dijitSplitterThumb {
+	background:url(images/SplitterThumb-V.png);
+}
+
+/* hovered splitter */
+.oneui.dark .dijitSplitterHHover {
+	background:url(images/bg-Splitter_hover_h.png) repeat-x center top;
+}
+
+.oneui.dark .dijitSplitterVHover {
+	background:url(images/bg-Splitter_hover_v.png) repeat-y center left;
+}
+
+.dj_ie .oneui.dark .dijitSplitterHHover,.dj_ie .oneui.dark .dijitSplitterVHover {
+	background-image:none;
+	background:#1a1a1a;
+}
+
+/* active splitter */
+.oneui.dark .dijitSplitterHActive {
+	background:url(images/bg-Splitter_mousedown_h.png) repeat-x center top;
+}
+
+.oneui.dark .dijitSplitterVActive {
+	background:url(images/bg-Splitter_mousedown_v.png) repeat-y center left;
+}
+
+.dj_ie .oneui.dark .dijitSplitterHActive,.dj_ie .oneui.dark .dijitSplitterVActive {
+	background-image:none;
+	background:#222;
+}
+
+.oneui.dark .dijitSplitContainer.idxHeaderPane-onlyChild .dijitSplitContainerSizerV,.oneui.dark .dijitSplitContainer.idxHeaderPane-onlyChild .dijitSplitContainerSizerV,.oneui.dark .idxBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterH,.oneui.dark .dijitBorderContainerNoGutter.idxHeaderPane-onlyChild .idxSplitterH,.oneui.dark .dijitBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .idxBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainerNoGutter.idxContentPane-onlyChild .idxSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .idxBorderContainer.dijitBorderContainerNoGutter .idxSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainerNoGutter. .idxSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainer.dijitBorderContainerNoGutter .idxSplitterH,.oneui.dark .idxBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterH,.oneui.dark .dijitBorderContainerNoGutter.idxHeaderPane-onlyChild .dijitSplitterH,.oneui.dark .dijitBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .idxBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainerNoGutter.idxContentPane-onlyChild .dijitSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .idxBorderContainer.dijitBorderContainerNoGutter .dijitSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainerNoGutter .dijitSplitterH,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainer.dijitBorderContainerNoGutter .dijitSplitterH {
+	border-top-color:#343434;
+	border-bottom-color:#343434;
+}
+
+.oneui.dark .dijitSplitContainer.idxHeaderPane-onlyChild .dijitSplitContainerSizerH,.oneui.dark .dijitSplitContainer.idxHeaderPane-onlyChild .dijitSplitContainerSizerH,.oneui.dark .idxBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .dijitBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .dijitBorderContainerNoGutter.idxHeaderPane-onlyChild .idxSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .idxBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainerNoGutter.idxContentPane-onlyChild .idxSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .idxBorderContainer.dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainer.dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainerNoGutter .idxSplitterV,.oneui.dark .idxBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterV,.oneui.dark .dijitBorderContainer.idxHeaderPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterV,.oneui.dark .dijitBorderContainerNoGutter.idxHeaderPane-onlyChild .dijitSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .idxBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainer.idxContentPane-onlyChild.dijitBorderContainerNoGutter .dijitSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child > .dijitBorderContainerNoGutter.idxContentPane-onlyChild .dijitSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .idxBorderContainer.dijitBorderContainerNoGutter .dijitSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainer.dijitBorderContainerNoGutter .dijitSplitterV,.oneui.dark .dijitContentPane.dijitBorderContainer-child.dijitContentPaneSingleChild > .dijitBorderContainerNoGutter .dijitSplitterV {
+	border-left-color:#343434;
+	border-right-color:#343434;
+}

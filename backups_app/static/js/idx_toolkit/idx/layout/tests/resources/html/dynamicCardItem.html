@@ -1,0 +1,33 @@
+<script type="text/javascript" src="resources/html/dynamicCardItem.js"></script>
+<div class="dynamic_card_item" style="width:100%; height:100%; cursor: pointer">
+	<h2>Dynamic Card Item</h2>
+	
+	<div style="font-weight:bold">Sample Steps to customize the Card</div>
+	<div> 
+		<ol>
+			<li> Click here to add settings <button onclick="addMainSettings(this)">Add Settings</button></li>
+			<li> Click <img src="resources/images/sample_2.png" style="width:100px; height:50px"/> display settings content button in actions bar</li>
+			<li> Go to do futher customization inside settings </li>
+			
+			<li> You can remove the settings by clicking this <button onclick="removeMainSettings(this)">Remove Settings</button> </li>
+			<li> ................. </li>
+		</ol>	
+	</div>
+	
+	<div style="display:none">
+		<div class="card_main_settings">
+			<div>
+				Input below card content and click <button onclick="setCardContent(this)">Set Card Content</button> 
+			</div>
+			<div>
+				<textarea class="card_main_settings_content" cols=50 rows=5>
+					<iframe src='http://www.ibm.com/us/en/' style='border:none;width:1500px;height:5000px;overflow:hidden' frameborder='0' scrolling='no'></iframe>
+				</textarea>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+
+

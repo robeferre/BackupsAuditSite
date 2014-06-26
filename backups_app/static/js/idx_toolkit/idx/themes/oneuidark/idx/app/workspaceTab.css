@@ -1,0 +1,71 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxWorkspaceTabOptions {
+}
+
+.oneui.dark div.idxWorkspaceTab {
+	color:#fff;
+	background:#0075a3;
+	background-image:-moz-linear-gradient(#1a96c6,#0075a3);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#1a96c6),to(#0075a3));
+	background-image:-webkit-linear-gradient(#1a96c6,#0075a3);
+	background-image:-o-linear-gradient(#1a96c6,#0075a3);
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#1a96c6',EndColorStr='#0075a3');
+	border-left-color:transparent;
+	border-right-color:transparent;
+}
+
+.oneui.dark div.idxWorkspaceTabTitle {
+	border-color:transparent;
+	color:#fff;
+	border-left-color:rgba(0,0,0,.25);
+}
+
+.oneui.dark div.idxWorkspaceTabTitlePostHovered {
+	border-left-color:transparent;
+}
+
+.oneui.dark div.idxWorkspaceTabTitlePostSelected {
+	border-left-color:transparent;
+}
+
+.oneui.dark div.idxWorkspaceTabHovered {
+	background-image:-moz-linear-gradient(top,#078dc1 0%,#1673a6 100%);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#078dc1),to(#1673a6));
+	background-image:-webkit-gradient(linear,50% 100%,#078dc1,#1673a6);
+	background-image:-o-linear-gradient(#078dc1,#1673a6);
+	border-left-color:rgba(0,0,0,.25);
+	border-right-color:rgba(0,0,0,.25);
+}
+
+.oneui.dark div.idxWorkspaceTabTitleHovered {
+	color:#fff;
+	border-left-color:transparent;
+}
+
+.oneui.dark button.idxWorkspaceTabTitleHovered {
+	color:#486784;
+}
+
+.oneui.dark div.idxWorkspaceTabSelected,.oneui.dark div.idxWorkspaceTabSelected:hover {
+	background-color:#000;
+	background-image: none;
+	filter: none;
+}
+
+.oneui.dark div.idxWorkspaceTabTitleSelected {
+	color:#fff;
+	border-left-color:transparent;
+}
+
+.oneui.dark button.idxWorkspaceTabTitleSelected {
+	color:#486784;
+}
+
+.oneui.dark div.idxWorkspaceTabTitleFirst {
+	border-left-color:transparent;
+}

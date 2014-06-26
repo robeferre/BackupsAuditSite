@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>DateTimeTextBox Multi Channel</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../themes/multichannel/multichannel.css";
+	    </style>
+	    
+	    <style type="text/css">
+	    	.testMain{
+	    		margin:10px;
+	    	}
+	    </style>
+	    
+	    <!-- required: dojo.js -->
+	    <script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+	    <!--script id="postDojo" type="text/javascript">
+			var modules = [
+				"dijit._base.manager",
+				"idx.form.DateTextBox",
+				"idx.form.TimeTextBox",
+				"idx.form.DateTimeTextBox"
+			]; 
+			var manager, DateTextBox, TimeTextBox, DateTimeTextBox;
+			
+			function preParse(modules){
+				manager 			= modules["dijit/_base/manager"];
+				DateTextBox   		= modules["idx/form/DateTextBox"];
+				TimeTextBox			= modules["idx/form/TimeTextBox"];
+				DateTimeTextBox		= modules["idx/form/DateTimeTextBox"];
+			}
+			function postParse() {
+				//TODO
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script-->
+		
+		<script id="postDojo" type="text/javascript">
+			require(["idx/PlatformPluginRegistry"], function(iPlatformPluginRegistry){
+				iPlatformPluginRegistry.setGlobalTargetPlatformFromURL();
+				
+				require(["dojo/parser","dijit/registry",
+					"idx/form/TimeTextBox",
+					"idx/form/DateTextBox",
+					"idx/form/DateTimeTextBox",
+					"idx/form/Select",
+					"dojo/domReady!"], function(
+						dParser,dRegistry, TimeTextBox, DateTextBox, DateTimeTextBox){
+					dParser.parse();
+					dojo.byId("platform").innerHTML = iPlatformPluginRegistry.getGlobalTargetPlatform()
+				});
+			});
+		</script>
+		
+		<script id="postDojo" type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<script type="text/javascript">applyThemeToBody()</script>
+		
+		<div class="testMain">
+			<h2>Current platform is: <span id="platform"></span></h2>
+			
+			<h2>idx.form.DateTimeTextBox</h2>
+			<input id="datetimetextbox" data-dojo-type="idx.form.DateTimeTextBox" data-dojo-props="
+				showPickerIcon: true, 
+				label: 'Date and Time:',
+				help: 'DateTimeTextBox help goes here.',
+				labelAlignment: 'horizontal',
+				labelWidth: 120
+			"/>
+			
+			<h2>idx.form.DateTextBox</h2>
+			<input id="datetextbox" data-dojo-type="idx.form.DateTextBox" data-dojo-props='
+				hint: "some tip",
+				hintPosition: "inside",
+				help: "Field help.",
+				label: "Date:",
+				labelAlignment: "horizontal",
+				showPickerIcon: true,
+				required: true,
+				labelWidth: 120,
+				fieldWidth: 200
+			'/>
+
+			<h2>idx.form.TimeTextBox</h2>
+			<input id="timetextbox" data-dojo-type="idx.form.TimeTextBox" data-dojo-props='
+				hint: "some tip",
+				hintPosition: "inside",
+				help: "Field help.",
+				label: "Time:",
+				labelAlignment: "horizontal",
+				showPickerIcon: true,
+				required: true,
+				labelWidth: 120,
+				fieldWidth: 200
+			'/>
+			
+			<br><br><br><br><br>
+			<a href="?platform=phone">Phone Platform</a><br><br>
+			<a href="?platform=desktop">Desktop Platform</a><br><br>
+			<a href="?platform=auto">Auto Platform</a><br><br>
+			
+			<!-- UNCOMMENT SECTION BELOW TO TEST RUNTIME CHANGES -->
+			<!-- 
+			<select data-dojo-type="idx/form/Select" data-dojo-props="label: 'Global Platform'">
+				<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+					if (! this._initialized) return;
+					var self = this;
+					require(["idx/PlatformPluginRegistry"], function(registryModule) {
+						registryModule.setGlobalTargetPlatform(self.get("value"));
+					});
+				</script>
+				<script type="dojo/aspect" data-dojo-method="startup" data-dojo-advice="after">
+					var self = this;
+					require(["idx/PlatformPluginRegistry"], function(registryModule) {
+						var platform = registryModule.getGlobalTargetPlatform();
+						self.set("value", platform);
+						self._initialized = true;
+					});
+				</script>
+				<option value="desktop">Desktop</option>
+				<option value="tablet">Tablet</option>
+				<option value="phone">Phone</option>
+				<option value="auto">Auto</option>
+			</select>
+			<br><br>
+			<select data-dojo-type="idx/form/Select" data-dojo-props="label: 'Registry Platforms'">
+				<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+					var platform = this.get("value");
+					require(["idx/PlatformPluginRegistry"], function(registryModule) {
+						registryModule.setRegistryTargetPlatform("idx/form/DateTextBox", platform);
+						registryModule.setRegistryTargetPlatform("idx/form/TimeTextBox", platform);
+						registryModule.setRegistryTargetPlatform("idx/form/DateTimeTextBox", platform);
+					});
+				</script>
+				<option value="" selected>Default</option>
+				<option value="desktop">Desktop</option>
+				<option value="tablet">Tablet</option>
+				<option value="phone">Phone</option>
+				<option value="auto">Auto</option>
+			</select>
+			 -->
+		</div>
+	
+	</body>
+</html>

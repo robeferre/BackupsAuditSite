@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/ModalDialog</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneuiLess/theme.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"dijit/_base/manager", 
+	"dijit/form/Button",
+	"dijit/form/Form",
+	"idx/widget/ModalDialog",  
+	"idx/widget/ConfirmationDialog"
+], function(dom, ready, manager, Button, Form, ModalDialog, ConfirmationDialog){
+	ready(function(){
+		var errorButton = dom.byId("errorButton");
+		errorButton.onclick = function(){
+			var errorDialog = manager.byId("errorDialog");
+			if(!errorDialog){
+				errorDialog = new ModalDialog({
+					id: "errorDialog",
+					type: "error"
+				}, "error");
+			}
+			errorDialog.set("text", errorDialog.title);
+			errorDialog.show();
+		};
+		
+		var warnButton = dom.byId("warnButton");
+		warnButton.onclick = function(){
+			var warningDialog = manager.byId("warningDialog");
+			if(!warningDialog){
+				warningDialog = new ModalDialog({
+					id: "warningDialog",
+					type: "warning"
+				}, "warning");
+			}
+			warningDialog.set("text", warningDialog.title);
+			warningDialog.show();
+		};
+		
+		var infoButton = dom.byId("infoButton");
+		infoButton.onclick = function(){
+			var infoDialog = manager.byId("infoDialog");
+			if(!infoDialog){
+				infoDialog = new ModalDialog({
+					id: "infoDialog",
+					type: "information"
+				}, "information");
+			}
+			infoDialog.set("text", infoDialog.title);
+			infoDialog.show();
+		};
+		
+		var confirmButton = dom.byId("confirmButton");
+		confirmButton.onclick = function(){
+			var confirmationDialog = manager.byId("confirmationDialog");
+			if(!confirmationDialog){
+				confirmationDialog = new ConfirmationDialog({
+					id: "confirmationDialog",
+					type: "confirmation",
+					dupCheck: true
+				}, "confirmation");
+			}
+			confirmationDialog.set("text", confirmationDialog.title);
+			confirmationDialog.confirm(function(){
+				console.log("confirm!");
+			});
+		};
+		
+		var successButton = dom.byId("successButton");
+		successButton.onclick = function(){
+			var success = manager.byId("confirmationDialogSuccess");
+			if(!success){
+				success = new ConfirmationDialog({
+					id: "confirmationDialogSuccess",
+					type: "success"
+				}, "confirmationSuccess");
+			}
+			success.set("text", success.title);
+			success.confirm(function(){
+				console.log("successfully!");
+			});
+		};
+		
+		var questionButton = dom.byId("questionButton");
+		questionButton.onclick = function(){
+			var question = manager.byId("confirmationDialogQuestion");
+			if(!question){
+				question = new ConfirmationDialog({
+					id: "confirmationDialogQuestion",
+					type: "question"
+				}, "confirmationQuestion");
+			}
+			question.set("text", question.title);
+			question.confirm(function(){
+				console.log("question!");
+			});
+		};
+	});
+});
+
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">widget/nls/ModalDialog</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>Error</td><td>
+		Click the "Error" button to show a dialog.<br/><br/>
+		Verify that the "Error" dialog message is translated.
+	</td></tr>
+	<tr><td>Warning</td><td>
+		Click the "Warning" button to show a dialog.<br/><br/>
+		Verify that the "Warning" dialog message is translated.
+	</td></tr>
+	<tr><td>Information</td><td>
+		Click the "Information" button to show a dialog.<br/><br/>
+		Verify that the "Information" dialog message is translated.
+	</td></tr>
+	<tr><td>Confirmation</td><td>
+		Click the "Confirmation" button to show a dialog.<br/><br/>
+		Verify that the "Confirmation" dialog message is translated.
+	</td></tr>
+	<tr><td>Success</td><td>
+		Click the "Success" button to show a dialog.<br/><br/>
+		Verify that the "Success" dialog message is translated.
+	</td></tr>
+	<tr><td>Question</td><td>
+		Click the "Question" button to show a dialog.<br/><br/>
+		Verify that the "Question" dialog message is translated.
+	</td></tr>
+	<tr><td>closeButtonLabel</td><td>
+		Click the "Error" button to show a dialog.<br/><br/>
+		Verify that the close button at the right bottom of the Dialog, its message is translated.
+	</td></tr>
+	<tr><td>cancelButtonLabel</td><td>
+		Click the "Confirmation" button to show a dialog.<br/><br/>
+		Verify that the cancel button at the right bottom of the Dialog, its message is translated.
+	</td></tr>
+	<tr><td>executeButtonLabel</td><td>
+		Click the "Confirmation" button to show a dialog.<br/><br/>
+		Verify that the execute button(left next to the cancel button) at the right bottom of the Dialog, its message is translated.
+	</td></tr>
+	<tr><td>checked</td><td>
+		Click the "Confirmation" button to show a dialog.<br/><br/>
+		Verify that the message next to the check box(left bottom of the dialog) is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div id="error"></div>
+	<div id="warning"></div>
+	<div id="information"></div>
+	<div id="confirmation"></div>
+	<div id="confirmationSuccess"></div>
+	<div id="confirmationQuestion"></div>
+	
+	<button id="errorButton">Error</button>
+	<button id="warnButton">Warning</button>
+	<button id="infoButton">Information</button>
+	<button id="confirmButton">Confirmation</button>
+	<button id="successButton">Success</button>
+	<button id="questionButton">Question</button>
+	
+</div>
+</body>
+</html>

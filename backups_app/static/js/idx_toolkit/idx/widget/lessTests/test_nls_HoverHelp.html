@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/HoverHelp</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneuiLess/theme.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require(["idx/widget/HoverHelp"]);
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">widget/nls/HoverHelp</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>defaultTitle</td><td>
+		Place the mouse pointer on the "?" icon to show a tooltip.<br/><br/>
+		Verify that the tooltip is translated.
+	</td></tr>
+	<tr><td>defaultMessage</td><td>
+		Click the "?" icon to show a popup window.<br/><br/>
+		Verify that the message in the popup window is translated.
+	</td></tr>
+	<tr><td>defaultHrefLabel</td><td>
+		Verify that the "Learn more..." link at the bottom of the popup window is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div data-dojo-type="idx.widget.HoverHelp" data-dojo-props="clickToOpen: true, href: 'test'"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<div id="accordion" data-dojo-type="dojox.mobile.View">
+	<ul data-dojo-type="dojox.mobile.TabBar" 
+		data-dojo-props='barType:"segmentedControl", fixed:"top"'>
+		<li data-dojo-type="dojox.mobile.TabBarButton" 
+			data-dojo-props='moveTo:"accordionView1"'>Fixed</li>
+		<li data-dojo-type="dojox.mobile.TabBarButton" 
+			data-dojo-props='moveTo:"accordionView2", selected:true'>Multi</li>
+		<li data-dojo-type="dojox.mobile.TabBarButton" 
+			data-dojo-props='moveTo:"accordionView3"'>Single</li>
+	</ul>
+	<div id="accordionView1" data-dojo-type="dojox.mobile.ScrollableView">
+		<div data-dojo-type="dojox.mobile.Accordion" 
+			data-dojo-props='fixedHeight:true' style="height:300px;">
+			<div data-dojo-type="dojox.mobile.ScrollableView" 
+				style="background-color:white"
+				data-dojo-props='label:"ScrollableView", height:"inherit", 
+					icon1:"mblDomButtonBlackRightArrow16", 
+					icon2:"mblDomButtonWhiteDownArrow16", 
+					propagatable:false, appBars:false'>
+				<div style="padding:10px;color:black;">
+					A<br>B<br>C<br>D<br>E
+				</div>
+			</div>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				data-dojo-props='label:"External Content", 
+					icon1:"mblDomButtonBlackRightArrow16", 
+					icon2:"mblDomButtonWhiteDownArrow16", 
+					href:"gallery/data/fragment1.html"'
+				class="accordionPane">
+			</div>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				data-dojo-props='label:"RoundRectList", 
+					icon1:"mblDomButtonBlackRightArrow16", 
+					icon2:"mblDomButtonWhiteDownArrow16"'>
+				<ul data-dojo-type="dojox.mobile.RoundRectList" 
+					data-dojo-props='iconBase:"gallery/images/tab-icon-11h.png"'>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						u1space
+					</li>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						u2space
+					</li>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						Wi-Fi
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="accordionView2" data-dojo-type="dojox.mobile.View" 
+		data-dojo-props='selected:true'>
+		<div data-dojo-type="dojox.mobile.Accordion" 
+			data-dojo-props='iconBase:"gallery/images/icons16.png"'>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				style="background-color:white"
+				data-dojo-props='label:"ScrollableView", iconPos1:"16,16,16,16", 
+					height:"100px", propagatable:false, appBars:false'>
+				<div style="padding:10px;color:black;">
+					A<br>B<br>C
+				</div>
+			</div>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				data-dojo-props='label:"External Content", iconPos1:"16,32,16,16", 
+					href:"gallery/data/fragment1.html"'>
+			</div>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				data-dojo-props='label:"RoundRectList", iconPos1:"16,48,16,16"'>
+				<ul data-dojo-type="dojox.mobile.RoundRectList" 
+					data-dojo-props='iconBase:"gallery/images/tab-icon-11h.png"'>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						u1space
+					</li>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						u2space
+					</li>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						Wi-Fi
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div id="accordionView3" data-dojo-type="dojox.mobile.ScrollableView">
+		<div data-dojo-type="dojox.mobile.Accordion" data-dojo-props='singleOpen:true'>
+			<div data-dojo-type="dojox.mobile.ScrollableView" style="background-color:white"
+				data-dojo-props='label:"ScrollableView", height:"100px", 
+					propagatable:false, appBars:false'>
+				<div style="padding:10px;color:black;">
+					A<br>B<br>C<br>D<br>E
+				</div>
+			</div>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				data-dojo-props='label:"External Content", href:"gallery/data/fragment1.html"'>
+			</div>
+			<div data-dojo-type="dojox.mobile.ContentPane" 
+				data-dojo-props='label:"RoundRectList"'>
+				<ul data-dojo-type="dojox.mobile.RoundRectList" 
+					data-dojo-props='iconBase:"gallery/images/tab-icon-11h.png"'>
+					<li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='rightText:"Off"'>
+						u1space
+					</li>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						u2space
+					</li>
+					<li data-dojo-type="dojox.mobile.ListItem" 
+						data-dojo-props='rightText:"Off"'>
+						Wi-Fi
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>	

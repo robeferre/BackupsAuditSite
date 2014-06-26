@@ -1,0 +1,27 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui.dark .oneuiForm {
+    background-color: #CFE5FA;
+    border-color: #769DC0;
+}
+.oneui.dark .oneuiFormBody {
+    background-color: #222;	
+    border-top-color: #769DC0;
+}
+.oneui.dark .oneuiFormHeader {
+    background-color: transparent;
+    background-image: url("images/accordion.png");
+}
+.oneui.dark .oneuiFormInlineMessage {
+    background-color: #FFD9D9;
+    border-color: #343434;	
+}
+.oneui.dark .oneuiFormFooter {
+    background-color: #222;	
+    border-top-color: #343434;	
+}

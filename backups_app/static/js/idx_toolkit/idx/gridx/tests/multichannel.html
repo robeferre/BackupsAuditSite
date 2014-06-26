@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx Multi-Channel Test</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		html {
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			background: none;
+			height: 100%;
+		}
+		.gridx {
+			width: 100%;
+			height: 100%;
+		}
+		.mobileNameDiv {
+			font-weight: bolder;
+			text-align: center;
+			width: 100%;
+			color: darkblue;
+		}
+
+		@media screen and (max-device-width: 500px) {
+			.gridx .gridxRow .gridxCell {
+				vertical-align: middle !important;
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		require([
+			'dojo/parser',
+			'idx/gridx/tests/multichannel',
+			'dojo/domReady!'
+		], function(parser, multichannel){
+
+			store = multichannel.store;
+			layout = multichannel.layout;
+			structureSwitchConfig = multichannel.structureSwitchConfig;
+			structureSwitchCondition = multichannel.structureSwitchCondition;
+
+			parser.parse();
+		});
+	</script>
+</head>
+<body class='oneui'>
+	<div id="grid" data-dojo-id="grid" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		'class': 'gridxWholeRow',
+		touch: true,
+		store: store,
+		structure: layout,
+		paginationBarGotoButton: true,
+		pageSize: 30,
+		bodyPageSize: 'auto',
+		bodyQuickRefresh: true,
+		structureSwitchCondition: structureSwitchCondition,
+		structureSwitchConfig: structureSwitchConfig,
+		structureSwitchDefault: 'desktop',
+		editButtons: true,
+		modules: [
+			'idx/gridx/modules/filter/QuickFilter',
+			'gridx/modules/Filter',
+			'gridx/modules/CellWidget',
+			'gridx/modules/Edit',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/IndirectSelectColumn',
+			'gridx/modules/HiddenColumns',
+			'gridx/modules/StructureSwitch',
+			'gridx/modules/SummaryBar',
+			'gridx/modules/Sort'
+		],
+		touchModules: [
+			'gridx/modules/AutoPagedBody',
+			'gridx/modules/TouchVScroller'
+		],
+		desktopModules: [
+			'gridx/modules/VirtualVScroller'
+		]
+	"></div>
+</body>
+</html>

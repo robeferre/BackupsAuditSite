@@ -1,0 +1,36 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.TextBox */
+
+/* Reset common styles. */
+.oneui .mblTextBox {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblTextBox {
+	height:26px;
+	border:1px solid #aaa;
+	border-width:1px;
+	border-style:inset;
+	border-radius:2px;
+	color:#222;
+	font-size:13px;
+	padding: 2px 6px 3px 6px;
+}

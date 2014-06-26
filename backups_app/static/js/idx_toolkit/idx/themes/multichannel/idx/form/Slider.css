@@ -1,0 +1,75 @@
+
+.oneui .idxPlatform_mobile .dijitSlider{
+}
+
+
+/******** horizontal *********/
+.oneui .idxPlatform_mobile .dijitSliderH .dijitSliderBarH,
+.oneui .idxPlatform_mobile .dijitSliderH .dijitSliderBumperH{
+	height:8px;
+}
+
+.oneui .idxPlatform_mobile .dijitSliderH .dijitSliderImageHandleH{
+	top: -14px;
+	left: 50%;
+	width:36px;
+	height:36px;
+	background-color: transparent;
+	background-image: none;
+	z-index:999;
+}
+.oneui .idxPlatform_mobile .dijitSliderH .dijitSliderImageHandleH .dijitSliderImageHandleHInternal{
+	position:absolute;
+	top:8px;
+	left:8px;
+	width:20px;
+	height:20px;
+	border:1px solid silver;
+	border-radius:100%;
+	background-color: #dbdbdb;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #dbdbdb);
+	background-image:-webkit-gradient(linear,center top,center bottom,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(top,#f4f4f4 0%,#dbdbdb 100%);
+	background-image: -o-linear-gradient(top,  #f4f4f4 0%,#dbdbdb 100%); /* Opera 11.10+ */
+	background-image: -ms-linear-gradient(top,  #f4f4f4 0%,#dbdbdb 100%); /* IE10+ */
+	background-image: linear-gradient(top,  #f4f4f4 0%,#dbdbdb 100%); /* W3C */
+	box-shadow:0 1px 1px rgba(0,0,0,.15);
+	z-index: 1000;
+}
+
+
+/******** vertical *********/
+.oneui .idxPlatform_mobile .dijitSliderV .dijitSliderBarV,
+.oneui .idxPlatform_mobile .dijitSliderV .dijitSliderBumperV{
+	width:8px;
+}
+.oneui .idxPlatform_mobile .dijitSliderV .dijitSliderImageHandleV{
+	top: -19px;
+	width:36px;
+	height:36px;
+	background-color: transparent;
+	background-image: none;
+	z-index:999;
+}
+.oneui .idxPlatform_mobile .dijitSliderV .dijitSliderImageHandleV .dijitSliderImageHandleVInternal{
+	position:absolute;
+	top:8px;
+	left:6px;
+	width:20px;
+	height:20px;
+	border:1px solid silver;
+	border-radius:100%;
+	background-color: #dbdbdb;
+	background-image: -moz-linear-gradient(left, #f4f4f4, #dbdbdb);
+	background-image:-webkit-gradient(linear,left center,right center,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(left,#f4f4f4 0%,#dbdbdb 100%);
+	background-image: -o-linear-gradient(left,  #f4f4f4 0%,#dbdbdb 100%); /* Opera 11.10+ */
+	background-image: -ms-linear-gradient(left,  #f4f4f4 0%,#dbdbdb 100%); /* IE10+ */
+	background-image: linear-gradient(left,  #f4f4f4 0%,#dbdbdb 100%); /* W3C */
+	box-shadow:0 1px 1px rgba(0,0,0,.15);
+	z-index:1000;
+}
+
+.oneui .idxPlatform_mobile .dijitSliderH .dijitSliderButtonContainerH{
+	padding:5px;
+}

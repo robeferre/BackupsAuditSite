@@ -1,0 +1,68 @@
+{
+  "nodes":[
+    {"name":"txt_file_1","group":1},
+    {"name":"txt_file_2","group":1},
+    {"name":"txt_file_3","group":1},
+    {"name":"txt_file_4","group":1},
+    {"name":"txt_file_5","group":1},
+    {"name":"java_file_1","group":2},
+    {"name":"java_file_2","group":2},
+    {"name":"java_file_3","group":2},
+    {"name":"java_file_4","group":2},
+    {"name":"java_file_5","group":2},
+    {"name":"exe_file_1","group":3},
+    {"name":"exe_file_2","group":3},
+    {"name":"exe_file_3","group":3},
+    {"name":"exe_file_4","group":3},
+    {"name":"rb_file_1","group":4},
+    {"name":"rb_file_2","group":4},
+    {"name":"py_file_1","group":5},
+    {"name":"py_file_2","group":5},
+    {"name":"py_file_3","group":5},
+    {"name":"py_file_4","group":5},
+    {"name":"py_file_5","group":5},
+    {"name":"png_file_1","group":6},
+    {"name":"png_file_2","group":6},
+    {"name":"jpg_file_1","group":7},
+    {"name":"jpg_file_2","group":7},
+    {"name":"avi_file_1","group":8},
+    {"name":"avi_file_2","group":8},
+    {"name":"mpeg_file_1","group":9},
+    {"name":"xml_file_1","group":10},
+    {"name":"xml_file_2","group":10},
+    {"name":"xml_file_3","group":10}
+  ],
+  "links":[
+    {"source":1,"target":0,"value":1},
+    {"source":2,"target":0,"value":8},
+    {"source":3,"target":0,"value":10},
+    {"source":4,"target":0,"value":6},
+    
+    {"source":5,"target":6,"value":1},
+    {"source":6,"target":7,"value":1},
+    {"source":7,"target":8,"value":1},
+    {"source":8,"target":9,"value":2},
+    {"source":5,"target":9,"value":2},
+    
+    {"source":10,"target":11,"value":1},
+    {"source":11,"target":12,"value":1},
+    {"source":11,"target":13,"value":3},
+    
+    {"source":14,"target":15,"value":1},
+    
+    {"source":16,"target":17,"value":1},
+    {"source":17,"target":18,"value":3},
+    {"source":19,"target":18,"value":3},
+    {"source":20,"target":18,"value":3},
+    {"source":20,"target":16,"value":3},
+    
+    {"source":21,"target":22,"value":3},
+    
+    {"source":23,"target":24,"value":5},
+    
+    {"source":26,"target":25,"value":3},
+    
+    {"source":28,"target":29,"value":10},
+    {"source":30,"target":29,"value":9}
+  ]
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html> 
+	<html style="width: 100%; height: 100%; margin: 0; padding: 0" lang="en-us"> 
+	    <head> 
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+			<meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+			<meta http-equiv="Cache-Control" content="NO-CACHE"> 
+			<meta http-equiv="Pragma" content="NO-CACHE"> 
+			<link rel="stylesheet" type="text/css" href="http://pokgsa.ibm.com/projects/i/ibmoneui/idx-v1.3.0.3-ga-20130509-cdn/dijit/themes/dijit.css"> 
+			<link rel="stylesheet" type="text/css" href="http://pokgsa.ibm.com/projects/i/ibmoneui/idx-v1.3.0.3-ga-20130509-cdn/dojo/resources/dojo.css"> 
+			<link rel="stylesheet" type="text/css" href="http://pokgsa.ibm.com/projects/i/ibmoneui/idx-v1.3.0.3-ga-20130509-cdn/idx/themes/oneui/oneui.css"> 
+			
+			<style>
+			   body{ 
+			      height: 100%; 
+			   }
+			</style> 
+		 	
+			<script data-dojo-config=" 
+		           packages: [{ 
+		            name: 'idx', 
+		            location: 'http://pokgsa.ibm.com/projects/i/ibmoneui/idx-v1.3.0.3-ga-20130509-cdn/idx' 
+		             }], 
+		         parseOnLoad: true 
+		      " src="http://pokgsa.ibm.com/projects/i/ibmoneui/idx-v1.3.0.3-ga-20130509-cdn/dojo/dojo.js"></script>
+      
+			<script type="text/javascript">
+				    /* <![CDATA[ */
+				      require(["dojo/ready",
+				               "dojo/dom-class",
+				               "dijit/form/TextBox",
+				               "dijit/form/CheckBox",
+				               "dijit/form/Button"],
+				              function(
+				                      ready,
+				                      domClass,
+				                      TextBox,
+				                      CheckBox,
+				                      Button) {
+				        ready(function () {
+				            var usernameInput = new TextBox({
+				                name: "username",
+				                placeHolder: "User name"
+				            }, "usernameField");
+				            var usernameInput = new TextBox({
+				                name: "password",
+				                type: "password",
+				                placeHolder: "Password"
+				            }, "passwordField");
+				            var rememberMeInput = new CheckBox({
+				                name: "rememberMe",
+				                value: "true"
+				            }, "rememberMe");
+				            var submitButton = new Button({
+				                label: "Log in",
+				                type: "submit",
+				                style: {
+				                    marginLeft: "0px"
+				                }
+				            }, "submitButton");
+				            domClass.add(submitButton.domNode, "idxButtonSpecial");
+				
+				            document.getElementById("requestedHash").value = window.location.hash;
+				        });
+				      });
+				    /* ]]> */
+    		</script>
+		    
+	    </head>
+	    
+		<body class="oneui loginPage fullHeight">
+			
+			<div class="idxHeaderContainer">
+			      <div class="idxHeaderBlueLip"></div>
+			    </div>
+	    
+	    	<div class="loginFramePositioner">
+	      		<div class="loginFrame">
+	      
+	        <span class="productName">UrbanCode Deploy</span>, 
+	        <span class="productVersion">Version&nbsp;6.0.1.2.472060</span>
+	
+	        <div class="formSpacer"></div>
+	        <div class="formSpacer"></div>
+			
+			{{ state }}
+	        <form method="post" action="/login/" autocomplete="off">
+	          {% csrf_token %}
+	
+	          <div id="usernameField">{{ form.username }}</div>
+	          
+	          <div class="formSpacer"></div>
+	          <div class="formSpacer"></div>
+	          
+	          <div id="passwordField">{{ form.password }}</div>
+	
+	          <div class="formSpacer"></div>
+	          <div class="formSpacer"></div>
+	          
+	          <div id="rememberMe"></div>
+	          <label for="rememberMe">Keep me logged in</label>
+	
+	          <div class="formSpacer"></div>
+	          <div class="formSpacer"></div>
+	          
+	          {% if next %}
+				<input type="hidden" name="next" value="{{ next }}" />
+			  {% else %}
+				<input type="hidden" name="next" value="/portal/" />
+			  {% endif %}
+	          
+	          <div id="submitButton" class="idxButtonSpecial"></div>
+	          <input type="hidden" name="requestedHash" value="" id="requestedHash"/>
+	
+	          <div class="formSpacer"></div>
+	          <div class="formSpacer"></div>
+	          <div class="formSpacer"></div>
+	
+	          <div class="legal">
+	            &copy; Copyright 2013 &nbsp;IBM Corporation.</div>
+	        </form>
+	      </div>
+	    	</div>
+    	
+  		</body>
+
+</html>

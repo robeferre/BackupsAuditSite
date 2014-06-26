@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx 1.3 TVT</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src='support/common.js'></script>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "support/common.css";
+		.gridx {
+			width: 800px;
+			height: 300px;
+		}
+		body > ul > li > span,
+		body > ul > li > div > span {
+			text-decoration: underline;
+			color: black !important;
+			font-weight: normal !important;
+		}
+		.onlyFour {
+			color: blue;
+			font-weight: bolder;
+		}
+	</style>
+	<script type="text/javascript" src='tvt.js'></script>
+</head>
+<body class='oneui'>
+	<h1>Gridx 1.3 Translation Verification Test</h1>
+	<ul>
+		<li>Black cases need to translate all 32 languages</li>
+		<li class='onlyFour'>Blue cases only need to translate 4 languages: bg he hr uk</li>
+		<li>Every case follows this format: 
+		<div style='padding-left: 10px;'>[stringName] desription: <span>translation result</span></div></li>
+	</ul>
+	<h2>Test Case 1</h2>
+	<ul class="instructions">
+		<li class='onlyFour'>* [helpMsg] Mouse hover on any column header (e.g.: Name), show tooltip: <span class="nls_helpMsg"></span></li>
+		<li>[summaryRange] Bottom-left summary bar shows: <span class="nls_summaryRange"></span> <span class="nls_summaryTotal"></span> <span class="nls_summarySelected"></span></li>
+		<li class='onlyFour'>* [priorityOrder] Click any column header to sort (e.g.: Name), focus the sorted column header, screen reader (JAWS) reads: <span class="nls_priorityOrder"></span></li>
+		<li>[indirectSelectAll] Focus on unchecked select all checkbox (top-left corner of grid), screen reader (JAWS) reads: <span class="nls_indirectSelectAll"></span></li>
+		<li>[indirectDeselectAll] Focus on checked select all checkbox (top-left corner of grid, click to select all first), screen reader (JAWS) reads: <span class="nls_indirectDeselectAll"></span></li>
+	</ul>
+	<div id="grid1" data-dojo-id="grid1" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store1,
+		structure: layout,
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/RowHeader',
+			'gridx/modules/IndirectSelect',
+			'gridx/modules/Pagination',
+			'idx/gridx/modules/pagination/PaginationBar'
+		]
+	"></div>
+	<h2>Test Case 2</h2>
+	<ul class="instructions">
+		<li class='onlyFour'>* [singleHelpMsg] Mouse hover on any column header (e.g.: Name), show tooltip: <span class="nls_singleHelpMsg"></span></li>
+		<li>[summaryRange] Bottom-left summary bar shows: <span class="nls_summaryRange"></span> <span class="nls_summaryTotal"></span></li>
+		<li>[treeCollapsed] Focus on any closed tree expando cell (e.g.: the 1st cell in the 1st row), screen reader (JAWS) reads: <span class="nls_treeCollapsed"></span></li>
+		<li>[treeExpanded] Focus on any openned tree expando cell (e.g.: the 1st cell in the 1st row, click to expand first), screen reader (JAWS) reads: <span class="nls_treeExpanded"></span></li>
+	</ul>
+	<div id="grid2" data-dojo-id="grid2" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store2,
+		structure: layout,
+		sortNested: false,
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/Tree',
+			'gridx/modules/Pagination',
+			'idx/gridx/modules/pagination/PaginationBar'
+		]
+	"></div>
+	<h2>Test Case 3</h2>
+	<ul class="instructions">
+		<li>[summaryTotal, summarySelected] Bottom-left summary bar shows: <span class="nls_summaryTotal"></span> <span class="nls_summarySelected"></span></li>
+		<li>Click filter bar (at top of grid) to show filter dialog.</li>
+		<li class='onlyFour'>* [filterDefDialogTitle] The title of the filter dialog is: <span class="nls_filterDefDialogTitle"></span></li>
+		<li class='onlyFour'>* [rules] The title of the filter rules section in the filter dialog is: <span class="nls_rules"></span></li>
+	</ul>
+	<div id="grid3" data-dojo-id="grid3" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Sync',
+		store: store3,
+		structure: layout,
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/Filter',
+			'gridx/modules/select/Row',
+			'gridx/modules/IndirectSelectColumn',
+			'gridx/modules/SummaryBar',
+			'idx/gridx/modules/filter/FilterBar',
+			'gridx/modules/VirtualVScroller'
+		]
+	"></div>
+</body>
+</html>

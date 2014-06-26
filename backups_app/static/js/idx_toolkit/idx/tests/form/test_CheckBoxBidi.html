@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>idx.form.CheckBox DoH</title>
+
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+		<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../tests/test.css";
+		</style>
+		<script type="text/javascript" src="../commonTest.js"></script>
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.parseOnLoad = true;
+			dojoConfig.has["dojo-bidi"] = true;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"idx.form.CheckBox",
+				"doh"]; 
+			var CheckBox, 
+				doh;
+			function preParse(modules){
+				CheckBox = modules["idx/form/CheckBox"];
+				doh = modules["doh"];
+			}
+			function postParse(modules){				
+								
+					doh.register("parse", function(){
+						dojo.parser.parse();
+						doh.t(dijit.byId("cb1"));
+					});
+					
+					doh.register("setAuto", function(){
+						var widget = dijit.byId("cb1");
+						widget.set("textDir", "auto");
+						widget.set("label", "\u05e9\u05dc\u05d5\u05dd\u0021\u0021 AUTO END...");
+						doh.t(widget.compLabelNode.dir === "rtl");
+						widget.set("label", "AUTO Start \u05e9\u05dc\u05d5\u05dd\u0021\u0021!...");
+						doh.t(widget.compLabelNode.dir === "ltr");
+					});
+					
+					doh.register("setRTL", function(){
+						var widget = dijit.byId("cb1");
+						widget.set("textDir", "rtl");
+						widget.set("label", "\u05e9\u05dc\u05d5\u05dd\u0021\u0021 RTL END...");
+						doh.t(widget.compLabelNode.dir === "rtl");
+						widget.set("label", "RTL Start \u05e9\u05dc\u05d5\u05dd\u0021\u0021!...");
+						doh.t(widget.compLabelNode.dir === "rtl");
+					});
+					
+					doh.register("setLTR", function(){
+						var widget = dijit.byId("cb1");
+						widget.set("textDir", "ltr");
+						widget.set("label", "\u05e9\u05dc\u05d5\u05dd\u0021\u0021 LTR END...");
+						doh.t(widget.compLabelNode.dir === "ltr");
+						widget.set("label", "LTR Start \u05e9\u05dc\u05d5\u05dd\u0021\u0021!...");
+						doh.t(widget.compLabelNode.dir === "ltr");
+					});
+				
+				doh.run();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">oneui.form.CheckBoxBidi DoH Test</h1>
+			<input id="cb1" data-dojo-id="cb1" data-dojo-type="idx.form.CheckBox" data-dojo-props='name:"cb1",
+				label:"CheckBoxBidi label", onClick:function(){ console.log("clicked cb1") }'/>
+	</body>
+</html>

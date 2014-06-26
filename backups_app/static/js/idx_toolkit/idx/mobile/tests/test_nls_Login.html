@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>Test nls/About</title>
+	<link rel="stylesheet" type="text/css" href="tests.css" />
+	<style type="text/css" id="idxStyles">
+	@import "../../themes/oneui/oneui.css";
+	@import "../../tests/test_nls.css";
+	</style>
+	<script src="../deviceTheme.js"></script>
+	<script src="dojoVersion.js" data-dojo-config="async:true, parseOnLoad:false, isDebug:true"></script>
+	<script type="text/javascript" src="../../tests/test_nls.js"></script>
+	
+	
+	<script>
+		var show_login;
+		require(["idx/mobile/tests/_TestUtils",
+				 "dijit/registry",
+				 "dojox/mobile/parser",
+				 "dojox/mobile",
+				 "dojox/mobile/compat",
+				 "dojox/mobile/Button",
+				 "idx/mobile/Login",
+				 "idx/mobile/tests/_LogPane",
+				 "dojo/domReady!"],
+		function(tu, registry, parser){
+			parser.parse();
+			show_login = function(){
+				registry.byId("logindialog").show();
+			}
+		});
+		
+	</script>
+ 
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<h1 class="testTitle">mobile/nls/Login</h1>
+	<table class="testInstruction"><tbody>
+		<tr><th>Resource</th><th>Verification</th></tr>
+		<tr><td  class="testHighlightNls">*promptName</td><td>
+			Click the "Open Login" button to show login dialog.<br/><br/>
+			Verify that the placeholder inner name input is translated.
+		</td></tr>
+		<tr><td  class="testHighlightNls">*promptPassword</td><td>
+			Click the "Open Login" button to show login dialog.<br/><br/>
+			Verify that the placeholder inner password input is translated.
+		</td></tr>
+		<tr><td  class="testHighlightNls">*promptLogin</td><td>
+			Click the "Open Login" button to show login dialog.<br/><br/>
+			Verify that the login button label(below of password input) is translated.
+		</td></tr>
+		<tr><td  class="testHighlightNls">*promptCancel</td><td>
+			Click the "Open Login" button to show login dialog.<br/><br/>
+			Verify that the cancel button label(below of password input) is translated.
+		</td></tr>
+		
+	</tbody></table>
+	<hr/>
+	<button id="showLogin" onclick="show_login();">Open Login</button>
+	<div id="logindialog" data-dojo-type="idx/mobile/Login" data-dojo-props="
+		name: 'Software Name with a Total<br />of 90 Character Maximum for the Length of the Product Name', 
+		copyright: '[Year 1], [Year 2]'
+	"></div>
+</body>
+</html>

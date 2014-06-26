@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<title>Slider Multi Channel</title>
+		
+		<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/oneui.css";
+			@import "../../themes/multichannel/multichannel.css";
+	    </style>
+	    
+	    <style type="text/css">
+	    	.testMain{
+	    		margin:10px;
+	    	}
+	    </style>
+	    
+	    <!-- required: dojo.js -->
+	    <script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+	    <!--script id="postDojo" type="text/javascript">
+			var modules = [
+				"dojo.dom",
+				"dijit._base.manager",
+				"dijit.form.Button",
+				"dijit.form.Form",
+				"idx.form.TextBox",
+				"idx.form.HorizontalSlider",
+				"dijit.form.HorizontalRule",
+				"dijit.form.HorizontalRuleLabels",
+				"idx.form.VerticalSlider",
+				"dijit.form.VerticalRule",
+				"dijit.form.VerticalRuleLabels"
+			]; 
+			var dom, manager, Button, Form, TextBox, HorizontalSlider, HorizontalRule, HorizontalRuleLabels, 
+			VerticalSlider, VerticalRule, VerticalRuleLabels;
+			
+			function preParse(modules){
+				dom 					= modules["dojo/dom"];
+				manager 				= modules["dijit/_base/manager"];
+				Button 					= modules["dijit/form/Button"];
+				Form  					= modules["dijit/form/Form"];
+				TextBox   				= modules["idx/form/TextBox"];
+				HorizontalSlider   		= modules["idx/form/HorizontalSlider"];
+				HorizontalRule   		= modules["dijit/form/HorizontalRule"];
+				HorizontalRuleLabels   	= modules["dijit/form/HorizontalRuleLabels"];
+				VerticalSlider   		= modules["idx/form/VerticalSlider"];
+				VerticalRule   			= modules["dijit/form/VerticalRule"];
+				VerticalRuleLabels   	= modules["dijit/form/VerticalRuleLabels"];
+			}
+			function postParse() {
+				//TODO
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script-->
+		
+		<script id="postDojo" type="text/javascript">
+			require(["idx/PlatformPluginRegistry"], function(iPlatformPluginRegistry){
+				iPlatformPluginRegistry.setGlobalTargetPlatformFromURL();
+				
+				require(["dojo/parser","dijit/registry",
+					"dijit/form/Button","dijit/form/Form","idx/form/TextBox",
+					"idx/form/HorizontalSlider","dijit/form/HorizontalRule","dijit/form/HorizontalRuleLabels",
+					"idx/form/VerticalSlider","dijit/form/VerticalRule","dijit/form/VerticalRuleLabels",
+					"dojo/domReady!"], function(dParser,dRegistry,Button,Form,TextBox,
+						HorizontalSlider,HorizontalRule,HorizontalRuleLabels,
+						VerticalSlider,VerticalRule,VerticalRuleLabels){
+					dParser.parse();
+					dojo.byId("platform").innerHTML = iPlatformPluginRegistry.getGlobalTargetPlatform()
+				});
+			});
+		</script>
+		
+		<script id="postDojo" type="text/javascript" src="../../tests/commonTest.js"></script>
+	</head>
+	<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+		<script type="text/javascript">applyThemeToBody()</script>
+		<h2>Current platform is: <span id="platform"></span></h2>
+		<div class="testMain">
+			<h2>idx.form.HorizontalSlider</h2>
+			<div data-dojo-type="idx.form.HorizontalSlider" data-dojo-props='
+				onChange:function(val){ dom.byId("h_sliderinput").value = val; },
+				label: "Horizontal Slider:",
+				labelAlignment: "vertical",
+				name:"horizontal1",
+				value:70,
+				maximum:100,
+				minimum:0,
+				pageIncrement:100,
+				showButtons:true,
+				intermediateChanges:true,
+				slideDuration:500,
+				style:{width:"300px"},
+				labelWidth: 160
+				'>
+				<ol data-dojo-type="dijit.form.HorizontalRuleLabels" data-dojo-props='container:"topDecoration", style:{height:"1.2em",fontSize:"75%"}'>
+					<li>lowest</li>
+					<li>normal</li>
+					<li>highest</li>
+				</ol>
+				<div data-dojo-type="dijit.form.HorizontalRule" data-dojo-props='container:"topDecoration", count:5, style:{height:"5px"}'></div>
+				<div data-dojo-type="dijit.form.HorizontalRule" data-dojo-props='container:"bottomDecoration", count:6, style:{height:"5px"}'></div>
+				<ol data-dojo-type="dijit.form.HorizontalRuleLabels" data-dojo-props='container:"bottomDecoration", style:{height:"1em",fontSize:"75%"}, count:6, numericMargin:1'></ol>
+			</div>
+			<div>
+				<label for="h_sliderinput">Horizontal Slider Value:</label>
+				<input readonly id="h_sliderinput" size="5" value="70"/>
+			</div>
+			<br/>
+			<h2>idx.form.VerticalSlider</h2>
+			<div data-dojo-type="idx.form.VerticalSlider" data-dojo-props='
+				onChange:function(val){ dom.byId("v_sliderinput").value = val; },
+				label: "Vertical Slider:",
+				labelAlignment: "vertical",
+				name:"vertical1",
+				value:60,
+				maximum:100,
+				minimum:0,
+				discreteValues:11,
+				style: {height:"200px"},
+				labelWidth: 100
+				'>
+				<ol data-dojo-type="dijit.form.VerticalRuleLabels" data-dojo-props='container:"leftDecoration", style:{width:"2em"}, count:6, numericMargin:1, maximum:100, constraints:{pattern:"#"}'></ol>
+				<div data-dojo-type="dijit.form.VerticalRule" data-dojo-props='container:"leftDecoration", count:11, style:{width:"5px"}, ruleStyle:"border-color: #888"'></div>
+				<div data-dojo-type="dijit.form.VerticalRule" data-dojo-props='container:"rightDecoration", count:11, style:{width:"5px"}, ruleStyle:"border-color: #888"'></div>
+				<ol data-dojo-type="dijit.form.VerticalRuleLabels" data-dojo-props='container:"rightDecoration", style:{width:"2em"}, labelStyle:"right:0px;"'>
+					<li>0</li>
+					<li>100</li>
+				</ol>
+			</div>
+			<div style="margin-top: 30px;">
+				<label for="v_sliderinput">Vertical Slider Value:</label>
+				<input readonly id="v_sliderinput" size="5" value="60"/>
+			</div>
+			
+			<br><br><br><br><br>
+			<a href="?platform=phone">Phone Platform</a><br><br>
+			<a href="?platform=desktop">Desktop Platform</a><br><br>
+			<a href="?platform=auto">Auto Platform</a><br><br>
+		</div>
+	
+	</body>
+</html>

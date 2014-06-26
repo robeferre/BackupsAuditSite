@@ -1,0 +1,50 @@
+<div id="progress" data-dojo-type="dojox.mobile.View">
+	<ul data-dojo-type="dojox.mobile.TabBar" style="width:100%, height:100%"
+		data-dojo-props='barType:"segmentedControl", fixed:"top"'>
+		<li data-dojo-type="dojox.mobile.TabBarButton" id="progressViewTabBarBtn1"
+			data-dojo-props='moveTo:"progressBarView", selected:true'>ProgressBar
+		</li>
+		<li data-dojo-type="dojox.mobile.TabBarButton" id="progressViewTabBarBtn2"
+			data-dojo-props='moveTo:"progressIndicatorView"'>Progress Indicator
+		</li>
+	</ul>
+    
+	<div id="progressBarView" data-dojo-type="dojox.mobile.ScrollableView">
+        <div dojoType="dojox.mobile.RoundRect" shadow="false" class="mgTranspRoundRect">
+		<div id="progressBar1" data-dojo-type="dojox.mobile.ProgressBar"
+		     data-dojo-props='maximum:200' style="width:275px">
+		</div>
+		<div id="progressBarStatusMsg">0% 0/200</div>
+		<button dojoType="dojox.mobile.Button" class="mblPrimaryButton" onclick="update('0')">0</button>
+		<button dojoType="dojox.mobile.Button" class="mblPrimaryButton" onclick="update('70')">70</button>
+		<button dojoType="dojox.mobile.Button" class="mblPrimaryButton" onclick="update('100')">100</button>
+		<button dojoType="dojox.mobile.Button" class="mblPrimaryButton" onclick="update('200')">200</button>
+		</div>
+	</div>
+
+	<div id="progressIndicatorView" data-dojo-type="dojox.mobile.ScrollableView">
+        <div dojoType="dojox.mobile.RoundRect" shadow="false" class="mgTranspRoundRect">
+			<div>
+				<div style="display: inline-block; padding: 8px 12px; background-color:white; width: 144px;">
+					<div id="progressIndicator1w" data-dojo-type="dojox.mobile.ProgressIndicator" startSpinning="false" removeOnStop="false" size="38" center="false" class="mblIdxLoadingIndicatorWhite"></div>
+				</div>
+				<div style="display: inline-block; padding: 8px 12px; background-color:black; border-radius: 3px; width: 144px;">
+					<div id="progressIndicator1b" data-dojo-type="dojox.mobile.ProgressIndicator" startSpinning="false" removeOnStop="false" size="38" center="false" class="mblIdxLoadingIndicatorBlack"></div>
+				</div>
+			</div>
+        </div>
+		
+		<div dojoType="dojox.mobile.RoundRect" shadow="false" class="mgTranspRoundRect" style="display:none">
+			<div>
+				<div style="display: inline-block; padding: 8px 12px; background-color:white; width: 144px;">
+					<div id="progressIndicator1d" data-dojo-type="dojox.mobile.ProgressIndicator" startSpinning="true" removeOnStop="false" size="15" center="false"></div>
+					<div id="progressIndicator2d" data-dojo-type="dojox.mobile.ProgressIndicator" startSpinning="true" removeOnStop="false" size="30" center="false"></div>
+					<div id="progressIndicator3d" data-dojo-type="dojox.mobile.ProgressIndicator" startSpinning="true" removeOnStop="false" size="60" center="false"></div>
+					<div id="progressIndicator4d" data-dojo-type="dojox.mobile.ProgressIndicator" startSpinning="true" removeOnStop="false" size="120" center="false"></div>
+				</div>
+				<button dojoType="dojox.mobile.Button" class="mblPrimaryButton" onclick="startProgressIndicator()">Start</button>
+		    	<button dojoType="dojox.mobile.Button" class="mblPrimaryButton" class="mblSecondaryButton" onclick="stopProgressIndicator()">Stop</button>
+			</div>
+		</div>	
+	</div>
+</div>

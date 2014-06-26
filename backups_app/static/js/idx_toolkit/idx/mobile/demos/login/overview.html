@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Overview</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+		@import "../../../demos/demo.css";
+	</style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body role="main">
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+
+	<div class="demoContent">
+		<div dir='ltr'>
+			<p>
+				The IDX toolkit provides assistance with complying with the
+				<a href="http://dleadt.torolab.ibm.com/uxd/uxd_oneui.jsp?site=mobileref&top=x1&left=y505&vsub=*&hsub=*&options=M&openpanes=10001000000100" target="_blank">
+					IBM One UI mobile 'Log In' standard</a>
+				for mobile application development.
+			</p>
+			<p>
+				The toolkit provides an additional widget, <b>idx/mobile/Login</b>,
+				which can be configured and used to collect the necessary credentials
+				and provide feedback in the appropriate way.
+			</p>
+		</div>
+		
+		<!-- reserve space for the drop-down from the Header -->
+		<div style="height: 250px"></div>
+	</div>
+</body>
+</html>

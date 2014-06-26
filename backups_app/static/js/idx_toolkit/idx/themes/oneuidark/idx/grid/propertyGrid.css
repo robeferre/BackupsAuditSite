@@ -1,0 +1,19 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxPropertyGridTable {
+	border-top-color:#343434;
+	border-bottom-color:#343434;
+}
+
+.oneui.dark th.idxPropertyRowLabel {
+	background-color:#222;
+	border-bottom-color:#343434;
+	color:#ccc;
+}
+.oneui.dark td.idxPropertyRowValue {
+	border-bottom-color:#343434;
+}

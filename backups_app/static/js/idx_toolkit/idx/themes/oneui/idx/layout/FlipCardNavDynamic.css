@@ -1,0 +1,112 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+
+/************* grid navigator common ****************/
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx{
+	width: 100%;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxRow{
+	/*border: 1px solid #D9D9D9;*/
+}
+
+
+/********** header ***********/
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerContextVSize{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerHSlide{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerVSlide{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxSlideRefresh{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerWrapper .gridxRowTable .gridxCell{
+	border: medium none;
+	/*background-color: #A9A7A5;*/
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerUnderlay{
+	position: absolute;
+	background-color: #F7F7F7;
+	top:0;
+	left:0
+	height:0;
+	width:100%;
+}
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerUnderlay .gridxRow .gridxCell{
+	background-color: #F7F7F7;
+	border: medium none;
+}
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerUnderlay .gridxRow .gridxCell .gridxLayerHasChildren,
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerUnderlay .gridxRow .gridxCell .gridxLayerLevelUp{
+	background: none;
+}
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerWrapper .gridxRowTable{
+	width:100%;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerWrapper .gridxLayerCellFocus{
+	outline: 1px dashed #00008B;
+}
+
+
+/***************** body *****************/
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxVScroller{
+	display:none !important;
+}
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxBody{
+	background-color:#fff;
+}
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxBody .gridxRowTable{
+	width:100%;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxBody .gridxRowTable .gridxCell{
+	border: medium none;
+	/*background-color: #DDDCDB;*/
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxBody .gridxRowTable .gridxCustomRow{
+	background-color:#F9F9F9;
+	color: gray;
+	width:300px;
+	padding:5px;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerHasChildren{
+	background-position: -44px -4px;
+}
+
+.oneui .idxFlipCardNavDynamic .dojoxExpandoContent .gridx .gridxLayerLevelUp{
+	background-position: -84px -4px;
+}
+
+

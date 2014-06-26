@@ -1,0 +1,44 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.RoundRectList */
+
+/* Reset common styles. */
+.oneui .mblRoundRectList {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblRoundRectList {
+	margin:7px 9px 16px;
+	padding:0;
+	border:1px solid #ccc;
+	border-radius:8px;
+	background-color:#fff;
+}
+
+.oneui .mblRoundRectList .mblListItem:first-child,.oneui .mblRoundRectList .mblEdgeToEdgeCategory:first-child {
+	border-top-right-radius:8px;
+	border-top-left-radius:8px;
+}
+
+.oneui .mblRoundRectList .mblListItem:last-child,.oneui .mblRoundRectList .mblEdgeToEdgeCategory:last-child {
+	border-bottom-width:0;
+	border-bottom-right-radius:8px;
+	border-bottom-left-radius:8px;
+}

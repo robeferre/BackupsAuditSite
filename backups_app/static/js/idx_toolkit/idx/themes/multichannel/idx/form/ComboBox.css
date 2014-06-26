@@ -1,0 +1,55 @@
+.oneui .idxPlatform_mobile.idxMobileFilteringSelectError .idxCompositeHelpContainer,
+.oneui .idxPlatform_mobile.idxMobileComboBoxError .idxCompositeHelpContainer{
+	opacity:0;
+	z-index:0;
+}
+.oneui .idxPlatform_mobile.idxMobileFilteringSelectError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxMobileFilteringSelectFocused .idxCompositeHelpContainer,
+.oneui .idxPlatform_mobile.idxMobileComboBoxError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxMobileComboBoxFocused .idxCompositeHelpContainer{
+	opacity: 1;
+}
+.oneui .idxMobileFilteringSelect .dijitDownArrowButton,
+.oneui .idxMobileComboBox .dijitDownArrowButton{
+	padding: 6px;
+	background-image: none;
+	border:none;
+	font-size:12px;
+	width: 6%;
+}
+.oneui .idxMobileFilteringSelect .idxTextBoxInput,
+.oneui .idxMobileComboBox .idxTextBoxInput{
+	width: 80%;
+}
+
+.oneui .idxMobileFilteringSelect .dijitPlaceHolder,
+.oneui .idxMobileComboBox .dijitPlaceHolder{
+	height: 32px;
+	line-height: 32px;
+	color: #A3A3A3
+}
+
+.oneui .idxMobileFilteringSelect .dijitDownArrowButtonActive,
+.oneui .idxMobileComboBox .dijitDownArrowButtonActive{
+	box-shadow: none;
+}
+
+.oneui .idxMobileComboBox .dijitComboBox .idxTextBoxInput,
+.oneui .idxMobileFilteringSelect .dijitComboBox .idxTextBoxInput{
+	right: 32px;
+}
+
+.oneui .idxMobileComboBoxMenu.mblOverlay .mblSelectCloseButton{
+	background-image: url("../../../oneui/idx/widget/images/popupClose.png");
+	width: 28px;
+	height: 28px;
+	position: absolute;
+	right: 10px;
+	top: 8px;
+	line-height: 0;
+	cursor: pointer;
+}
+
+.oneui .idxMobileComboBoxMenu.mblOverlay .mblHeading{
+	background-image: none;
+}

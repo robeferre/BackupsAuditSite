@@ -1,0 +1,6 @@
+define({     
+//begin v1.x content
+	idxTypeAhead_close: "Chiudi"
+//end v1.x content
+});
+

@@ -1,0 +1,286 @@
+@import "Grid.css";
+
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* oneui styles for DataGrid */
+/* first load the dojox/Grid styles, in case they
+ * have not yet been loaded */
+.oneui.dark .dojoxGrid {
+	background-color:#222;
+	color:#eee;
+	border-right-color:#555;
+}
+
+.oneui.dark .dojoxGrid table {
+	border-right-color:#555;
+}
+
+/*  messages */
+.oneui.dark .dojoxGridMasterMessages {
+	background-color:#222;
+}
+
+.oneui.dark .dojoxGridLoading {
+	background-image:url(../../dijit/images/loadingAnimation.gif);
+}
+
+.oneui.dark .dojoxGridError {
+	background-image:url(../../../oneui/dijit/images/commonIconsObjActEnabled.png);
+	background-position:-496px;
+}
+
+/* header */
+.oneui.dark .dojoxGridHeader {
+	background:#222;
+/* Old browsers */
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+	border-color:#555;
+}
+
+.oneui.dark .dojoxGridHeader .dojoxGridCellOver {
+	background:#343434;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+	background:linear-gradient(top,#343434 0%,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#343434',endColorstr='#222',GradientType=0);
+}
+
+.oneui.dark .dojoxGridHeader .dojoxGridCell {
+	background:transparent;
+	filter:none;
+	border-color: transparent;
+	border-left-color:#555;
+	color:#ccc;
+	text-shadow:0px 1px 0 #222;
+}
+
+.dj_ie6 .oneui.dark .dojoxGridHeader .dojoxGridCell {
+	border-color:#343434 #343434 #343434 #555;
+}
+
+/* header sorting arrow */
+.oneui.dark .dojoxGridSortNode {
+	color:#ccc;
+	text-shadow:0px 1px 0 #222;
+	filter:dropshadow(color=#222,offx=,offy=1);
+/* if this is IE-specific. then it should be removed -- see below */
+}
+
+/* the dropshadow filter is causing the text to have a shado in IE for any header cell that has sorting */
+.dj_ie .oneui.dark .dojoxGridSortNode {
+	filter:none;
+}
+
+.dj_ie6 .oneui.dark .dojoxGridSortNode {
+	background-image:none;
+}
+
+.oneui.dark .dojoxGridCellOver .dojoxGridSortNode {
+	color:#eee;
+}
+
+.oneui.dark .dojoxGridArrowButtonNode {
+	background:transparent url(images/spriteIcons.png) no-repeat -4px 0;
+}
+
+.oneui.dark .dojoxGridSortUp .dojoxGridArrowButtonNode {
+	background-position:-34px 0;
+}
+
+.oneui.dark .dojoxGridSortUp:hover,.oneui.dark .dojoxGridSortDown:hover {
+	color:#1673a6;
+}
+
+/* Grid view content */
+.oneui.dark .dojoxGridScrollbox {
+	background-color:#222;
+}
+
+/* rowbar - row headers */
+.oneui.dark .dojoxGridRowbar {
+	background:#343434;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+	background:linear-gradient(top,#343434 0%,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#343434',endColorstr='#222',GradientType=0);
+}
+
+.oneui.dark .dojoxGridRowbarTable {
+}
+
+.dj_ie6 .oneui.dark .dojoxGridRowbar,.dj_ie6 .oneui.dark .dojoxGridRowbarTable {
+	background-image:none;
+}
+
+.oneui.dark .dojoxGridRowbarInner {
+	border-bottom-color: #555;
+}
+
+.oneui.dark .dojoxGridRowbarOver .dojoxGridRowbarTable {
+	background:#343434;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+	background:linear-gradient(top,#343434 0%,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#343434',endColorstr='#222',GradientType=0);
+}
+
+.oneui.dark .dojoxGridRowBarActive .dojoxGridRowbarTable {
+	background:#343434;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+	background:linear-gradient(top,#343434 0%,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#343434',endColorstr='#222',GradientType=0);
+}
+
+.oneui.dark .dojoxGridRowbarSelected {
+	background:#343434;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+	background:linear-gradient(top,#343434 0%,#222 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#343434',endColorstr='#222',GradientType=0);
+	border-right-color: #bbb;
+}
+
+/* rows */
+.oneui.dark .dojoxGridRow {
+	border-left-color: #555;
+	background-color:#222;
+}
+
+.oneui.dark .dojoxGridRowSelected .dojoxGridRowTable tr {
+	background-color:#078dc1;
+}
+
+/* cells */
+.oneui.dark .dojoxGridCell {
+	border-color: #555;
+	border-top-color:transparent;
+	border-left-color:transparent;
+}
+
+.dj_ie6 .oneui.dark .dojoxGridCell {
+	border-color:#222;
+}
+
+.oneui.dark .dojoxGridCellFocus {
+	border-color: #00008b!important;
+}
+/*  Single Affordance Hover Effect */
+.oneui.dark .dojoxGridRowOver .dojoxGridCell {
+	background-color:#1673a6;
+}
+
+/*  Double Affordance Hover Effect */
+.oneui.dark .dojoxGridDoubleAffordance .dojoxGridRowOver .dojoxGridCellOver {
+	background-color:#1673a6;
+}
+
+.dj_ie6 .oneui.dark .dojoxGridCell {
+	background-image:none!important;
+}
+
+/* editing */
+.oneui.dark .dojoxGridRowEditing td {
+	background-color:#1673a6;
+}
+
+.oneui.dark .dojoxGridRow-inserting td {
+	background-color:#222;
+}
+
+.oneui.dark .dojoxGridRow-inflight td {
+	background-color:#222;
+}
+
+.oneui.dark .dojoxGridRow-error td {
+	background-color:#2f2222;
+}
+
+/* Drag and Drop */
+.oneui.dark .dojoxGrid .dojoDndItemBefore {
+	border-left-color:#1673a6;
+}
+
+.oneui.dark .dojoxGrid .dojoDndItemAfter {
+	border-right-color:#078dc1;
+}
+
+.oneui.dark .dojoxGridExpandoCell {
+	background-position:left top!important;
+}
+
+.oneui.dark .dojoxGridExpandoNode {
+	background-image:url(images/leftNavArrows.png);
+	background-position:0 0;
+/* for closed state */
+}
+
+.dj_ie6 .oneui.dark .dojoxGridExpandoNode {
+	background-image:url(images/treeExpandImages8bit.png);
+}
+
+.oneui.dark .dojoxGridExpandoOpened .dojoxGridExpandoNode {
+	background-position:-16px 0;
+}
+
+.oneui.dark .dojoxGridExpandoLoading .dojoxGridExpandoNode {
+	background-image:url(images/loadingAnimation.gif);
+}
+
+.oneui.dark .dojoxGridTreeModel .dojoxGridNoChildren .dojoxGridExpando {
+	visibility:visible!important;
+	width:18px!important;
+}
+
+.oneui.dark .dojoxGridTreeModel .dojoxGridNoChildren .dojoxGridExpandoNode,.dj_ie6 .oneui.dark .dojoxGridTreeModel .dojoxGridNoChildren .dojoxGridExpandoNode {
+	background-image:none;
+}
+
+.oneui.dark .dojoxGridExpandoNodeInner {
+	visibility:hidden;
+}
+
+.dijit_a11y .dojoxGridExpandoNodeInner {
+	visibility:visible;
+}
+
+.oneui.dark tr.dojoxGridSubRowAlt {
+}
+
+.oneui.dark .dojoxGridRowOdd tr.dojoxGridSubRowAlt {
+	background-color:#222;
+}
+
+.oneui.dark .dojoxGridRow .dojoxGridRowTable tr.dojoxGridRowSelected {
+	background-color:#078dc1;
+}

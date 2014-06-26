@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Primer</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+        @import "../../../demos/demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<div role="main" class="demoContent">
+		<div dir="ltr">
+		
+			<p>
+				This guide sets out some of the technical
+				steps required to take
+				advantage of the IDX toolkit and the One UI mobile theme
+				in a web page or mobile hybrid app.
+			</p>
+				
+			<h2>Controlling how your app is rendered</h2>
+			
+			<p>
+				Your HTML will be rendered by the web browser or HTML rendering
+				engine on the mobile device on which it is run. There are several
+				important declarations you need to include in your page in order
+				for the web browser or HTML rendering engine to make the right
+				choices.
+			</p>
+			
+			<h3>DOCTYPE declaration</h3>
+			
+			<p>
+				The IDX One UI toolkit is intended to be used with HTML&nbsp;5 and
+				each page should therefore begin with an HTML&nbsp;5 DOCTYPE
+				declaration:
+				
+				<pre class="code">&lt;!DOCTYPE html&gt;</pre>
+			</p>
+			
+			<h3>The "viewport" &lt;meta&gt; tag</h3>
+			
+			<p>
+				The "viewport" &lt;meta&gt; tag is recognised by mobile browsers
+				on several platforms including mobile Safari on iOS and Google
+				Chrome on Android. Further
+				<a href="https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html">details
+				about the "viewport" &lt;meta&gt; tag</a> can be found on the
+				Apple developer site. The following aspects are important for
+				complying with the One UI standard:
+				<ul>
+					<li>Setting the initial "scale" to "1.0" ensures that the
+					CSS-to-device-pixel ratio is set in line with the CSS
+					reference pixel definition. The default scale if this
+					setting is omitted can vary widely from one browser to
+					another. This setting also means that the page does not
+					rescale on orientation change, but rather remains at the
+					same scale and changes the available dimensions, and this
+					is important for building appropriately responsive app UIs.</li>
+					
+					<li>Enabling user scaling (typically supported on the mobile
+					devices by a pinch-to-zoom gesture and touch-initiated panning
+					while zoomed) is important to comply with the One UI
+					accessibility guidance.</li>  
+				</ul>	
+			</p>
+			
+			<p>			
+				The following "viewport" &lt;meta&gt; tag should be placed in the
+				&lt;head&gt; section of each page to apply the above settings:
+				
+				<pre class="code">&lt;meta name="viewport" content="initial-scale=1.0, user-scalable=yes" /&gt;</pre>
+			</p>
+			
+			<h3>Other &lt;meta&gt; tag</h3>
+			
+			<p>
+				There are also some <a href="http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html">&lt;meta&gt;
+				tags recognised by mobile Safari</a> on iOS, that enable a web page loaded into the browser to
+				declare that it can run 'full-screen' and to control the appearance
+				of the status bar (the narrow bar containing various status icons
+				such as battery charge and network connectivity that runs along
+				the top of the screen in iOS). The following tags declare that a
+				page is a web app (can be loaded standalone, with no browser chrome),
+				and request a black status bar:
+					 
+		 		<pre class="code">&lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /&gt;</pre>
+
+			</p>
+			
+			<h2>Loading the One UI mobile theme</h2>
+			
+			<p>
+				The One UI mobile theme comes in two varieties, one designed for iOS (iPhone/iPad)
+				and the other for Android devices. These varieties enable certain parts of the theme
+				to adapt to device-specific rendering conventions and interaction models, so it is
+				important to ensure that the correct variety is loaded in the appropriate circumstances.
+				The One UI standard also specifies that on other devices (<i>i.e.</i> that are neither
+				iOS nor Android) the iOS variety should be used.
+			</p>
+			
+			<h3>Loading the One UI mobile theme using idx/mobile/deviceTheme</h3>
+			
+			<p>
+				To support responsive app design a module <b>idx/mobile/deviceTheme</b> is provided
+				that detects the platform on which the page is being loaded and loads the appropriate theme
+				variety automatically. This is the recommended way to load the One UI mobile theme.
+				The <b>idx/mobile/deviceTheme</b> module is designed to be exactly compatible with
+				the <b>dojox/mobile/deviceTheme</b> module provided by Dojo, but it loads the appropriate
+				variety of the One UI mobile theme in place of the default dojox/mobile themes.
+			</p>
+			
+			<p>
+				It is possible to <span class="codeSnippet">require()</span> the <b>idx/mobile/deviceTheme</b>
+				module, but it is important to load the theme files as early as possible in order to ensure
+				that the theme definitions are in place when the dojox.mobile widgets initialise and so the
+				<b>recommended way</b> to use the <b>idx/mobile/deviceTheme</b> module is to load it directly
+				<b>before</b> loading dojo.js. This can be done with a simple &lt;script&rt; tag as
+				follows:
+				
+				<pre class="code">&lt;script src="...path-to-idx.../ibmjs/idx/mobile/deviceTheme.js"&rt;&lt;/script&rt;</pre>
+			</p>
+			
+			<p>
+				No further steps are required when using this module: the necessary CSS files will be loaded
+				automatically and the appropriate classes set onto the &lt;body&rt; tag. 
+			</p>
+			
+			<p>
+				It is possible to configure the loading of theme files with various config variables that
+				can be set up before loading the <b>idx/mobile/deviceTheme</b> module or passed to the
+				module on the &lt;script&rt; tag. The <b>idx/mobile/deviceTheme</b> module supports all
+				the configuration variables that the <b>dojox/mobile/deviceTheme</b> module supports,
+				and in exactly the same way.
+			</p>
+			
+			<h3>Loading the One UI mobile theme directly</h3> 
+			
+			<p>
+				A page or app can load each theme variety directly if required by loading the
+				following CSS files:
+				<ul>
+					<li>for the iOS variety: <span class="codeSnippet">/idx/mobile/themes/oneui_ios/oneui_ios.css</span>.
+					The CSS class "<span class="codeSnippet">oneui_ios_theme</span>" should also be added to the &lt;body&rt; tag.
+					<li>for the Android variety: <span class="codeSnippet">/idx/mobile/themes/oneui_android/oneui_android.css</span>.
+					The CSS class "<span class="codeSnippet">oneui_android_theme</span>" should also be added to the &lt;body&rt; tag.
+				</ul>
+				This may be appropriate for an app designed for deployment on one specific platform only.
+			</p>
+			
+			<h2>Loading Dojo</h2>
+			
+			<p>
+				The "dojo.js" entry point to Dojo should be loaded via a &lt;script&rt; tag in the usual
+				way. In order to use dojox/mobile features you should include "dojox/mobile" in your 
+				list of <span class="codeSnippet">require()</span>s.
+			</p>
+			
+			<h3>Registering IDX as a Dojo package</h3>
+			
+			<p>
+				In order to be able to use the additional widgets provided by IDX to support the One UI
+				standards, "idx" needs to be registered as a package to Dojo. This can be done by setting
+				the 'packages' structure in the dojo config in the following way:
+				
+				<pre class="code">packages: [
+	{name: "dojo", location: "./" },          // standard definition
+	{name: "dijit", location: "../dijit" },   // standard definition
+	{name: "dojox", location: "../dojox" },   // standard definition
+	{name: "gridx", location: "../gridx" },
+	{name: "idx", location: "...path-from-dojo-to-idx.../ibmjs/idx" },
+	... any other package definitions required ...
+]</pre>
+			</p>
+			
+			<h3>Parsers</h3>
+			
+			<p>
+				If your page will include declarative (HTML) definitions of widgets, either
+				from the dojox/mobile package or from idx/mobile (additional widgets provided by
+				IDX to support the One UI standards) or a mixture of both, you will need to load
+				a parser and ask it to parse the page content. There is a choice of two parsers
+				available in Dojo:
+				<ul>
+					<li><span class="codeSnippet">dojox/mobile/Parser</span>, a lightweight parser
+					with a small download footprint but also reduced functionality, suitable if your
+					page only contains simply widget declarations.</li>
+					<li><span class="codeSnippet">dijit/Parser</span>, the full-function parser
+					that includes support for &lt;script&rt; tag declarations of methods and handlers
+					and similar advanced features.</li> 
+				</ul>
+				Whichever parser you choose, you will need to <span class="codeSnippet">require()</span>
+				the appropriate module and then either call the <span class="codeSnippet">parse()</span>
+				method on it or enable parseOnLoad in the dojo config.
+			</p>
+
+			<h3>Page initialisation</h3>
+			
+			<p>
+				It is not generally desirable for your page content to be seen by the app user before
+				Dojo has been initialised, the parser has run, etc, as the layout and styling will
+				look very odd and a disturbing reformatting flash will occur as the widgets become
+				initialised. To avoid this, make your page &lt;body&rt; tag initially invisible.
+				The &lt;body&rt; tag will be automatically shown by dojox/mobile during initialisation.
+				
+				<pre class="code">&lt;body style="visibility: hidden;"&rt;</pre>
+			</p>
+			
+			<p>
+				The <b>idx/mobile/Launch</b> widget provides support for the One UI Launch standard,
+				and this widget too will automatically show the &lt;body&rt; tag as soon as the
+				launch pane is in ready to be displayed to the user.
+			</p>    
+				
+			<!-- h2>IDT Defect 8536</h2>
+
+			<p>monkey-patch workaround for IDT defect 8536 - needed to make menus work</p-->
+			
+			<h2>Responsive app design</h2>
+			
+			<p>
+				Although many aspects of One UI apply to all mobile platforms, there are certain 
+				platform-specific differences that mean that there are likely to be circumstances
+				in which an app needs to provide different styling, or a different JavaScript code
+				path, according to whether the app is using the iOS variety or the Android variety
+				of the One UI theme.
+			</p>
+			
+			<p>
+				Even more importantly, there may well be circumstances
+				in which an app needs to provide different styling, or a different JavaScript code
+				path, according to whether the app is on a "phone"-type device (small format screen)
+				or a "tablet"-type device (larger format screen), or according to whether the device
+				is in "portrait" orientation (height greater than width) or "landscape" orientation
+				(width greater than height).
+			</p>
+			
+			<p>
+				These forms of adaptation by an app are termed "responsive design". <!-- The following
+				sections identify how these features can be enabled.
+			</p>
+			
+			<h3>Detecting theme variety, screen size and orientation in CSS</h3>
+			
+			<p>Using CSS classes to hide UI elements that are only visible in certain configurations (.androidOnly etc.)</p>
+			
+			<h3>Detecting theme variety, screen size and orientation in JavaScript code</h3>
+			
+			<p>detecting UI flavour vs actual platform - use (dojox.mobile.currentTheme === "oneui_android")</p-->
+
+		</div>
+	</div>
+</body>
+</html>

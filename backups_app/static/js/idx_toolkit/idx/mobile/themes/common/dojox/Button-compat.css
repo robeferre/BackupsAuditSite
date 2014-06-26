@@ -1,0 +1,56 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Button */
+
+.oneui .mblButton {
+	background-image: url(compat/button-bg.png);
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+	background-image: linear-gradient(to bottom, #f4f4f4 0%, #dbdbdb 100%);
+}
+
+.oneui.dj_gecko button.mblButton::-moz-focus-inner,
+.oneui.dj_gecko input[type="reset"].mblButton::-moz-focus-inner,
+.oneui.dj_gecko input[type="button"].mblButton::-moz-focus-inner,
+.oneui.dj_gecko input[type="submit"].mblButton::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+.oneui .mblDarkButton {
+	background-image: -moz-linear-gradient(top #343434, #222);
+	background-image: linear-gradient(to bottom, #343434, #222);
+}
+
+.oneui .mblButtonSelected {
+	background-image: url(compat/button-sel-bg.png);
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #dbdbdb, #f4f4f4);
+	background-image: linear-gradient(to bottom, #dbdbdb, #f4f4f4);
+}
+
+.oneui .mblDarkButtonSelected {
+	background-image: -moz-linear-gradient(top, #222, #343434);
+	background-image: linear-gradient(to bottom, #222, #343434);
+}
+
+.oneui .mblBlueButton,
+.oneui .mblSpecialButton {
+	background-image: url(compat/button-blue-bg.png);
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #008abf, #085884);
+	background-image: linear-gradient(to bottom, #008abf, #085884);
+}
+
+.oneui .mblBlueButtonSelected,
+.oneui .mblSpecialButtonSelected {
+	background-image: url(compat/button-blue-sel-bg.png);
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #085884, #008abf);
+	background-image: linear-gradient(to bottom, #085884, #008abf);
+}

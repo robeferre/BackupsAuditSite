@@ -1,0 +1,19 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui.dark .idxComboLink .idxComboLinkSeparator {
+	border-right-color: #343434;	
+}
+
+.oneui.dark .idxAppMarquee .idxComboLinkAnchor {
+  color: #222;	
+}
+
+.oneui.dark .idxComboLinkDisabled .idxComboLinkAnchor,
+.oneui.dark .idxAppMarquee .idxComboLinkDisabled .idxComboLinkAnchor {
+  color: #777;	
+}

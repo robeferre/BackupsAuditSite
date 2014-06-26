@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/Dnd</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript" src="support/commonImport.js"></script>
+<style type="text/css" id="idxStyles">
+	@import "../../../gridx/resources/Gridx.css";
+	@import "../../themes/oneui/oneui.css";
+	@import "../../tests/test_nls.css";
+	@import "../../themes/oneui/idx/gridx/Gridx.css";
+	@import "../../themes/oneui/idx/gridx/Gridx_rtl.css";
+
+	.gridx {
+		width: 600px;
+		height: 300px;
+	}
+</style>
+<script type="text/javascript">
+	storeData = [
+		{ id: 1, order: 1, Genre: "Easy Listening", Artist: "Bette Midler", Year: 2003, Album: "Bette Midler Sings the Rosemary Clooney Songbook", Name: "Hey There", Composer: "Ross, Jerry 1926-1956 -w Adler, Richard 1921-" },
+		{ id: 2, order: 2, Genre: "Classic Rock", Artist: "Jimi Hendrix", Year: 1993, Album: "Are You Experienced", Name: "Love Or Confusion", Composer: "Jimi Hendrix" },
+		{ id: 3, order: 3, Genre: "Jazz", Artist: "Andy Narell", Year: 1992, Album: "Down the Road", Name: "Sugar Street", Composer: "Andy Narell"},
+		{ id: 4, order: 4, Genre: "Progressive Rock", Artist: "Emerson, Lake & Palmer", Year: 1992, Album: "The Atlantic Years", Name: "Tarkus", Composer: "Greg Lake/Keith Emerson"},
+		{ id: 5, order: 5, Genre: "Rock", Artist: "Blood, Sweat & Tears", Year: 1968, Album: "Child Is Father To The Man", Name: "Somethin' Goin' On", Composer: ""},
+		{ id: 6, order: 6, Genre: "Jazz", Artist: "Andy Narell", Year: 1989, Album: "Little Secrets", Name: "Armchair Psychology", Composer: "Andy Narell"},
+		{ id: 7, order: 7, Genre: "Easy Listening", Artist: "Frank Sinatra", Year: 1991, Album: "Sinatra Reprise: The Very Good Years", Name: "Luck Be A Lady", Composer: "F. Loesser"},
+		{ id: 8, order: 8, Genre: "Progressive Rock", Artist: "Dixie dregs", Year: 1977, Album: "Free Fall", Name: "Sleep", Composer: "Steve Morse"},
+		{ id: 9, order: 9, Genre: "Classic Rock", Artist: "Black Sabbath", Year: 2004, Album: "Master of Reality", Name: "Sweet Leaf", Composer: "Bill Ward/Geezer Butler/Ozzy Osbourne/Tony Iommi"},
+		{ id: 10, order: 10, Genre: "Blues", Artist: "Buddy Guy", Year: 1991, Album: "Damn Right, I've Got The Blues", Name: "Five Long Years", Composer: "Eddie Boyd/John Lee Hooker"}
+	];
+	// Test code here
+	require([
+		'dojo/parser',
+		'dojo/store/Memory',
+		'gridx/Grid',
+		'gridx/core/model/cache/Sync',
+		'gridx/modules/extendedSelect/Row',
+		'gridx/modules/extendedSelect/Column',
+		'gridx/modules/move/Row',
+		'gridx/modules/move/Column',
+		'idx/gridx/modules/dnd/Row',
+		'idx/gridx/modules/dnd/Column'
+	], function(parser){
+		parser.parse();
+	});
+</script>
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">gridx/nls/Dnd</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>moveRow</td><td>
+		Select 2 or more rows by sweeping through rows. Drag the cells of the selected row and verify the message "Move {n} Rows" in the avatar is translated.
+	</td></tr>
+	<tr><td>moveColumn</td><td>
+		Select 2 or more column by sweeping through column headers. Drag the cells of the selected column and verify the message "Move {n} Columns" in the avatar is translated.
+	</td></tr>
+	<tr><td>copyRow</td><td>
+		Select 2 or more rows by sweeping through rows. Hold CTRL first and then drag the cells of the selected row, and verify the message "Copy {n} Rows" in the avatar is translated.
+	</td></tr>
+	<tr><td>copyColumn</td><td>
+		Select 2 or more column by sweeping through column headers. Hold CTRL first and then drag the cells of the selected column, and verify the message "Copy {n} Columns" in the avatar is translated.
+	</td></tr>
+	<tr><td>moveOneRow</td><td>
+		Select 1 row by clicking on the cell of the row. Drag the cells of selected row and verify the message "Move 1 Row" in the avatar is translated.
+	</td></tr>
+	<tr><td>moveOneColumn</td><td>
+		Select 1 column by clicking on the header cell of the column. Drag the cells of selected column and verify the message "Move 1 Column" in the avatar is translated.
+	</td></tr>
+	<tr><td>copyOneRow</td><td>
+		Select 1 row by clicking on the cell of the row. Hold CTRL and then drag the cells of selected row, and verify the message "Copy 1 Row" in the avatar is translated.
+	</td></tr>
+	<tr><td>copyOneColumn</td><td>
+		Select 1 column by clicking on the header cell of the column. Hold CTRL and then drag the cells of selected column and verify the message "Copy 1 Column" in the avatar is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div data-dojo-id='gridStore' data-dojo-type='dojo/store/Memory' data-dojo-props='data: storeData'></div>
+	<div data-dojo-type='gridx/Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: gridStore,
+		structure: [
+			{ id: "genre", field: "Genre", name: "Genre" },
+			{ id: "artist", field: "Artist", name: "Artist" },
+			{ id: "year", field: "Year", name: "Year" },
+			{ id: "album", field: "Album", name: "Album" },
+			{ id: "name", field: "Name", name: "Name" },
+			{ id: "composer", field: "Composer", name: "Composer" }
+		],
+		modules: [
+			"gridx/modules/extendedSelect/Row",
+			"gridx/modules/extendedSelect/Column",
+			"gridx/modules/move/Row",
+			"gridx/modules/move/Column",
+			"idx/gridx/modules/dnd/Row",
+			"idx/gridx/modules/dnd/Column"
+		],
+		selectRowTriggerOnCell: true
+	'></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*
+ * This is the main entry point for the complete oneui theme Android variant.
+ * Loading this file loads the entire theme. Individual module CSS files
+ * are contained in the dojox folder (for dojox/mobile widgets) or the
+ * idx folder (for idx/mobile widgets).
+ */
+
+/* common styles */
+@import url(dojox/common-compat.css);
+@import url(dojox/domButtons-compat.css);
+@import url(dojox/transitions-compat.css);
+
+/* dojox/mobile widget styles */
+@import url(dojox/DatePicker-compat.css);
+@import url(dojox/IconContainer-compat.css);
+@import url(dojox/ListItem-compat.css);
+@import url(dojox/Opener-compat.css);
+@import url(dojox/Overlay-compat.css);
+@import url(dojox/SearchBox-compat.css);
+@import url(dojox/TabBar-compat.css);
+@import url(dojox/TimePicker-compat.css);
+@import url(dojox/ValuePicker-compat.css);
+@import url(dojox/View-compat.css);
+
+/* some imports moved to a secondary file to avoid
+   the Internet Explorer 31-imports limit */
+@import url(oneui_android_level2-compat.css);	
+
+/* idx/mobile widget styles */
+@import url(idx/About-compat.css);
+@import url(idx/Heading-compat.css);
+@import url(idx/Launch-compat.css);
+@import url(idx/Login-compat.css);
+@import url(idx/ProgressIndicator-compat.css);

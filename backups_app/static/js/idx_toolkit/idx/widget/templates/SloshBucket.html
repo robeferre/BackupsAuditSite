@@ -1,0 +1,28 @@
+<div class="${baseClass}" data-dojo-attach-point="containerNode">
+  <div class="${baseClass}MainBorder">
+    <div class="${baseClass}LeftPane">
+      <div data-dojo-attach-point="_availableLabel" class="${baseClass}Label">${availableLabel}</div>
+      <div class="${baseClass}AvailableGridAndButtonsBorder" data-dojo-attach-point="_availableGridBorder">
+        <div class="${baseClass}AvailableContentPane" data-dojo-attach-point="_availableContentPane">
+          <div class="${baseClass}AvailableGridContainer" data-dojo-attach-point="_availableGridContainer"></div>
+        </div>
+        <div class="${baseClass}AddRemoveButtonPane">
+          <div data-dojo-props="showLabel: false, iconClass: '${baseClass}AddButton'" data-dojo-attach-point="_addButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onClickAdd">&#8250;</div>
+          <div data-dojo-props="showLabel: false, iconClass: '${baseClass}RemoveButton'" data-dojo-attach-point="_removeButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onClickRemove">&#8249;</div>
+        </div>    
+      </div>    
+    </div>    
+    <div class="${baseClass}RightPane">
+      <div data-dojo-attach-point="_selectedLabel" class="${baseClass}Label">${selectedLabel}</div>
+      <div class="${baseClass}ValuesGridAndButtonsBorder" data-dojo-attach-point="_valuesGridBorder">
+        <div class="${baseClass}ValuesContentPane" data-dojo-attach-point="_valuesGridContentPane">
+          <div class="${baseClass}ValuesGridContainer" data-dojo-attach-point="_valuesGridContainer"></div>
+	    </div>
+        <div class="${baseClass}MoveUpDownButtons" data-dojo-attach-point="_moveUpDownButtonContainer">
+          <div data-dojo-props="showLabel: false, iconClass: '${baseClass}MoveUpButton'" data-dojo-attach-point="_upButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onClickUp">&#8743;</div>
+          <div data-dojo-props="showLabel: false, iconClass: '${baseClass}MoveDownButton'" data-dojo-attach-point="_downButton" data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick: _onClickDown">&#8744;</div>
+	    </div>
+      </div>
+    </div>
+  </div>
+</div>

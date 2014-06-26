@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/Dialog</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneuiLess/theme.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"dijit/_base/manager", 
+	"dijit/form/Button", 
+	"dijit/layout/TabContainer",   
+	"dijit/layout/ContentPane",
+	"idx/widget/Dialog"
+], function(dom, ready, manager, Button, TabContainer, ContentPane, Dialog){
+	ready(function(){
+		var dlgButton = dom.byId("dlgButton");
+		dlgButton.onclick = function(){
+			var dialog1 = manager.byId("dialog1");
+			if(!dialog1){
+				dialog1 = new Dialog({
+					id: "dialog1",
+					title: "Dialog Title",
+					instruction: "Instructional information goes here.",
+					content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+					reference: {
+						name: "Link goes here",
+						link: "http://dojotoolkit.org/"
+					},
+					buttons: [new Button({
+						label: "Button1",
+						onClick: function(){alert("Button1 clicked!")}
+					}),new Button({
+						label: "Button2",
+						onClick: function(){alert("Button2 clicked!")}
+					})]
+				}, "dialog1");
+			}
+			dialog1.show();
+		};
+	});
+});
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">widget/nls/Dialog</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>closeButtonLabel</td><td>
+		Click the "OpenDialog" button to show a dialog.<br/><br/>
+		Verify that the "close" button(right bottom of the dialog) label message is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div id="dialog1"></div>
+	<button id="dlgButton">OpenDialog</button>
+</div>
+</body>
+</html>

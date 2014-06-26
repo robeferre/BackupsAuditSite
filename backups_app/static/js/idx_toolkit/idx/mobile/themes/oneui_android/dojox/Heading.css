@@ -1,0 +1,56 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Heading */
+/* Reset common styles. */
+.oneui .mblHeading,
+.oneui .mblHeading .mblHeadingDivTitle,
+.oneui .mblHeading .mblHeadingSpanTitle {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblHeading {
+	position: relative;
+	margin: 0;
+	width: auto;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	z-index: 1;
+	padding: 0 16px 4px 16px;
+	height: 48px;
+	font-family: Roboto, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	text-align: left;
+	line-height: 48px;
+	background-color: #2d2d2d;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#0075a3), to(#6b6b6b), color-stop(0.05, #008abf), color-stop(0.06, #1a96c6), color-stop(0.1, #000000), color-stop(0.12, #131313), color-stop(0.9, #444444), color-stop(0.95, #6b6b6b));
+	background-image: -webkit-linear-gradient(bottom, #0075a3, #0075a3 1px, #008abf 1px, #008abf 3px, #1a96c6 3px, #1a96c6 4px, #000000 4px, #000000 6px, #131313 6px, #444444 51px, #6b6b6b 51px, #6b6b6b 52px); 
+	color: #fff;
+}
+.oneui .mblHeading * {
+	z-index: 2;
+}
+.oneui .mblHeadingDivTitle {
+	display: none;
+}
+.oneui .mblHeadingSpanTitle {
+	float: left;
+}

@@ -1,0 +1,207 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*header, body, scroller*/
+/*common*/
+.oneui.dark .gridxHeader, .oneui.dark .gridxFooter {
+	background: none;
+}
+
+/*Header*/
+.oneui.dark .gridxHeaderRow {
+	border-color: #555;	
+	
+	background: #222; /* Old browsers */
+	background: -moz-linear-gradient(top,  #343434 0%, #222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222',GradientType=0 ); |+ IE6-9 +|*/
+}
+
+.oneui.dark .gridxHeaderRowInner {
+	background: none;
+	border-color: transparent;
+}
+
+.oneui.dark .gridxHeaderRow .gridxCell {
+	border-right-color: #555;	
+	color: #eee;	
+	text-shadow: 1px 1px 1px #777;	
+/*    filter: dropshadow(color=#fff, offx=1, offy=1);*/
+}
+
+.dijit_a11y.oneui.dark .gridxHeaderRow .gridxCell {
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
+.oneui.dark .gridxHeaderRow .gridxLockedCell {
+	
+	background: #222; /* Old browsers */
+	background: -moz-linear-gradient(top,  #343434 0%, #222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222',GradientType=0 ); |+ IE6-9 +|*/
+}
+
+.oneui.dark .gridxHeaderRow .gridxHeaderCellOver {
+	
+	background: #343434; /* Old browsers */
+	background: -moz-linear-gradient(top,  #343434 0%, #222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222',GradientType=0 ); |+ IE6-9 +|*/
+}
+
+.oneui.dark .gridx .gridxHeader .gridxHeaderRow .gridxHeaderCellFocus {
+	border-left-color: transparent;
+	border-right-color: #555;	
+	
+	background: #343434; /* Old browsers */
+	background: -moz-linear-gradient(top,  #343434 0%, #222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222',GradientType=0 ); |+ IE6-9 +|*/
+}
+
+.dijit_a11y.oneui.dark .gridxHeader .gridxHeaderRow .gridxHeaderCellFocus {
+	border-color: #ddd;
+}
+
+/*RowHeader*/
+.oneui.dark .gridxRowHeaderCell {
+	border-bottom-color: transparent;
+	border-top-color: #555;	
+}
+.oneui.dark .gridxRowHeaderRow:first-child .gridxRowHeaderCell {
+	border-top-color: transparent;
+}
+.oneui.dark .gridxRowHeaderHeader {
+	border-right-color: #555;	
+}
+
+.oneui.dark .gridxRowHeaderHeader,
+.oneui.dark .gridxRowHeaderRow {
+	
+	background: #222; /* Old browsers */
+	background: -moz-linear-gradient(top,  #343434 0%, #222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222',GradientType=0 ); |+ IE6-9 +|*/
+}
+
+.oneui.dark .gridxRowHeaderBody {
+	border-left-color: #555;	
+	border-right-width: 0px;
+}
+.oneui.dark .gridxRowHeaderBody .gridxRowOver {
+	
+	background: #343434; /* Old browsers */
+	background: -moz-linear-gradient(top,  #343434 0%, #222 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+/*    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222',GradientType=0 ); |+ IE6-9 +|*/
+}
+
+/*Body*/
+.oneui.dark .gridxRow {
+	background: none;
+}
+
+.oneui.dark .gridxMain {
+	border-left-color: #555;	
+	border-right-color: #555;	
+}
+
+.oneui.dark .gridxVScroller {
+	border-right-color: #555;	
+}
+
+.oneui.dark .gridxRow .gridxRowTable {
+	background-color: #222;	
+}
+
+.oneui.dark .gridxRow .gridxCell {
+	border-color: #555 #555 transparent transparent;	
+	color: #eee;	
+	background: none;
+}
+
+.oneui.dark .gridx .gridxRow:first-child .gridxCell {
+	border-top-color: transparent;
+}
+
+.oneui.dark .gridx .gridxBody .gridxCellFocus {
+	border-color: #00b0da !important;	
+}
+
+.oneui.dark .gridxAlternatingRows .gridxRowOdd .gridxRowTable {
+	background-color: #333;	
+}
+
+.oneui.dark .gridxBodyRowHoverEffect .gridxRowOver .gridxCell {
+	border-top-color: #555;	
+}
+
+.oneui.dark .gridx .gridxBodyRowHoverEffect .gridxRowOver .gridxRowTable {
+	background-color: #1673a6;	
+}
+
+.oneui.dark .gridxRow:last-child .gridxCell {
+	border-bottom-color: #555;	
+}
+
+.oneui.dark .gridxBodyRowHoverEffect .gridxRowOver + .gridxRow .gridxCell {
+	border-top-color: #343434;	
+}
+
+.oneui.dark .gridxAlternatingRows .gridxBody .gridxRow .gridxCell {
+	border-top-color: #222;	
+}
+
+/* WholeRow -- No Column Borders */
+.oneui.dark .gridxWholeRow .gridxBody .gridxRow .gridxCell {
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+/*HScroller*/
+.oneui.dark .gridxHScroller{
+	border-color: #555;	
+}
+
+/* Full Page */
+.oneui.dark .gridxFullPage .gridxHeader .gridxHeaderRow {
+	border-top-color: #555;	
+	border-bottom-color: #555;	
+}
+
+.oneui.dark .gridxFullPage .gridxHeader .gridxHeaderRow,
+.oneui.dark .gridxFullPage .gridxMain,
+.oneui.dark .gridxFullPage .gridxHeader .gridxHeaderRow .gridxCell,
+.oneui.dark .gridxFullPage .gridxBody .gridxRow .gridxCell {
+	border-left-color: transparent;
+	border-right-color: transparent;
+}

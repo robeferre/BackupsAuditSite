@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>Test nls/About</title>
+	<link rel="stylesheet" type="text/css" href="tests.css" />
+	<style type="text/css" id="idxStyles">
+	@import "../../themes/oneui/oneui.css";
+	@import "../../tests/test_nls.css";
+	</style>
+	<script src="../deviceTheme.js"></script>
+	<script src="dojoVersion.js" data-dojo-config="async:true, parseOnLoad:false, isDebug:true"></script>
+	<script type="text/javascript" src="../../tests/test_nls.js"></script>
+	
+	
+	<script>
+	
+		var show_about
+
+		require(["idx/mobile/tests/_TestUtils",
+				 "dijit/registry",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/compat",
+				 "dojox/mobile/Button",
+				 "idx/mobile/About",
+				 "idx/mobile/tests/_LogPane",
+		         "dojo/domReady!"],
+		function(tu,registry, parser){
+			show_about = function(){
+				registry.byId("aboutdialog").show();
+			}
+			parser.parse();
+		});
+		
+	</script>
+ 
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<h1 class="testTitle">mobile/nls/About</h1>
+	<table class="testInstruction"><tbody>
+		<tr><th>Resource</th><th>Verification</th></tr>
+		<tr><td  class="testHighlightNls">*labelVersion</td><td>
+			Click the "Open About" button to show a dialog.<br/><br/>
+			Verify that the "Version" label(above license material) is translated.
+		</td></tr>
+		<tr><td  class="testHighlightNls">*labelBuild</td><td>
+			Click the "Open About" button to show a dialog.<br/><br/>
+			Verify that the "Build" label(above license material) is translated.
+		</td></tr>
+	</tbody></table>
+	<hr/>
+	<button id="showAbout" onclick="show_about();">Open About</button>
+	<div id="aboutdialog" data-dojo-type="idx/mobile/About" data-dojo-props="
+		name: 'Software Name with a Total<br />of 90 Character Maximum for the Length of the Product Name',
+		version: 'n.n',
+		build: 'nn',
+		copyright: '[Year 1], [Year 2]',
+		trademarks: '<i>[Use exact text from www.ibm.com/legal/copytrade.shtml ' +
+					'for the special non-IBM trademarks that appear on the label. ' +
+					'If you have insufficient space, consult with your Division ' +
+					'Intellectual Property attorney].</i>'
+	">
+		<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="hideWhenEmpty: true" id="id_dialoglog"></div>
+		<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Send Logs'" onclick="dialog_log.addMessage('\'Send Logs\' clicked);')" />
+		<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Reset Logs'" onclick="dialog_log.addMessage('\'Reset Logs\' clicked);')" />
+	</div>
+
+</body>
+</html>

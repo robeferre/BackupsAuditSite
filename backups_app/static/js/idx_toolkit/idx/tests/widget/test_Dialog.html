@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Dialog DOH Test</title>
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+		<script type="text/javascript">
+			dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+			dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+		</script>
+		
+		<style id="idxStyles" type="text/css">
+			@import "../../themes/oneui/dijit/document.css";
+	        @import "../../themes/oneui/oneui.css";
+	        @import "../../tests/test.css";
+		</style>
+		
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+		</script>
+		<script type="text/javascript">
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+		</script>
+		
+		<script type="text/javascript" id="postDojo">
+			var modules = [
+				"doh", 
+				"idx.widget.Dialog",
+				"dijit.form.Button"
+			]; 
+			var doh, Dialog, Button;
+			
+			function preParse(modules){
+				doh		= modules["doh"];
+				Dialog	= modules["idx/widget/Dialog"];
+				Button	= modules["dijit/form/Button"];
+			}
+			
+			function postParse(){
+				var createDialog = function(div){
+					return Dialog({
+						title: "Dialog Title",
+						instruction: "Instructional information goes here.",
+						content: "<div style='height:80px'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus venenatis nulla.</div>",
+						reference: {
+							name: "Link goes here",
+							link: "http://dojotoolkit.org/"
+						},
+						buttons: [new Button({
+							label: "Button1",
+							onClick: function(){
+								alert("Button1 clicked!")
+							}
+						}), new Button({
+							label: "Button2",
+							onClick: function(){
+								alert("Button2 clicked!")
+							}
+						})],
+						closeButtonLabel: "Cancel"
+					}, div);
+				}
+				
+				var testPerformance = /mode=benchmark/i.test(window.location.href);
+				if (!testPerformance) {
+					// Register API tests.
+					doh.register("onHideCallback", function(){
+						var dialog = createDialog("dialog1");
+						dialog._alreadyInitialized = true;
+						dialog.open = true;
+						
+						var promise = dialog.hide();
+						doh.t(promise);
+						doh.is(typeof promise.then, "function");
+					});
+					doh.register("onShowCallback", function(){
+						var dialog = createDialog("dialog2");
+						
+						var promise = dialog.show();
+						doh.t(promise);
+						doh.is(typeof promise.then, "function");
+					});
+				}
+				else {
+					// Register performance tests
+					doh.register("DialogPerformance", [{
+						name: "Create Dialog",
+						testType: "perf",
+						trialDuration: 100,
+						trialDelay: 100,
+						trialIterations: 10,
+						setUp: function(t){
+						},
+						runTest: function(t){
+							var div = dojo.create("div", {}, dojo.body());
+							var dlg = createDialog(div);
+						},
+						tearDown: function(t){
+							dojo.query("[widgetid*=idx_widget_Dialog]").forEach(function(dlg){
+								dijit.byNode(dlg).destroy(false);
+							})
+						}
+					}]);
+				}
+				
+				doh.run();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		</script>
+		<script type="text/javascript" src="../commonTest.js"></script>
+	</head>
+	<body class="oneui">
+		<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+		<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+		<a name="maincontent"></a>
+		<div class="testMain">
+			<h1 class="testTitle">DoH Test of Dialog</h1>
+			<div id="dialog1"></div>
+			<div id="dialog2"></div>
+		</div>
+	</body>
+</html>

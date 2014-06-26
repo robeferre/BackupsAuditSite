@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Primer</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+        @import "../../../demos/demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<div role="main" class="demoContent">
+		<div dir="ltr">
+			<p>
+				Create an idx/mobile/Login widget, supplying your product's name and the applicable copyright year(s),
+				and attaching a suitable handler function to the "onlogin" event.
+			</p>
+<pre class="code">&lt;div data-dojo-type="idx/mobile/Login" data-dojo-props="
+	name: 'Product Name',
+	copyright: '2013, 2010'
+" onlogin="handle_login(this, arguments[0].name, arguments[0].password);"></div>
+</pre>
+		</div>
+	</div>
+</body>
+</html>

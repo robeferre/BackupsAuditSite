@@ -1,0 +1,190 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* TabContainer */
+/*** some common features ***/
+.oneui.dark .dijitTabPaneWrapper {
+	background:#222;
+}
+
+.oneui.dark .dijitTabPaneWrapper,.oneui.dark .dijitTabContainerTop-tabs,.oneui.dark .dijitTabContainerBottom-tabs,.oneui.dark .dijitTabContainerLeft-tabs,.oneui.dark .dijitTabContainerRight-tabs {
+	border-color:#343434;
+}
+
+.oneui.dark .dijitTabCloseButton {
+	background:url(images/tabClose.png) no-repeat;
+}
+
+.oneui.dark .dijitTabCloseButtonHover {
+	background-position:-14px;
+}
+
+.oneui.dark .dijitTabCloseButtonActive {
+	background-position:-28px;
+}
+
+.oneui.dark .dijitTab {
+	background-color:#222;
+	border-color:#343434;
+	color:#eee;
+}
+
+.oneui.dark .dijitTabChecked {
+	border-color:#343434;
+}
+
+.oneui.dark .dijitTabContainerTop-tabs .dijitTabHover {
+	border-top-color:#1a95c5;
+}
+
+.oneui.dark .dijitTabContainerTop-tabs .dijitTabChecked {
+	border-top-color:#008abf;
+}
+
+.oneui.dark .dijitTabContainerTop .tabStripButton {
+	border-color:#343434;
+}
+
+.oneui.dark .dijitTabContainerBottom-tabs .dijitTabChecked {
+	border-bottom-color:#008abf;
+}
+
+.oneui.dark .dijitTabContainerBottom-tabs .dijitTabHover {
+	border-bottom-color:#1a95c5;
+}
+
+.oneui.dark .dijitTabContainerBottom .tabStripButton {
+	border-color:#343434;
+}
+
+.oneui.dark .dijitTabContainerLeft-tabs .dijitTabChecked {
+	border-left-color:#008abf;
+}
+
+.oneui.dark .dijitTabContainerLeft-tabs .dijitTabHover {
+	border-left-color:#1a95c5;
+}
+
+.dj_webkit .oneui.dark .dijitTabContainerLeft-tabs .dijitTabChecked {
+	border-left-color:#008abf;
+}
+
+.dj_webkit .oneui.dark .dijitTabContainerLeft-tabs .dijitTabHover {
+	border-left-color:#1a95c5;
+}
+
+.oneui.dark .dijitTabContainerRight-tabs .dijitTabChecked {
+	border-right-color:#008abf;
+}
+
+.oneui.dark .dijitTabContainerRight-tabs .dijitTabHover {
+	border-right-color:#1a95c5;
+}
+
+.dj_webkit .oneui.dark .dijitTabContainerRight-tabs .dijitTabChecked {
+	border-right-color:#008abf;
+}
+
+.dj_webkit .oneui.dark .dijitTabContainerRight-tabs .dijitTabHover {
+	border-right-color:#1a95c5;
+}
+
+/************ left/right scroll buttons + menu button ************/
+.oneui.dark .tabStripButton {
+	background-color:#222;
+}
+
+.oneui.dark .dijitTabContainerBottom .tabStripButton {
+	border-color:#343434;
+	border-top-color:#343434;
+	border-bottom-color:#343434;
+}
+
+.oneui.dark .dijitTabContainerBottom .tabStripButtonHover,.oneui.dark .dijitTabContainerBottom .tabStripButton:active {
+	border-color:#343434 #008abf #008abf;
+}
+
+.oneui.dark .tabStripButtonHover {
+	border-color:#008abf #008abf #343434;
+	background:#222;
+	background:-moz-linear-gradient(top,#343434 0%,#222 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#343434),color-stop(100%,#222));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#343434 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#343434 0%,#222 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#343434 0%,#222 100%);
+/* IE10+ */
+	background:linear-gradient(top,#343434 0%,#222 100%);
+/* W3C */
+}
+
+.oneui.dark .tabStripButton:active {
+	border-color:#008abf #008abf #d2d2d2;
+	background:#222;
+/* Old browsers */
+	background:-moz-linear-gradient(top,#222 0%,#343434 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#222),color-stop(100%,#343434));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+}
+
+.oneui.dark .tabStripButton .dijitTabStripSlideRightIcon,.oneui.dark .tabStripButton .dijitTabStripSlideLeftIcon,.oneui.dark .tabStripButton .dijitTabStripMenuIcon {
+	background:url(../form/images/tabArrows.png) no-repeat;
+}
+
+.oneui.dark .tabStripButtonDisabled .dijitTabStripSlideLeftIcon {
+	background-position:-180px 50%;
+}
+
+.oneui.dark .tabStripButton .dijitTabStripSlideLeftIcon {
+	background-position:-80px 50%;
+}
+
+.oneui.dark .tabStripButton .dijitTabStripSlideRightIcon {
+	background-position:-28px 50%;
+}
+
+.oneui.dark .tabStripButtonHover .dijitTabStripSlideRightIcon {
+	background-position:-28px 50%;
+}
+
+.oneui.dark .tabStripButton:active .dijitTabStripSlideRightIcon {
+	background-position:-28px 50%;
+}
+
+.oneui.dark .tabStripButton .dijitTabStripMenuIcon {
+	background-position:-55px 50%;
+}
+
+.oneui.dark .tabStripButton:active .dijitTabStripMenuIcon {
+	background-position:-55px 50%;
+}
+
+/************ Nested  Tabs ************/
+.oneui.dark .dijitTabContainerTabListNested .dijitTab {
+	background:rgba(0,0,0,0) none repeat scroll 0 0;
+	border-right-color:#343434;
+	color:#aaa;
+}
+
+.oneui.dark .dijitTabContainerTabListNested .dijitTabHover,.oneui.dark .dijitTabContainerTabListNested .dijitTabActive {
+	color:#ccc;
+}
+
+.oneui.dark .dijitTabContainerTabListNested .dijitTabChecked {
+	color:#ccc;
+}

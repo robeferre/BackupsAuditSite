@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>oneui.form.CheckBox DoH</title>
+		<script type="text/javascript" src="../dojoVersion.js"></script>
+		<style type="text/css">
+			@import "../../../../oneui/themes/oneui/oneui.css";
+			@import "../../../../dijit/tests/css/dijitTests.css";
+			
+		</style>
+		<!-- required: dojo.js -->
+		<script type="text/javascript">
+			var dojoConfig = currentDojoVersion.dojoConfig;
+			dojoConfig.parseOnLoad = false;
+			dojoConfig.has["dojo-bidi"] = true;
+			dojoScriptImport("../../../../@dojopath@/dojo/dojo.js");
+		</script>
+		<script type="text/javascript" src="../../../../dijit/tests/_testCommon.js"></script>
+		<script type="text/javascript">
+
+			define(["doh", "idx/widget/Toaster", "dojo/query"], 
+				function(doh, Toaster, query){
+				
+			    doh.register("tests.oneui.messaging.Toaster", [
+			        {
+			            name: "Check Auto direction with English string",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "AUTO Start \u05e9\u05dc\u05d5\u05dd\u0021\u0021!..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Direction should be LTR";
+			                this.toaster.add(this.message);
+			                this.toaster.set("textDir","auto");
+			                var contentNode = query(".information", this.toaster.domNode).pop(), direction = contentNode.dir;
+			                doh.assertEqual("ltr", direction, hint);
+			            }
+			        },
+			        {
+			            name: "Check Auto direction with Hebrew string",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "\u05e9\u05dc\u05d5\u05dd\u0021\u0021 AUTO END..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Direction should be RTL";
+			                this.toaster.add(this.message);
+			                this.toaster.set("textDir","auto");
+			                var contentNode = query(".information", this.toaster.domNode).pop(), direction = contentNode.dir;
+			                doh.assertEqual("rtl", direction, hint);
+			            }
+			        }, 
+			        {
+			            name: "Check LTR direction with English string",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "LTR Start \u05e9\u05dc\u05d5\u05dd\u0021\u0021!..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Direction should be LTR";
+			                this.toaster.add(this.message);
+			                this.toaster.set("textDir","ltr");
+			                var contentNode = query(".information", this.toaster.domNode).pop(), direction = contentNode.dir;
+			                doh.assertEqual("ltr", direction, hint);
+			            }
+			        }, 
+			        {
+			            name: "Check LTR direction with Hebrew string",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "\u05e9\u05dc\u05d5\u05dd\u0021\u0021 LTR END..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Direction should be LTR";
+			                this.toaster.add(this.message);
+			                this.toaster.set("textDir","ltr");
+			                var contentNode = query(".information", this.toaster.domNode).pop(), direction = contentNode.dir;
+			                doh.assertEqual("ltr", direction, hint);
+			            }
+			        }, 
+			        {
+			            name: "Check RTL direction with English string",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "RTL Start \u05e9\u05dc\u05d5\u05dd\u0021\u0021!..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Direction should be RTL";
+			                this.toaster.add(this.message);
+			                this.toaster.set("textDir","rtl");
+			                var contentNode = query(".information", this.toaster.domNode).pop(), direction = contentNode.dir;
+			                doh.assertEqual("rtl", direction, hint);
+			            }
+			        }, 
+			        {
+			            name: "Check RTL direction with Hebrew string",
+			            setUp: function () {
+			                this.toaster = new Toaster();
+			                this.message = {
+			                    type: "success",
+			                    content: "\u05e9\u05dc\u05d5\u05dd\u0021\u0021 RTL END..."
+			                };
+			            },
+			            runTest: function () {
+			                var hint = "Direction should be RTL";
+			                this.toaster.add(this.message);
+			                this.toaster.set("textDir","rtl");
+			                var contentNode = query(".information", this.toaster.domNode).pop(), direction = contentNode.dir;
+			                doh.assertEqual("rtl", direction, hint);
+			            }
+			        } 			       
+			    ]);      
+
+				doh.run();
+			});
+		</script>
+	</head>
+	<body class="oneui">
+		<h1 class="testTitle">DoH Bidi Test of Toaster</h1>
+	</body>
+</html>

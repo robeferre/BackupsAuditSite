@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html style="height: 100%; width: 100%; margin: 0px; padding: 0px;" lang="en-us">
+<head>
+<title>Test LoginFrame</title>
+
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+</style>
+
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [ "idx.app.LoginFrame", "dijit.form.TextBox", "dijit.layout.BorderContainer", "dijit.form.CheckBox" ];
+function doSubmission(username, password)
+{
+  alert("This is a demo of idx.app.LoginFrame widget.\n"
+        + "No login actually required for the example application.\n\n"
+        + "The username entered was: '" + username + "'\n"
+        + "The password can also be retrieved when handling submission.\n\n"
+        + "The credentials entered in LoginFrame are sensitive and\n"
+        + "should be sent to the server over HTTPS (SSL)." );
+  return true;           
+}
+function doCancellation()
+{
+  alert("onCancel event was trapped for cancellation of login");
+}
+
+dojoRequireModules(modules, null, currentDojoVersion.async);
+</script>
+ 
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+
+<a name="maincontent"></a>
+<div style="overflow: hidden; width: 100%; height: 100%;" dojoType="dijit.layout.BorderContainer">
+<div dojoType="dijit.layout.ContentPane" region="center">
+    <!--  To add common word filtering for the user name and password,
+    the following attribute can be added to the LoginFrame call below.
+    For example, this regular expression is valid only if the input is a 
+    letter,number, or underscore:   regExp="[\w]+"     
+    -->
+	<div id="loginFrame" data-dojo-id="loginFrame" 
+	     data-dojo-type="idx.app.LoginFrame" 
+		 data-dojo-props="
+			onSubmit: doSubmission, 
+			onCancel: doCancellation, 
+			userAutoComplete: true,
+			formAction: '#/',
+			passwordAutoComplete: false,
+			showCancelButton: true,
+			formName: 'testLogin',
+			loginSubTitle: 'Please enter your information',
+			inactivityMessage: 'Please note, after some time of inactivity, the system will sign you out automatically and ask you to sign in again.',
+			loginCopyright: 'Licensed Materials - Property of [Company], YYYY. [Company] is a registered trademark of [Company] Corporation, in the United States, other countries, or both.'
+			">
+	</div>
+</div>
+<div style="display:none" dojoType="dijit.layout.ContentPane" region="bottom">
+	<table>
+	     	<tr>
+	     	
+	     	<th><b>User Name Label:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("labelUserName"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("labelUserName", this.get("value"));
+			</script></div>
+	     	</td>
+
+	     	<th><b>Password Label:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("labelPassword"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("labelPassword", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	<th><b>Label Separator:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 5em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("labelSeparator"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("labelSeparator", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	</tr>
+
+	     	<tr>
+	     	
+	     	<th><b>Login Title:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("loginTitle"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("loginTitle", this.get("value"));
+			</script></div>
+	     	</td>
+
+	     	<th><b>Login Subtitle:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("loginSubTitle"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("loginSubTitle", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	<th><b>Login Copyright:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("loginCopyright"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("loginCopyright", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	</tr>
+	     	<tr>
+	     	
+	     	<th><b>Inactivity Message:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("inactivityMessage"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("inactivityMessage", this.get("value"));
+			</script></div>
+	     	</td>
+
+	     	<th><b>Invalid Message Title:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("invalidMessageTitle"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("invalidMessageTitle", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	<th><b>Invalid Message:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("invalidMessage"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("invalidMessage", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	</tr>
+	     	
+	     	<tr>
+	     	
+	     	<th><b>Login Submit Label:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("labelSubmitButton"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("labelSubmitButton", this.get("value"));
+			</script></div>
+	     	</td>
+
+	     	<th><b>Login Cancel Label:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 10em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("labelCancelButton"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("labelCancelButton", this.get("value"));
+			</script></div><b> Show:</b>
+			<div dojoType="dijit.form.CheckBox" intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("checked", loginFrame.get("showCancelButton"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("showCancelButton", this.get("checked"));
+			</script></div>
+	     	</td>
+	     	
+	     	<th><b>Label OK Button (for errors):</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("labelOkButton"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("labelOkButton", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	</tr>
+
+	     	<tr>
+	     	
+	     	<th><b>HTML Form Name:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("formName"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("formName", this.get("value"));
+			</script></div>
+	     	</td>
+
+	     	<th><b>HTML Form Action:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("formAction"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("formAction", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	<th><b>HTML Form Target:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 6em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("formTarget"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("formTarget", this.get("value"));
+			</script></div> (use "_self" for current page)
+	     	</td>
+	     	
+	     	</tr>
+
+	     	<tr>
+	     	
+	     	<th><b>User Pattern:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("userPattern"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+	     		var val = loginFrame.get("userPattern");
+	     		if (val != this.get("value")) {
+					loginFrame.set("userPattern", this.get("value"));
+				}
+			</script></div>
+	     	</td>
+
+	     	<th><b>Password Pattern:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("passwordPattern"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+	     		var val = loginFrame.get("passwordPattern");
+	     		if (val != this.get("value")) {
+					loginFrame.set("passwordPattern", this.get("value"));
+				}
+			</script></div>
+	     	</td>
+	     	
+	     	<th><b>RegExp (Deprecated):</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("regExp"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+	     		var val = loginFrame.get("regExp");
+	     		if (val != this.get("value")) {
+					loginFrame.set("regExp", this.get("value"));
+				}
+			</script></div>
+	     	</td>
+	     	
+	     	</tr>
+
+	     	<tr>
+	     	
+	     	<th><b>User Field Name:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("userFieldName"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("userFieldName", this.get("value"));
+			</script></div>
+	     	</td>
+
+	     	<th><b>Password Field Name:</b></th><td><div dojoType="dijit.form.TextBox" style="width: 20em;" 
+	     	intermediateChanges="true">
+	     	<script type="dojo/connect" event="startup">
+				this.set("value", loginFrame.get("passwordFieldName"));
+			</script>
+	     	<script type="dojo/connect" event="onChange">
+				loginFrame.set("passwordFieldName", this.get("value"));
+			</script></div>
+	     	</td>
+	     	
+	     	<td colspan="2" style="text-align: center;"><div data-dojo-type="dijit/form/Button" data-dojo-props="label: 'Focus LoginFrame'">
+	     		<script type="dojo/aspect" data-dojo-method="onClick" data-dojo-advice="after">
+	     			loginFrame.focus();
+	     		</script>
+	     	</div></td>
+	     	
+	     	</tr>
+
+	</table>
+</div>
+</div>
+</body>
+</html>

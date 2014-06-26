@@ -1,0 +1,38 @@
+<div id="idxLogin" data-dojo-type="dojox/mobile/ScrollableView">
+	<div id="logindialog" data-dojo-type="idx/mobile/Login" data-dojo-props="name: 'Software Name with a Total<br />of 90 Character Maximum for the Length of the Product Name'", onlogin="handle_login(this, arguments[0].name, arguments[0].password);"></div>
+	<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'One UI Login test', fixed: 'top'">
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label: 'Login'" onclick="show_login(); return false;" style="float: right;"></span>		
+		</div>
+		<p class="phoneOnly" style="margin: 10px 15px">
+			This application has detected that it is running on a phone-type device. Press the
+			<b>Login</b> button in the heading to show the login panel as a
+			full-viewport overlay. Run this application on a tablet-type device (or emulation)
+			to see the login panel in a pop-up mode.
+		</p>
+		<p class="tabletOnly" style="margin: 10px 15px">
+			This application has detected that it is running on a tablet-type device. Press the
+			<b>Login</b> button in the heading to show the login panel in a
+			pop-up mode. Run this application on a phone-type device (or emulation)
+			to see the login panel as a full-viewport overlay.
+		</p>
+		<p style="margin: 10px 15px">
+			Is login mandatory: <span data-dojo-type="dojox.mobile.Switch" data-dojo-props="value: 'off', leftLabel: 'Yes', rightLabel: 'No'" onstatechanged="registry.byId('logindialog').set('cancelable', this.value == 'off');"></span>
+		</p>
+		<p style="margin: 10px 15px">
+			For test purposes, try entering one of the following special values as the login user name:
+			<ul>
+				<li><b>f-immediate</b> &mdash; simulates login failure detected immediately (synchronously in the callback)</li>
+				<li><b>s-immediate</b> &mdash; simulates login success detected immediately (synchronously in the callback)</li>
+				<li><b>f-fast</b> &mdash; simulates login failure detected asynchronously but quickly (0.1 sec)</li>
+				<li><b>s-fast</b> &mdash; simulates login success detected asynchronously but quickly (0.1 sec)</li>
+				<li><b>f-slow</b> &mdash; simulates login failure detected asynchronously after 4 seconds' wait</li>
+				<li><b>s-slow</b> &mdash; simulates login success detected asynchronously after 4 seconds' wait</li>
+			</ul>
+			
+		</p>
+		<p style="margin: 10px 15px">
+			(any other value as the login user name is treated exactly like <b>s-fast</b>)
+		</p>
+	</div>
+</div>

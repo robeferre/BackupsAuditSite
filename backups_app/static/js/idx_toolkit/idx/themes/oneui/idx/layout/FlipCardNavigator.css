@@ -1,0 +1,130 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+
+/************** static menu navigator ****************/
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenu{
+	border: none;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable {
+	width: 98%;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItem{
+	color: white;
+	background-color: #A9A7A5;
+	border: none;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItem .dijitMenuExpand{
+	background-position: -42px 0;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItemHover{
+	background-color: #939290;
+	background-image: url("images/standardGradient.png");
+	background-repeat: repeat-x;
+	_background-image: none;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItemActive{
+	background-color: #939290;
+	background-image: url("images/standardGradient.png");
+	background-repeat: repeat-x;
+	_background-image: none;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItemIconCell{
+	border: none !important;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItemLabel{
+	border: none;
+	padding-left: 5px;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuArrowCell{
+	border: none;
+}
+
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .fcNavExpanderMenuItem{
+	background-color: #A9A7A5;
+	color: #eee;
+	text-shadow: 1px 0 0 #000;
+	border: none;
+	font-size: 1em;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .fcNavExpanderMenuItem .dijitMenuItemIconCell{
+	width: 15px;
+}
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .fcNavExpanderMenuItem .dijitMenuItemLabel{
+	padding: 10px 0px 8px;
+}
+
+
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .oneuiMenuHeadingLabel{
+	padding: 10px 0px 8px 15px;
+	background-color: #A9A7A5;
+	font-size: 1em;
+	color: #eee;
+	text-shadow: 1px 0 0 #000;
+	border: none;
+}
+
+.oneui .idxFlipCardNavigator .dojoxExpandoContent .dijitMenuTable .dijitMenuItem.menuItemHidden{
+	display: none;
+}
+
+
+
+/********** menu slide **************/
+.oneui .idxFlipCardNavigator .flipCardMenuContainer{
+	position: relative;
+	overflow: hidden;
+}
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0);
+	-moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0);
+}
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu.slideOut{
+	left:-300px;
+}
+
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu.popupContentMenu{
+	left: 0;
+	top: 0;
+}
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu.popupContentMenu.slideOut{
+	left:300px;
+}
+
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu .flipCardNavigationMenuItem{
+	
+}
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem{
+	color: white;
+	background-color: #A9A7A5;
+}
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem.dijitMenuItemHover{
+	background-color: #939290;
+}
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem.dijitMenuItemActive{
+	background-color: #939290;
+}
+
+.oneui .idxFlipCardNavigator .flipCardMenuContainer .flipCardNavigationMenu .flipCardActionMenuItem td.dijitMenuItemLabel{
+	padding: 8px 0;
+}
+
+
+
+/********************* a11y ********************/
+
+

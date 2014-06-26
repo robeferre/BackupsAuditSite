@@ -1,0 +1,24 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui.dark .idxBreadcrumb .dijitButtonText
+{
+	color: #078dc1;	
+}
+
+.oneui.dark .idxBreadcrumbHover .dijitButtonText
+{
+	color: #078dc1;	
+}
+.oneui.dark .idxBreadcrumbSeparator
+{
+	color: #777;		
+}
+.oneui.dark .idxBreadcrumbChecked .dijitButtonText
+{
+	color: #ddd;	
+}

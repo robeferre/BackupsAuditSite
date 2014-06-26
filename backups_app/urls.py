@@ -1,12 +1,28 @@
-from django.conf.urls import patterns, include, url
-
-from django.contrib import admin
-admin.autodiscover()
+from django.conf.urls import patterns, url
+from backups_app import settings 
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'backups_app.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+                       
+    ################
+    ## Login URL's
+    ################
+    
+    #Django Login
+    url(r'^$', 'backups_app_site.views.login', name='login'),
+    url(r'^login/$', 'backups_app_site.views.login', name='login'),
+    
+    # IDX LOGIN
+    #url(r'^$', 'TSM_APP.views.login', name='login'),
+    #url(r'^login/$', 'TSM_APP.views.login', name='login'),
+    
+    
+    url(r'^home/$', 'backups_app_site.views.home', name='home'),
 
-    url(r'^admin/', include(admin.site.urls)),
 )
+
+# Serve static contend
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static_media/(?P<path>.*)$', 'django.views.static.serve',
+             {'document_root': settings.MEDIA_ROOT}),
+    )

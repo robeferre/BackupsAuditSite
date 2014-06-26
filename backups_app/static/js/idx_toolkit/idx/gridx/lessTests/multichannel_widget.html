@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx Multi-Channel Test</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneuiLess/theme.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		@import "multichannel_widget.css";
+
+		.hasChildren {
+			width: 12px;
+			height: 12px;
+			background: url('../../themes/oneui/idx/gridx/images/arrow_lt.png');
+		}
+		.levelUp {
+			width: 12px;
+			height: 12px;
+			display: inline-block;
+			background: url('../../themes/oneui/idx/gridx/images/arrow_rt.png');
+		}
+
+		.title {
+			position: absolute;
+			top: 10px;
+			font-size: 1.2em;
+			font-weight: bolder;
+			width: 100%;
+			text-align: center;
+		}
+
+	</style>
+	<script type="text/javascript">
+		require([
+			'dojo/parser',
+			'idx/gridx/tests/multichannel',
+			'idx/gridx/tests/multichannel_layer',
+			'idx/gridx/tests/multichannel_widget',
+			'dojo/on',
+			'dojo/dom-class',
+			'dojo/query',
+			'dojo/domReady!'
+		], function(parser, mc, mclayer, mcwidget, on, domClass, query){
+
+			query('.navItem').on('click', function(evt){
+				query('.activeNavItem').removeClass('activeNavItem');
+				query(evt.target).addClass('activeNavItem');
+				var containerId = evt.target.getAttribute('name');
+				query('.activeContainer').removeClass('activeContainer');
+				query('#' + containerId).addClass('activeContainer');
+			});
+
+			mc1 = mc;
+			mc2 = mclayer;
+			mc3 = mcwidget;
+
+			parser.parse().then(function(){
+				mc2.onParse(grid2);
+				mc3.onParse(grid1);
+				mc3.onParse(grid2);
+
+				setTimeout(function(){
+					grid1.resize();
+				}, 1200);
+
+				window.onresize = function(){
+					if(!query('.activeContainer').length){
+						domClass.add(query('.navItem')[0], 'activeNavItem');
+						query('#container1').addClass('activeContainer');
+					}
+					grid1.resize();
+					grid2.resize();
+				};
+			});
+		});
+	</script>
+</head>
+<body class='oneui'>
+	<div class="sidebar">
+		<ul class="navigator">
+			<li class="navItem activeNavItem" name="container1">Auto Paging</li>
+			<li class="navItem" name="container2">Tree Grid</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div id="container1" class="container activeContainer">
+			<div id="grid1" data-dojo-id="grid1" data-dojo-type="gridx/Grid" data-dojo-props="
+				cacheClass: 'gridx/core/model/cache/Async',
+				'class': 'gridxWholeRow',
+				store: mc1.store,
+				structure: mc1.layout,
+				modules: [
+					'gridx/modules/MultiChannelScroller',
+					'gridx/modules/CellWidget',
+					'gridx/modules/extendedSelect/Row',
+					'gridx/modules/IndirectSelectColumn',
+					'gridx/modules/HiddenColumns',
+					'gridx/modules/StructureSwitch',
+					'gridx/modules/SummaryBar',
+					'gridx/modules/Sort'
+				],
+				paginationBarGotoButton: true,
+				pageSize: 30,
+				bodyPageSize: 'auto',
+				bodyQuickRefresh: true,
+				structureSwitchCondition: mc1.structureSwitchCondition,
+				structureSwitchConfig: mc1.structureSwitchConfig,
+				structureSwitchDefault: 'desktop',
+				barTop: mc3.barTop('Auto Paging')
+			"></div>
+		</div>
+		<div id="container2" class="container">
+			<div id="grid2" data-dojo-id="grid2" data-dojo-type="gridx/Grid" data-dojo-props="
+				'class': 'gridxWholeRow',
+				cacheClass: 'gridx/core/model/cache/Async',
+				store: mc2.store,
+				structure: mc2.layout,
+				modules: mc2.mods,
+				paginationBarGotoButton: true,
+				pageSize: 30,
+				bodyPageSize: 'auto',
+				bodyQuickRefresh: true,
+				structureSwitchCondition: mc2.structureSwitchCondition,
+				structureSwitchConfig: mc2.structureSwitchConfig,
+				structureSwitchDefault: 'desktop',
+				focusEnabled: false,
+				vScrollerTouch: true,
+				barTop: mc3.barTop('Tree Grid')
+			"></div>
+		</div>
+	</div>
+</body>
+</html>

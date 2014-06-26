@@ -1,0 +1,25 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+@import url(domButtons/DomButtonWhiteCross-compat.css);
+@import url(../../common/dojox/TabBar-compat.css);
+
+.oneui .mblHeading .mblTabBarSegmentedControl .mblTabBarButton {
+	background-image: url(compat/heading-tab-bg.png);
+	background-image: -moz-linear-gradient(bottom, #121212, #464646); 
+	background-image: linear-gradient(to top, #121212, #464646); 
+}
+
+.oneui .mblHeading .mblTabBarSegmentedControl .mblTabBarButtonSelected {
+	background-image: url(compat/heading-tab-sel-bg.png);
+	background-image: -moz-linear-gradient(bottom, #323232, #5c5c5c); 
+	background-image: linear-gradient(to top, #323232, #5c5c5c); 
+}
+
+.oneui.dj_ie .mblHeading .mblTabBarSegmentedControl .mblTabBarButton {
+	line-height: 28px;
+}

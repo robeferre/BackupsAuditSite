@@ -1,0 +1,50 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui.dark .idxTitlePaneNoCollapse,
+.oneui.dark .idxTitlePaneNoCollapse .dijitTitlePaneTitleFocus,
+.oneui.dark .idxTitlePaneNoCollapse.dijitTitlePaneTitleHover,
+.oneui.dark .idxTitlePaneNoCollapse.dijitTitlePaneTitleActive {
+	background:	#222;	
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitTitlePane-idxStackedContainer-idxChild  {
+	border-color: transparent;
+	border-top-color: #343434;	
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitTitlePane-idxStackedContainer-idxChild.dijitClosed  {
+	border-bottom-color: transparent;
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitTitlePane-idxStackedContainer-idxChild.dijitOpen  {
+	border-bottom-color: #343434;	
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitTitlePane-idxStackedContainer-idxFirstChild  {
+	border-top-color: transparent;
+}
+
+.oneui.dark .dijitTitlePaneContentOuter.dijitTitlePane-idxStackedContainer-idxChild  {
+	border-color: transparent;
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitContentPane-idxStackedContainer-idxChild  {
+	border-bottom-color: #343434;	
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitContentPane-idxStackedContainer-idxChild.dijitClosed  {
+	border-top-color: transparent;
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitContentPane-idxStackedContainer-idxChild.dijitOpen  {
+	border-bottom-color: #343434;	
+}
+
+.oneui.dark .dijitTitlePaneTitle.dijitContentPane-idxStackedContainer-idxChild.dijitContentPane-idxStackedContainer-idxFirstChild  {
+	border-top-color: #343434 !important;	
+}

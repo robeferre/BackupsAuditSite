@@ -1,0 +1,144 @@
+html {
+	height: 100%;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: none;
+	height: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+
+.sidebar {
+	height: 100%;
+	width: 300px;
+	border-right: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	background-color: #eee;
+}
+
+.navigator {
+	margin: 50px 0 0 50px;
+	position: relative;
+	left: 1px;
+	list-style: none;
+}
+
+.navItem {
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 15px 0 0 15px;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+.navItem:hover,
+.activeNavItem {
+	background-color: #fff;
+	border-color: #ccc transparent #ccc #ccc;
+}
+
+.content {
+	height: 100%;
+	margin-left: 300px;
+	top: 0;
+	right: 0;
+	position: relative;
+}
+
+.container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 50px;
+/*    border: 1px solid #ccc;*/
+	visibility: hidden;
+}
+
+.activeContainer {
+	visibility: visible;
+}
+
+.gridx {
+	width: 100%;
+	height: 100%;
+}
+
+.gridxHeader .gridxBar {
+	display: none;
+}
+
+}
+
+
+@media screen and (max-width: 1023px) {
+
+.sidebar {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: #eee;
+}
+
+.navigator {
+	margin-top: 50px;
+	list-style: none;
+}
+
+.navItem {
+	padding: 10px;
+	border: 1px solid transparent;
+	border-color: #ccc transparent #ccc #ccc;
+	border-radius: 15px 0 0 15px;
+	cursor: pointer;
+	margin: 10px 0;
+	background-color: #fff;
+}
+
+.content {
+	height: 100%;
+	top: 0;
+	right: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.container {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 1024px;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+/*    padding: 50px;*/
+/*    visibility: hidden;*/
+	transition: left 800ms;
+	-webkit-transition: left 800ms;
+	background-color: #fff;
+}
+
+.activeContainer {
+/*    visibility: visible;*/
+	left: 0 !important;
+}
+
+.gridx {
+	width: 100%;
+	height: 100%;
+}
+
+}

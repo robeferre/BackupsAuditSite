@@ -1,0 +1,141 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Carousel */
+
+/* Reset common styles. */
+.oneui .mblCarousel,
+.oneui .mblCarouselHeaderBar,
+.oneui .mblCarouselHeaderBar *,
+.oneui .mblCarouselPages,
+.oneui .mblCarouselItem,
+.oneui .mblCarouselItem * {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblCarousel {
+	overflow:hidden;
+	height:300px;
+	border-bottom:1px solid #ddd;
+	background:#fafafa;
+}
+
+.oneui .mblCarouselSlot {
+	position:relative;
+	float:left;
+	box-sizing:border-box;
+	text-align:left;
+}
+
+.oneui .mblCarouselHeaderBar {
+	padding:2px;
+	border-bottom:1px solid #ccc;
+	background-color: #dbdbdb;
+	background-image:-webkit-gradient(linear,center top,center bottom,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(top,#f4f4f4 0%,#dbdbdb 100%);
+	color:#444;
+	text-align:center;
+	text-shadow:0 1px 0 #fff;
+	font-weight:700;
+	font-size:16px;
+}
+
+.oneui .mblCarouselBtnContainer {
+	float:right;
+}
+
+.oneui .mblCarouselBtn {
+	padding:0;
+	margin: 0 2px;
+	height:27px;
+	width: 27px;
+	border:1px solid silver;
+	border-radius:3px;
+	background-color: #dbdbdb;
+	background-image:-webkit-gradient(linear,center top,center bottom,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(top,#f4f4f4 0%,#dbdbdb 100%);
+	box-shadow:0 1px 0 #fff;
+	color:#000;
+	text-align:center;
+	text-shadow:0 1px 0 #fff;
+	font-weight:700;
+	font-size:13px;
+	font-family: inherit;
+	cursor:pointer;
+	outline: none;
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+.oneui .mblCarouselTitle {
+	float:left;
+	margin:2px 0 2px 4px;
+}
+
+.oneui .mblCarouselHeaderBar .mblPageIndicator {
+	display:inline-block;
+	padding:3px 20px 0;
+	width:auto;
+}
+
+.oneui .mblCarouselHeaderBar .mblPageIndicatorContainer {
+	margin-right:0;
+	margin-left:0;
+}
+
+.oneui .mblCarouselPages {
+	position:relative;
+	text-align:center;
+}
+
+/* dojox.mobile._CarouselItem */
+.oneui .mblCarouselItem {
+	text-align:center;
+}
+
+.oneui .mblCarouselItemHeaderText {
+	margin-top:8px;
+	margin-bottom:5px;
+	color:#444;
+	text-align:center;
+	font-weight:700;
+	font-size:14px;
+}
+
+.oneui .mblCarouselItemFooterText {
+	margin-top:5px;
+	margin-bottom:8px;
+	color:#444;
+	text-align:center;
+	font-weight:700;
+	font-size:14px;
+}
+
+.oneui .mblCarouselItemImage {
+	-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.25);
+	vertical-align:bottom;
+}
+
+.oneui .mblCarouselItemBlank {
+	display:none;
+}
+
+.oneui .mblCarouselSlotSelected .mblCarouselItemImage {
+	-webkit-box-shadow:none;
+	opacity:.6;
+}

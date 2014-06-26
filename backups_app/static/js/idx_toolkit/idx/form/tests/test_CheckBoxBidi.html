@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.form.CheckBox Test</title>
+	
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoConfig.parseOnLoad = true;
+		dojoConfig.has["dojo-bidi"] = true;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.form.CheckBox",
+			"dijit.form.Button",
+			"dijit.form.Form",			
+			"idx.tests._pagefooter._PageFooter"
+			];
+		function preParse(modules){
+			_PageFooter = modules["idx/tests/_pagefooter/_PageFooter"];
+			//new _PageFooter();
+			changeTextDirection = function(/*String*/ textDir){
+                    		dijit.byId("programmatic").set("textDir", textDir);
+                	}
+		}
+		
+		function postParse(modules){
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.form.CheckBox Bidi Tests</h1>
+		
+		<table border="1"> 
+		  <tr>    
+		      <td></td>  
+		      <td></td>   
+		      	<th colspan="3" align="right"><h2><div align=center><font size="5">Base text direction</font></div></h2></th>  
+		  </tr>  
+		  <tr>    
+		  	<td>  </td>
+		  	<td>  </td>
+		  	<td>  <font size=4 color=red> LTR </font></td>   
+		  	<td>  <font size=4 color=red> RTL </font></td>   
+		  	<td>  <font size=4 color=red> Auto </font></td> 
+		  </tr>  
+		  <tr>    
+		  	
+		  	<th rowspan="2" ><h2><div align=center><font size="5">GUI direction</font></div></h2></th>   
+		  	 <td >  <font size=4 color=blue>LTR</font></td>
+		  	 <td>
+		  	    <input id="cb1" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"cb1",
+				label: "שלום World!", 
+				textDir: "ltr"				
+				'>
+			    </input>		  	    
+		         </td>    
+		  	 <td>
+		  	    <input id="cb2" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"cb2",
+				label: "שלום World!", 
+				textDir: "rtl"				
+				'>
+			    </input>
+		  	 </td>   
+		  	 <td>
+		  	   <input id="cb3" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"cb3",
+				label: "שלום World!", 
+				textDir: "auto"				
+				'>
+			    </input>		  	    
+		  	 </td>  
+		  </tr>  
+		  
+		  
+		  <tr dir="rtl">    
+		  	<td >  <font size=4 color=blue>RTL</font></td>
+		  	<td>
+		  	    <input id="cb4" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"cb4",
+				label: "שלום World!", 
+				textDir: "ltr"				
+				'>
+			    </input>		  	    
+		         </td>    
+		  	 <td>
+		  	    <input id="cb5" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"cb5",
+				label: "שלום World!", 
+				textDir: "rtl"				
+				'>
+			    </input>
+		  	 </td>   
+		  	 <td>
+		  	   <input id="cb6" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"cb6",
+				label: "שלום World!", 
+				textDir: "auto"				
+				'>
+			    </input>		  	    
+		  	 </td>  
+		  </tr>  
+		  
+		</table>
+		
+		<h3><font size=4 color=green> Buttons to change BTD dynamically</font> </h3><br>
+	
+		<input id="programmatic" data-dojo-type="idx.form.CheckBox"
+				data-dojo-props='name:"programmatic",
+				label: "שלום World!"							
+				'>
+			    </input>
+		<p>
+               	<button onclick='changeTextDirection("ltr");'>
+                    Change to LTR
+                </button>
+            	</p>
+            	<p>
+                <button onclick='changeTextDirection("rtl");'>
+                    Change to RTL
+                </button>
+           	</p>
+           	<p>
+                <button onclick='changeTextDirection("auto");'>
+                    Change to AUTO
+                </button>
+            	</p>
+
+	</div>
+</body>
+</html>

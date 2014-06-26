@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx Multi-Channel Sort Test</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		html {
+			height: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			background: none;
+			height: 100%;
+		}
+		.gridx {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		require([
+			'dojo/parser',
+			'idx/gridx/tests/multichannel_sort',
+			'dojo/domReady!'
+		], function(parser, mc){
+			window.mc = mc;
+			parser.parse().then(function(){
+				mc.onParse(grid);
+			});
+		});
+	</script>
+</head>
+<body class='oneui'>
+	<div id="grid" data-dojo-id="grid" data-dojo-type="gridx/Grid" data-dojo-props="
+		'class': 'gridxWholeRow',
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: mc.store,
+		structure: mc.layout,
+		touch: mc.touch,
+		pageSize: 20,
+		bodyQuickRefresh: true,
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/SummaryBar'
+		],
+		touchModules: [
+			'gridx/modules/TouchVScroller',
+			'gridx/modules/AutoPagedBody'
+		],
+		desktopModules: [
+			'gridx/modules/VirtualVScroller'
+		]
+	"></div>
+</body>
+</html>

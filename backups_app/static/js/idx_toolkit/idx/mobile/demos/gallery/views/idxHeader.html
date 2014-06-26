@@ -1,0 +1,91 @@
+<div id="idxHeader" data-dojo-type="dojox/mobile/View" data-dojo-props="selected: true">
+	<div id="idxHeaderMain" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+		<div id="id_heading" data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', fixed:'top'">
+			<span id="id_spinner" class="androidOnly mblIdxHeadingSpinner" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="toggle:true">Product name</span>
+			<span id="id_overflowButton" class="androidOnly tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingOverflowIcon', toggle:true" style="float:right;"></span>
+			<span id="id_tabletMenuButton" class="tabletOnly iosOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingMenuIcon'" style="float:right;"></span>
+			<span id="id_phoneMenuButton" class="phoneOnly iosOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingMenuIcon', moveTo:'id_navigationMenuView'" style="float:right;"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingHelpIcon'" style="float:right;"  onClick="logMain('Help clicked')"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingShareIcon'" style="float:right;"  onClick="logMain('Share clicked')"></span>
+			<span class="tabletOnly" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingUserIcon'" style="float:right;"  onClick="logMain('User clicked')"></span>
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSearchIcon'" style="float:right;"  onClick="logMain('Search clicked')"></span>
+		</div>
+		<div class="dummyViewContent">
+			This is a view with a basic header. On Android phone devices it will also
+			show a split actions footer instead of an overflow menu.
+		</div> 
+		<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="placeHolder: 'Informational messages will appear here when buttons are activated'" id="id_mainLog"></div>
+		<div class="androidOnly phoneOnly mblIdxHeadingSplitActionBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props="fixed:'bottom'">
+			<span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitShareIcon'" onClick="logMain('Split share clicked')"></span>
+			<span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitUserIcon'" onClick="logMain('Split user clicked')"></span>
+			<span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitOverflowIcon'" onClick="logMain('Split overflow clicked')"></span>
+		</div>
+	</div>
+	
+	<div id="id_tabbedHeaderView" data-dojo-type="dojox/mobile/View" data-dojo-props="selected:false">
+		<div class="iosOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="back:'Back', moveTo:'idxHeaderMain', fixed:'top'">
+			<div class="tabletOnly" style="position:absolute; width:100%; height:100%; text-align:center; z-index:1">	
+				<div data-dojo-type="dojox.mobile.TabBar" data-dojo-props="barType:'segmentedControl'">
+					<div data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true'>First view</div>
+					<div data-dojo-type="dojox.mobile.TabBarButton">Second (long titled) view</div>
+					<div data-dojo-type="dojox.mobile.TabBarButton">Last view</div>
+				</div>
+			</div>	
+		</div>
+		<div class="androidOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="back:'Back', moveTo:'idxHeaderMain', fixed:'top', label:'Tabs'">
+			<div class="tabletOnly" data-dojo-type="dojox.mobile.TabBar" data-dojo-props="barType:'flatTab', center:false">
+				<div data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true'>First view</div>
+				<div data-dojo-type="dojox.mobile.TabBarButton">Second (long titled) view</div>
+				<div data-dojo-type="dojox.mobile.TabBarButton">Last view</div>
+			</div>
+		</div>
+		<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:true">
+			<div class="dummyViewContent">
+				A view with a header that contains tabs (on tablet devices only) and a back button. 
+			</div>
+		</div>
+	</div>
+	
+	<div id="id_textButtonHeaderView" data-dojo-type="dojox/mobile/View" data-dojo-props="selected:false">
+		<div class="iosOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed:'top', label:'Text buttons'">
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Save'" style="float:right;" onClick="logText('Save clicked')"></span>
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Cancel', moveTo:'idxHeaderMain', transitionDir:-1" style="float:left;"></span>
+		</div>
+		<div class="androidOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed:'top', label:'Text buttons'">
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Save'" style="float:right;" onClick="logText('Save clicked')"></span>
+			<span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Cancel', moveTo:'idxHeaderMain', transitionDir:-1" style="float:right;"></span>
+		</div>
+		<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:true">
+			<div class="dummyViewContent">
+				A view with a header that contains text buttons. (Text buttons are not 
+				normally used on Android.) 
+			</div>
+			<div data-dojo-type="idx/mobile/tests/_LogPane" data-dojo-props="placeHolder: 'Informational messages will appear here when buttons are activated'" id="id_textLog"></div>
+		</div>
+	</div>
+	
+	<div id="id_navigationMenuView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:false">
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', back:'Back', moveTo:'idxHeaderMain', fixed:'top'">
+		</div>
+		<ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_tabbedHeaderView"'>Header with tabs (tablet only)</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_textButtonHeaderView"'>Header with text buttons</li>
+		</ul>
+	</div>
+		
+	<div class="mblIdxHeadingDropDown" id="id_navigationMenuTooltip" data-dojo-type="dojox/mobile/Tooltip" style="width:350px">
+		<ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_tabbedHeaderView"'>Header with tabs (tablet only)</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_textButtonHeaderView"'>Header with text buttons</li>
+		</ul>
+	</div>
+	
+	<div class="mblIdxHeadingDropDown" id="id_overflowMenuTooltip" data-dojo-type="dojox/mobile/Tooltip" style="width:250px">
+		<ul data-dojo-type="dojox/mobile/EdgeToEdgeList">
+			<li class="phoneOnly" data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('Account settings clicked')">Account settings</li>
+			<li class="phoneOnly" data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('Share clicked')">Share</li>
+			<li class="phoneOnly" data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('Help clicked')">Help</li>
+			<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="logMain('About clicked')">About</li>
+		</ul>
+	</div>
+</div>

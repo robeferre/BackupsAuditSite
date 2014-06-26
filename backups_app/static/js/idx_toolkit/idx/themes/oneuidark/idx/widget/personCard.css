@@ -1,0 +1,27 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxPersonCard {
+	color:#777;
+}
+
+.oneui.dark .idxPersonCardContainer {
+	border-bottom-color: #555;
+}
+.oneui.dark .idxPersonCardPhoto {
+	background-color:#222;
+	border-color: #555;
+}
+.oneui.dark .idxPersonCardFn {
+	color:#078dc1;
+}
+
+.oneui.dark .idxPersonCardTitle {
+	color:#eee;
+}
+.dijitRtl .oneui.dark .idxPersonCard .awareness {
+	background-position:right center;
+}

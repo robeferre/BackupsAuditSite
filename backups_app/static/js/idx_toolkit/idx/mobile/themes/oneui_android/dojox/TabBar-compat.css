@@ -1,0 +1,21 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+@import url(domButtons/DomButtonWhiteCross-compat.css);
+@import url(../../common/dojox/TabBar-compat.css);
+
+.oneui .mblHeading .mblTabBarFlatTab .mblTabBarButtonSelected {
+	background-image: url(compat/heading-tab-sel-bg.png);
+}
+
+.oneui .mblHeading .mblTabBarFlatTab .mblTabBarButton:active {
+	background-image: url(compat/heading-tab-active-bg.png);
+}
+
+.oneui.dj_gecko .mblHeading .mblTabBarFlatTab .mblTabBarButtonSelected {
+	font-weight: 700;
+}

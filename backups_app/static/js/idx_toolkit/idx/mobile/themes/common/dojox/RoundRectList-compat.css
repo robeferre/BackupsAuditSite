@@ -1,0 +1,22 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.RoundRectList */
+
+/* There is a mechanism in the compat module that draws border radii on older
+   versions of IE. This messes up the normal CSS, which would normally
+   work with IE 9+, which is the level of IE that we are committed to support.
+   So, we need to use !important to overcome it. */
+.oneui.dj_ie .mblRoundRectList {
+	border:1px solid #ccc !important;
+}
+
+.oneui.dj_ie .mblRoundRectContainer {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+   

@@ -1,0 +1,82 @@
+body {
+	padding: 50px;
+}
+
+.testDataWarningStatus,
+.testDataCriticalStatus,
+.testDataNormalStatus {
+	background-image: url("data/status.png");
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.testDataWarningStatus {
+	background-position: 0 -2px;
+}
+
+.testDataNormalStatus {
+	background-position: -18px -2px;
+}
+
+.testDataCriticalStatus {
+	background-position: -36px -2px;
+}
+
+.testToolbarButtonCut,
+.testToolbarButtonCopy,
+.testToolbarButtonPaste {
+	background-image: url("data/toolbarbuttons.png");
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	background-position: -4px -6px;
+}
+
+.gridxRtl .testToolbarButtonCut,
+.gridxRtl .testToolbarButtonCopy,
+.gridxRtl .testToolbarButtonPaste {
+	background-image: url("data/toolbarbuttons_rtl.png");
+}
+
+.testToolbarButtonCopy {
+	background-position: -29px -5px;
+}
+
+.testToolbarButtonPaste {
+	background-position: -55px -5px;
+}
+
+.dijitButtonHover .testToolbarButtonCut,
+.dijitButtonActive .testToolbarButtonCut,
+.dijitButtonHover .testToolbarButtonCopy,
+.dijitButtonActive .testToolbarButtonCopy,
+.dijitButtonHover .testToolbarButtonPaste,
+.dijitButtonActive .testToolbarButtonPaste {
+	background-image: url("../../../icons/images/editorIconsHover.png");
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	background-position: -54px -1px;
+}
+
+.gridxRtl .dijitButtonHover .testToolbarButtonCut,
+.gridxRtl .dijitButtonActive .testToolbarButtonCut,
+.gridxRtl .dijitButtonHover .testToolbarButtonCopy,
+.gridxRtl .dijitButtonActive .testToolbarButtonCopy,
+.gridxRtl .dijitButtonHover .testToolbarButtonPaste,
+.gridxRtl .dijitButtonActive .testToolbarButtonPaste {
+	background-image: url("../../../icons/images/editorIconsHover_rtl.png");
+}
+
+.dijitButtonHover .testToolbarButtonCopy, 
+.dijitButtonActive .testToolbarButtonCopy {
+	background-position: -72px -1px;
+}
+
+.dijitButtonHover .testToolbarButtonPaste,
+.dijitButtonActive .testToolbarButtonPaste {
+	background-position: -90px -1px;
+}

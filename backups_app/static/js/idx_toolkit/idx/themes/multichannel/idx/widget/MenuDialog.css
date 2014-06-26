@@ -1,0 +1,13 @@
+
+.mobilePlatform .oneui .mblOpener .idxMenuDialog {
+	
+}
+
+.mobilePlatform .oneui .mblOpener .idxMenuDialog .menuMobileButtonClose {
+	position:absolute;
+	top: 5px;
+	right: 5px;
+	cursor: pointer;
+}
+
+

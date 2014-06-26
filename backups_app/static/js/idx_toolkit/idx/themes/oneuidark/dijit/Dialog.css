@@ -1,0 +1,147 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Dialog 
+ * 
+ * Styling Dialog includes two sections: Dialog and Tooltip & TooltipDialog
+ * 
+ * Dialog:
+ * 1. Dialog (default styling): 
+ * 		.dijitDialog - styles for dialog's bounding box
+ *
+ * 2. Dialog title 
+ * 		.dijitDialogTitleBar - styles for the title container at the top of dialog
+ * 		.dijitDialogTitle - the text container in dialog title
+ * 
+ * 3. Dialog content 
+ * 		.dijitDialogPaneContent - main container for content area and action bar
+ * 		.dijitDialogPaneContentArea - styles for content container
+ * 
+ * 4. Dialog action bar 
+ * 		.dijitDialogPaneActionBar - styles for action buttons lie at the bottom of dialog pane content
+ * 
+ * 5. Dialog underlay 
+ * 		.dijitDialogUnderlay - div under the dialog which used for separate dialog and page content
+ * 
+ * 
+ * Tooltip & TooltipDialog:
+ * 1. tooltip content container: 
+ * 		.dijitTooltipContainer - tooltip content container
+ *
+ * 2. tooltip connector: 
+ * 		.dijitTooltipConnector - tooltip anchor includes 4 direction(up, down, left, right)
+ */
+/* IMPORTANT NOTE
+  *
+  * The following dialog styles are provided to support legacy products.
+  * If building a new or updated product, it is highly suggested that you
+  * use the IDX dialog instead.
+ */
+.oneui.dark .dijitDialogUnderlay {
+	background:#000;
+	opacity:.5;
+}
+
+.oneui.dark .dijitDialog {
+	border-color: #343434;
+	border-color:rgba(52,52,52,0.4);
+	background:#222;
+	-webkit-box-shadow:0 0 4px 1px rgba(0,0,0,0.5);
+	-moz-box-shadow:0 0 4px 1px rgba(0,0,0,0.5);
+	box-shadow:0 0 4px 1px rgba(0,0,0,0.5);
+}
+
+.oneui.dark .dijitDialogPaneContent {
+	background:transparent;
+}
+
+.oneui.dark .dijitDialogPaneContentArea .dijitTabPaneWrapper {
+	border-right:none!important;
+	border-bottom:none!important;
+	border-left:none!important;
+}
+
+.oneui.dark .dijitDialogPaneActionBar {
+	border-top-color:#555;
+	background-color:transparent;
+}
+
+.oneui.dark .dijitDialogTitleBar {
+/* outer container for the titlebar of the dialog */
+	border-bottom-color:#555;
+	background:transparent;
+}
+
+.oneui.dark .dijitDialogTitle {
+/* typography and styling of the dialog title */
+	color:#eee;
+}
+
+.oneui.dark .dijitDialogCloseIcon {
+/* the default close icon for the dialog */
+	display:none;
+}
+
+/* Tooltip and TooltipDialog */
+.oneui.dark .dijitTooltip,.oneui.dark .dijitTooltipDialog {
+/* the outermost dom node, holding the connector and container */
+	background:transparent;
+/* make the area on the sides of the arrow transparent */
+}
+
+.oneui.dark .dijitTooltipContainer {
+	border-color:#555;
+	background-position:bottom;
+	background-repeat:repeat-x;
+	-webkit-box-shadow:0 1px 6px rgba(0,0,0,0.55);
+	-moz-box-shadow:0 1px 6px rgba(0,0,0,0.55);
+	box-shadow:0 1px 6px rgba(0,0,0,0.55);
+	color:#eee;
+/* the part with the text */
+	background-color:#343434;
+}
+
+.dj_ie6 .oneui.dark .dijitTooltipContainer {
+	background-image:none;
+}
+
+.oneui.dark .dijitTooltipConnector {
+	background-repeat:no-repeat;
+/* the arrow piece */
+	background-image:url(../idx/widget/images/popupSharkfin.png);
+}
+
+.dijit_a11y .oneui.dark .dijitTooltipConnector {
+	display:none;
+/* won't show b/c it's background-image; hide to avoid border gap */
+}
+
+.dj_ie6 .oneui.dark .dijitTooltipConnector {
+	background-image:url(../idx/widget/images/popupSharkfin8bit.gif);
+}
+
+.oneui.dark .dijitTooltipBelow .dijitTooltipConnector {
+/* the arrow piece for tooltips below an element */
+	background-position:-18px 0;
+}
+
+.oneui.dark .dijitTooltipAbove .dijitTooltipConnector {
+	background-position:0 0;
+}
+
+.oneui.dark .dijitTooltipLeft .dijitTooltipConnector {
+/* the arrow piece for tooltips to the left of an element, bottom borders aligned */
+	background-position:-36px 0;
+}
+
+.oneui.dark .dijitTooltipRight .dijitTooltipConnector {
+/* the arrow piece for tooltips to the right of an element, bottom borders aligned */
+	background-position:-54px 0;
+}
+
+.oneui.dark .dojoxResizeHandle {
+	background-image:url(images/resize.png);
+}

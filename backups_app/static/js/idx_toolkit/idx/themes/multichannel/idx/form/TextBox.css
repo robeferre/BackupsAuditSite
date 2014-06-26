@@ -1,0 +1,34 @@
+.oneui .idxPlatform_mobile.idxComposite .dijitTextBox {
+	/*width: auto;*/
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	padding:0;
+	height: 30px;
+	color: #222;
+	font-size: 13px;
+}
+.oneui .idxPlatform_mobile .dijitTextBox .idxTextBoxInput{
+	position: absolute;
+	left: 1px;
+	right: 1px;
+	height: 26px;
+	padding: 2px 6px
+}
+.oneui .idxPlatform_mobile.idxComposite .dijitTextBoxError{
+	background-color: #ffffff;
+	border: 1px solid #aaa;
+}
+.oneui .idxPlatform_mobile.idxTextBoxWrapError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxTextBoxWrapFocused .idxCompositeHelpContainer{
+	opacity: 1;
+}
+.oneui .idxPlatform_mobile.idxTextBoxWrapError .idxCompositeHelpContainer{
+	opacity:0;
+	z-index:0;
+}
+
+
+
+
+
+

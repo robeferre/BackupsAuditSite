@@ -1,0 +1,67 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+html.oneui.mobile,.oneui.mobile body {
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+.oneui.mobile body {
+	overflow-x:hidden;
+	background-color:#fff;
+	color:#222;
+	font-size:17px;
+	font-family:"Helvetica Neue",Roboto,"Droid Sans",sans-serif;
+	-webkit-text-size-adjust:none;
+}
+
+/* Button Colors */
+.oneui .mblColorBlue {
+	border-color:#014e74;
+	background-color: #085884;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#008abf),to(#085884));
+	color:#fff;
+}
+
+.oneui .mblColorBlue45 {
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#008abf),to(#085884));
+}
+
+/* Default Button Colors */
+.oneui .mblColorDefault {
+	background-color: #dbdbdb;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#f4f4f4),to(#dbdbdb));
+	color:#222;
+}
+
+.oneui .mblColorDefault45 {
+	background-image:-webkit-gradient(linear,left top,right bottom,from(#f4f4f4),to(#dbdbdb));
+}
+
+.oneui .mblColorDefaultSel {
+	background-color:#666;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#bbb),to(#666));
+	color:#fff;
+}
+
+.oneui .mblColorDefaultSel45 {
+	background-image:-webkit-gradient(linear,left top,right bottom,from(#bbb),to(#666));
+}
+
+.oneui .mblSpriteIcon {
+	position:absolute;
+}
+
+.oneui .mblSpriteIconParent {
+	position:relative;
+	font-size:1px;
+}
+
+.oneui .mblImageIcon {
+	vertical-align:top;
+}

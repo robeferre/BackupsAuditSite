@@ -1,0 +1,29 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+ /* dojox.mobile.Overlay */
+
+.mblOverlay {
+	text-align: center;
+	text-align: -moz-center;
+}
+.dj_ie .mblOverlay > * {
+	margin: 0 auto;
+}
+ 
+.mblOverlay .mblHeading,
+.dj_tablet .mblOverlay .mblHeading {
+	background-image: none;
+	background-image: -moz-linear-gradient(top, #f8f8f8, #c0c0c0);
+	background-image: linear-gradient(to bottom, #f8f8f8, #c0c0c0);
+}
+
+.mblOverlay .mblHeading .mblToolBarButton {
+	background-image: none;
+	background-image: -moz-linear-gradient(top, #f4f4f4,#dbdbdb);
+	background-image: linear-gradient(to bottom, #f4f4f4,#dbdbdb);
+}

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>idx.form.CheckBoxSelect Test</title>
+
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+		@import "../../themes/oneuiLess/theme.css";
+		@import "../../tests/_pagefooter/_PageFooter.css";
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+	
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+	
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.form.CheckBoxSelect",
+			"idx.form.TextBox",
+			"dijit.form.Button",
+			"dijit.form.Form",
+			"dijit.layout.ContentPane",
+			"idx.widget.Dialog",
+			"idx.tests._pagefooter._PageFooter"]; 
+		var _PageFooter = null, CheckBoxSelect = null, TextBox = null, Dialog = null, ContentPane = null;
+		function preParse(modules){
+			_PageFooter = modules["idx/tests/_pagefooter/_PageFooter"];
+			CheckBoxSelect = modules["idx/form/CheckBoxSelect"];
+			Dialog = modules["idx/widget/Dialog"];
+			ContentPane = modules["dijit/layout/ContentPane"];
+			new _PageFooter();
+		}
+		var cbsInDialog = null;
+		function showDialog2(){
+			var dialog2 = dijit.byId("dialog2");
+			if(!dialog2){
+				cbsInDialog = new CheckBoxSelect({
+					name: 'dialogCheckBoxSelect',
+					label: 'Programmable:',
+					labelAlignment: 'horizontal',
+					fieldWidth: '200px',
+					options:[
+						{label:'Tennessee', value:'TN'},
+						{label:'Virginia', value:'VA'},
+						{label:'Washington', value:'WA'},
+						{label:'Florida', value:'FL'}
+					],
+					placeHolder: 'Select Countries'
+				});
+
+				
+				dialog2 = new Dialog({
+					id: "dialog2",
+					instruction: "CheckBoxSelect Widget in Dialog",
+					reference: {
+						name: "CheckBoxSelect Widget in Dialog",
+						link: "http://dojotoolkit.org/"
+					}
+				}, "dialog2");
+				dialog2.set("content", cbsInDialog);
+			}
+			dialog2.show();
+			
+			if ( cbsInDialog )
+				cbsInDialog.startup();
+			
+		}
+		function postParse(modules){
+			var cbs9Test = new CheckBoxSelect({
+				name: 'cbs9',
+				label: 'Programmable:',
+				labelAlignment: 'horizontal',
+				fieldWidth: '200px',
+				options:[
+					{label:'Tennessee', value:'TN'},
+					{label:'Virginia', value:'VA'},
+					{label:'Washington', value:'WA'},
+					{label:'Florida', value:'FL'}
+				],
+				placeHolder: 'Select Countries'
+			}, "cbs9");
+			
+			cbs9Test.startup();
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+	
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0px;">
+	<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script>
+	<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.form.CheckBoxSelect Test</h1>
+		<h2>CheckBoxSelect with MenuSeparator</h2>
+		<select multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs9',
+			label: 'Normal:',
+			help: 'Field-level help goes here.',
+			fieldWidth: '200px',
+			labelAlignment: 'horizontal',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option></option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		<h2>Horizontal label alignment</h2>
+		<select jsId="cbs1" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs1',
+			label: 'Normal:',
+			help: 'Field-level help goes here.',
+			fieldWidth: '200px',
+			labelAlignment: 'horizontal',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<select jsId="cbs2" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs2',
+			label: 'ReadOnly:',
+			readOnly: true,
+			labelAlignment: 'horizontal',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<select jsId="cbs3" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs3',
+			label: 'Disabled:',
+			disabled: true,
+			labelAlignment: 'horizontal',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<h2>Vertical label alignment</h2>
+		<select jsId="cbs4" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs4',
+			label: 'Normal:',
+			labelAlignment: 'vertical',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<select jsId="cbs5" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs5',
+			label: 'ReadOnly:',
+			readOnly: true,
+			labelAlignment: 'vertical',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+		
+		<select jsId="cbs6" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs6',
+			label: 'Disabled:',
+			disabled: true,
+			labelAlignment: 'vertical',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA">California</option>
+		</select>
+	
+		<h2>Partly selected</h2>
+		<select jsId="cbs6" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs6',
+			label: 'Normal:',
+			labelAlignment: 'horizontal',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" selected="selected">California</option>
+		</select>
+		
+		<select jsId="cbs7" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs7',
+			label: 'ReadOnly:',
+			readOnly: true,
+			labelAlignment: 'horizontal',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" selected="selected">California</option>
+		</select>
+		
+		<select jsId="cbs8" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs8',
+			label: 'Disabled:',
+			disabled: true,
+			labelAlignment: 'horizontal',
+			fieldWidth: '200px',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" selected="selected">California</option>
+		</select>
+
+		<h2>Style, Label, and Field Widths Specified</h2>
+		<select style="width: 250px;" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			style: 'width: 350px;',
+			name: 'cbs6',
+			label: 'Label',
+			fieldWidth: '70%',
+			labelWidth: '30%',
+			labelAlignment: 'horizontal',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" selected="selected">California</option>
+		</select>
+		<select style="width: 250px;" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			name: 'cbs6',
+			label: 'Label',
+			fieldWidth: '70%',
+			labelWidth: '30%',
+			labelAlignment: 'horizontal',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" selected="selected">California</option>
+		</select>
+		<br><br>
+		<select style="width: 250px;" multiple="true" data-dojo-type="idx.form.CheckBoxSelect" data-dojo-props="
+			style: 'width: 350px;',
+			name: 'cbs6',
+			label: 'Label',
+			fieldWidth: '70%',
+			labelWidth: '30%',
+			labelAlignment: 'vertical',
+			placeHolder: 'Select Countries'
+		">
+			<option value="TN">Tennessee</option>
+			<option value="VA" selected="selected">Virginia</option>
+			<option value="WA">Washington</option>
+			<option value="FL">Florida</option>
+			<option value="CA" selected="selected">California</option>
+		</select>
+
+		<h2>Programmably Create CheckBoxSelect</h2>
+		<select id="cbs9"></select>
+		<h2>Dialog CheckBoxSelect</h2>
+		<div id="dialog2"></div>
+		<div id="node"></div>
+		<button dojoType="dijit.form.Button" onClick="showDialog2();">Show Dialog with CheckBoxSelect</button>
+	</div>
+</body>
+</html>

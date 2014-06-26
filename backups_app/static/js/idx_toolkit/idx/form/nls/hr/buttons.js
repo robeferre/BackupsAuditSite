@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Zatvori",
+	configureLabel: "Konfiguriraj",
+	editLabel: "Uredi",
+	filterLabel: "Filter",
+	clearFilterLabel: "Isprazni",
+	helpLabel: "Pomoć",
+	infoLabel: "Informacije",
+	minimizeLabel: "Minimiziraj",
+	maximizeLabel: "Maksimiziraj",
+	printLabel: "Ispis",
+	refreshLabel: "Osvježi",
+	restoreLabel: "Vrati",
+	nextPageLabel: "Sljedeća",
+	previousPageLabel: "Prethodna",
+	lastPageLabel: "Zadnja",
+	firstPageLabel: "Prva",
+	closeTip: "Zatvori",
+	configureTip: "Konfiguriraj",
+	editTip: "Uredi",
+	filterTip: "Filter",
+	clearFilterTip: "Isprazni filter",
+	helpTip: "Dohvati pomoć",
+	infoTip: "Dohvati informacije",
+	minimizeTip: "Minimiziraj",
+	maximizeTip: "Maksimiziraj",
+	printTip: "Ispis",
+	refreshTip: "Osvježi",
+	restoreTip: "Vrati",
+	nextPageTip: "Sljedeća stranica",
+	previousPageTip: "Prethodna stranica",
+	lastPageTip: "Zadnja stranica",
+	firstPageTip: "Prva stranica"
+//end v1.x content
+});
+

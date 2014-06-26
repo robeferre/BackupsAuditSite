@@ -1,0 +1,19 @@
+<div class="${baseClass}">
+   <div data-dojo-type="idx/layout/BorderContainer" data-dojo-attach-point="_borderContainer" data-dojo-props="gutters: false, design: 'sidebar', 'class': '${baseClass}BorderContainer'">
+	  <div data-dojo-attach-point="containerNode" data-dojo-props="'class': 'dijitHidden'"></div>
+	  <div data-dojo-type="dijit/layout/StackContainer" data-dojo-props="region: 'center'" data-dojo-attach-point="_stackContainer">
+	  </div>
+	  <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region: 'bottom', 'class': '${baseClass}ButtonContainer'" >
+		  <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_previousButton" data-dojo-attach-event="onClick: _onPrevious" data-dojo-props="disabled: true">
+	      </div>
+		  <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_nextButton" data-dojo-attach-event="onClick: _onNext">
+	      </div>
+		  <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_saveButton" data-dojo-attach-event="onClick: _onSave" data-dojo-props="'class': 'dijitHidden'">
+	      </div>
+		  <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_finishButton" data-dojo-attach-event="onClick: _onFinish" data-dojo-props="disabled: true">
+	      </div>
+		  <div data-dojo-type="dijit/form/Button" data-dojo-attach-point="_cancelButton" data-dojo-attach-event="onClick: _onCancel">
+	      </div>
+	  </div>
+  </div>	  
+</div>

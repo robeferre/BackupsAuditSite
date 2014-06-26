@@ -1,0 +1,80 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* RadioButton
+ * 
+ * Styling RadioButton mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitRadio|.dijitRadioIcon - for border, padding, width|height and background image
+ * 
+ * 2. RadioButton within ToggleButton
+ * 		.dijitToggleButton|.dijitToggleButtonChecked .* - for background image
+ * 
+ * 3. Checked state
+ * 		.dijitRadioChecked - for checked background-color|image
+ * 		.dijitToggleButtonChecked - for border, background-color|image, display and width|height
+ * 
+ * 4. Hover state
+ * 		.dijitRadioHover|.dijitRadioCheckedHover - for background image
+ * 
+ * 5. Disabled state
+ * 		.dijitRadioDisabled|.dijitRadioCheckedDisabled - for background image
+ */
+.oneui.dark .dijitToggleButton .dijitRadio, .oneui.dark .dijitToggleButton .dijitRadioIcon {
+  background-image: url('images/checkboxRadioButtonStates.png');
+}
+.dj_ie6 .oneui.dark .dijitToggleButton .dijitRadio, .dj_ie6 .oneui.dark .dijitToggleButton .dijitRadioIcon {
+  background-image: url('images/checkboxRadioButtonStates8bit.png');
+}
+.oneui.dark .dijitRadio, .oneui.dark .dijitRadioIcon {
+  /* inside a toggle button */
+
+  background-image: url('images/checkboxRadioButtonStates.png');
+  /* checkbox sprite image */
+}
+.dj_ie6 .oneui.dark .dijitRadio, .dj_ie6 .oneui.dark .dijitRadioIcon {
+  /* inside a toggle button */
+
+  background-image: url('images/checkboxRadioButtonStates8bit.png');
+  /* checkbox sprite image */
+
+}
+.oneui.dark .dijitRadio {
+  /* unselected */
+
+  background-position: -209px;
+}
+.oneui.dark .dijitToggleButton .dijitRadioIcon {
+  /* unselected */
+
+  background-position: -209px;
+}
+.oneui.dark .dijitRadioDisabled {
+  /* unselected and disabled */
+
+  background-position: -225px;
+}
+.oneui.dark .dijitRadioHover {
+  /* hovering over an unselected enabled radio button */
+
+  background-position: -257px;
+}
+.oneui.dark .dijitRadioChecked {
+  background-position: -193px;
+}
+.oneui.dark .dijitToggleButtonChecked .dijitRadioIcon {
+  background-position: -193px;
+}
+.oneui.dark .dijitRadioCheckedHover {
+  background-position: -241px;
+}
+.oneui.dark .dijitRadioCheckedDisabled {
+  /* selected but disabled */
+
+  background-position: -225px;
+}

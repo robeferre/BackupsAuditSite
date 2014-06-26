@@ -1,0 +1,62 @@
+<script type="text/javascript" src="resources/html/staticMainPage.js"></script>
+<div id="static_main_page" style="cursor: pointer">
+	<h2>Welcome to Pluggable UI</h2>
+	
+	<div> 
+		<div> Expandable Secondary Navigation </div>
+		<ul>
+			<li> <img style="width:60px; height:50px" src="resources/images/sample_3.png"> </li>
+			<li> Two Level Navigation </li>
+			<li> Collapse / Expand </li>
+			<li> ................. </li>
+		</ul>	
+	</div>
+	
+	<br>
+	
+	<div>
+		<div> Animations Turn on/off </div>
+		<ul>
+			<li> 
+				Disable / Enable Navigation Animation
+				<button jsId="navigationAnimBtn" data-dojo-type="dijit/form/ToggleButton" data-dojo-props='
+					onChange:toggleCSS3Animation_nav,
+					iconClass:"dijitCheckBoxIcon"
+				'>
+					Navigation Animation Enabled
+				</button>
+			</li>
+			<li> 
+				Disable / Enable Container(grid/pane) Animation
+				<button jsId="containerAnimBtn" data-dojo-type="dijit/form/ToggleButton" data-dojo-props='
+					onChange:toggleCSS3Animation_container,
+					iconClass:"dijitCheckBoxIcon"
+				'>
+					Container Animation Enabled
+				</button>
+			</li>
+			<li> 
+				Disable / Enable Card Animation
+				<button jsId="cardAnimBtn" data-dojo-type="dijit/form/ToggleButton" data-dojo-props='
+					onChange:toggleCSS3Animation_card,
+					iconClass:"dijitCheckBoxIcon"
+				'>
+					Card Animation Enabled
+				</button>
+			</li>
+			<li> 
+				Disable / Enable Whole Pluggable UI Animation
+				<button jsId="pluggableUIAnimBtn" data-dojo-type="dijit/form/ToggleButton" data-dojo-props='
+					onChange:toggleCSS3Animation,
+					iconClass:"dijitCheckBoxIcon"
+				'>
+					Pluggable UI Animation Enabled
+				</button>
+			</li>
+		</ul>
+	</div>
+	
+	
+</div>
+
+

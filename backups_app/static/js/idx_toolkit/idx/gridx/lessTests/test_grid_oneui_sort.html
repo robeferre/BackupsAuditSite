@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx OneUI Sort Test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src='support/common.js'></script>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneuiLess/theme.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		.gridx {
+			width: 800px;
+			height: 500px;
+		}
+	</style>
+	<script type="text/javascript" src='test_grid_oneui_sort.js'></script>
+</head>
+<body class='claro oneui'>
+	<h1>Gridx OneUI Sort Test</h1>
+	<ul>
+		<li>Column "Genre" is only ascendingly sortable.</li>
+		<li>Column "Artist" is only descendingly sortable.</li>
+		<li>Column "Year" is not sortable.</li>
+	</ul>
+	<h2>Single sort</h2>
+	<div id="grid" data-dojo-id="grid" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		sortNested: false,
+		selectRowTriggerOnCell: true,
+		sortInitialOrder: [{colId: 'Genre'}],
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/VirtualVScroller'
+		]
+	"></div>
+	<h2>Nested sort. When Column Selection is off, clicking any place in header cell to sort.</h2>
+	<div id="grid1" data-dojo-id="grid1" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		selectRowTriggerOnCell: true,
+		sortInitialOrder: [{colId: 'Genre'}, {colId: 'id', descending: true}],
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/VirtualVScroller'
+		]
+	"></div>
+	<h2>Nested sort. When Column Selection is on, clicking the sort arrow to sort.</h2>
+	<div id="grid2" data-dojo-id="grid2" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		selectRowTriggerOnCell: true,
+		sortInitialOrder: [{colId: 'Genre'}, {colId: 'id', descending: true}],
+		modules: [
+			'gridx/modules/Sort',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/extendedSelect/Column',
+			'gridx/modules/VirtualVScroller'
+		]
+	"></div>
+</body>
+</html>

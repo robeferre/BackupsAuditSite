@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "Закрыть",
+	configureLabel: "Сконфигурировать",
+	editLabel: "Изменить",
+	filterLabel: "Фильтр",
+	clearFilterLabel: "Очистить",
+	helpLabel: "Справка",
+	infoLabel: "Информация",
+	minimizeLabel: "Минимизировать",
+	maximizeLabel: "Максимизировать",
+	printLabel: "Печать",
+	refreshLabel: "Обновить",
+	restoreLabel: "Восстановить",
+	nextPageLabel: "Далее",
+	previousPageLabel: "Назад",
+	lastPageLabel: "Последняя",
+	firstPageLabel: "Первая",
+	closeTip: "Закрыть",
+	configureTip: "Сконфигурировать",
+	editTip: "Изменить",
+	filterTip: "Фильтр",
+	clearFilterTip: "Очистить фильтр",
+	helpTip: "Получить справку",
+	infoTip: "Получить информацию",
+	minimizeTip: "Минимизировать",
+	maximizeTip: "Максимизировать",
+	printTip: "Печать",
+	refreshTip: "Обновить",
+	restoreTip: "Восстановить",
+	nextPageTip: "Следующая страница",
+	previousPageTip: "Предыдущая страница",
+	lastPageTip: "Последняя страница",
+	firstPageTip: "Первая страница"
+//end v1.x content
+});
+

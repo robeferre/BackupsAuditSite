@@ -1,0 +1,36 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* ContentPane 
+ *	
+ * .dijitContentPane
+ * 	set padding for basic content pane
+ * 	
+ * Nested layouts:
+ * 
+ * .dijitTabContainerTop-dijitContentPane,
+ * .dijitTabContainerLeft-dijitContentPane,
+ * .dijitTabContainerBottom-dijitContentPane,
+ * .dijitTabContainerRight-dijitContentPane
+ * 	set background-color and padding of ContentPanes nested within TabContainer (can do top, left, bottom, or right) or Accordion Container
+ *
+ * .dijitAccordionContainer-dijitContentPane
+ * 	set background-color and padding of ContentPane nested within Accordion
+ *
+ * .dijitSplitContainer-dijitContentPane, 
+ *	set background-color and padding of ContentPane nested within a SplitContainer 
+ *
+ * .dijitBorderContainer-dijitContentPane
+ *	set background-color and padding of ContentPane nested within a BorderContainer 
+ */
+/* nested layouts */
+.oneui.dark .dijitTabContainerTop-dijitContentPane,.oneui.dark .dijitTabContainerLeft-dijitContentPane,.oneui.dark .dijitTabContainerBottom-dijitContentPane,.oneui.dark .dijitTabContainerRight-dijitContentPane,.oneui.dark .dijitAccordionContainer-dijitContentPane {
+	background-color:#222;
+}
+
+.oneui.dark .dijitSplitContainer-dijitContentPane,.oneui.dark .dijitBorderContainer-dijitContentPane {
+	background-color:#222;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/Sort</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript" src="support/commonImport.js"></script>
+<style type="text/css" id="idxStyles">
+	@import "../../../gridx/resources/Gridx.css";
+	@import "../../themes/oneuiLess/theme.css";
+	@import "../../tests/test_nls.css";
+	@import "../../themes/oneui/idx/gridx/Gridx.css";
+	@import "../../themes/oneui/idx/gridx/Gridx_rtl.css";
+
+	.gridx {
+		width: 600px;
+		height: 300px;
+	}
+</style>
+<script type="text/javascript" id="postDojo">
+	// Test code here
+	storeData = [
+		{ id: 1, order: 1, Genre: "Easy Listening", Artist: "Bette Midler", Year: 2003, Album: "Bette Midler Sings the Rosemary Clooney Songbook", Name: "Hey There", Composer: "Ross, Jerry 1926-1956 -w Adler, Richard 1921-" },
+		{ id: 2, order: 2, Genre: "Classic Rock", Artist: "Jimi Hendrix", Year: 1993, Album: "Are You Experienced", Name: "Love Or Confusion", Composer: "Jimi Hendrix" },
+		{ id: 3, order: 3, Genre: "Jazz", Artist: "Andy Narell", Year: 1992, Album: "Down the Road", Name: "Sugar Street", Composer: "Andy Narell"},
+		{ id: 4, order: 4, Genre: "Progressive Rock", Artist: "Emerson, Lake & Palmer", Year: 1992, Album: "The Atlantic Years", Name: "Tarkus", Composer: "Greg Lake/Keith Emerson"},
+		{ id: 5, order: 5, Genre: "Rock", Artist: "Blood, Sweat & Tears", Year: 1968, Album: "Child Is Father To The Man", Name: "Somethin' Goin' On", Composer: ""},
+		{ id: 6, order: 6, Genre: "Jazz", Artist: "Andy Narell", Year: 1989, Album: "Little Secrets", Name: "Armchair Psychology", Composer: "Andy Narell"},
+		{ id: 7, order: 7, Genre: "Easy Listening", Artist: "Frank Sinatra", Year: 1991, Album: "Sinatra Reprise: The Very Good Years", Name: "Luck Be A Lady", Composer: "F. Loesser"},
+		{ id: 8, order: 8, Genre: "Progressive Rock", Artist: "Dixie dregs", Year: 1977, Album: "Free Fall", Name: "Sleep", Composer: "Steve Morse"},
+		{ id: 9, order: 9, Genre: "Classic Rock", Artist: "Black Sabbath", Year: 2004, Album: "Master of Reality", Name: "Sweet Leaf", Composer: "Bill Ward/Geezer Butler/Ozzy Osbourne/Tony Iommi"},
+		{ id: 10, order: 10, Genre: "Blues", Artist: "Buddy Guy", Year: 1991, Album: "Damn Right, I've Got The Blues", Name: "Five Long Years", Composer: "Eddie Boyd/John Lee Hooker"}
+	];
+	require([
+		'dojo/parser',
+		"dojo/dom",
+		"dojo/query",
+		"dijit/registry",
+		'dojo/store/Memory',
+		'gridx/Grid',
+		'gridx/core/model/cache/Sync',
+		'gridx/modules/Focus',
+		'gridx/modules/Sort',
+	], function(parser, dom, query, registry){
+		parser.parse().then(function(){
+			var grid = registry.byId("testGrid");
+			var ariaButton = dom.byId("testARIAButton");
+			ariaButton.onclick = function(){
+				var labels = "";
+				var nodes = query("th", grid.domNode);
+				for(var i = 0; i < nodes.length; i++){
+					var label = nodes[i].getAttribute("aria-label");
+					if(label){
+						labels += label + "<br/>";
+					}
+				}
+				test_alert(labels);
+			};
+		});
+	});
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">gridx/nls/Sort</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>helpMsg</td><td>
+		Mouse hover any header cell in the "Nested Sort" grid, wait for the tooltip to popup. Verify the tooltip "{column name} - Click to sort or control-click to add to sort" is translated.
+	</td></tr>
+	<tr><td>singleHelpMsg</td><td>
+		Mouse hover and header cell in the "Single Sort" grid, wait for the tooltip to popup. Verify the tooltip "{column name} - Click to sort" is translated.
+	</td></tr>
+	<tr><td>priorityOrder</td><td>
+		Nestedly sort 2 or more columns in the "Nested Sort" grid. Click the "ARIA Labels" button to show a popup window.<br/><br/>
+		Verify the message in the popup window, "{column name}, sort priority {n}", is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div data-dojo-id='gridStore' data-dojo-type='dojo/store/Memory' data-dojo-props='data: storeData'></div>
+	<h2>Nested Sort</h2>
+	<div data-dojo-type='gridx/Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: gridStore,
+		structure: [
+			{ id: "genre", field: "Genre", name: "Genre" },
+			{ id: "artist", field: "Artist", name: "Artist" },
+			{ id: "year", field: "Year", name: "Year" },
+			{ id: "album", field: "Album", name: "Album" },
+			{ id: "name", field: "Name", name: "Name" },
+			{ id: "composer", field: "Composer", name: "Composer" }
+		],
+		modules: [
+			"gridx/modules/Focus",
+			"idx/gridx/modules/Sort"
+		]
+	' id="testGrid"></div>
+	<p><button id="testARIAButton">ARIA Labels</button></p>
+	<h2>Single Sort</h2>
+	<div data-dojo-type='gridx/Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: gridStore,
+		structure: [
+			{ id: "genre", field: "Genre", name: "Genre" },
+			{ id: "artist", field: "Artist", name: "Artist" },
+			{ id: "year", field: "Year", name: "Year" },
+			{ id: "album", field: "Album", name: "Album" },
+			{ id: "name", field: "Name", name: "Name" },
+			{ id: "composer", field: "Composer", name: "Composer" }
+		],
+		modules: [
+			"gridx/modules/Focus",
+			"idx/gridx/modules/Sort"
+		],
+		sortNested: false
+	'></div>
+</div>
+</body>
+</html>

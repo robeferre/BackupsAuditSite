@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Auto-Hide VScroller</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src='support/common.js'></script>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		.gridx {
+			width: 800px;
+			height: 450px;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script type="text/javascript" src='test_grid_oneui_autoHideVScroller.js'></script>
+</head>
+<body class='oneui'>
+	<h1>Test Auto-Hide VScroller</h1>
+	<h2>Grid with fixed column width</h2>
+	<div id='grid1' data-dojo-type='gridx.Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: store,
+		structure: layout1,
+		paginationBarSizes: [5, 10, 20, 0],
+		modules: [
+			"gridx/modules/Focus",
+			"gridx/modules/ColumnResizer",
+			"gridx/modules/Filter",
+			"gridx/modules/ToolBar",
+			"idx/gridx/modules/filter/QuickFilter",
+			"gridx/modules/Pagination",
+			"idx/gridx/modules/pagination/PaginationBar"
+		]
+	'></div>
+	<h2>Grid with auto column width</h2>
+	<div id='grid2' data-dojo-id='grid2' data-dojo-type='gridx.Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: store,
+		structure: layout2,
+		paginationBarSizes: [5, 10, 20, 0],
+		modules: [
+			"gridx/modules/Focus",
+			"gridx/modules/ColumnResizer",
+			"gridx/modules/Filter",
+			"gridx/modules/ToolBar",
+			"idx/gridx/modules/filter/QuickFilter",
+			"gridx/modules/Pagination",
+			"idx/gridx/modules/pagination/PaginationBar"
+		]
+	'></div>
+	<h2>Grid with percentage column width</h2>
+	<div id='grid3' data-dojo-type='gridx.Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: store,
+		structure: layout3,
+		paginationBarSizes: [5, 10, 20, 0],
+		modules: [
+			"gridx/modules/ColumnResizer",
+			"gridx/modules/Focus",
+			"gridx/modules/Filter",
+			"gridx/modules/ToolBar",
+			"idx/gridx/modules/filter/QuickFilter",
+			"gridx/modules/Pagination",
+			"idx/gridx/modules/pagination/PaginationBar"
+		]
+	'></div>
+	<h2>Grid with auto-resize columns</h2>
+	<div id='grid4' data-dojo-type='gridx.Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: store,
+		structure: layout4,
+		columnWidthAutoResize: true,
+		paginationBarSizes: [5, 10, 20, 0],
+		modules: [
+			"gridx/modules/Focus",
+			"gridx/modules/Filter",
+			"gridx/modules/ToolBar",
+			"idx/gridx/modules/filter/QuickFilter",
+			"gridx/modules/Pagination",
+			"gridx/modules/pagination/PaginationBar"
+		]
+	'></div>
+	<h2>AutoWidth grid"</h2>
+	<div id='grid5' data-dojo-type='gridx.Grid' data-dojo-props='
+		cacheClass: "gridx/core/model/cache/Sync",
+		store: store,
+		structure: layout5,
+		autoWidth: true,
+		modules: [
+			"gridx/modules/ColumnResizer",
+			"gridx/modules/Focus",
+			"gridx/modules/Filter",
+			"gridx/modules/ToolBar",
+			"idx/gridx/modules/filter/QuickFilter"
+		]
+	'></div>
+</body>
+</html>

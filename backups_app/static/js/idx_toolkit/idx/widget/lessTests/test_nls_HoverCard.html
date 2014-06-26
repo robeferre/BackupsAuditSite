@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/HoverCard</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneuiLess/theme.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/ready",
+	"idx/widget/_Preview",
+	"idx/widget/HoverCard"
+], function(ready, _Preview, HoverCard){
+	ready(function(){
+		var preview = new _Preview({
+			id: "preview",
+			title: "Preview Card title",
+			image: "../../themes/oneui/idx/images/objectImagePlaceholder90px.png",
+			content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et purus lorem, eu semper massa. Phasellus rutrum, dui non ultrices convallis, nunc nunc dignissim neque, elementum imperdiet sapien massa ut risus<br /><br />"
+		})
+		new HoverCard({
+			target:"one", 
+			moreActions:[
+				{label: "Item 1"},
+				{label: "Item 2"},
+				{label: "Item 3"}
+			],
+			actions: [
+				{iconClass: "placeHolderIcon", text:""},
+				{iconClass: "placeHolderIcon", text:""},
+				{iconClass: "placeHolderIcon", text:""}
+			],
+			content: "preview"
+		})
+	})
+})
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">widget/nls/HoverCard</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>moreActionsLabel</td><td>
+		Verify that the text at right-bottom of HoverCard is translated
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+<a href="#" id="one">Hover here to show HoverCard</a></div>
+</body>
+</html>

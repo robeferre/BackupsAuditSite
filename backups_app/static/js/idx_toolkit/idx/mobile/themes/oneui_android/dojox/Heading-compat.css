@@ -1,0 +1,20 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Heading */
+.oneui .mblHeading {
+	background-image: url(compat/heading-bg.png); 
+}
+
+/* There is a bug in Firefox which pushes floated elements that are declared
+ * after static content to the next line if the Heading div has white-space
+ * set to nowrap. This means that the title will go missing if for example
+ * a TabBar is included in the Heading. So, set it to normal to avoid this.
+ */ 
+.oneui.dj_gecko .mblHeading {
+	white-space: normal; 
+}

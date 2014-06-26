@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Primer</title>
+	
+	<script type="text/javascript" src="../../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+	<style id="idxStyles" type="text/css">
+		@import "../../../themes/oneui/oneui.css";
+        @import "../../../demos/demo.css";
+        @import "../../../tests/_pagefooter/_PageFooter.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+<!--  Not needed at present as the overview has no active content
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.tests._pagefooter._PageFooter"];
+
+		function preParse(modules){
+			_PageFooter = modules["idx/tests/_pagefooter/_PageFooter"];
+		}
+
+		function postParse() {
+			new _PageFooter();
+		}
+
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+	</script>
+-->
+
+	<script type="text/javascript" src="../../../tests/commonTest.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<div role="main" class="demoContent">
+		<div dir="ltr">
+			<p>
+				The following development hints assume that the basic setup for
+				a mobile application and loading of the appropriate version of 
+				the One UI mobile theme have been done.
+			</p>
+			<h2>Creating a header for a view</h2>
+			<p>
+				This is simply achieved using a regular dojox/mobile/Heading. All
+				of the usual properties of the Heading (e.g. 'label', 'back', 
+				etc.) may be used as normal. For example:
+			</p>
+<pre class="code">&lt;div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true"&gt;
+  <span class="highlitCode">&lt;div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', fixed:'top'"&gt;</span>
+  &lt;/div&gt
+    ...
+&lt;/div&gt;</pre>
+			<h2>Buttons in a header</h2>
+				<h3>Back button</h3>
+				<p>
+					A back button may be included in a Heading by setting the 
+					'back' property, as normal. The One UI iOS theme will 
+					render it with text, whilst the One UI Android theme will 
+					render it as a left-facing chevron without text.
+				</p>
+<pre class="code">&lt;div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true"&gt;
+  <span class="highlitCode">&lt;div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Some view', back:'Back', moveTo:'id_mainView', fixed:'top'"&gt;</span>
+  &lt;/div&gt
+    ...
+&lt;/div&gt;</pre>
+				<h3>ToolBarButtons</h3>
+				<p>
+					Buttons (both iconic and textual) may be placed in a Heading
+					by including ToolBarButtons within it. These may be floated 
+					left and right as required, and will by styled appropriately
+					by the One UI theme. 
+				</p>
+<pre class="code">&lt;div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true"&gt;
+  &lt;div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', fixed:'top'"&gt;
+    <span class="highlitCode">&lt;span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSearchIcon'" style="float:right;"&gt;&lt;/span&gt;
+    &lt;span data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="label:'Cancel'" style="float:left;"&gt;&lt;/span&gt;</span>
+  &lt;/div&gt
+    ...
+&lt;/div&gt;</pre>
+				<h3>Icons</h3>
+				<p>
+					The One UI IDX toolkit defines several CSS classes that are 
+					intended to be used with the 'icon' property of ToolBarButtons
+					in order to set the icon for them. They are:
+					<ul>
+						<li>mblDomButtonIdxHeadingCancelIcon - Cancel (Android only)</li>
+						<li>mblDomButtonIdxHeadingGuideIcon - For development layout and debugging</li>
+						<li>mblDomButtonIdxHeadingHelpIcon - Help</li>
+						<li>mblDomButtonIdxHeadingMenuIcon - Menu (iOS only)</li>
+						<li>mblDomButtonIdxHeadingOverflowIcon - Overflow menu (Android only)</li>
+						<li>mblDomButtonIdxHeadingSaveIcon - Save (Android only)</li>
+						<li>mblDomButtonIdxHeadingSearchIcon - Search</li>
+						<li>mblDomButtonIdxHeadingShareIcon - Share</li>
+						<li>mblDomButtonIdxHeadingUserIcon - User</li>
+					</ul>
+				</p>
+			<h2>Tabs in a header</h2>
+			<p>
+				Tabs can be created in a Heading by including a dojox/mobile/Tabbar
+				in it. Because the designs of iOS and Android tabs vary so much
+				it is necessary to create each in a slightly different way: iOS tabs 
+				need to be created using a 'segmentedControl' type of TabBar and
+				explicitly centered using a dedicated &lt;div&gt;, whereas Android tabs
+				just need to be created using the 'flatTab' type of TabBar. For 
+				example:
+			</p>
+<pre class="code">&lt;div data-dojo-type="dojox/mobile/View"&gt;
+  <span class="highlitCode">&lt;!-- Heading. --&gt; 
+  &lt;div class="iosOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed:'top'"&gt;
+    &lt;div class="tabletOnly" style="position:absolute; width:100%; height:100%; text-align:center; z-index:1"&gt;  
+      &lt;div data-dojo-type="dojox.mobile.TabBar" data-dojo-props="barType:'segmentedControl'"&gt;
+        &lt;div data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true'&gt;First view&lt;/div&gt;
+        &lt;div data-dojo-type="dojox.mobile.TabBarButton"&gt;Second (long titled) view&lt;/div&gt;
+        &lt;div data-dojo-type="dojox.mobile.TabBarButton"&gt;Last view&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;  
+  &lt;/div&gt;
+  &lt;div class="androidOnly" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed:'top', label:'Tabs'"&gt;
+    &lt;div class="tabletOnly" data-dojo-type="dojox.mobile.TabBar" data-dojo-props="barType:'flatTab', center:false"&gt;
+      &lt;div data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props='selected:true'&gt;First view&lt;/div&gt;
+      &lt;div data-dojo-type="dojox.mobile.TabBarButton"&gt;Second (long titled) view&lt;/div&gt;
+      &lt;div data-dojo-type="dojox.mobile.TabBarButton"&gt;Last view&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</span>
+  
+  &lt;!-- Content. --&gt;
+  &lt;div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected:true"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+			<p>
+				Note:
+				<ol>
+					<li>The outer view contains two Headings - one which is 
+					shown as part of the iOS UI and the other for Android.</li>
+					<li>The iOS TabBar is wrapped in an absolutely positioned
+					&lt;div&gt; that is the same size as the Heading and which
+					centers the segmented TabBar absolutely within the Heading
+					(ignoring any other content to the left and right).</li>
+					<li>The iOS TabBar is a segmentedControl whereas the 
+					Android one is a flatTab</li>
+					<li>The Android TabBar does not need an enclosing &lt;div&gt;
+					to center it, and it has 'center:false' set so that the 
+					tabs align on the left.</li>
+					<li>The CSS within the One UI IDX toolkit iOS and Android
+					themes will style the TabBars appropriately (and differently)
+					for each platform.</li>
+				</ol>
+			</p>
+			<h2>Drop-down menus</h2>
+			<p>
+				Drop-down menus that are related to ToolBarButtons in a Heading (including 
+				Andoid 'spinner's) can be implemented using dojox.mobile.ToolTips and
+				dojox.mobile.EdgeToEdgeLists. The tooltip should have a class of
+				'mblIdxHeadingDropDown' set so that the One UI IDX CSS can style it 
+				appropriately for iOS or Android. ToolBarButtons that display
+				menus should normally have their 'toggle' property set to 
+				true, so that they can be given some visual highlighting whilst 
+				the menu is showing.
+			</p>
+			<p>
+				Unlike the dijit framework, the dojox.mobile framework does not
+				have any explicit support for menus. Therefore, it is the 
+				responsibilitly of the application to orchestrate the showing
+				and hiding of menus and their positioning in response to UI events.
+				A crude example of this can be found in the header testcase in 
+				 /idx/mobile/tests/test_Header.html.
+			</p>
+<pre class="code"><span class="highlitCode">&lt;div class="mblIdxHeadingDropDown" id="id_menu_1" data-dojo-type="dojox/mobile/Tooltip"&gt;
+  &lt;ul data-dojo-type="dojox/mobile/EdgeToEdgeList"&gt;
+    &lt;li data-dojo-type="dojox/mobile/ListItem" data-dojo-props='moveTo:"id_view_1"'&gt;View 1&lt;/li&gt;
+    &lt;li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable:true" onClick="foo()"&gt;Action 1&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</span></pre>
+			<h2>Android split action bars</h2>
+			<p>
+				When there are too many actions to fit in the main Heading then
+				Android UIs sometimes us a 'split action bar'. This can be implemented 
+				using a dojox.mobile.TabBar. The TabBar should have a class of
+				'mblIdxHeadingSplitActionBar' set so that the One UI IDX CSS can style it 
+				appropriately.
+			</p>
+<pre class="code"><span class="highlitCode">&lt;div class="androidOnly phoneOnly mblIdxHeadingSplitActionBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props="fixed:'bottom'"&gt;
+  &lt;span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitShareIcon'" onClick="foo()"&gt;&lt;/span&gt;
+  &lt;span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitUserIcon'" onClick="bar()"&gt;&lt;/span&gt;
+  &lt;span data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="icon:'mblDomButtonIdxHeadingSplitOverflowIcon'" onClick="baz()"&gt;&lt;/span&gt;
+&lt;/div&gt;</span></pre>		
+				<h3>Icons</h3>
+				<p>
+					The One UI IDX toolkit defines several CSS classes that are 
+					intended to be used with the 'icon' property of TabBarButtons
+					in order to set the icon for them. They are:
+					<ul>
+						<li>mblDomButtonIdxHeadingSplitOverflowIcon - Overflow</li>
+						<li>mblDomButtonIdxHeadingSplitShareIcon - Share</li>
+						<li>mblDomButtonIdxHeadingSplitUserIcon - User</li>
+					</ul>
+				</p>
+			<h2>Android spinners</h2>
+			<p>
+				Android UIs sometimes make use of a 'spinner' control in the
+				Heading that combines the view title with a small down arrow indicator and 
+				which displays a menu when clicked. This can be implemented using 
+				a dojox.mobile.ToolBarButton. The ToolBbarButton should have a 
+				class of 'mblIdxHeadingSpinner' and have its 'toggle' property set 
+				to true. If a spinner is used then the title of the Heading 
+				should be removed (set to '') as the text of the spinner 
+				substitutes for it.
+			</p>
+<pre class="code">&lt;script&gt;
+  <span class="highlitCode">var useSpinner = (dojox.mobile.currentTheme === "oneui_android");
+  if(useSpinner) {
+    registry.byId("id_heading").set("label", "");
+  }</span>
+&lt;/script&gt;	
+  ...		
+<span class="highlitCode">&lt;div id="id_heading" data-dojo-type="dojox/mobile/Heading" data-dojo-props="label:'Product name', fixed:'top'"&gt;
+  &lt;span id="id_spinner" class="androidOnly mblIdxHeadingSpinner" data-dojo-type="dojox/mobile/ToolBarButton" data-dojo-props="toggle:true"&gt;Product name&lt;/span&gt;</span>
+    ...
+&lt;/div&gt;</pre>
+		</div>
+	</div>
+</body>
+</html>

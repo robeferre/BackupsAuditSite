@@ -1,0 +1,6 @@
+/* delegate to oneui common theme */
+@import url(../../common/dojox/SimpleDialog.css);
+
+.oneui .mblSimpleDialog{
+	z-index: 99999;
+}

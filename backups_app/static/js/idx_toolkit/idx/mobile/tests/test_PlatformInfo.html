@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1,user-scalable=no"/>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	
+	<!-- The following meta tags provide hints to mobile Safari.
+		 See http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html
+		 We elect to be a web app (standalone, no browser chrome),
+		 and we request a black status bar (top bar on iPhone/iPad screen). -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	
+	<!-- The following meta tag provides hints to several mobile browsers.
+	     See https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html
+	     We enable user scaling per the One UI standard, and set the initial scale 
+	     to use device width/height based on orientation, 
+	     retaining that scale (no zoom) on orientation change. -->
+	
+	<title>One UI mobile platform information</title>
+	
+	<!-- Load deviceTheme.js here. We load this BEFORE loading dojo.js
+	     in order that the theme files are loaded before widgets initialise -->
+	<script src="../deviceTheme.js"></script>
+	
+	<!-- Load dojo.js here. We load "dojoVersion.js" which loads dojo.js
+	     via correct relative path and also sets up packages and aliases for IDX library -->
+	<script src="dojoVersion.js"></script>
+	
+	<script type="text/javascript">
+	
+		var updateBodySize = function(){}
+		var showBodyOutline = function(){}
+
+		/* NB require idx/mobile/deviceTheme instead of dojox/mobile/deviceTheme
+		   to get IDX One UI mobile themes automatically applied. */
+		require(["idx/mobile/tests/_TestUtils",
+				 "dojo/_base/array",
+		         "dojo/_base/connect",
+		         "dojo/_base/window",
+		         "dojo/dom",
+		         "dojo/dom-class",
+		         "dojo/dom-geometry",
+		         "dojo/query",
+				 "dojox/mobile",
+				 "dojox/mobile/parser",     // use lightweight parser
+				 "dojox/mobile/compat",     // enable non-WebKit compatibility
+		         "dojox/mobile/Button",
+		         "dojox/mobile/Heading",
+		         "dojox/mobile/RoundRectList",
+		         "dojox/mobile/TabBar",
+		         "dojox/mobile/TabBarButton",
+		         "dojox/mobile/View"],
+		function(tu, array, connect, dwindow, dom, domClass, domGeometry, query, mobile) {
+		
+			showBodyOutline = function(){
+				var node = dom.byId("pf_outliner");
+				node.style.display = "block";
+				setTimeout(function(){
+					node.style.display = "none";
+				}, 5000);
+			}
+		
+			var rcmarker = "pf_recentlychanged",
+				findAllRecentlyChanged = function(){
+					// add recently changed highlighting to marked nodes
+					array.forEach(query("." + rcmarker), function(node){
+						domClass.remove(node, rcmarker);
+						var rnode = node;
+						node.style.backgroundColor = "yellow";
+						setTimeout(function(){
+							rnode.style.backgroundColor = "";
+						}, 2000);
+					});
+				},
+				setIH = function(id, newvalue){
+					// set innerHTML and mark recently changed if applicable
+					var node = dom.byId(id),
+						current = node.innerHTML.replace(/<\/?span[^>]*>/gi, "").replace(/×/g, "&times;") 
+					if(current !== newvalue){
+						var start = 0, end = newvalue.length - 1, ldif = newvalue.length - current.length;
+						while((newvalue.length > start) && (current.charAt(start) === newvalue.charAt(start))){
+							start++;
+						}
+						while((end > start) && (current.charAt(end - ldif) === newvalue.charAt(end))){
+							end--;
+						}
+						node.innerHTML = newvalue.substr(0, start) + "<span class='" + rcmarker + "'>" + newvalue.substr(start, end+1-start) + "</span>" + newvalue.substr(end+1);
+					}
+				}
+ 			
+			setIH("pf_useragent", navigator.userAgent);
+ 			setIH("pf_theme", mobile.currentTheme);
+	 			
+ 			var updateBodySize = function(){
+				var ssz = mobile.getScreenSize();
+	 			setIH("pf_screensize", ssz.w + '&times;' + ssz.h);
+
+				var dsz = domGeometry.getContentBox(dwindow.body()),
+					outliner = dom.byId("pf_outliner"),
+					outliner2 = dom.byId("pf_outliner_2"),
+					outliner3 = dom.byId("pf_outliner_3");
+	 			setIH("pf_bodysize", dsz.w + '&times;' + dsz.h);
+	 			outliner.style.width = (dsz.w - 2) + "px";
+	 			outliner.style.height = (dsz.h - 2) + "px";
+	 			outliner2.style.width = (dsz.w - 4) + "px";
+	 			outliner2.style.height = (dsz.h - 4) + "px";
+	 			outliner3.style.width = (dsz.w - 8) + "px";
+	 			outliner3.style.height = (dsz.h - 8) + "px";
+	 			
+				findAllRecentlyChanged();
+	 		}
+	 		
+ 			var updateAfterResize = function(){
+	 			var classes = dwindow.doc.documentElement.className.split(" ");
+	 			setIH("pf_classes", classes.join(", "));
+	 			
+				updateBodySize();
+	 		}
+	 		
+	 		updateAfterResize();
+	 		connect.subscribe("/dojox/mobile/afterResizeAll", updateAfterResize);
+		});
+ 			
+	</script>
+	
+	<style>
+	
+		ul {
+			list-style-type: none;
+		}
+	
+		.pf_fieldheading {
+			font-size: 0.7em;
+			display: inline-block;
+			/*float: left;*/
+			width: 9em;
+			vertical-align: text-top;
+		}
+	
+		.pf_fieldprompt {
+			font-size: 0.7em;
+			font-weight: 600;
+			display: inline-block;
+			/*float: left;*/
+			width: 9em;
+			vertical-align: text-top;
+		}
+	
+		.pf_fieldvalue {
+			font-size: 0.7em;
+			display: inline-block;
+			/*width: 9em;*/
+			vertical-align: text-top;
+		}
+	
+		.pf_renderdisplay {
+			display: inline-block;
+			vertical-align: text-top;
+			padding: 1px 3px;
+			background-color: white;
+			border: 1px solid #ddd;
+			margin: 2px 0;
+		}
+	
+	</style>
+ 
+</head>
+<body>
+	<div id="pf_outliner" style="position: absolute; left: 0px; right: auto; top: 0px; bottom: auto; width: 0px; height: 0px; z-index: 99; display: none; border: 1px dashed rgba(255, 0, 0, 0.9);">
+		<div style="position: absolute; left: 0px; top: 0px; width: 10px; height: 10px; border-right: 1px solid rgba(255, 0, 0, 0.9); border-bottom: 1px solid rgba(255, 0, 0, 0.9);"></div>
+		<div style="position: absolute; left: 0px; bottom: 0px; width: 10px; height: 10px; border-right: 1px solid rgba(255, 0, 0, 0.9); border-top: 1px solid rgba(255, 0, 0, 0.9);"></div>
+		<div style="position: absolute; right: 0px; top: 0px; width: 10px; height: 10px; border-left: 1px solid rgba(255, 0, 0, 0.9); border-bottom: 1px solid rgba(255, 0, 0, 0.9);"></div>
+		<div style="position: absolute; right: 0px; bottom: 0px; width: 10px; height: 10px; border-left: 1px solid rgba(255, 0, 0, 0.9); border-top: 1px solid rgba(255, 0, 0, 0.9);"></div>
+		<div id="pf_outliner_2" style="width: 100%; height: 100%; border: 1px solid rgba(255, 255, 255, 0.95);">
+			<div id="pf_outliner_3" style="width: 100%; height: 100%; border: 1px solid rgba(255, 255, 0, 0.9); background-image: -webkit-radial-gradient(ellipse, rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0.5));">
+			</div>
+		</div>
+	</div>
+	<div data-dojo-type="dojox/mobile/View" data-dojo-props="selected: true">
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'Platform information'">
+		</div>
+
+		<ul data-dojo-type="dojox/mobile/TabBar" data-dojo-props="barType: 'standardTab', syncWithViews: true">
+		  <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="moveTo: 'v_device'">Device</li>
+		  <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="moveTo: 'v_render'">Rendering</li>
+		  <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props="moveTo: 'v_user'">User</li>
+		</ul>
+
+		<div id="v_device" data-dojo-type="dojox/mobile/View" data-dojo-props="selected: true">
+			<ul data-dojo-type="dojox/mobile/RoundRect">
+				<li><span class="pf_fieldprompt">Screen size:</span><span class="pf_fieldvalue" id="pf_screensize"></span></li>
+				<li>
+					<span class="pf_fieldprompt">Body size:</span><span class="pf_fieldvalue" id="pf_bodysize"></span>
+					<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Refresh', onClick: function(e){ updateBodySize(); return true; }"></button>
+					<button data-dojo-type="dojox/mobile/Button" data-dojo-props="label: 'Show', onClick: function(e){ showBodyOutline(); return true; }"></button>
+				</li>
+			</ul>
+			<ul data-dojo-type="dojox/mobile/RoundRect">
+		 		<li><span class="pf_fieldprompt">Theme:</span><span class="pf_fieldvalue" id="pf_theme"></span></li>
+				<li><span class="pf_fieldprompt">Marker classes:</span><span class="pf_fieldvalue" id="pf_classes"></span></li>
+			</ul>
+		</div>
+		
+		<div id="v_render" data-dojo-type="dojox/mobile/View">
+			<ul data-dojo-type="dojox/mobile/RoundRect">
+				<li><span class="pf_fieldheading">Viewport pixels</span><span class="pf_fieldvalue">Sample lines</span></li>
+				<li>
+					<span class="pf_fieldprompt">4px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 4px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 4px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 4px;"></div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">2px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 2px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 2px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 2px;"></div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">1.5px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 1.5px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 1.5px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 1.5px;"></div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">1px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 1px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 1px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 1px;"></div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">0.8px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 0.8px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 0.8px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 0.8px;"></div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">0.5px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 0.8px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 0.5px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 0.5px;"></div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">0.1px</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; width: 20px; height: 0; vertical-align: middle; border-top: 0.1px solid blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 0.1px; vertical-align: middle; background-color: blue;"></div>
+						<div style="display: inline-block; width: 20px; height: 8px; vertical-align: middle; border-top: 1px solid blue; border-left: 1px solid blue; border-top-left-radius: 0.1px;"></div>
+					</div>
+				</li>
+			</ul>
+			<ul data-dojo-type="dojox/mobile/RoundRect">
+				<li><span class="pf_fieldheading">Image size</span><span class="pf_fieldvalue"">32&times;32 icons</span></li>
+				<li>
+					<span class="pf_fieldprompt">16&times;16</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; margin: 2px 0; padding: 1px; border: 1px solid gray; background-color: white;">
+							<div style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; background-image: url(images/smiley_16.png); background-size: 100% 100%;"></div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">32&times;32</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; margin: 2px 0; padding: 1px; border: 1px solid gray; background-color: white;">
+							<div style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; background-image: url(images/smiley_32.png); background-size: 100% 100%;"></div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">64&times;64</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; margin: 2px 0; padding: 1px; border: 1px solid gray; background-color: white;">
+							<div style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; background-image: url(images/smiley_64.png); background-size: 100% 100%;"></div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<span class="pf_fieldprompt">128&times;128</span>
+					<div class="pf_renderdisplay">
+						<div style="display: inline-block; margin: 2px 0; padding: 1px; border: 1px solid gray; background-color: white;">
+							<div style="display: inline-block; width: 32px; height: 32px; vertical-align: middle; background-image: url(images/smiley_128.png); background-size: 100% 100%;"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		 
+		<div id="v_user" data-dojo-type="dojox/mobile/View">
+			<ul data-dojo-type="dojox/mobile/RoundRect">
+				<li><span class="pf_fieldprompt">User agent:</span><span class="pf_fieldvalue" id="pf_useragent"></span></li>
+			</ul>
+		</div>
+		
+	</div>
+	
+</body>
+</html>

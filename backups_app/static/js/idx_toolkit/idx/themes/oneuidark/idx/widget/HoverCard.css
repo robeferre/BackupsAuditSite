@@ -1,0 +1,86 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxOneuiHoverCard,.oneui.dark .idxOneuiHoverCardDialog {
+/* the outermost dom node, holding the connector and container */
+	background:transparent;
+/* make the area on the sides of the arrow transparent */
+}
+
+.oneui.dark .idxOneuiHoverCardCloseIcon {
+	background-image:url(images/popupClose.png);
+}
+
+.oneui.dark .idxOneuiHoverCardGrip {
+	background:transparent url(images/hoverCardDragHandle.png) no-repeat left center;
+}
+
+.oneui.dark .idxOneuiHoverCardGripActive {
+	background:transparent url(images/hoverCardDragHandleOnClick.png) no-repeat left center;
+}
+
+.oneui.dark .idxOneuiHoverCardGripHover {
+	background:transparent url(images/hoverCardDragHandleOnClick.png) no-repeat left center;
+}
+
+.oneui.dark .idxOneuiHoverCardBody {
+	border-color:#555;
+	-webkit-box-shadow:1px 0 6px rgba(85,85,85,0.25);
+	-moz-box-shadow:1px 0 6px rgba(85,85,85,0.25);
+	box-shadow:1px 0 6px rgba(85,85,85,0.25);
+	background-color:#343434;
+}
+
+.oneui.dark .idxPreviewTitle,.oneui.dark .idxOneuiHoverCardContainer .idxPersonCardFn {
+	color:#078dc1;
+}
+
+.oneui.dark .idxPreviewContent {
+	color:#eee;
+}
+
+.oneui.dark .idxPreviewImg {
+	background-color:#343434;
+	border-color:#555;
+}
+
+.oneui.dark .idxPreviewImg img,.oneui.dark .idxOneuiHoverCardContainer .idxPersonCardPhoto img {
+	border-color:#ccc;
+}
+
+.oneui.dark .idxOneuiHoverCardFooter {
+	border-top-color:#555;
+}
+
+.oneui.dark .idxOneuiHoverCardConnector {
+/* the arrow piece */
+	background-image:url(images/popupSharkfin.png);
+	background-repeat:no-repeat;
+}
+
+.dj_ie6 .oneui.dark .idxOneuiHoverCardConnector {
+	background-image:url(images/popupSharkfin8bit.gif);
+}
+
+.oneui.dark .idxOneuiHoverCardBelow .idxOneuiHoverCardConnector {
+/* the arrow piece for tooltips below an element */
+	background-position:-18px 0;
+}
+
+.oneui.dark .idxOneuiHoverCardAbove .idxOneuiHoverCardConnector {
+/* the arrow piece for tooltips above an element */
+	background-position:0 0;
+}
+
+.oneui.dark .idxOneuiHoverCardLeft .idxOneuiHoverCardConnector {
+/* the arrow piece for tooltips to the left of an element, bottom borders aligned */
+	background-position:-36px 0;
+}
+
+.oneui.dark .idxOneuiHoverCardActionIcons .placeHolderIcon {
+	background-image:url(images/hoverActionIconPlaceholder.png);
+	background-repeat:no-repeat;
+}

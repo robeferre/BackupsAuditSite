@@ -1,0 +1,59 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/** idxHeaderSecondary **/
+.dijitRtl .oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderLogo {
+	background:url(images/headerLogo.png) no-repeat 65% 23%;
+}
+
+.dijitRtl .oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #065b87 inset,0 1px #065b87 inset,-1px 0 #065b87;
+	-moz-box-shadow:-1px 0 #065b87 inset,0 1px #065b87 inset,-1px 0 #065b87;
+	box-shadow:-1px 0 #065b87 inset,0 1px #065b87 inset,-1px 0 #065b87;
+}
+
+.dijitRtl .oneui.dark .idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #065b87 inset,-1px 0 #065b87;
+	-moz-box-shadow:-1px 0 #065b87 inset,-1px 0 #065b87;
+	box-shadow:-1px 0 #065b87 inset,-1px 0 #065b87;
+}
+
+.dijitRtl .oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #d2d2d2 inset,0 1px #d2d2d2 inset,-1px 0 #d2d2d2;
+	-moz-box-shadow:-1px 0 #d2d2d2 inset,0 1px #d2d2d2 inset,-1px 0 #d2d2d2;
+	box-shadow:-1px 0 #d2d2d2 inset,0 1px #d2d2d2 inset,-1px 0 #d2d2d2;
+}
+
+.dijitRtl .oneui.dark .idxHeaderSecondaryGray.idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #d2d2d2,-1px 0 #d2d2d2 inset;
+	-moz-box-shadow:-1px 0 #d2d2d2,-1px 0 #d2d2d2 inset;
+	box-shadow:-1px 0 #d2d2d2,-1px 0 #d2d2d2 inset;
+}
+
+.dijitRtl .oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	padding:0 16px 0x 11px;
+	-webkit-box-shadow:-1px 0 #065b87 inset,-1px 0 #065b87,0 1px #065b87 inset;
+	-moz-box-shadow:-1px 0 #065b87 inset,-1px 0 #065b87,0 1px #065b87 inset;
+	box-shadow:-1px 0 #065b87 inset,-1px 0 #065b87,0 1px #065b87 inset;
+}
+
+.dijitRtl .oneui.dark .idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #065b87,-1px 0 #065b87 inset;
+	-moz-box-shadow:-1px 0 #065b87,-1px 0 #065b87 inset;
+	box-shadow:-1px 0 #065b87,-1px 0 #065b87 inset;
+}
+
+.dijitRtl .oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #d2d2d2 inset,-1px 0 #d2d2d2,0 1px #d2d2d2 inset;
+	-moz-box-shadow:-1px 0 #d2d2d2 inset,-1px 0 #d2d2d2,0 1px #d2d2d2 inset;
+	box-shadow:-1px 0 #d2d2d2 inset,-1px 0 #d2d2d2,0 1px #d2d2d2 inset;
+}
+
+.dijitRtl .oneui.dark .idxHeaderSecondaryGray.idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	-webkit-box-shadow:-1px 0 #d2d2d2,-1px 0 #d2d2d2 inset;
+	-moz-box-shadow:-1px 0 #d2d2d2,-1px 0 #d2d2d2 inset;
+	box-shadow:-1px 0 #d2d2d2,-1px 0 #d2d2d2 inset;
+}

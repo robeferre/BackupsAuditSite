@@ -1,0 +1,105 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* dojox.mobile.Button */
+
+/* Reset common styles. */
+.oneui .mblButton {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblButton {
+	margin: 0 2px;
+	padding:0 10px;
+	height:34px;
+	border:1px solid silver;
+	border-radius:3px;
+	background-color: #dbdbdb;
+	background-image:-webkit-gradient(linear,center top,center bottom,from(#f4f4f4),to(#dbdbdb));
+	background-image:-webkit-linear-gradient(top,#f4f4f4 0%,#dbdbdb 100%);
+	box-shadow:0 1px 1px rgba(0,0,0,0.15);
+	color:#222;
+	text-shadow:0 1px 0 #fff;
+	font-weight:700;
+	font-size:13px;
+	font-family: inherit;
+	line-height:30px;
+	outline: none;
+	cursor:pointer;
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+.oneui .mblSecondaryButton {
+	font-weight:400;
+}
+
+.oneui .mblDarkButton {
+	border-color:#777;
+	background-color: #222;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#343434),to(#222));
+	color:#ccc;
+	text-shadow:0 1px 1px rgba(0,0,0,.35);
+}
+
+.oneui .mblButtonSelected {
+	border-color:#bbb;
+	background-color: #f4f4f4;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#dbdbdb),to(#f4f4f4));
+	box-shadow:inset 0 3px 8px rgba(0,0,0,0.13);
+	color:#515151;
+}
+
+.oneui .mblButtonDisabled,
+.oneui .mblButton:disabled {
+	color:#aaa;
+	cursor:default;
+}
+
+.oneui .mblDarkButtonSelected {
+	background-color: #343434;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#222),to(#343434));
+	box-shadow:inset 0 3px 8px rgba(0,0,0,0.13);
+}
+
+.oneui .mblDarkButton:disabled {
+	color:#777;
+}
+
+.oneui .mblBlueButton,
+.oneui .mblSpecialButton {
+	border-color:#014e74;
+	background-color: #085884;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#008abf),to(#085884));
+	box-shadow:0 1px 0 rgba(0,0,0,0.5);
+	color:#fff;
+	text-shadow:0 1px 1px rgba(0,0,0,.35);
+	font-weight:700;
+}
+
+.oneui .mblBlueButtonSelected,
+.oneui .mblSpecialButtonSelected {
+	background-color: #008abf;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#085884),to(#008abf));
+	box-shadow:inset 0 3px 8px rgba(0,0,0,0.13);
+}
+
+.oneui .mblBlueButton:disabled,
+.oneui .mblSpecialButton:disabled {
+	color:#b6d4e3;
+	cursor:default;
+}

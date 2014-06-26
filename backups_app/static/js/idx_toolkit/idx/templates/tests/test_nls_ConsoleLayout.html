@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/ConsoleLayout</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+
+.oneui div.idxAppMarqueeBody > span {
+	color: #FFFFFF;
+}
+</style>
+<script type="text/javascript" id="postDojo">
+require(["idx/templates/ConsoleLayout"]);
+
+var testOnLogout = function(){
+	if(this.username == "quest"){
+		this.set("username", "username");
+		this.logoutNode.set("label", this.msg.logout);
+	}else{
+		this.set("username", "quest");
+		this.logoutNode.set("label", this.msg.login);
+	}
+};
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">templates/nls/ConsoleLayout</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>userNameMessage</td><td>
+		Verify that the welcome message is translated, except the user name, "username".
+	</td></tr>
+	<tr><td>about</td><td>
+		Verify that the "About" link is translated.
+	</td></tr>
+	<tr><td>help</td><td>
+		Verify that the "Help" link is translated.
+	</td></tr>
+	<tr><td>logout</td><td>
+		Verify that the "Log out" link is translated. 
+	</td></tr>
+	<tr><td>login</td><td>
+		Click the "Log out" link to change it to the "Log in" link.<br/><br/>
+		Verify that the "Log in" link is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div data-dojo-type="idx.templates.ConsoleLayout" data-dojo-props="href: 'data/empty.json', username: 'username', onLogout: testOnLogout" style="height: 100px;"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx OneUI Theme Test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src='support/common.js'></script>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "../../tests/test.css";
+		@import "support/common.css";
+		.gridx {
+			width: 500px;
+			height: 300px;
+		}
+	</style>
+	<script type="text/javascript">
+		require([
+			'dojo/parser',
+			'idx/gridx/tests/support/data/ComputerData',
+			'idx/gridx/tests/support/stores/Memory',
+			'dijit/form/Button',
+			'gridx/Grid',
+			'gridx/core/model/cache/Async',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/ColumnLock',
+			'gridx/modules/RowHeader',
+			'gridx/modules/IndirectSelect',
+			'dojo/domReady!'
+		], function(parser, dataSource, storeFactory, Button){
+			store = storeFactory({
+				dataSource: dataSource,
+				size: 100
+			});
+			
+			layout = dataSource.layouts[0];
+			parser.parse();
+		});
+	</script>
+</head>
+<body class='oneui'>
+	<h1>Gridx OneUI Theme Test</h1>
+		
+	<h2>IndirectSelect Grid</h2>
+	<div id="rowHeaderGridx" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store,
+		structure: layout,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/ColumnResizer',
+			'gridx/modules/extendedSelect/Row',
+			'gridx/modules/RowHeader',
+			'gridx/modules/IndirectSelect'
+		]
+	">
+	</div>
+	
+</body>
+</html>

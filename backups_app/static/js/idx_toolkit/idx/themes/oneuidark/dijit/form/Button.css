@@ -1,0 +1,258 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Button | DropDownButton | ComboButton | ToggleButton
+ * 
+ * Styling Buttons mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitButton
+ * 		.dijitDropDownButton
+ * 		.dijitComboButton
+ * 		.dijitButtonNode - common button/arrow wrapper shared across all three button types 
+ *
+ * 2. Button text
+ * 		.dijitButtonText
+ * 
+ * 3. Arrows - only for DropDownButton and ComboButton
+ * 	     There are total four directions arrows - down, left, right, up:
+ * 		.dijitArrowButtonInner - down arrow by default
+ *      .dijitLeftArrowButton .dijitArrowButtonInner - left arrow
+ *      .dijitRightArrowButton .dijitArrowButtonInner - right arrow
+ *      .dijitUpArrowButton .dijitArrowButtonInner - up arrow
+ * 
+ * 4. States - Hover, Active, Disabled, e.g.
+ * 		.dijitButtonHover .dijitButtonNode
+ * 		.dijitButtonActive .dijitButtonNode
+ * 		.dijitButtonDisabled .dijitButtonNode
+ *      
+ *      .dijitDisabled .dijitArrowButtonInner  - disabled arrow states 
+ */
+.oneui.dark .dijitButton .dijitButtonNode,.oneui.dark .dijitDropDownButton .dijitButtonNode,.oneui.dark .dijitComboButton .dijitButtonNode,.oneui.dark .dijitToggleButton .dijitButtonNode {
+/* rules for the dijit.form.*Button widgets (see also ComboButton section below) */
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#777,#222);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#777),to(#222));
+	background-image:-webkit-linear-gradient(top,#777 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#777 0%,#222 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#777 0%,#222 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#777 0%,#222 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#e4e4e4', endColorstr='#ababab'); 
+	*/
+	border-color:#111;
+	-webkit-box-shadow:1px 1px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:1px 1px 1px rgba(0,0,0,0.25);
+	box-shadow:1px 1px 1px rgba(0,0,0,0.25);
+	color:#eee;
+	text-shadow:0 1px 0 #000;
+}
+/*arrow styles for down/up/left/right directions*/
+.oneui.dark .dijitArrowButtonInner {
+	background-image:url(images/buttonArrows.png);
+	background-repeat:no-repeat;
+	background-position:-152px 0;
+}
+
+.dj_ie6 .oneui.dark .dijitArrowButtonInner {
+	background-image:url(images/buttonArrows8bit.png);
+}
+
+.oneui.dark .dijitDisabled .dijitArrowButtonInner {
+	background-position:-151px 0;
+}
+
+.oneui.dark .dijitComboButtonHover .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonHover .dijitArrowButtonInner,.oneui.dark .dijitComboButtonActive .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonActive .dijitArrowButtonInner {
+	background-position:-52px -0;
+}
+
+/*left*/
+.oneui.dark .dijitLeftArrowButton .dijitArrowButtonInner {
+	background-position:-176px -1px;
+}
+
+.oneui.dark .dijitDisabled .dijitLeftArrowButton .dijitArrowButtonInner {
+	background-position:-176px -1px;
+}
+
+.oneui.dark .dijitComboButtonHover .dijitLeftArrowButton .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonHover .dijitLeftArrowButton .dijitArrowButtonInner,.oneui.dark .dijitComboButtonActive .dijitLeftArrowButton .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonActive .dijitLeftArrowButton .dijitArrowButtonInner {
+	background-position:-76px -1px;
+}
+
+/*right*/
+.oneui.dark .dijitRightArrowButton .dijitArrowButtonInner {
+	background-position:-125px -1px;
+}
+
+.oneui.dark .dijitDisabled .dijitRightArrowButton .dijitArrowButtonInner {
+	background-position:-125px -1px;
+}
+
+.oneui.dark .dijitComboButtonHover .dijitRightArrowButton .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonHover .dijitRightArrowButton .dijitArrowButtonInner,.oneui.dark .dijitComboButtonActive .dijitRightArrowButton .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonActive .dijitRightArrowButton .dijitArrowButtonInner {
+	background-position:-25px -1px;
+}
+
+/*up*/
+.oneui.dark .dijitUpArrowButton .dijitArrowButtonInner {
+	background-position:-100px -2px;
+}
+
+.oneui.dark .dijitDisabled .dijitUpArrowButton .dijitArrowButtonInner {
+	background-position:-100px -2px;
+}
+
+.oneui.dark .dijitComboButtonHover .dijitUpArrowButton .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonHover .dijitUpArrowButton .dijitArrowButtonInner,.oneui.dark .dijitComboButtonActive .dijitUpArrowButton .dijitArrowButtonInner,.oneui.dark .dijitDropDownButtonActive .dijitUpArrowButton .dijitArrowButtonInner {
+	background-position:0 -2px;
+}
+
+/*arrow finish*/
+.oneui.dark .dijitButtonFocused .dijitButtonNode,.oneui.dark .dijitDropDownButtonFocused .dijitButtonNode,.oneui.dark .dijitToggleButtonFocused .dijitButtonNode {
+	outline-color: #000;
+/*outline: 1px dotted rgba(0, 0, 0, 0.5);*/
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+
+/* hover status */
+.oneui.dark .dijitButtonHover .dijitButtonNode,.oneui.dark .dijitDropDownButtonHover .dijitButtonNode,.oneui.dark .dijitComboButtonHover .dijitButtonNodeHover,.oneui.dark .dijitComboButtonHover .dijitDownArrowButtonHover,.oneui.dark .dijitToggleButtonHover .dijitButtonNode {
+	background-color:#888;
+	background-image:-moz-linear-gradient(top,#999,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#999),to(#333));
+	background-image:-webkit-linear-gradient(top,#999 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#999 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#999 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#999 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#efefef', endColorstr='#9f9f9f'); 
+	*/
+}
+
+/* active status */
+.oneui.dark .dijitButtonActive .dijitButtonNode,.oneui.dark .dijitDropDownButtonActive .dijitButtonNode,.oneui.dark .dijitComboButtonActive .dijitButtonNodeActive,.oneui.dark .dijitComboButtonActive .dijitDownArrowButtonActive,.oneui.dark .dijitToggleButtonActive .dijitButtonNode {
+	background-color:#333;
+	background-image:-moz-linear-gradient(top,#333,#bbb);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#333),to(#bbb));
+	background-image:-webkit-linear-gradient(top,#333 0%,#bbb 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#333 0%,#bbb 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#333 0%,#bbb 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#333 0%,#bbb 100%);
+/* W3C */
+	-webkit-box-shadow:1px 1px 1px rgba(0,0,0,0.25) inset;
+	-moz-box-shadow:1px 1px 1px rgba(0,0,0,0.25) inset;
+	box-shadow:1px 1px 1px rgba(0,0,0,0.25) inset;
+	box-shadow:0 1px 1px rgba(0,0,0,0.1) inset;
+	color:#ccc;
+	outline:none;
+}
+
+.dj_opera .oneui.dark .dijitButtonActive .dijitButtonNode,.dj_opera .oneui.dark .dijitDropDownButtonActive .dijitButtonNode,.dj_opera .oneui.dark .dijitComboButtonActive .dijitButtonNodeActive,.dj_opera .oneui.dark .dijitComboButtonActive .dijitDownArrowButtonActive,.dj_opera .oneui.dark .dijitToggleButtonActive .dijitButtonNode {
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow:0 1px 1px rgba(0,0,0,0.1);
+	box-shadow:0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* disabled status */
+.oneui.dark .dijitButtonDisabled,.oneui.dark .dijitDropDownButtonDisabled,.oneui.dark .dijitComboButtonDisabled,.oneui.dark .dijitToggleButtonDisabled {
+	background-image:none;
+	outline:none;
+}
+
+.oneui.dark .dijitButtonDisabled .dijitButtonNode,.oneui.dark .dijitDropDownButtonDisabled .dijitButtonNode,.oneui.dark .dijitComboButtonDisabled .dijitButtonNode,.oneui.dark .dijitToggleButtonDisabled .dijitButtonNode {
+	color:#ddd;
+}
+
+.dj_ie .oneui.dark .dijitButtonDisabled .dijitButtonNode,.dj_ie .oneui.dark .dijitDropDownButtonDisabled .dijitButtonNode,.dj_ie .oneui.dark .dijitComboButtonDisabled .dijitButtonNode,.dj_ie .oneui.dark .dijitToggleButtonDisabled .dijitButtonNode {
+	color:#ddd;
+}
+.dj_ie6 .oneui.dark .dijitButtonNode {
+	background-image:none;
+}
+.oneui.dark .dijitComboButtonHover .dijitButtonNodeHover,.oneui.dark .dijitComboButtonHover .dijitDownArrowButtonHover {
+	background-color:#444;
+	background-image:-moz-linear-gradient(top,#999,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#999),to(#333));
+	background-image:-webkit-linear-gradient(top,#999 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#999 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#999 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#999 0%,#333 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#efefef', endColorstr='#9f9f9f'); 
+	*/
+}
+
+.oneui.dark .dijitDropDownButtonDisabled .dijitButtonNode,.oneui.dark .dijitComboButtonDisabled .dijitButtonNode {
+	background-color:#555;
+	color:#ddd;
+}
+
+/* Toggle Button */
+.oneui.dark .dijitToggleButton .dijitButtonNode .dijitCheckBoxIcon {
+	background-image:url(images/buttonToggle.png);
+}
+
+.dj_ie6 .oneui.dark .dijitToggleButton .dijitButtonNode .dijitCheckBoxIcon {
+	background-image:url(images/buttonToggle8bit.png);
+}
+
+.oneui.dark .dijitToggleButton .dijitButtonNode .dijitCheckBoxIcon {
+/*background-position: -16px 50%;*/
+	background-position:-1px -1px;
+}
+
+.oneui.dark .dijitToggleButtonHover .dijitButtonNode .dijitCheckBoxIcon {
+/*background-position: -16px 50%;*/
+	background-position:-1px -1px;
+}
+
+.oneui.dark .dijitToggleButtonActive .dijitButtonNode .dijitCheckBoxIcon {
+	background-position:-1px -217px;
+}
+
+.oneui.dark .dijitToggleButtonChecked .dijitButtonNode .dijitCheckBoxIcon {
+	background-position:-1px -433px;
+}
+
+.oneui.dark .dijitToggleButtonCheckedHover .dijitButtonNode .dijitCheckBoxIcon {
+	background-position:-1px -433px;
+}
+
+.oneui.dark .dijitToggleButtonCheckedActive .dijitButtonNode .dijitCheckBoxIcon {
+	background-position:-1px -433px;
+}
+
+.oneui.dark .dijitToggleButtonDisabled .dijitButtonNode .dijitCheckBoxIcon {
+	background-position:-1px -1px;
+}
+
+/* a11y */
+.dijit_a11y .dijitButtonNode {
+	background:transparent none repeat scroll 0 0;
+}
+
+.dijit_a11y .dijitButtonFocused .dijitButtonContents,.dijit_a11y .dijitDropDownButtonFocused .dijitButtonContents,.dijit_a11y .dijitToggleButtonFocused .dijitButtonContents {
+	outline-color: #000!important;
+/*outline: 1px dotted rgba(0, 0, 0, 0.5) !important;*/
+}
+
+.dijit_a11y .dijitButtonFocused .dijitButtonNode,.dijit_a11y .dijitDropDownButtonFocused .dijitButtonNode,.dijit_a11y .dijitToggleButtonFocused .dijitButtonNode {
+	outline:none!important;
+}

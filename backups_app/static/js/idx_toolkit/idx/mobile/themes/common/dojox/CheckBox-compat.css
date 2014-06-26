@@ -1,0 +1,24 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.CheckBox */
+
+.oneui .mblCheckBox {
+	background-image: -moz-linear-gradient(top, #d6d6d6, #fbfbfb);
+	background-image: linear-gradient(to bottom, #d6d6d6, #fbfbfb);
+	-moz-appearance: none;
+}
+
+.oneui .mblCheckBoxChecked,
+.oneui .mblCheckBox:checked {
+	background-image: -moz-linear-gradient(top, #d4d4d4, #fdfdfd);
+	background-image: linear-gradient(to bottom, #d4d4d4, #fdfdfd);
+}
+
+.oneui.dj_ie .mblCheckBox {
+	border: none;
+}	

@@ -1,0 +1,81 @@
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .dijitSpinner{
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	padding:0px;
+	height: 30px;
+	color: #222;
+	font-size: 13px;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .dijitSpinner .idxTextBoxInput{
+	padding: 2px 0;
+	right: 0;
+	left:0;
+	text-align: center;
+	border: none;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .dijitSpinner .idxSpinnerContainer{
+	height: 30px;
+	position: absolute;
+	left: 32px;
+	right: 32px;
+	overflow:hidden;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrapError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrapFocused .idxCompositeHelpContainer{
+	/*display: block;*/
+	opacity:1;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrapError .idxCompositeHelpContainer{
+	opacity:0;
+	z-index:0;
+}
+
+.oneui .idxPlatform_mobile .dijitUpArrowButton,
+.oneui .idxPlatform_mobile .dijitDownArrowButton{
+	height: 18px;
+	width: 18px;
+	font-size: 18px;
+	background-image: -webkit-linear-gradient(top, #f4f4f4 0%,#dbdbdb 100%);
+	background-image: -moz-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+	background-image: linear-gradient(to bottom, #f4f4f4 0%, #dbdbdb 100%);
+}
+.oneui .idxPlatform_mobile .dijitUpArrowButton{
+	border-right: 1px solid #aaa;
+	padding: 4px 3px 8px 9px;
+}
+.oneui .idxPlatform_mobile .dijitDownArrowButton{
+	border-left: 1px solid #aaa;
+	padding: 3px 0px 9px 12px;
+	float: right;
+}
+.oneui .idxPlatform_mobile .dijitUpArrowButtonActive,
+.oneui .idxPlatform_mobile .dijitDownArrowButtonActive{
+	background-image: -webkit-gradient(linear, left top, left bottom,from(#dbdbdb),to(#f4f4f4));
+	background-image: -moz-linear-gradient(top, #dbdbdb 0%, #f4f4f4 100%);
+	box-shadow: inset 0 3px 8px rgba(0,0,0,0.13);
+}
+.oneui .idxPlatform_mobile .dijitUpArrowButton span, 
+.oneui .idxPlatform_mobile .dijitDownArrowButton span{
+	font-size: 18px;
+}
+
+
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxCompositeHelpContainer:after, 
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxCompositeHelpContainer:before,
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxValidationContainer:before,
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxValidationContainer:after
+ {
+	left: 50%;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxCompositeHelpContainer:after {
+	margin-left: -5px;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxCompositeHelpContainer:before {
+	margin-left: -6px;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxValidationContainer:after{
+	margin-left: -6px;
+}
+.oneui .idxPlatform_mobile.idxNumberSpinnerWrap .idxValidationContainer:before{
+	margin-left: -8px;
+}

@@ -1,0 +1,114 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxMessageIcon,.oneui.dark .idxMessageCloseIcon {
+	background-repeat:no-repeat;
+}
+
+.oneui.dark .idxMessageIcon {
+	background-image:url(images/msgIcons_24bit.png);
+}
+
+.dj_ie6 .oneui.dark .idxMessageIcon {
+	background-image:url(images/msgIcons_8bit.png);
+}
+.oneui.dark .successMessage .idxMessageIcon {
+	background-position:-55px -1px;
+}
+
+.oneui.dark .successMessage {
+/* green */
+	background:#0c4e32;
+	border-color:#537a23;
+	border-color:rgba(83,122,35,0.75);
+}
+
+.oneui.dark .warningMessage .idxMessageIcon {
+	background-position:-19px -1px;
+}
+
+.oneui.dark .warningMessage {
+/* yellow */
+	background:#906011;
+	border-color:#917c2a;
+	border-color:rgba(145,124,42,0.75);
+}
+
+.oneui.dark .errorMessage .idxMessageIcon {
+	background-position:-1px -1px;
+}
+
+.oneui.dark .errorMessage {
+/* red */
+	background:#671920;
+	border-color:#a22d26;
+	border-color:rgba(162,45,38,0.75);
+}
+
+.oneui.dark .informationMessage .idxMessageIcon {
+	background-position:-73px -1px;
+}
+
+.oneui.dark .informationMessage {
+/* blue */
+	background:#0c3859;
+	border-color:#0c678a;
+	border-color:rgba(12,103,138,0.75);
+}
+
+.oneui.dark .criticalMessage .idxMessageIcon,.oneui.dark .attentionMessage .idxMessageIcon,.oneui.dark .complianceMessage .idxMessageIcon {
+	background-image:url(images/alertIcons_24bit.png);
+}
+
+.dj_ie6 .oneui.dark .criticalMessage .idxMessageIcon,.dj_ie6 .oneui.dark .attentionMessage .idxMessageIcon,.dj_ie6 .oneui.dark .complianceMessage .idxMessageIcon {
+	background-image:url(images/alertIcons_8bit.png);
+}
+
+.oneui.dark .criticalMessage .idxMessageIcon {
+	background-position:0 0;
+}
+
+.oneui.dark .criticalMessage {
+/* red */
+	background:#671920;
+	border-color:#a22d26;
+	border-color:rgba(162,45,38,0.75);
+}
+
+.oneui.dark .attentionMessage .idxMessageIcon {
+	background-position:-37px 0;
+}
+
+.oneui.dark .attentionMessage {
+/* yellow */
+	background:#906011;
+	border-color:#917c2a;
+	border-color:rgba(145,124,42,0.75);
+}
+
+.oneui.dark .complianceMessage .idxMessageIcon {
+	background-position:-55px 0;
+}
+
+.oneui.dark .complianceMessage {
+/* green */
+	background:#0c4e32;
+	border-color:#537a23;
+	border-color:rgba(83,122,35,0.75);
+}
+
+.oneui.dark .idxMessageCloseIcon {
+	background-image:url(../app/images/headerIcons.png);
+	background-position:-191px -5px;
+}
+
+.oneui.dark .idxMessageCloseIcon:hover {
+	background-position:-214px -5px;
+}
+
+.oneui.dark .idxMessageSplitter {
+	border-bottom-color: #343434;
+}

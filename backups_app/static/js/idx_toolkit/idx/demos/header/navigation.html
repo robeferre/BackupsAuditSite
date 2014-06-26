@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+	<title>Demo</title>
+	
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+    <style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+        @import "../demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dojo.dom-class",
+			"dijit.registry",
+			"idx.widget.MenuBar",
+			"dijit.MenuBarItem",
+			"dijit.layout.StackContainer",
+			"dijit.layout.ContentPane",
+			"idx.app.Header"];
+				 
+		var domclass, registry;
+			
+		function preParse(modules){
+			domclass = modules["dojo/dom-class"];
+			registry = modules["dijit/registry"];
+		}
+			
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, null);
+		
+		var content_1 = function(){
+			domclass.add(registry.byId("id_navigation_content_1").domNode, "idxHeaderNavCurrentPage");
+			domclass.remove(registry.byId("id_navigation_content_2").domNode, "idxHeaderNavCurrentPage");
+			registry.byId("id_content").selectChild("id_content_1");
+		}
+				 
+		var content_2 = function(){
+			domclass.remove(registry.byId("id_navigation_content_1").domNode, "idxHeaderNavCurrentPage");
+			domclass.add(registry.byId("id_navigation_content_2").domNode, "idxHeaderNavCurrentPage");
+			registry.byId("id_content").selectChild("id_content_2");
+		}
+		
+		var page_b = function(){
+			window.location.href = "navigation_b.html";
+		}
+				 
+	</script>
+
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>	
+</head>
+<body role="main" class="oneui">
+
+	<div data-dojo-type="idx/widget/MenuBar" id="id_navigation">
+		<div data-dojo-type="dijit/MenuBarItem" data-dojo-props="currentPage: true" id="id_navigation_content_1" onclick="content_1(); return false;">Content tab 1</div>
+		<div data-dojo-type="dijit/MenuBarItem" id="id_navigation_content_2" onclick="content_2(); return false;">Content tab 2</div>
+		<div data-dojo-type="dijit/MenuBarItem" id="id_navigation_page_b" onclick="page_b(); return false;">Page B</div>
+	</div>
+
+	<div data-dojo-type="idx/app/Header" data-dojo-props="primaryTitle: 'Alternative navigation examples', primaryBannerType: 'thick', navigation: 'id_navigation' ">
+	</div>
+
+	<div data-dojo-type="dijit/layout/StackContainer" id="id_content">
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'Content 1', selected: true" id="id_content_1">
+			<p>
+				This is <b>Page A content 1</b> of an example that shows some alternative
+				navigation logic used with the idx.app.Header widget.
+			</p>
+		</div>
+		<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'Content 2'" id="id_content_2">
+			<p>
+				This is <b>Page A content 2</b> of an example that shows some alternative
+				navigation logic used with the idx.app.Header widget.
+			</p>
+		</div>
+	</div>	
+	
+</div>
+
+</body>
+</html>

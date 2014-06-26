@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<title>Test Banner</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = ["idx.widget.Banner","idx/form/TextBox","idx/form/Select"];
+
+dojoRequireModules(modules, null, currentDojoVersion.async);
+
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0">
+<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+	<div data-dojo-type="idx.widget.Banner"
+		 data-dojo-id="banner" 
+		 data-dojo-props="
+		 	username: 'joeschmoe',
+		 	usernameLabel: 'Joe Schmoe', 
+			helpFunc: function() { alert('Help'); }, 
+			aboutFunc: function() { alert('About'); },
+			logoutFunc: function() { alert('Log out'); }">
+		<span class="bannerTitle">Product Name</span>
+	</div>
+	
+	<br />
+	<div data-dojo-type="idx/form/TextBox"
+		 data-dojo-props="label: 'username', value: 'joeschmoe', labelAlignment: 'vertical'">
+		<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+			banner.set('username', this.get("value"));
+		</script>
+	</div>
+	<br />
+	<div data-dojo-type="idx/form/TextBox"
+		 data-dojo-props="label: 'usernameLabel', value: 'Joe Schmoe', labelAlignment: 'vertical'">
+		<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+			banner.set('usernameLabel', this.get("value"));
+		</script>
+	</div>
+	<br />
+	<select data-dojo-type="idx/form/Select"
+		 data-dojo-props="label: 'logoutFunc', labelAlignment: 'vertical'">
+		<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+			var value = this.get("value");
+			var func = null;
+			if (value == "dummy") {
+				func = function() { alert('Logout');};	
+			}
+			banner.set('logoutFunc', func);
+		</script>
+		<option value="dummy" selected>Dummy Function</option>
+		<option value="none">None</option>
+	</select>
+	<br />
+	<select data-dojo-type="idx/form/Select"
+		 data-dojo-props="label: 'aboutFunc', labelAlignment: 'vertical'">
+		<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+			var value = this.get("value");
+			var func = null;
+			if (value == "dummy") {
+				func = function() { alert('About');};	
+			}
+			banner.set('aboutFunc', func);
+		</script>
+		<option value="dummy" selected>Dummy Function</option>
+		<option value="none">None</option>
+	</select>
+	<br />
+	<select data-dojo-type="idx/form/Select"
+		 data-dojo-props="label: 'helpFunc', labelAlignment: 'vertical'">
+		<script type="dojo/aspect" data-dojo-method="onChange" data-dojo-advice="after">
+			var value = this.get("value");
+			var func = null;
+			if (value == "dummy") {
+				func = function() { alert('Help');};	
+			}
+			banner.set('helpFunc', func);
+		</script>
+		<option value="dummy" selected>Dummy Function</option>
+		<option value="none">None</option>
+	</select>
+</body>
+</html>

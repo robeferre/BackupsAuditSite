@@ -1,0 +1,54 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+ 
+.oneui.dark .idxGridIconPassed,
+.oneui.dark .idxGridIconFailed,
+.oneui.dark .idxGridIconError {
+	background-image: url('images/msgIcons12_24bit.png');
+	background-repeat: no-repeat;
+}
+
+.oneui.dark .idxGridIconPassed {	
+	background-position: -48px 0;
+}
+
+.oneui.dark .idxGridIconEdit {	
+	background-image: url('images/edit_pencil_watermark.png');
+	background-repeat: no-repeat; 
+	background-position: right;	
+}
+
+.dijitRtl .oneui.dark .idxGridIconEdit {	
+	background-position: left;	
+}
+
+.oneui.dark .idxGridIconFailed {
+	background-position: 0 0;
+}
+
+.oneui.dark .idxGridIconError {
+	background-position: 0 0;
+}
+.oneui.dark .idxGridIconFlag
+{
+	background-image: url('images/flag_red.png'); 
+	background-repeat: no-repeat; 
+	background-position: center center;
+}
+
+.oneui.dark .idxGridIconHierarchical
+{	
+	background-image: url('images/16_squarebullet.png');
+	background-repeat: no-repeat; 
+	background-position: left;	
+	background-origin: content-box;
+}
+
+.dijitRtl .oneui.dark .idxGridIconHierarchical
+{	
+	background-position: right;
+}

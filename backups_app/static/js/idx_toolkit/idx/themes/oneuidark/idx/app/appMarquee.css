@@ -1,0 +1,73 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxAppMarqueeOptions {
+	background-image:url(../images/blank.gif?app=leader&vendor=trailer&body=center&borderDesign=sidebar);
+}
+
+.oneui.dark .idxAppMarquee_idxDefaults {
+	background-image:url(../images/blank.gif?preferAppLogo=false);
+}
+
+.oneui.dark div.idxAppMarquee {
+	background:#3e3e3e;
+	background:-moz-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3e3e3e),color-stop(100%,#131313));
+	background:-webkit-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:-o-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:-ms-linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	background:linear-gradient(top,#3e3e3e 0%,#131313 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3e3e3e',endColorstr='#131313',GradientType=0);
+	color:#FFF;
+}
+
+.oneui.dark .idxAppFrameMarquee div.idxAppMarquee {
+	background:none;
+	background-color:transparent;
+	background-image:none;
+	background-repeat:none;
+}
+
+.oneui.dark div.idxAppMarqueeRight {
+	background:none #000;
+}
+
+.oneui.dark .idxAppFrameMarquee div.idxAppMarqueeRight {
+	background:#282828;
+	background:-moz-linear-gradient(top,#282828 0%,#0c0c0c 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#282828),color-stop(100%,#0c0c0c));
+	background:-webkit-linear-gradient(top,#282828 0%,#0c0c0c 100%);
+	background:-o-linear-gradient(top,#282828 0%,#0c0c0c 100%);
+	background:-ms-linear-gradient(top,#282828 0%,#0c0c0c 100%);
+	background:linear-gradient(to bottom,#282828 0%,#0c0c0c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#282828',endColorstr='#0c0c0c',GradientType=0);
+	border-left-color: #131313;
+	outline-color: #313131;
+}
+
+.oneui.dark div.idxAppMarqueeBody {
+	color:#fff;
+}
+
+.oneui.dark div.idxAppMarqueeBody > span {
+	color:rgba(255,255,255,.15);
+}
+.oneui.dark .idxAppMarquee.idxAppMarqueeShowAppName .idxAppMarqueeAppName,.oneui.dark.dijit_a11y .idxAppMarquee.idxAppMarqueeShowAppLogo .idxAppMarqueeAppName {
+	text-shadow:0 1px rgba(0,0,0,0.3);
+}
+/* Links */
+.oneui.dark .idxAppMarquee .idxLinkDerived,.oneui.dark .idxAppMarquee .idxDropDownLinkAnchor {
+	color:#DDD;
+	text-shadow:0 1px rgba(0,0,0,0.3);
+}
+
+.oneui.dark .idxAppMarquee .idxLinkDerived:hover,.oneui.dark .idxAppMarquee .idxDropDownLinkAnchor:hover {
+	color:#fff;
+}
+
+.oneui.dark .idxAppMarquee .idxDropDownLink .dijitArrowButtonInner {
+	background-image:url(images/headerIcons.png);
+}

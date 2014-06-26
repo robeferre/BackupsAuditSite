@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US"> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>One UI mobile "Launch" standard test</title>
+
+	<!-- Common style definitions for the test cases -->	
+	<link rel="stylesheet" type="text/css" href="tests.css" />
+	
+	<script src="../deviceTheme.js"></script>
+	<script src="dojoVersion.js"></script>
+	
+	<script>
+	
+		var show_launch;
+
+		require(["idx/mobile/Launch",
+				 "idx/mobile/tests/_TestUtils",
+				 "dojox/mobile",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/compat",
+				 "dojox/mobile/RoundRectList",
+				 "dojox/mobile/ListItem",
+				 "dojox/mobile/Heading",
+				 "dojox/mobile/ScrollableView"],
+		function(Launch, tu){
+
+			// hide the launch pane after 4 seconds
+			// normally this would be done after application initialisation/ready
+			setTimeout(function(){
+				Launch.hide();
+			}, 4000);
+				
+			// create a second launch pane for demo purposes
+			var relaunch = new idx.mobile.Launch();		
+			show_launch = function(timeout, keepavailable){
+				relaunch.show();
+				setTimeout(function(){
+					relaunch.hide(keepavailable);
+				}, timeout);
+			}
+			
+		});
+		
+	</script>
+ 
+</head>
+<body style="visibility: hidden;">
+
+	<div id="mainView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+
+		<div data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'One UI Launch test', fixed: 'top'">
+		</div>
+	
+		<div data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+			<div class="dummyViewContent">
+				<p>
+					Select one of the following options to re-initialise the
+					Launch widget and dismiss it after the specified time.
+				</p>
+				
+				<ul data-dojo-type="dojox/mobile/RoundRectList">
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(100, true);">Relaunch: 0.1 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(500, true);">Relaunch: 0.5 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(1000, true);">Relaunch: 1 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(2000, true);">Relaunch: 2 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(3000, true);">Relaunch: 3 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(4000, true);">Relaunch: 4 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(5000, true);">Relaunch: 5 sec</li>
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="show_launch(20000, true);">Relaunch: 20 sec</li>
+				</ul>
+				
+				<p>
+					The following option re-initialises the Launch widget and
+					dismisses and destroys it after two seconds. None of the
+					options above will work once this has been done!
+				
+				<ul data-dojo-type="dojox/mobile/RoundRectList">
+					<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="clickable: true" onclick="/*show_launch(2000, false)*/console.log('boo');">Relaunch and destroy</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

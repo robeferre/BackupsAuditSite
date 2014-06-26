@@ -1,0 +1,37 @@
+define({     
+//begin v1.x content
+	closeLabel: "סגירה",
+	configureLabel: "תצורה",
+	editLabel: "עריכה",
+	filterLabel: "סינון",
+	clearFilterLabel: "ניקוי",
+	helpLabel: "עזרה",
+	infoLabel: "מידע",
+	minimizeLabel: "מזעור",
+	maximizeLabel: "הגדלה",
+	printLabel: "הדפסה",
+	refreshLabel: "רענון",
+	restoreLabel: "שחזור",
+	nextPageLabel: "הבא",
+	previousPageLabel: "הקודם",
+	lastPageLabel: "אחרון",
+	firstPageLabel: "ראשון",
+	closeTip: "סגירה",
+	configureTip: "תצורה",
+	editTip: "עריכה",
+	filterTip: "סינון",
+	clearFilterTip: "ניקוי מסנן",
+	helpTip: "קבלת עזרה",
+	infoTip: "קבלת מידע",
+	minimizeTip: "מזעור",
+	maximizeTip: "הגדלה",
+	printTip: "הדפסה",
+	refreshTip: "רענון",
+	restoreTip: "שחזור",
+	nextPageTip: "הדף הבא",
+	previousPageTip: "הדף הקודם",
+	lastPageTip: "הדף האחרון",
+	firstPageTip: "הדף הראשון"
+//end v1.x content
+});
+

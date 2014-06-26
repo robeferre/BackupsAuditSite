@@ -1,0 +1,59 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/*a11y support*/
+
+.oneui.dark .idxSignIcon {
+	background-image:url(images/msgIcons_24bit.png);
+	background-repeat:no-repeat;
+}
+
+.oneui.dark .idxInformIcon {
+	background-position:-96px -18px;
+}
+
+.oneui.dark .idxWarnIcon {
+	background-position:-24px -18px;
+}
+
+.oneui.dark .idxErrorIcon {
+	background-position:0 -18px;
+}
+
+.oneui.dark .idxConfirmIcon {
+	background-position:-48px -18px;
+}
+
+/* dialog messages  */
+.oneui.dark .idxDialogIconWarning,.oneui.dark .idxDialogIconInformation,.oneui.dark .idxDialogIconError {
+	background-image:url(images/msgIcons_24bit.png);
+	background-repeat:no-repeat;
+}
+
+.oneui.dark .idxDialogIconWarning {
+	background-position:-24px -18px;
+}
+
+.oneui.dark .idxDialogIconInformation {
+	background-position:-96px -18px;
+}
+
+.oneui.dark .idxDialogIconError {
+	background-position:0 -18px;
+}
+
+.oneui.dark .idxDetailsPaneText {
+	color:#aaa;
+}
+
+.dijit_a11y .oneui.dark .idxSignIcon.dijitContentPaneLoading {
+	color:#fff;
+}
+
+/* workaround for absolute position specified for dijitContentPaneLoading in themes/oneui/Common.css. */
+.oneui.dark .idxSignIcon.dijitContentPaneLoading {
+	background:url(images/loadingAnimation38px.gif) no-repeat;
+}

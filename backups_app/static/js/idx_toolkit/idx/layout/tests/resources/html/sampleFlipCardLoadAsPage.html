@@ -1,0 +1,89 @@
+<style type="text/css">
+	#sample_flip_card_load_as_page .header {
+        background-color: #FFFFFF;
+        background-repeat: repeat-x;
+        background-position: 0px -545px;
+        padding-left: 10px;
+        font-weight: bold;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 1px;
+        border-left-width: 0px;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: solid;
+        border-left-style: none;
+        border-top-color: #FFFFFF;
+        border-bottom-color: #cccccc;
+        font-size: 12px;
+        width: 600px;
+        border-color: #e6e6e6;
+        border-style: solid;
+    }
+    
+    #sample_flip_card_load_as_page .content{
+	    height: 300px;
+	    width: 500px;
+    }
+    
+    #sample_flip_card_load_as_page #sample_flip_card_load_text_area{
+	    border: 10px dashed #CCCCCC;
+	    width:100%;
+	    height:100%;
+    }
+    
+    #sample_flip_card_load_as_page .footer{
+    	border-color: #e6e6e6;
+        border-style: solid;
+    }
+    
+</style>
+    
+<script>
+	var metadataFileSelected = function (myFiles) {
+		for (var i = 0, f; f = myFiles[i]; i++) {
+			var fileReader = new FileReader();
+			fileReader.onload = (function(aFile) {
+				return function(e) {
+					var textarea = document.getElementById('sample_flip_card_load_text_area');
+					textarea.innerHTML = e.target.result;
+				};
+			})(f);
+			fileReader.readAsBinaryString(f);
+		}
+	}
+
+	var metadataFileDropIt = function (e) {
+		metadataFileSelected(e.dataTransfer.files);
+		e.stopPropagation();
+		e.preventDefault();
+	}
+	
+	var loadFlipCardMetadata = function (e) {
+		var textarea = document.getElementById('sample_flip_card_load_text_area');
+		flipCard.loadMetadataAs(textarea.value);
+	}
+</script>
+
+<div id="sample_flip_card_load_as_page" style="width:100%; height:100%; cursor: pointer">
+	<p class="header">
+		Load Pluggable Metadata locally by DND or File Selection
+	</p>
+	
+	<div class="content" ondragenter="return false" ondragover="return false" ondrop="metadataFileDropIt(event)">
+		<textarea id="sample_flip_card_load_text_area">
+			Drag your metadata file here ...
+		</textarea>
+	</div>
+	
+	
+	<p class="footer">
+		Drag & drop or choose metadata file from your local file system:
+		<input type="file" size="10" multiple="true" onchange="metadataFileSelected(this.files)"/>
+		<button onclick="loadFlipCardMetadata()">Load Metadata</button>
+	</p>
+
+</div>
+
+<script type="text/javascript" src="resources/html/sampleFlipCardLoadAsPage.js"></script>
+

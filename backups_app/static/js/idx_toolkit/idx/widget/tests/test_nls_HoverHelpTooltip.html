@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/HoverHelpTooltip</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/ready",
+	"idx/widget/HoverHelpTooltip"
+], function(ready, HoverHelpTooltip){
+	ready(function(){
+		new HoverHelpTooltip({
+			connectId:["one"], 
+			showLearnMore:true, 
+			learnMoreLinkValue:"http://www.ibm.com",
+			style:"width: 300px",
+			content: "Passwords must be between 5 and 20 characters. There must be a combination of alphanumeric characters, starting with a letter and at least one number1.<br/><br/>"
+		});
+	})
+});
+</script>
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">widget/nls/HoverHelpTooltip</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>learnMoreLabel</td><td>
+		Verify that the link text at left-bottom of HoverHelpTooltip is translated
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;"><a href="#" id="one">Hover here to show HoverHelpTooltip</a></div>
+</body>
+</html>

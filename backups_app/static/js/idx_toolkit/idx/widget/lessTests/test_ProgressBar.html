@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+	<title>dijit.ProgressBar Test</title>
+
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+	
+	<style id="idxStyles" type="text/css">
+        @import "../../themes/oneuiLess/theme.css";
+        @import "../../tests/_pagefooter/_PageFooter.css";
+        @import "../../tests/test.css";
+		body {
+			padding:15px;
+		}
+		
+		.oneui #wb .dijitProgressBarLabel {
+		    color: #FFFFFF;
+		    font-weight: bold;
+		}	
+	</style>
+	
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+	</script>
+
+	<script type="text/javascript">
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"dojo._base.connect",
+			"dojo.string",
+			"dojo.dom", 
+			"dojo.dom-class", 
+			"dojo.query", 
+			"dojo._base.Deferred",
+			"dijit._base.manager", 
+			"dijit.ProgressBar",
+			"idx.tests._pagefooter._PageFooter"
+		];
+		var connect, string, dom, domClass, query, Deferred, manager, ProgressBar, _PageFooter;
+		function preParse(modules){
+			connect			= modules["dojo/_base/connect"];
+			string			= modules["dojo/string"];
+			dom				= modules["dojo/dom"];
+			domClass		= modules["dojo/dom-class"];
+			query			= modules["dojo/query"];
+			Deferred		= modules["dojo/_base/Deferred"];
+			manager 		= modules["dijit/_base/manager"];
+			ProgressBar 	= modules["dijit/ProgressBar"];
+			_PageFooter   	= modules["idx/tests/_pagefooter/_PageFooter"];
+			
+			var fakeProgress = 0;
+			getProgressReport = function(){
+				var deferred = new Deferred();
+				fakeProgress = Math.min(fakeProgress + 10, 100);
+				deferred.callback(fakeProgress+"%");
+				return deferred;
+			}
+	
+			remoteProgress = function(bar){
+				var _timer = setInterval(function(){
+					var report = getProgressReport();
+					report.addCallback(function(response){
+						bar.set({value: response});
+						if(response == "100%"){
+							clearInterval(_timer);
+							_timer = null;
+						}
+					});
+				}, 3000); // on 3 second intervals
+			}
+	
+			setParameters = function(){
+				manager.byId("setTestBar").set({maximum: dom.byId("maximum").value, value: dom.byId("progressValue").value});
+			}
+	
+			keyUpHandler = function(){
+				manager.byId("testBar").set({value:dom.byId("test").value.length});
+				manager.byId("testBarInt").set({value:dom.byId("test").value.length});
+				manager.byId("smallTestBar").set({value:dom.byId("test").value.length});
+			}
+		}
+		function postParse(){
+			
+			var theBar = new ProgressBar({id: "testBar", width: 400, maximum: 256, duration: 2000,
+				report:function(percent){
+					return dojo.string.substitute("${0} out of ${1} max chars", [this.get('value'), this.maximum]);
+				}
+			}, dom.byId("testBar"));
+
+			dom.byId("test").value="";
+			dom.byId("progressValue").value = manager.byId("setTestBar").value;
+			dom.byId("maximum").value = manager.byId("setTestBar").maximum;
+			dojo.connect(dom.byId("test"), "onkeyup", null, keyUpHandler);
+			dojo.connect(dom.byId("set"), "onclick", null, setParameters);
+			dojo.connect(dom.byId("startTimer"), "onclick", null,
+				function(){ remoteProgress(manager.byId("timerBar")); } );
+				
+			// test 6
+			new ProgressBar({
+				style:"width:400px",
+				indeterminate:true
+			}, "pi");
+			
+			// test 7
+			new ProgressBar({
+				style:"width:400px",
+				indeterminate:true
+			}, "wb");
+			
+			new _PageFooter();
+		}
+		dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+		
+	</script>
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body class="oneui" style="width: 100%; height: 100%; margin: 0; padding: 0;">
+	<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+	<a name="maincontent"></a>
+	<div class="testMain">
+
+		<h1 class="testTitle">Dijit ProgressBar Tests</h1>
+	
+		<h3>Test 1</h3>
+		Progress Value <input type="text" name="progressValue" id="progressValue" />
+		<br>
+		Max Progress Value <input type="text" name="maximum" id="maximum" />
+		<br>
+		<input type="button" name="set" id="set" value="set!" />
+		<br>
+		<div id="setTestBar" data-dojo-type="dijit.ProgressBar" data-dojo-props='style:"width:400px",
+			maximum:200, value:"20" '></div>
+	
+		<h3>Test 2</h3>
+		Write here: <input type="text" value="" name="test" maxLength="256" id="test" style="width:300px"/>
+		<br />
+		<br />
+		<div id="testBar" style='width:300px'></div>
+		<br />
+		Small, without text and background image:
+		<br />
+		<div id="smallTestBar" data-dojo-type="dijit.ProgressBar" data-dojo-props='style:"width:400px; height:10px", "class":"smallred", maximum:256'></div>
+		<br />
+		Show decimal place:
+		<div id="testBarInt" data-dojo-type="dijit.ProgressBar" data-dojo-props='places:1, style:"width:400px",
+			maximum:256'></div>
+	
+		<h3>Test 3</h3>
+		No explicit maximum (both 50%)
+		<div id="implied1" data-dojo-type="dijit.ProgressBar" data-dojo-props='style:"width:400px",
+			value:"50" '></div>
+		<br />
+		<div id="implied2" data-dojo-type="dijit.ProgressBar" data-dojo-props='style:"width:400px",
+			value:"50%" '></div>
+	
+		<h3>Test 4</h3>
+		<input type="button" name="startTimer" id="startTimer" value="Start Timer" />
+		<div id="timerBar" data-dojo-type="dijit.ProgressBar" data-dojo-props='style:"width:400px", maximum:100, value:"0" '></div>
+	
+		<h3>Test 5 - indeterminate progess</h3>
+		<input id="indeterminateButton1" type="button" value="Make Indeterminate (default blank label)"
+			onclick="dijit.byId('indeterminateBar').set({indeterminate: true, label: ''});" />
+		<input id="labelButton1" type="button" value="Make Determinate (default percentage label)"
+			onclick="dijit.byId('indeterminateBar').set({indeterminate: false, label: ''});" />
+		<input id="indeterminateButton2" type="button" value="Make Indeterminate With Label"
+			onclick="dijit.byId('indeterminateBar').set({indeterminate: true, label: 'Loading...'});" />
+		<input  id="labelButton2" type="button" value="Make Determinate With Label"
+			onclick="dijit.byId('indeterminateBar').set({indeterminate: false, label: 'Loading...'});" />
+		
+		<div id="indeterminateBar" data-dojo-type="dijit.ProgressBar" data-dojo-props='style:"width:400px", value:"50" '></div>
+	
+		<h3>Test 6 - programatic indeterminate</h3>
+		<div id="pi"></div>
+		
+		<h3>Test 7 - white bold text in the container</h3>
+		<div id="wb"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,790 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+
+/************ Portlet Container ************/
+
+.oneui .portletItem{
+	z-index: 500;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+	position: relative;
+	background-color: transparent;
+	/*height: 280px;*/
+}
+.oneui .portletItem.relationshipFigure{
+	border: 1px solid yellow;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px
+	-webkit-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-moz-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-ms-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+}
+
+.dj_ie10 .oneui .portletItem.css3Animations{
+	-ms-perspective: 0;
+	perspective: 0;
+}
+
+.oneui .portletItemMaximum{
+}
+.oneui .portletItemMinimum{
+	height: 30px !important;
+}
+.oneui .portletItem.portletItemDisappear{
+	display:none;
+}
+.oneui .portletItem.portletItemInvisible{
+	visibility:hidden;
+	opacity:0;
+}
+
+
+.oneui .portletItem .portletItemAction{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	cursor: pointer;
+	z-index: 600;
+}
+.oneui .portletItem .portletItemAction .dijitButtonNode{
+	min-width:10px;
+	background: transparent;
+	border:medium none;
+	padding:0;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	-ms-border-radius: 1px;
+	border-radius: 1px;
+	-webkit-box-shadow: 0 0 0 rgba( 0,0,0,0);
+	-moz-box-shadow: 0 0 0 rgba( 0,0,0,0);
+	-ms-box-shadow: 0 0 0 rgba( 0,0,0,0);
+	box-shadow: 0 0 0 rgba( 0,0,0,0);
+}
+.oneui .portletItem .portletItemAction.dijitButtonHover .dijitButtonNode{
+	background-color: #fafafa;
+  	background-image: -moz-linear-gradient(top,  #fafafa 0%, #dbdbdb 100%); 
+  	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#dbdbdb));
+  	background-image: -webkit-linear-gradient(top,  #fafafa 0%,#dbdbdb 100%); 
+  	background-image: -o-linear-gradient(top,  #fafafa 0%,#dbdbdb 100%); 
+  	background-image: -ms-linear-gradient(top,  #fafafa 0%,#dbdbdb 100%); 
+  	background-image: linear-gradient(top,  #fafafa 0%,#dbdbdb 100%); 
+}
+.oneui .portletItem .portletItemAction.dijitButtonActive .dijitButtonNode{
+	background-color: #f2f2f2;
+  	background-image: -moz-linear-gradient(top,  #f2f2f2 0%, #ededed 100%); 
+  	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#ededed));
+  	background-image: -webkit-linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+  	background-image: -o-linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+  	background-image: -ms-linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+  	background-image: linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+}
+.oneui .portletItem .portletItemAction .actionIcon{
+	width: 20px;
+	height: 20px;
+	background: url("images/defaultActIcon.png") no-repeat center center;
+}
+
+.oneui .portletItem .portletItemNode_settings{
+	right:5px;
+}
+
+.oneui .portletItem .portletItemNode_settings .backActIcon{
+	background: url("images/cardSettings.png") no-repeat center center;
+}
+
+.oneui .portletItem .portletItemNode_settings .settingsIcon{
+	background: url("images/cardSettings.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_settings.dijitButtonHover .settingsIcon{
+	background: url("images/cardSettingsHover.png") no-repeat center center;
+}
+
+.oneui .portletItem.portletItemMinimum .portletItemNode_settings .settingsIcon{
+	background: url("images/cardMinReverse.png") no-repeat center center;
+}
+.oneui .portletItem.portletItemMinimum .portletItemNode_settings.dijitButtonHover .settingsIcon{
+	background: url("images/cardMinReverseHover.png") no-repeat center center;
+}
+
+.oneui .portletItem .portletItemNode_settingsDetail .settingsDetailIcon{
+	background: url("images/cardSettingsDetail.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_settingsDetail.dijitButtonHover .settingsDetailIcon{
+	background: url("images/cardSettingsDetailHover.png") no-repeat center center;
+}
+
+.oneui .portletItem .portletItemNode_max .maxIcon{
+	background: url("images/cardMax.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_max.dijitButtonHover .maxIcon{
+	background: url("images/cardMaxHover.png") no-repeat center center;
+}
+
+.oneui .portletItem .portletItemNode_min .minIcon{
+	background: url("images/cardMin.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_min.dijitButtonHover .minIcon{
+	background: url("images/cardMinHover.png") no-repeat center center;
+}
+
+.oneui .portletItem.portletItemMinimum .portletItemNode_min .minIcon{
+	background: url("images/cardMinReverse.png") no-repeat center center;
+}
+.oneui .portletItem.portletItemMinimum .portletItemNode_min.dijitButtonHover .minIcon{
+	background: url("images/cardMinReverseHover.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_stack .stackIcon{
+	background: url("images/cardStack.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_stack.dijitButtonHover .stackIcon{
+	background: url("images/cardStackHover.png") no-repeat center center;
+}
+.oneui .portletItem .portletItemNode_flipAction .flipActionIcon{
+	background: url("images/cardFlip.gif") no-repeat center center;
+}
+
+.oneui .portletItem .portletItemNode_close .closeIcon{
+	background-image: url("../form/images/buttonIcons.png");
+	background-position: 2px 2px;
+}
+
+
+.oneui .portletItem .dndBarNode{
+	position:absolute;
+	top:20px;
+	width:100%;
+	height:15px;
+	z-index:800;
+}
+
+
+/************** portletItem content **************/
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletIcon {
+	background-image: url("images/spriteRoundedIconsSmall.gif");
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpCloseNode {
+	background-position: right 0px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpCloseNodeHover {
+	background-position: right -15px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dijitOpen .fpArrowDown{
+	background-position: -15px top;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dijitClosed .fpArrowDown {
+	background-position: 0 top;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletSettingsIcon {
+	background-image: url("images/icons.png");
+	background-position: 0 1px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletSettingsContainer {
+	border-bottom: 1px solid #BFBFBF;
+	padding: 4px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dijitDialogPaneContent .fpPortletSettingsContainer {
+	border-bottom: none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent div.fpPortletContentOuter {
+	/*background: #fff url("images/validationInputBg.gif") repeat-x top left;*/
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletList {
+	padding-left: 25px;
+	margin: 0px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletExpandableList {
+	padding-left: 0px;
+	margin: 0px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletExpandableList li {
+	margin-bottom: 5px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletList li {
+	padding-top: 4px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletPreview {
+	max-height: 300px;
+	max-width: 400px;
+	overflow: hidden;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletPreview * {
+	max-height: 295px;
+	max-width: 395px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletFeedSettings {
+	padding: 5px;
+	border-bottom: 1px solid #9D9D9D;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxFeedPortletExpandableList {
+	list-style: none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletToggleIcon {
+	margin-right: 6px;
+	cursor: pointer;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletToggleIcon img {
+	width: 15px;
+	height: 14px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletItemCollapsed .dojoxPortletToggleIcon {
+	background: url("images/plusButton.gif") no-repeat 0 0;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletItemOpen .dojoxPortletToggleIcon {
+	background: url("images/minusButton.gif") no-repeat 0 0;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletItemSummary {
+	margin-left: 20px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletItemCollapsed .dojoxPortletItemSummary {
+  display: none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .dojoxPortletItemOpen .dojoxPortletItemSummary {
+  display: block;
+}
+
+.oneui .portletItem .fpPortlet.portletItemContent{
+	margin-bottom: 5px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	
+	border: medium none;
+	border-bottom: 1px solid #ccc;
+	/*border: 1px solid #ccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px
+	-webkit-box-shadow: 0 2px 5px 0 rgba( 0,0,0,0.25);
+	-moz-box-shadow: 0 2px 5px 0 rgba( 0,0,0,0.25);
+	-ms-box-shadow: 0 2px 5px 0 rgba( 0,0,0,0.25);
+	box-shadow: 0 2px 5px 0 rgba( 0,0,0,0.25);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;*/
+}
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletContentOuter{
+	height:100%;
+	/*border: medium none;*/
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+/********* default switch skin ************/
+.oneui .portletItem .fpPortlet.portletItemContent.defaultSkin{
+	background-color: gray;
+	border-color: gray;
+	-webkit-box-shadow: 0 2px 5px gray;
+	-moz-box-shadow: 0 2px 5px gray;
+	-ms-box-shadow: 0 2px 5px gray;
+	box-shadow: 0 2px 5px gray;
+}
+
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle .fpPortletIcon {
+	width: 17px;
+	height: 15px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle {
+	font-weight: bold;
+	font-size: 0.9em;
+	padding: 3px 6px 3px 7px;
+	/*cursor: url("images/cardFlip.png"), pointer;*/
+	border: 1px solid #CCCCCC;
+	background-color: #f2f2f2;
+	/*background: #f2f2f2;
+  	background: -moz-linear-gradient(top,  #f2f2f2 0%, #ededed 100%); 
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#ededed));
+  	background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+  	background: -o-linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+  	background: -ms-linear-gradient(top,  #f2f2f2 0%,#ededed 100%); 
+  	background: linear-gradient(top,  #f2f2f2 0%,#ededed 100%); */
+}
+.oneui .portletItem .fpPortlet-nonmovable.portletItemContent .fpPortletTitle {
+	cursor: default;
+}
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocus{
+	background: transparent;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusBack{
+}
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocus .fpPortletTextNode{
+	/*font-size: 13px;*/
+}
+
+
+/***************** portlet actionbar ****************/
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar{
+	background: transparent;
+	border:medium none;
+	display: inline-block;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar.flipCardActionBarAdjust{
+	/*margin: 0 0 0 20px;*/
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .dijitMenuItem{
+	padding: 0px 5px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .dijitMenuItemHover{
+	border:medium none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .dijitMenuItemActive{
+	border:medium none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .dijitMenuItemSelected{
+	border:medium none;
+}
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .dijitMenuItem.portletMenuBarAction .portletActionIconNode{
+	width:15px;
+	height:15px;
+	background-repeat: no-repeat;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .dijitMenuItem.portletMenuBarAction .portletActionIconNode.contentActionIconNode{
+	background: url("images/defaultActIcon.png") no-repeat 0 0;
+}
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .portletContentAction{
+	display: inline-block;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .portletContentAction .portletActionIconNode.flipToDetailIcon{
+	background-image: url("../form/images/buttonIcons.png");
+	background-position: 2px -192px;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitleFocusNode .flipCardActionBar .portletContentAction .portletActionIconNode.flipToMainIcon{
+	background-image: url("../form/images/buttonIcons.png");
+	background-position: 2px -208px;
+}
+
+
+/**********  resize handler  ***********/
+.oneui .portletItem .fpResizeHandle {
+	float: right;
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	width: 13px;
+	height: 13px;
+	z-index: 900;
+	background-image: url('images/resize.png');
+	line-height: 0px;
+}
+.dijitRtl .oneui .portletItem .fpResizeHandle {
+	float: right;
+	left: 0px;
+	right: auto;
+}
+.oneui .portletItem .fpResizeHandle.dojoxResizeNW {
+	cursor: nw-resize;
+}
+.dijitRtl .oneui .portletItem .fpResizeHandle.dojoxResizeNW {
+    cursor: ne-resize;
+}
+.oneui .portletItem .fpResizeHandle.dojoxResizeNE {
+	cursor: ne-resize; 
+}
+.dijitRtl .oneui .portletItem .fpResizeHandle.dojoxResizeNE {
+    cursor: nw-resize;
+}
+.oneui .portletItem .fpResizeHandle.dojoxResizeW {
+	cursor: w-resize; 
+}
+.oneui .portletItem .fpResizeHandle.dojoxResizeN { 
+	cursor: n-resize; 
+}
+.oneui .portletItem .fpResizeHandleClone {
+	position:absolute; top:0; left:0; 
+	border:1px dashed #666; 
+	z-index:900; 
+}
+.oneui .portletItem.portletItemMaximum .fpResizeHandle,
+.oneui .portletItem.portletItemMinimum .fpResizeHandle{
+	display: none;
+}
+
+
+/*************** portlet item css3Animation *************/
+.oneui .portletItem.css3Animations{
+	-webkit-perspective: 500px;
+	-moz-perspective: 500px;
+	-o-perspective: 500px;
+	-ms-perspective: 500px;
+	perspective: 500px;
+}
+
+/*************** portlet content css3Animation ****************/
+.oneui .portletItem .fpPortlet.portletItemContent.css3Animations{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 1.0s linear;
+	-moz-transition: -moz-transform 1.0s linear;
+	-ms-transition: -ms-transform 1.0s linear;
+	transition: transform 1.0s linear;
+}
+.oneui .portletItem.css3Animations .fpPortlet.portletItemContent.mainContent{
+	-webkit-transform: rotateY(0);
+	-moz-transform: rotateY(0);
+	-ms-transform: rotateY(0);
+	transform: rotateY(0);
+}
+.oneui .portletItem.css3Animations .fpPortlet.portletItemContent.detailContent{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.oneui .portletItemFlip.css3Animations .fpPortlet.portletItemContent.mainContent{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.oneui .portletItemFlip.css3Animations .fpPortlet.portletItemContent.detailContent{
+	-webkit-transform: rotateY(360.1deg);
+	-moz-transform: rotateY(360deg);
+	-ms-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+
+/*********** portlet title css3Animation **************/
+.oneui .portletItem.css3Animations .portletItemAction{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-origin: -100px 50% 0;
+	-moz-transform-origin: -100px 50% 0;
+	-ms-transform-origin: -100px 50% 0;
+	transform-origin: -100px 50% 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+.oneui .portletItem.css3Animations.css3AnimationsFlipping .portletItemAction{
+	display:none;
+}
+.oneui .portletItem.css3Animations .portletItemAction{
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-ms-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.dj_ie9 .oneui .portletItem .portletItemAction,
+.dj_ie8 .oneui .portletItem .portletItemAction{
+	display:none;
+}
+.oneui .portletItem.css3Animations .portletItemAction.actionsDetail{
+	-webkit-transform: rotateX(0);
+	-moz-transform: rotateX(0);
+	-ms-transform: rotateX(0);
+	transform: rotateX(0);
+}
+.dj_ie9 .oneui .portletItem .portletItemAction.actionsDetail,
+.dj_ie8 .oneui .portletItem .portletItemAction.actionsDetail{
+	display:block;
+}
+.oneui .portletItem.css3Animations .portletItemAction.actionsMain{
+	-webkit-transform: rotateX(0);
+	-moz-transform: rotateX(0);
+	-ms-transform: rotateX(0);
+	transform: rotateX(0);
+}
+.dj_ie9 .oneui .portletItem .portletItemAction.actionsMain,
+.dj_ie8 .oneui .portletItem .portletItemAction.actionsMain{
+	display:block;
+}
+.oneui .portletItem.css3Animations .portletItemAction.actionsMain.mainActDetail{
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-ms-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.dj_ie9 .oneui .portletItem .portletItemAction.actionsMain.mainActDetail,
+.dj_ie8 .oneui .portletItem .portletItemAction.actionsMain.mainActDetail{
+	display:none;
+}
+
+@-webkit-keyframes titleflip{
+	0% {
+		-webkit-transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+	50% {
+		-webkit-transform: rotateX(80deg) skew(-45deg,1deg) scale(0.98,0.6);
+	}
+	100% {
+		-webkit-transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+}
+@-moz-keyframes titleflip{
+	0% {
+		-moz-transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+	50% {
+		-moz-transform: rotateX(80deg) skew(-45deg,1deg) scale(0.98,0.6);
+	}
+	100% {
+		-moz-transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+}
+@-ms-keyframes titleflip{
+	0% {
+		-ms-transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+	50% {
+		-ms-transform: rotateX(80deg) skew(-45deg,1deg) scale(0.98,0.6);
+	}
+	100% {
+		-ms-transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+}
+@keyframes titleflip{
+	0% {
+		transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+	50% {
+		transform: rotateX(80deg) skew(-45deg,1deg) scale(0.98,0.6);
+	}
+	100% {
+		transform: rotateX(0) skew(0deg,0deg) scale(1,1);
+	}
+}
+.oneui .portletItem.css3Animations.contentTitleAnimating .fpPortlet.portletItemContent .fpPortletTitle{
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-moz-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-ms-box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	box-shadow: 0 2px 5px rgba( 0,0,0,0.25);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	-webkit-animation-name: titleflip;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-moz-animation-name: titleflip;
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-delay: 0s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-direction: normal;
+	-ms-animation-name: titleflip;
+	-ms-animation-duration: 1s;
+	-ms-animation-timing-function: ease-in-out;
+	-ms-animation-delay: 0s;
+	-ms-animation-iteration-count: 1;
+	-ms-animation-direction: normal;
+	animation-name: titleflip;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+}
+
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations{
+	-webkit-perspective: 500px;
+	-moz-perspective: 500px;
+	-o-perspective: 500px;
+	-ms-perspective: 500px;
+	perspective: 500px;
+	position:relative;
+	/*height: 16px;*/
+	/*-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;*/
+}
+.dj_ie10 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations{
+	-ms-perspective: 0;
+	perspective: 0;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations.settings{
+}
+
+
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations .fpPortletTitleFocusNode{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 1.0s linear;
+	-moz-transition: -moz-transform 1.0s linear;
+	-ms-transition: -ms-transform 1.0s linear;
+	transition: transform 1.0s linear;
+	-webkit-transform-origin: 50% 2px 0;
+	-moz-transform-origin: 50% 2px 0;
+	-ms-transform-origin: 50% 2px 0;
+	transform-origin: 50% 2px 0;
+	position:absolute;
+	/*webkit browser issue*/ 
+	/*width:80%;*/
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations .fpPortletTitleFocus{
+	-webkit-transform: rotateX(0);
+	-moz-transform: rotateX(0);
+	-ms-transform: rotateX(0);
+	transform: rotateX(0);
+}
+.dj_ie9 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle .fpPortletTitleFocus,
+.dj_ie8 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle .fpPortletTitleFocus{
+	display:block;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations .fpPortletTitleFocusBack{
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-ms-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.dj_ie9 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle .fpPortletTitleFocusBack,
+.dj_ie8 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle .fpPortletTitleFocusBack{
+	display:none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations.settings .fpPortletTitleFocus{
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-ms-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.dj_ie9 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.settings .fpPortletTitleFocus,
+.dj_ie8 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.settings .fpPortletTitleFocus{
+	display:none;
+}
+.oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.css3Animations.settings .fpPortletTitleFocusBack{
+	-webkit-transform: rotateX(360deg);
+	-moz-transform: rotateX(360deg);
+	-ms-transform: rotateX(360deg);
+	transform: rotateX(360deg);
+}
+.dj_ie9 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.settings .fpPortletTitleFocusBack,
+.dj_ie8 .oneui .portletItem .fpPortlet.portletItemContent .fpPortletTitle.settings .fpPortletTitleFocusBack{
+	display:block;
+}
+
+
+/*********** webkit issue **********/
+.dj_webkit .oneui .portletItem.css3Animations .fpPortlet.portletItemContent.detailContent .fpPortletTitle{
+	display:none;
+}
+.dj_webkit .oneui .portletItemFlip.css3Animations .fpPortlet.portletItemContent.detailContent .fpPortletTitle{
+	display:block;
+}
+
+/*********** portlet title css3Animation end **************/
+
+/************** resizer css3animation ************/
+.oneui .portletItem.css3AnimationsForResize{
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+}
+.oneui .portletItem .contentResizer.css3Animations{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-origin: -100px 50% 0;
+	-moz-transform-origin: -100px 50% 0;
+	-ms-transform-origin: -100px 50% 0;
+	transform-origin: -100px 50% 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: all 1s ease-in-out; 
+	-moz-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out;
+	-webkit-transform: rotateY(0);
+	-moz-transform: rotateY(0);
+	-ms-transform: rotateY(0);
+	transform: rotateY(0);
+}
+.oneui .portletItem .contentResizerFlip.css3Animations{
+	-webkit-transform: rotateY(360deg);
+	-moz-transform: rotateY(360deg);
+	-ms-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+.oneui .portletItem.css3Animations.css3AnimationsFlipping .contentResizer{
+	display:none;
+}
+
+
+/************  common  ************/
+.oneui .portletItem .animationHidden{
+	display: none;
+}
+
+.oneui .portletItem.css3AnimationsDisabled,
+.oneui .portletItem.css3AnimationsDisabled .portletItemContent,
+.oneui .portletItem.css3AnimationsDisabled > *,
+.oneui .portletItem.css3AnimationsDisabled .fpPortletTitle > *{
+	-webkit-transition: none !important; 
+	-moz-transition: none !important; 
+	-o-transition: none !important; 
+	-ms-transition: none !important; 
+	transition: none !important; 
+}
+.oneui .portletItem.css3AnimationsDisabled .fpPortlet.portletItemContent.mainContent{
+	display:block;
+}
+.oneui .portletItem.css3AnimationsDisabled .fpPortlet.portletItemContent.detailContent{
+	display:none;
+}
+.oneui .portletItemFlip.css3AnimationsDisabled .fpPortlet.portletItemContent.mainContent{
+	display:none;
+}
+.oneui .portletItemFlip.css3AnimationsDisabled .fpPortlet.portletItemContent.detailContent{
+	display:block;
+}
+
+
+/*********************** a11y ***************************/
+.dj_a11y.oneui .portletItem .portletItemAction{
+	overflow: hidden;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/A11yPrologue</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoConfig.parseOnLoad = true;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+
+.oneui .idxA11yPrologue {
+    position: relative;
+    left: auto;
+    top: auto;
+}
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"idx/util",
+	"idx/app/A11yPrologue"
+], function(dom, ready, util, A11yPrologue){
+	ready(function(){
+		var prologue;
+		var mainNode = dom.byId("testMain");
+		var navigationNode = dom.byId("testBanner");
+		var bannerNode = dom.byId("testBanner");
+		var createPrologue = function(browser){
+			if(prologue){
+				prologue.domNode.parentNode.removeChild(prologue.domNode);
+				prologue.destroy();
+			}
+			switch(browser){
+			case "ie":
+				util.isIE = true;
+				util.isFF = util.isSafari = util.isChrome = false;
+				break;
+			case "ff":
+				util.isFF = true;
+				util.isIE = util.isSafari = util.isChrome = false;
+				break;
+			case "safari":
+				util.isSafari = true;
+				util.isIE = util.isFF = util.isChrome = false;
+				break;
+			case "chrome":
+				util.isChrome = true;
+				util.isIE = util.isFF = util.isSafari = false;
+				break;
+			}
+			prologue = new A11yPrologue({a11yStatementURL: "http://www.ibm.com/", mainNode: mainNode, navigationNode: navigationNode, bannerNode: bannerNode});
+			prologue.placeAt(bannerNode, "before");
+			prologue.startup();
+			prologue.addShortcut(mainNode, "internal");
+			prologue.addShortcut("http://www.ibm.com/", "external");
+		};
+		createPrologue();
+		var ieButton = dom.byId("testIEButton");
+		ieButton.onclick = function(){
+			createPrologue("ie");
+		};
+		var ffButton = dom.byId("testFFButton");
+		ffButton.onclick = function(){
+			createPrologue("ff");
+		};
+		var safariButton = dom.byId("testSafariButton");
+		safariButton.onclick = function(){
+			createPrologue("safari");
+		};
+		var chromeButton = dom.byId("testChromeButton");
+		chromeButton.onclick = function(){
+			createPrologue("chrome");
+		};
+	});
+});
+</script>
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">app/nls/A11yPrologue</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>skipToLocationMessage</td><td>
+		Verify that the top three links are translated.
+	</td></tr>
+	<tr><td>a11yMainContentAreaName</td><td>
+		Verify that "main content" in the first link is translated.
+	</td></tr>
+	<tr><td>a11yNavigationAreaName</td><td>
+		Verify that "navigation" in the second link is translated.
+	</td></tr>
+	<tr><td>a11yBannerAreaName</td><td>
+		Verify that "banner" in the third link is translated.
+	</td></tr>
+	<tr><td>shortcutListMessage</td><td>
+		Verify that the text before the bullet list is translated.
+	</td></tr>
+	<tr><td>shortcutKeyMessage_external</td><td>
+		Verify that the first bullet is translated.
+	</td></tr>
+	<tr><td>a11yStatementLabel</td><td>
+		Verify that the "Accessibility Statement" link in the first bullet is translated.
+	</td></tr>
+	<tr><td>shortcutKeyMessage_internal</td><td>
+		Verify that the last bullet is translated.
+	</td></tr>
+	<tr><td>a11yPrologueLabel</td><td>
+		Verify that the "Accessibility Prologue" link in the last bullet is translated.
+	</td></tr>
+	<tr><td>shortcutMessage_internal</td><td>
+		Verify that the 5th bullet is translated, except the target name, "internal".
+	</td></tr>
+	<tr><td>shortcutMessage_external</td><td>
+		Verify that the 6th bullet is translated, except the target name, "external".
+	</td></tr>
+	<tr><td>keySequence_InternetExplorer</td><td>
+		Click the "Internet Explorer" button to change the key sequence texts.<br/><br/>
+		Verify that the key sequence texts in the bullets are translated.
+	</td></tr>
+	<tr><td>keySequence_Firefox</td><td>
+		Click the "Firefox" button to change the key sequence texts.<br/><br/>
+		Verify that the key sequence texts in the bullets are translated.
+	</td></tr>
+	<tr><td>keySequence_Safari</td><td>
+		Click the "Safari" button to change the key sequence texts.<br/><br/>
+		Verify that the key sequence texts in the bullets are translated.
+	</td></tr>
+	<tr><td class="testHighlightNls">*keySequence_Chrome</td><td>
+		Click the "Chrome" button to change the key sequence texts.<br/><br/>
+		Verify that the key sequence texts in the bullets are translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<div id="testBanner"><div>
+	<div id="testNavigation"><div>
+	<div id="testMain"></div>
+	<button id="testIEButton">Internet Explorer</button>
+	<button id="testFFButton">Firefox</button>
+	<button id="testSafariButton">Safari</button>
+	<button id="testChromeButton">Chrome</button>
+</div>
+</body>
+</html>

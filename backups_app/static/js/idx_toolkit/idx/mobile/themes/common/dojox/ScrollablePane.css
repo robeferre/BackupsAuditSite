@@ -1,0 +1,39 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.mblScrollablePane */
+
+/* Reset common styles. */
+.oneui .mblScrollableCover,
+.oneui .mblScrollableViewContainer,
+.oneui .mblDummyForIE {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblScrollablePane {
+  position: relative;
+  overflow: hidden;
+}
+.oneui .mblScrollableViewContainer {
+  position: absolute;
+  top: 0px;
+}
+.oneui .mblScrollablePaneMask {
+  position: relative;
+}

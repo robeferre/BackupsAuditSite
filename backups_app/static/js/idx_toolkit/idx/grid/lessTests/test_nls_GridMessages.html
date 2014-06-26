@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/GridMessages</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneuiLess/theme.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"dojo/data/ItemFileWriteStore",
+	"dojox/grid/DataGrid",
+	"idx/grid/util"
+], function(dom, ready, ItemFileWriteStore, DataGrid, util){
+	ready(function(){
+		var table = dom.byId("testTable");
+		var store = new ItemFileWriteStore({data: {items: [{valid: true}, {valid: false}]}});
+		var structure = [[{field: "valid", name: " ", width: "200px", formatter: util.formatCellValid}]];
+		var grid = new DataGrid({store: store, structure: structure, autoWidth: true, autoHeight: true}, table);
+		grid.startup();
+	});
+});
+</script>
+</head>
+<body class="oneui">
+<h1 class="testTitle">grid/nls/GridMessages</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>idxGridIconTextValid</td><td>
+		Verify that the text, "Valid", in the first row is translated.
+	</td></tr>
+	<tr><td>idxGridIconTextInvalid</td><td>
+		Verify that the text, "Invalid", in the second row is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+	<table id="testTable"></table>
+</div>
+</body>
+</html>

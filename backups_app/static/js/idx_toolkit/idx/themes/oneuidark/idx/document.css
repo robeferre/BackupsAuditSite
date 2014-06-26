@@ -1,0 +1,215 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* ======= beginning of header font styles ======== */
+/* ======= .oneui.dark .idxHeaderPrimaryTitle is 13px; the style is for the project/product title in the top banner ; header ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderPrimaryTitle {
+	color:#eee;
+	text-shadow:0 1px rgba(255,255,255,0.3);
+}
+
+/* ======== .oneui.dark .idxHeaderContainer .idxHeaderPrimary li.idxHeaderSeparator a:active is a character used to render the pipe separator between the global actions ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary li.idxHeaderSeparator span {
+	color:#c2c2c2;
+}
+
+/* =======  .dijitMenuItem is 12px bold; it is a navigation menu label active state in the top banner; header ======== */
+.oneui.dark .idxHeaderContainer .dijitMenuBar .dijitMenuItem,.oneui.dark .idxHeaderContainer .dijitMenuBar .oneuiMenuHeading {
+	color:#eee;
+	text-shadow:0 1px rgba(0,0,0,0.3);
+}
+
+/* =======  .dijitMenuItem is 12px bold; it is a navigation menu label hover and selected states in the top banner; header ======== */
+.oneui.dark .idxHeaderContainer .dijitMenuBar .idxHeaderNavCurrentPage.dijitMenuItem,.oneui.dark .idxHeaderContainer .dijitMenuActive .dijitMenuItemHover,.oneui.dark .idxHeaderContainer .dijitMenuActive .dijitMenuItemSelected,.oneui.dark .idxHeaderContainer .dijitMenuPassive .dijitMenuItemHover,.oneui.dark .idxHeaderContainer .dijitMenuPassive .dijitMenuItemSelected {
+	color:#eee;
+}
+
+/* ======= .idxHeaderPrimary li.idxHeaderUserName is 12px; the style is for the global action user name title in the top banner ; header ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderUserName {
+	color:#eee;
+	text-shadow:0 1px rgba(0,0,0,0.3);
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderUserName:hover {
+	color:#fff;
+	text-shadow:0 1px rgba(0,0,0,0.3);
+}
+
+/* ======== Product, context and global action Menu list styling ======== */
+.oneui.dark .idxHeaderContainer .dijitReset .dijitMenuItemLabel,.oneui.dark .idxHeaderContainer .dijitReset .oneuiMenuHeadingLabel {
+	color:#ddd;
+}
+
+.oneui.dark .idxHeaderContainer .dijitReset.dijitHover .dijitMenuItemLabel,.oneui.dark .idxHeaderContainer .dijitReset.dijitHover .oneuiMenuHeadingLabel {
+	color:#ddd;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxBadgeError {
+	background-color:red;
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxBadgeWarning {
+	background-color:#fa0;
+	color:#222;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxBadgeInformation {
+	background-color:#008abf;
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxBadgeSuccess {
+	background-color:#0c7f00;
+	color:#eee;
+}
+
+/* ======= .oneui.dark .idxHeaderSecondaryTitle is 16px (1.333em) but can be increased to 18px (1.5em), 24px (2em) or 26px (2.167em) ; the style is for the context title in the 2nd (context) banner; header  ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .idxHeaderSecondaryTitleContainer .idxHeaderSecondaryTitle {
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSecondaryTitleContainer .idxHeaderSecondaryTitle {
+	color:#777;
+	text-shadow:0 1px rgba(127,127,127,0.3);
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .idxHeaderSecondaryTitleContainer .idxHeaderSecondaryTitle {
+	color:#ddd;
+}
+
+/* ======= .oneui.dark .idxHeaderSecondarySubtitle is 14px (1.167em); the style is for the context subtitle in the 2nd (context) banner; header  ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .idxHeaderSecondaryTitleContainer .idxHeaderSecondarySubtitle {
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSecondaryTitleContainer .idxHeaderSecondarySubtitle {
+	color:#777;
+	text-shadow:0 1px rgba(127,127,127,0.25);
+}
+
+/* ======= .oneui.dark status is 12px; in the 2nd (context) banner ; header ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondary .idxHeaderSecondaryAdditionalContext {
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSecondaryAdditionalContext {
+	color:#ddd;
+}
+
+/** ======= .oneui.dark tabTitles is 12px bold but can go up to 14px ; for the tab (page and menu items) in the 2nd (context) banner; header ======== **/
+/**======== When there is class name with no color description assume this class style apply to the blue context banner tab system =========**/
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabContent {
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabContent {
+	color:#bdbdbd;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked .dijitTabContent {
+	color:#ddd;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked .dijitTabContent {
+	color:#bbb;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover .dijitTabContent {
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover .dijitTabContent {
+	color:#bbb;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabCheckedHover .dijitTabContent {
+	color:#fff;
+}
+
+.oneui.dark .oneuiContentContainer .idxTabSeparator {
+	text-shadow:none;
+	color:#065B86;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .idxTabSeparator {
+	color:#424242;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .dijitPlaceHolder,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .dijitInputInner {
+	color:#ddd;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .dijitPlaceHolder,.oneui.dark .idxHeaderContainer .idxHeaderSecondary .dijitInputInner {
+	color:#eee;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .dijitPlaceHolder,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .dijitInputInner,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .dijitPlaceHolder,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .dijitInputInner {
+	color:#999;
+}
+
+/* ======== Grid Styles ======== */
+.oneui.dark .tableSummary {
+	color:#777;
+}
+
+.oneui.dark .tableFilterSummary {
+	color:#666;
+}
+
+.oneui.dark .tableCell {
+	color:#333;
+}
+
+.oneui.dark .tableCellAccent {
+	color:#333;
+}
+
+.oneui.dark .inputHint {
+	color:#ccc;
+}
+
+.oneui.dark .tableHeaderHover {
+	color:#000;
+	text-shadow:1px 0 0 rgba(255,255,255,1);
+}
+
+.oneui.dark .currentPageRowView {
+	color:#222;
+}
+
+/* ======= Grid Styles -  .oneui.dark tableColumnHeader is 12px; content area ======== */
+.oneui.dark .tableColumnHeader {
+	color:#444;
+	text-shadow:1px 0 0 rgba(255,255,255,1);
+}
+
+/* ======= .oneui.dark headerSmBreadcrumb is 11px - this is for the 2nd (context) banner #2 breadcrumb ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .headerSmBreadcrumb a {
+	color:#fff!important;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .headerSmBreadcrumb a:link {
+	color:#fff;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .headerSmBreadcrumb a:visited {
+	color:#fff;
+}
+
+/* ======= .contextLgBreadcrumb is 14px - this is for the 2nd (context) banner #tbd breadcrumb ======== */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .headerLgBreadcrumb a {
+	color:#fff;
+	text-decoration:none;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .headerLgBreadcrumb a:link {
+	color:#fff;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .headerLgBreadcrumb a:visited {
+	color:#fff;
+}

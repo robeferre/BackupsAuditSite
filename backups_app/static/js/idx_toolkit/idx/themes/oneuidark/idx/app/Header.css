@@ -1,0 +1,728 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/** secondary (context) bar **/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary {
+	background-color:#047bb0;
+	background-image:-moz-linear-gradient(#008abf,#047BB0);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#008abf),to(#047BB0));
+	background-image:-webkit-linear-gradient(#008abf,#047BB0);
+	background-image:-o-linear-gradient(#008abf,#047BB0);
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondary {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#008abf',EndColorStr='#047BB0');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary {
+	background-color:#000;
+	background-image:none;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary {
+	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary {
+	background-color:#000;
+	background-image:none;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary {
+	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray.idxHeaderSecondarySingleRow .idxHeaderSecondary {
+	background-image:-moz-linear-gradient(top,#f8f8f8,#f8f8f8 80%,#e9e9e9);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.80,#f8f8f8),color-stop(1,#e9e9e9));
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray.idxHeaderSecondarySingleRow .idxHeaderSecondary {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#f8f8f8',EndColorStr='#e9e9e9');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondarySingleRow .idxHeaderSecondary {
+	border-top-color: #008abf;
+}
+
+/** idxHeaderSecondaryInner **/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondaryInner {
+	border-bottom-color: #555;
+}
+/** idxHeaderBlueLip **/
+.oneui.dark .idxHeaderContainer .idxHeaderBlueLip {
+	background-image:-moz-linear-gradient(#1a96c6,#0075a3);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#1a96c6),to(#0075a3));
+	background-image:-webkit-linear-gradient(#1a96c6,#0075a3);
+	background-image:-o-linear-gradient(#1a96c6,#0075a3);
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderBlueLip {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#1a96c6',EndColorStr='#0075a3');
+}
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary {
+	background-color:#333;
+	background-image:-moz-linear-gradient(#3e3e3e,#131313);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#3e3e3e),to(#131313));
+	background-image:-webkit-linear-gradient(#3e3e3e,#131313);
+	background-image:-o-linear-gradient(#3e3e3e,#131313);
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderPrimary {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#3e3e3e',EndColorStr='#131313');
+}
+
+/** idxHeaderNavigationHome **/
+.oneui.dark .idxHeaderContainer .idxHeaderNavigationHome {
+	background:url(images/headerIcons_TopBanner.png) no-repeat scroll -119px -5px transparent;
+}
+
+.oneui.dark .idxHeaderContainer .dijitMenuItemHover .idxHeaderNavigationHome {
+	background:url(images/headerIcons_TopBanner.png) no-repeat scroll -218px -5px transparent;
+}
+
+.dj_ie6 .oneui.dark .idxHeaderContainer .idxHeaderPrimary span.idxHeaderUserIcon {
+	background:url(images/headerProdBanIcons8bit.png) no-repeat -32px 0;
+}
+/* drop-down arrow */
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderDropDown .idxHeaderDropDownArrow {
+	background:url(images/headerIcons.png) no-repeat scroll 0 0 transparent;
+	background-position:-69px 7px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderDropDown:hover .idxHeaderDropDownArrow {
+	background-position:-84px 7px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimaryThick .idxHeaderDropDown .idxHeaderDropDownArrow {
+	background-position:-69px 19px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimaryThick .idxHeaderDropDown:hover .idxHeaderDropDownArrow {
+	background-position:-84px 19px;
+}
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary li.idxHeaderPrimaryAction.idxHeaderHelp .idxHeaderHelpIcon {
+	background:url(images/headerIcons_TopBanner.png) no-repeat -44px 8px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimaryThick .idxHeaderPrimary li.idxHeaderPrimaryAction.idxHeaderHelp .idxHeaderHelpIcon {
+	background-position:-44px 20px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary li.idxHeaderPrimaryAction.idxHeaderHelp > :hover .idxHeaderHelpIcon {
+	background-image:url(images/headerIcons_TopBanner.png);
+	background-position:-61px 8px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimaryThick li.idxHeaderPrimaryAction.idxHeaderHelp > :hover .idxHeaderHelpIcon {
+	background-position:-61px 20px;
+}
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary li.idxHeaderPrimaryAction.idxHeaderTools .idxHeaderShareIcon {
+	background:url(images/headerIcons_TopBanner.png) no-repeat -78px 8px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimaryThick .idxHeaderPrimary li.idxHeaderPrimaryAction.idxHeaderTools .idxHeaderShareIcon {
+	background-position:-78px 20px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary li.idxHeaderPrimaryAction.idxHeaderTools > :hover .idxHeaderShareIcon {
+	background-image:url(images/headerIcons_TopBanner.png);
+	background-position:-95px 8px;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimaryThick li.idxHeaderPrimaryAction.idxHeaderTools > :hover .idxHeaderShareIcon {
+	background-position:-95px 20px;
+}
+
+/** idxHeaderLogoBox **/
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderLogoBox {
+	background-color:#222;
+	background-image:-moz-linear-gradient(#282828,#000);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#282828),to(#000));
+	background-image:-webkit-linear-gradient(#282828,#000);
+	background-image:-o-linear-gradient(#282828,#000);
+	-webkit-box-shadow:-1px 0 #585858;
+	-moz-box-shadow:-1px 0 #585858;
+	box-shadow:-1px 0 #585858;
+	border-left:1px solid #131313;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderWidthLiquid .idxHeaderPrimary .idxHeaderLogoBox {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#282828',EndColorStr='#000000');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderWidthFixed .idxHeaderPrimary .idxHeaderLogoBox {
+	background-color:transparent;
+	background-image:none;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+
+/** idxHeaderLogo **/
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderLogo {
+	background:url(images/headerLogo.png) no-repeat 35% 23%;
+}
+
+/** dijitMenuBar **/
+.oneui.dark .idxHeaderContainer .dijitMenuBar {
+	background-color:transparent;
+	background-image:none;
+}
+
+.oneui.dark .idxHeaderPrimaryInner .dijitMenuBar {
+	filter:none;
+}
+
+/** dijitMenuItem **/
+.oneui.dark .idxHeaderContainer .dijitMenuBar .dijitMenuItem,.oneui.dark .idxHeaderContainer .dijitMenuBar .oneuiMenuHeading {
+	border-color:transparent;
+}
+
+.oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuPassive .dijitMenuItemSelected,.oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuPassive .dijitMenuItemFocused,.oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuActive .dijitMenuItemSelected,.oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuActive .dijitMenuItemFocused,.oneui.dark .idxHeaderContainer .dijitMenuBar .idxHeaderNavCurrentPage.dijitMenuItem {
+	background-position:0 0;
+	background-color:#222;
+	background-image:-moz-linear-gradient(#585858,#161616);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#585858),to(#161616));
+	background-image:-webkit-linear-gradient(#585858,#161616);
+	background-image:-o-linear-gradient(#585858,#161616);
+	border-color:#343434;
+	-webkit-box-shadow:1px 0 #111111,-1px 0 #111;
+	-moz-box-shadow:1px 0 #111111,-1px 0 #111;
+	box-shadow:1px 0 #111111,-1px 0 #111;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuPassive .dijitMenuItemHover,.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuPassive .dijitMenuItemSelected,.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuActive .dijitMenuItemHover,.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuActive .dijitMenuItemSelected,.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar .idxHeaderNavCurrentPage.dijitMenuItem {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#585858',EndColorStr='#161616');
+}
+
+.oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuPassive .dijitMenuItemHover,.oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuActive .dijitMenuItemHover {
+	background-image:-moz-linear-gradient(#000,#212121);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#000),to(#212121));
+	background-image:-webkit-linear-gradient(#000,#212121);
+	background-image:-o-linear-gradient(#000,#212121);
+	border-color:transparent;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuPassive .dijitMenuItemHover,.dj_ie .oneui.dark .idxHeaderContainer .dijitMenuBar.dijitMenuActive .dijitMenuItemHover {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#000000',EndColorStr='#212121');
+}
+
+/** product 2nd level menu **/
+.oneui.dark .oneuiHeaderNavigationMenu .dijitMenu .idxHeaderNavCurrentPage,.oneui.dark .oneuiHeaderNavigationMenu .dijitMenuActive .dijitMenuItemHover,.oneui.dark .oneuiHeaderNavigationMenu .dijitMenuActive .dijitMenuItemSelected {
+	background-color:#1673a6;
+	border-color:rgba(23,23,23,0.25);
+	-webkit-box-shadow:1px 0 transparent,-1px 0 transparent;
+	-moz-box-shadow:1px 0 transparent,-1px 0 transparent;
+	box-shadow:1px 0 transparent,-1px 0 transparent;
+}
+
+.oneui.dark .oneuiHeaderNavigationMenu .dijitMenuPopup {
+	background-color:#222;
+	-moz-border-radius:0 0 2px 2px;
+	border-radius:0 0 2px 2px;
+	border:0 solid #222;
+}
+
+.oneui.dark .oneuiHeaderNavigationMenu .dijitMenuPopup .dijitMenuTable {
+	background-color:#222;
+	border-color:#555;
+}
+
+.oneui.dark .oneuiHeaderNavigationSubmenu .dijitMenuPopup .dijitMenuTable {
+	padding:1px;
+	border-color: #555;
+}
+
+.oneui.dark .oneuiHeaderNavigationMenu .dijitMenuItem,.oneui.dark .oneuiHeaderNavigationSubmenu .dijitMenuItem,.oneui.dark .oneuiHeaderNavigationMenu .oneuiMenuHeading,.oneui.dark .oneuiHeaderNavigationSubmenu .oneuiMenuHeading {
+	background-image:none;
+}
+
+.oneui.dark .oneuiHeaderNavigationMenu .dijitMenuPopup {
+	-webkit-box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+	box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+}
+
+.oneui.dark .oneuiHeaderNavigationSubmenu .dijitMenuPopup {
+	-webkit-box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+	box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+}
+
+/** global action menu **/
+.oneui.dark .oneuiHeaderGlobalActionsMenu .dijitMenuActive .dijitMenuItemHover,.oneui.dark .oneuiHeaderGlobalActionsMenu .dijitMenuActive .dijitMenuItemSelected {
+	background-color:#1673a6;
+	border-color:rgba(23,23,23,0.25);
+	-webkit-box-shadow:1px 0 transparent,-1px 0 transparent;
+	-moz-box-shadow:1px 0 transparent,-1px 0 transparent;
+	box-shadow:1px 0 transparent,-1px 0 transparent;
+}
+
+.oneui.dark .oneuiHeaderGlobalActionsMenu .dijitMenuPopup {
+	background-color:#222;
+	border-color: #222;
+}
+
+.oneui.dark .oneuiHeaderGlobalActionsMenu .dijitMenuTable {
+	background-color:#222;
+	border-color:#555;
+}
+
+.oneui.dark .oneuiHeaderGlobalActionsSubmenu .dijitMenuTable {
+	border-color: #555;
+}
+
+.oneui.dark .oneuiHeaderGlobalActionsMenu .dijitMenuItem,.oneui.dark .oneuiHeaderGlobalActionsSubmenu .dijitMenuItem,.oneui.dark .oneuiHeaderGlobalActionsMenu .oneuiMenuHeading,.oneui.dark .oneuiHeaderGlobalActionsSubmenu .oneuiMenuHeading {
+	background-image:none;
+}
+
+.oneui.dark .oneuiHeaderGlobalActionsMenu .dijitMenuPopup {
+	-webkit-box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+	box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+}
+
+.oneui.dark .oneuiHeaderGlobalActionsSubmenu .dijitMenuPopup {
+	-webkit-box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+	box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+}
+
+/** context 2nd level menu **/
+.oneui.dark .oneuiHeader2ndLevMenu .dijitMenu .idxHeaderNavCurrentPage,.oneui.dark .oneuiHeader2ndLevMenu .dijitMenuActive .dijitMenuItemHover,.oneui.dark .oneuiHeader2ndLevMenu .dijitMenuActive .dijitMenuItemSelected {
+	background-color:#1673a6;
+	border-color:rgba(23,23,23,0.25);
+	border-width:0 1px;
+	-webkit-box-shadow:1px 0 transparent,-1px 0 transparent;
+	-moz-box-shadow:1px 0 transparent,-1px 0 transparent;
+	box-shadow:1px 0 transparent,-1px 0 transparent;
+}
+
+.oneui.dark .oneuiHeader2ndLevMenu .dijitMenuPopup {
+	background-color:#222;
+}
+
+.oneui.dark .oneuiHeader2ndLevMenu .dijitMenuTable {
+	background-color:#222;
+	border-color:#afdaeb;
+}
+
+.oneui.dark .oneuiHeader2ndLevSubmenu .dijitMenuTable {
+	border-color: #afdaeb;
+}
+
+.oneui.dark .oneuiHeader2ndLevMenu .dijitMenuItem,.oneui.dark .oneuiHeader2ndLevSubmenu .dijitMenuItem,.oneui.dark .oneuiHeader2ndLevMenu .oneuiMenuHeading,.oneui.dark .oneuiHeader2ndLevSubmenu .oneuiMenuHeading {
+	background-image:none;
+}
+
+.oneui.dark .oneuiHeader2ndLevMenu .dijitMenuPopup {
+	-webkit-box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+	box-shadow:1px 0 1px rgba(0,0,0,0.25),-1px 0 1px rgba(0,0,0,0.25),0 2px 1px rgba(0,0,0,0.25);
+}
+
+.oneui.dark .oneuiHeader2ndLevSubmenu .dijitMenuPopup {
+	-webkit-box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+	box-shadow:1px 0 2px rgba(0,0,0,0.1),-1px 0 2px rgba(0,0,0,0.1),0 2px 2px rgba(0,0,0,0.1),0 -2px 2px rgba(0,0,0,0.1);
+}
+
+/* ======= End of menu ======== */
+/* ======= Beginning of search box ======== */
+.dj_gecko .oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitTextBox .dijitInputInner,.dj_webkit .oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitTextBox .dijitInputInner {
+	background:none repeat scroll 0 0 transparent;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitTextBoxFocused .dijitInputContainer {
+	background:transparent;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitTextBox {
+	background:none repeat scroll 0 0 #383838;
+	border-color:#222;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitTextBox,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode {
+	border-color: #000;
+	background-image:-moz-linear-gradient(#222,#121212);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#222),to(#121212));
+	background-image:-webkit-linear-gradient(#222,#121212);
+	background-image:-o-linear-gradient(#222,#121212);
+	-webkit-box-shadow:0 1px #3F3F40,0 1px #1D1C1D inset;
+	-moz-box-shadow:0 1px #3F3F40,0 1px #1D1C1D inset;
+	box-shadow:0 1px #3F3F40,0 1px #1D1C1D inset;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitTextBox,.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#222222',EndColorStr='#121212');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox,.oneui.dark .idxHeaderContainer .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode {
+	border-color: #004e71;
+	background-color:#0272a1;
+	background-image:-moz-linear-gradient(#046897,#075e8e);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#046897),to(#075e8e));
+	background-image:-webkit-linear-gradient(#046897,#075e8e);
+	background-image:-o-linear-gradient(#046897,#075e8e);
+	-webkit-box-shadow:0 1px #2d92bf,0 1px #04628e inset;
+	-moz-box-shadow:0 1px #2d92bf,0 1px #04628e inset;
+	box-shadow:0 1px #2d92bf,0 1px #04628e inset;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox,.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#046897',EndColorStr='#075e8e');
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode {
+	border-color: #e3e3e3;
+	background-color:#222;
+	background-image:none;
+	-webkit-box-shadow:0 1px #343434;
+	-moz-box-shadow:0 1px #343434;
+	box-shadow:0 1px #343434;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox,.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode,.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox,.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSecondary .idxHeaderSearchContainer .dijitTextBox .dijitButtonNode {
+	filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+}
+
+/* ======= Beginning of search box ======== */
+/* ======= Beginning of ContentContainer ======== */
+.oneui.dark .oneuiContentContainer {
+	background-image:-moz-linear-gradient(top,#047bb0 0%,#096ba2 100%);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#047bb0),to(#096ba2));
+	background-image:-webkit-gradient(linear,50% 100%,#047bb0,#096ba2);
+	background-image:-o-linear-gradient(#047bb0,#096ba2);
+}
+
+.dj_ie .oneui.dark .oneuiContentContainer {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#047bb0',EndColorStr='#096ba2');
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer {
+	background-image:-moz-linear-gradient(top,#f8f8f8,#f8f8f8 80%,#e9e9e9);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.80,#f8f8f8),color-stop(1,#e9e9e9));
+}
+
+.dj_ie .oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer {
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#f8f8f8',EndColorStr='#e9e9e9');
+}
+
+/* ======= End of ContentContainer ======== */
+/* ======= Beginning of Button ======== */
+/** Seach button**/
+.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode {
+	background:url(images/headerIcons.png) no-repeat -238px -6px transparent;
+	box-shadow:none;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode {
+	background:url(images/headerIcons.png) no-repeat -285px -6px transparent;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode {
+	background:url(images/headerIcons.png) no-repeat -333px -6px transparent;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode:hover {
+	background:url(images/headerIcons.png) no-repeat -261px -6px transparent;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryWhite .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode:hover {
+	background:url(images/headerIcons.png) no-repeat -309px -6px transparent;
+}
+
+.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitDropDownButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitComboButton .dijitButtonNode:hover,.oneui.dark .idxHeaderContainer .idxHeaderPrimary .idxHeaderSearchContainer .dijitToggleButton .dijitButtonNode:hover {
+	background:url(images/headerIcons.png) no-repeat -357px -6px transparent;
+}
+
+/* ======= End of Button ======== */
+/* ======= Beginning of Header Buttons ======== */
+/* ========idxHeaderSecondaryBlue======= */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryActions .dijitArrowButtonInner {
+	background-image:url(images/buttonArrows.png);
+}
+
+.dj_ie6 .oneui.dark .idxHeaderContainer .idxHeaderSecondaryActions .dijitArrowButtonInner {
+	background-image:url(images/buttonArrows8bit.png);
+}
+
+/* normal status*/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButton .dijitButtonNode {
+	background-color:#343434;
+	background-image:-moz-linear-gradient(top,#3e3e3e,#121213);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#3e3e3e),to(#121213));
+	background-image:-webkit-linear-gradient(top,#3e3e3e 0%,#121213 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#3e3e3e 0%,#121213 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#3e3e3e 0%,#121213 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#3e3e3e 0%,#121213 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#3e3e3e', endColorstr='#121213'); 
+	*/
+	border-color: #222;
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0 1px 1px rgba(0,0,0,0.25);
+	box-shadow:0 1px 1px rgba(0,0,0,0.25);
+	color:#eee;
+	text-shadow:0 1px 0 #222;
+}
+
+/* focused status */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButtonFocused .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButtonFocused .dijitButtonNode {
+	outline-color: #eee;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+
+/* hover status*/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButtonHover .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButtonHover .dijitButtonNode {
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#525252,#2b2b2b);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#525252),to(#2b2b2b));
+	background-image:-webkit-linear-gradient(top,#525252 0%,#2b2b2b 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#525252 0%,#2b2b2b 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#525252 0%,#2b2b2b 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#525252 0%,#2b2b2b 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#525252', endColorstr='#2b2b2b'); 
+	*/
+}
+
+/* active status */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButtonActive .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButtonActive .dijitButtonNode {
+	background-color:#000;
+	background-image:-moz-linear-gradient(top,#121213,#3e3e3e);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#121213),to(#3e3e3e));
+	background-image:-webkit-linear-gradient(top,#121213 0%,#3e3e3e 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#121213 0%,#3e3e3e 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#121213 0%,#3e3e3e 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#121213 0%,#3e3e3e 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#121213', endColorstr='#3e3e3e'); 
+	*/
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.25) inset;
+	-moz-box-shadow:0 1px 1px rgba(0,0,0,0.25) inset;
+	box-shadow:0 1px 1px rgba(0,0,0,0.25) inset;
+}
+
+.dj_opera .oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButtonActive .dijitButtonNode,.dj_opera .oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButtonActive .dijitButtonNode {
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow:0 1px 1px rgba(0,0,0,0.25);
+	box-shadow:0 1px 1px rgba(0,0,0,0.25);
+}
+
+/* disabled status */
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButtonDisabled .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButtonDisabled .dijitButtonNode {
+	background-color:#333;
+	background-image:-moz-linear-gradient(top,#3b3b3b,#171718);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#3b3b3b),to(#171718));
+	background-image:-webkit-linear-gradient(top,#3b3b3b 0%,#171718 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#3b3b3b 0%,#171718 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#3b3b3b 0%,#171718 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#3b3b3b 0%,#171718 100%);
+/* W3C */
+/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#3b3b3b', endColorstr='#171718'); 
+	*/
+	color:#aaa;
+}
+
+.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButtonDisabled .dijitButtonNode,.dj_ie .oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitDropDownButtonDisabled .dijitButtonNode {
+	background-color:#333;
+	color:#ccc;
+}
+
+/*==========idxHeaderSecondaryGray button =============*/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitButton .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitDropDownButton .dijitButtonNode {
+	border-color: #c3c3c3;
+/*
+	-webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+	*/
+	color:#000;
+}
+
+/*focus status*/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitButtonFocused .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitDropDownButtonFocused .dijitButtonNode {
+/*
+	outline: 1px dotted #000000;
+	*/
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+/*Disable status*/
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitButtonDisabled .dijitButtonNode,.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitDropDownButtonDisabled .dijitButtonNode {
+/*
+	background-color: #f2f2f2;
+	background-image: -moz-linear-gradient(top, #f2f2f2, #dddddd);
+	background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#f2f2f2),to(#dddddd));
+	*/
+	color:#aaa;
+}
+
+/*
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryBlue .idxHeaderSecondaryActions .dijitButton .dijitButtonNode .dijitButtonText,
+.oneui.dark .idxHeaderContainer .idxHeaderSecondaryGray .idxHeaderSecondaryActions .dijitButton .dijitButtonNode .dijitButtonText{
+	padding-top: 1px;
+}
+*/
+/* ======= End of Header Buttons ======== */
+/* ======= Beginning of TabContainer ======== */
+
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabContent {
+	background-image:none;
+	background-color:transparent;
+}
+
+/* hovered tab override styling */
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	background-image:-moz-linear-gradient(top,#078dc1 0%,#1673a6 100%);
+	background-image:-webkit-gradient(linear,50% 0%,50% 100%,from(#078dc1),to(#1673a6));
+	background-image:-webkit-gradient(linear,50% 100%,#078dc1,#1673a6);
+	background-image:-o-linear-gradient(#078dc1,#1673a6);
+	-webkit-box-shadow:1px 0 #065b87 inset,0 1px #065b87 inset,1px 0 #065b87;
+	-moz-box-shadow:1px 0 #065b87 inset,0 1px #065b87 inset,1px 0 #065b87;
+	box-shadow:1px 0 #065b87 inset,0 1px #065b87 inset,1px 0 #065b87;
+}
+
+.dj_ie .oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	filter:progid:DXImageTransform.Microsoft.DropShadow(OffX=1,OffY=0,Color='#065b87') progid:DXImageTransform.Microsoft.DropShadow(OffX=-1,OffY=0,Color='#065b87') progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#078dc1',EndColorStr='#1673a6');
+}
+
+.oneui.dark .idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	-webkit-box-shadow:1px 0 #065b87 inset,1px 0 #065b87;
+	-moz-box-shadow:1px 0 #065b87 inset,1px 0 #065b87;
+	box-shadow:1px 0 #065b87 inset,1px 0 #065b87;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	background-image:-moz-linear-gradient(top,#f9f9f9,#f9f9f9 80%,#f4f4f4);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.80,#f9f9f9),color-stop(1,#f4f4f4));
+	-webkit-box-shadow:1px 0 #d2d2d2 inset,0 1px #d2d2d2 inset,1px 0 #d2d2d2;
+	-moz-box-shadow:1px 0 #d2d2d2 inset,0 1px #d2d2d2 inset,1px 0 #d2d2d2;
+	box-shadow:1px 0 #d2d2d2 inset,0 1px #d2d2d2 inset,1px 0 #d2d2d2;
+}
+
+.dj_ie .oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	filter:progid:DXImageTransform.Microsoft.DropShadow(OffX=1,OffY=0,Color='#d2d2d2') progid:DXImageTransform.Microsoft.DropShadow(OffX=-1,OffY=0,Color='#d2d2d2') progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#f9f9f9',EndColorStr='#f4f4f4');
+}
+
+.oneui.dark .idxHeaderSecondaryGray.idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabHover.dijitTabContent {
+	-webkit-box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2;
+	-moz-box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2;
+	box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2;
+}
+
+/* selected tab override styling */
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	background-color:#000;
+	background-image:none;
+	color:#eee;
+	-webkit-box-shadow:1px 0 #065b87 inset,1px 0 #065b87,0 1px #065b87 inset;
+	-moz-box-shadow:1px 0 #065b87 inset,1px 0 #065b87,0 1px #065b87 inset;
+	box-shadow:1px 0 #065b87 inset,1px 0 #065b87,0 1px #065b87 inset;
+}
+
+.oneui.dark .idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	-webkit-box-shadow:1px 0 #065b87 inset,1px 0 #065b87;
+	-moz-box-shadow:1px 0 #065b87 inset,1px 0 #065b87;
+	box-shadow:1px 0 #065b87 inset,1px 0 #065b87;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	-webkit-box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2,0 1px #d2d2d2 inset;
+	-moz-box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2,0 1px #d2d2d2 inset;
+	box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2,0 1px #d2d2d2 inset;
+}
+
+.oneui.dark .idxHeaderSecondaryGray.idxHeaderSecondarySingleRow .oneuiContentContainer .dijitTabContainerTop-tabs .dijitTabChecked.dijitTabContent {
+	-webkit-box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2;
+	-moz-box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2;
+	box-shadow:1px 0 #d2d2d2 inset,1px 0 #d2d2d2;
+}
+
+/* close button styling */
+.oneui.dark .oneuiContentContainer .dijitTabCloseButton {
+	background:url(images/headerIcons.png) no-repeat scroll -146px -6px transparent;
+}
+
+.dj_ie6 .oneui.dark .oneuiContentContainer .dijitTabCloseButton {
+	background:url(images/tabClose_8bit.png) no-repeat scroll 0 0 transparent;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabCloseButtonHover {
+	background-position:-169px -6px;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabChecked .dijitTabCloseButton {
+	background:url(images/headerIcons.png) no-repeat scroll -100px -6px transparent;
+}
+
+.dj_ie6 .oneui.dark .oneuiContentContainer .dijitTabChecked .dijitTabCloseButton {
+	background:url(images/tabClose_8bit.png) no-repeat scroll 0 0 transparent;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabChecked .dijitTabCloseButtonHover {
+	background-position:-123px -6px;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabCloseButton {
+	background-position:-192px -6px;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabCloseButtonHover {
+	background-position:-215px -6px;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabCloseButtonActive {
+	background-position:-28px;
+}
+
+/* drop-down arrow button styling */
+.oneui.dark .oneuiContentContainer .dijitTabArrowButton {
+	background:url(images/headerIcons.png) no-repeat scroll 0 0 transparent;
+	background-position:-6px -6px;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabArrowButton,.oneui.dark .oneuiContentContainer .dijitTabChecked .dijitTabArrowButton {
+	background-position:-36px -6px;
+}
+
+.oneui.dark .oneuiContentContainer .dijitTabArrowButton.enter {
+	background:url(images/headerIcons.png) no-repeat scroll 0 -14px transparent;
+	background-position:-21px -6px;
+}
+
+.oneui.dark .idxHeaderSecondaryGray .oneuiContentContainer .dijitTabArrowButton.enter,.oneui.dark .oneuiContentContainer .dijitTabChecked .dijitTabArrowButton.enter {
+	background-position:-51px -6px;
+}
+
+/* content pane styling */
+.oneui.dark .oneuiContentContainer .dijitTabContainerTop-dijitContentPane,.oneui.dark .oneuiContentContainer .dijitTabContainerLeft-dijitContentPane,.oneui.dark .oneuiContentContainer .dijitTabContainerBottom-dijitContentPane,.oneui.dark .oneuiContentContainer .dijitTabContainerRight-dijitContentPane,.oneui.dark .oneuiContentContainer .dijitAccordionContainer-dijitContentPane {
+	background-color:transparent;
+}
+
+/* ======= End of TabContainer ======== */

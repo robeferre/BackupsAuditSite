@@ -1,0 +1,26 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* RTL oneui styles for DataGrid */
+
+/* first load the dojox/Grid styles, in case they
+ * have not yet been loaded */
+@import url("Grid_rtl.css");
+
+.dijitRtl .oneui.dark .dojoxGridHeader .dojoxGridCell,
+.dijitRtl .oneui.dark .dojoxGridCell {
+	border-right-color: transparent;
+	border-left-color: #555;	
+}
+
+.dijitRtl .oneui.dark .dojoxGridRowbar { 
+	border-left-color: #555;	
+}
+
+.dijitRtl .oneui.dark .dojoxGridRowbarSelected {
+	border-left-color: #555;	
+}

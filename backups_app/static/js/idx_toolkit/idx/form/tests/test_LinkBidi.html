@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>Test Link Bidi</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+</script>
+
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+	dojoConfig.parseOnLoad = true;
+	dojoConfig.has["dojo-bidi"] = true;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [
+			"idx.form.Link",
+			"dijit.dijit"
+			];
+
+function preParse(modules){			
+			changeTextDirection = function(/*String*/ textDir){
+				dijit.byId("programmatic").set("textDir", textDir);
+            }
+            changeLabel = function(/*String*/ label){
+				dijit.byId("programmatic").set("label", label);
+            }
+}
+
+function postParse(modules) {
+}
+dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+</script>
+<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 8px;">
+<a class="dijitOffScreen" href="#maincontent">Skip to main content</a>
+<script type="text/javascript">applyThemeToBody()</script>
+
+<a name="maincontent"></a>
+	<div class="testMain">
+		<h1 class="testTitle">idx.form.Link Bidi Tests</h1>
+		
+		<table border="1"> 
+		  <tr>    
+		      <td></td>  
+		      <td></td>   
+		      	<th colspan="3" align="right"><h2><div align=center><font size="5">Base text direction</font></div></h2></th>  
+		  </tr>  
+		  <tr>    
+		  	<td>  </td>
+		  	<td>  </td>
+		  	<td>  <font size=4 color=red> LTR </font></td>   
+		  	<td>  <font size=4 color=red> RTL </font></td>   
+		  	<td>  <font size=4 color=red> Auto </font></td> 
+		  </tr>  
+		  <tr>    
+		  	
+		  	<th rowspan="2" ><h2><div align=center><font size="5">GUI direction</font></div></h2></th>   
+		  	 <td >  <font size=4 color=blue>LTR</font></td>
+		  	 <td>
+		  	    <div dojoType="idx.form.Link" label="שלום World!" textDir="ltr"></div>	  	    
+		     </td>    
+		  	 <td>
+		  	    <div dojoType="idx.form.Link" label="שלום World!" textDir="rtl"></div>	
+		  	 </td>   
+		  	 <td>
+		  	   <div dojoType="idx.form.Link" label="שלום World!" textDir="auto"></div>  	    
+		  	 </td>  
+		  </tr>  
+		  
+		  
+		  <tr dir="rtl">    
+		  	<td >  <font size=4 color=blue>RTL</font></td>
+		  	<td>
+		  	    <div dojoType="idx.form.Link" label="שלום World!" textDir="ltr"></div>		  	    
+		    </td>    
+		  	 <td>
+		  	    <div dojoType="idx.form.Link" label="שלום World!" textDir="rtl"></div>	
+		  	 </td>   
+		  	 <td>
+		  	   <div dojoType="idx.form.Link" label="שלום World!" textDir="auto"></div>	  	    
+		  	 </td>  
+		  </tr>  
+		  
+		</table>
+		
+		<h3><font size=4 color=green> Buttons to change BTD dynamically</font> </h3><br>
+	
+		<div dojoType="idx.form.Link" label="שלום World!" id="programmatic"></div>		
+		<p>
+               	<button onclick='changeTextDirection("ltr");'>
+                    Change to LTR
+                </button>
+            	</p>
+            	<p>
+                <button onclick='changeTextDirection("rtl");'>
+                    Change to RTL
+                </button>
+           	</p>
+           	<p>
+                <button onclick='changeTextDirection("auto");'>
+                    Change to AUTO
+                </button>
+            	</p>
+            <p>
+                <button onclick='changeLabel("Hello עולם!");'>
+                    Change Label to Hello עולם!
+                </button>
+            </p>
+            <p>
+                <button onclick='changeLabel("שלום World!");'>
+                    Change Label to שלום World!
+                </button>
+            </p>
+	</div>
+
+</body>
+</html>

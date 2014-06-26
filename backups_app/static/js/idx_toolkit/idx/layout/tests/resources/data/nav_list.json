@@ -1,0 +1,47 @@
+{
+	identifier: "id",
+	items: [
+		{id:"welcome", name:"welcome", title:"Welcome", icon:"resources/images/blank.png", itemClass:"welcomeItem", containerClass:"welcomeContainer", iconClass:"welcomeIcon", descClass:"welcomeDesc", type:"nav"},
+		{id:"analyze", name:"analyze", title:"Analyze", icon:"resources/images/blank.png", itemClass:"analyzeItem", containerClass:"analyzeContainer", iconClass:"analyzeIcon", descClass:"analyzeDesc", type:"nav"},
+		{id:"monitor", name:"monitor", title:"Monitor", icon:"resources/images/blank.png", itemClass:"monitorItem", iconClass:"monitorIcon", type:"nav",
+			children: [
+				{id: "monitor_tasks", name:"monitor_tasks", title:"Monitor Tasks", type:"nav"},
+				{id: "monitor_ways", name:"monitor_ways", title:"Monitor Ways", type:"separator"},
+				{id: "monitor_common", name:"monitor_common", title:"Monitor Common", type:"nav"},
+				{id: "monitor_special", name:"monitor_special", title:"Monitor Special", type:"nav", children: [
+					{id: "monitor_special_1", name:"monitor_special_1", title:"Monitor Special 1", type:"nav"},
+					{id: "monitor_special_2", name:"monitor_special_2", title:"Monitor Special 2", type:"nav"},
+					{id: "monitor_special_3", name:"monitor_special_3", title:"Monitor Special 3", type:"nav", children:[
+						{id: "monitor_special_3_1", name:"monitor_special_3_1", title:"Monitor Special 3-1", type:"nav"},
+						{id: "monitor_special_3_2", name:"monitor_special_3_2", title:"Monitor Special 3-2", type:"nav", children:[
+							{id: "monitor_special_3_2_1", name:"monitor_special_3_2_1", title:"Monitor Special 3-2-1", type:"nav"},
+							{id: "monitor_special_3_2_2", name:"monitor_special_3_2_2", title:"Monitor Special 3-2-2", type:"nav"},
+							{id: "monitor_special_3_2_3", name:"monitor_special_3_2_3", title:"Monitor Special 3-2-3", type:"nav"}
+						]}
+					]}
+				]}
+			]},
+			
+		{id:"user", name:"user", title:"User", icon:"resources/images/blank.png", iconClass:"userIcon", type:"settings", children: [
+			{id: "nav_panel", name:"nav_panel", title:"Nav Panel", type:"settings", pressHandler:function(){
+				alert("In Progressing !!!");
+			}},
+			{id: "simple_custom_navitem", name:"simple_custom_navitem", title:"Customize Nav Item", type:"settings", children:[
+				{id: "user_add_navitem", name:"user_add_navitem", title:"Add Nav Item", type:"settings"},
+				{id: "user_update_navitem", name:"user_update_navitem", title:"Update Nav Item", type:"settings"},
+				{id: "user_delete_navitem", name:"user_delete_navitem", title:"Delete Nav Item", type:"settings"}
+			]},
+			{id: "advanced_custom_navitem", name:"advanced_custom_navitem", title:"Advance Customize Nav Item", type:"settings", children:[
+				{id: "advanced_add_navitem", name:"advanced_add_navitem", title:"Advanced Add Nav Item", type:"settings"},
+				{id: "advanced_update_navitem", name:"advanced_update_navitem", title:"Advanced Update Nav Item", type:"settings"},
+				{id: "advanced_delete_navitem", name:"advanced_delete_navitem", title:"Advanced Delete Nav Item", type:"settings"}
+			]}
+		]},
+		{id:"settings", name:"settings", title:"Settings", icon:"resources/images/blank.png", iconClass:"settingsIcon", type:"settings"},
+		{id:"help", name:"help", title:"Help", icon:"resources/images/blank.png", iconClass:"helpIcon", type:"settings",
+			children: [
+				{id: "help_product", name:"help_product", title:"Product", type:"settings"},
+				{id: "help_community", name:"help_community", title:"Community", type:"settings"}
+			]}
+	]
+}

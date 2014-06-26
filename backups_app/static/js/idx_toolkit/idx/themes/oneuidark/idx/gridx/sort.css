@@ -1,0 +1,54 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* Single Sort */
+
+.oneui.dark .gridxArrowButtonNode {
+	background: transparent url("images/gridx_sprite.png") no-repeat 500px 500px;
+}
+.oneui.dark .gridxSortUp .gridxArrowButtonNode {
+	background-position: -51px -4px;
+}
+.oneui.dark .gridxSortDown .gridxArrowButtonNode {
+	background-position: -19px -4px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxArrowButtonNode,
+.oneui.dark .gridxHeaderCellFocus .gridxArrowButtonNode {
+	background-position: -67px -3px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxSortUp .gridxArrowButtonNode,
+.oneui.dark .gridxHeaderCellFocus .gridxSortUp .gridxArrowButtonNode {
+	background-position: -83px -3px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxSortDown .gridxArrowButtonNode,
+.oneui.dark .gridxHeaderCellFocus .gridxSortDown .gridxArrowButtonNode {
+	background-position: -99px -3px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxSortAscendOnly,
+.oneui.dark .gridxHeaderCellFocus .gridxSortAscendOnly {
+	background-position: -35px -3px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxSortDescendOnly,
+.oneui.dark .gridxHeaderCellFocus .gridxSortDescendOnly {
+	background-position: -3px -4px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxSortUp .gridxSortAscendOnly,
+.oneui.dark .gridxHeaderCellFocus .gridxSortUp .gridxSortAscendOnly {
+	background-position: -51px -4px;
+}
+
+.oneui.dark .gridxHeaderCellOver .gridxSortDown .gridxSortDescendOnly,
+.oneui.dark .gridxHeaderCellFocus .gridxSortDown .gridxSortDescendOnly {
+	background-position: -19px -4px;
+}
+

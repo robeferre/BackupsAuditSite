@@ -1,0 +1,225 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Tooltip */
+
+/* Reset common styles. */
+.oneui .mblTooltip,
+.oneui .mblTooltipAnchor,
+.oneui .mblTooltipArrow,
+.oneui .mblTooltipInnerArrow {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblTooltip {
+	position:absolute;
+	z-index:2000;
+	display:block;
+	margin:0;
+	padding:10px;
+	border-width:3px;
+	border-style:solid;
+	border-color:#999;
+	border-radius:3px;
+	background-color:#fff;
+	background-image:none;
+	box-shadow:0 0 3px rgba(0,0,0,.35);
+	opacity:.97;
+}
+
+.oneui .mblTooltipBubble {
+	overflow:visible;
+	padding:7px;
+	background-color:#fff;
+	background-image:none;
+	color:#000;
+}
+
+.oneui .mblTooltipBubble.mblTooltipAbove .mblTooltipInnerArrow {
+}
+
+.oneui .mblTooltipBubble.mblTooltipBelow .mblTooltipInnerArrow {
+}
+
+.oneui .mblTooltipBubble.mblTooltipAfter .mblTooltipInnerArrow {
+}
+
+.oneui .mblTooltipBubble.mblTooltipBefore .mblTooltipInnerArrow {
+}
+
+.oneui .mblTooltip.mblTooltipAfter {
+	margin-left:-11px;
+}
+
+.oneui .mblTooltip.mblTooltipBefore {
+	margin-left:11px;
+}
+
+.oneui .mblTooltip.mblTooltipAbove {
+	margin-top:11px;
+}
+
+.oneui .mblTooltip.mblTooltipBelow {
+	margin-top:-11px;
+}
+
+.oneui .mblTooltipAnchor {
+	position:absolute;
+	width:1px;
+	height:1px;
+	background-color:transparent;
+	font-size:0;
+	line-height:0;
+}
+
+.oneui .mblTooltipBefore .mblTooltipAnchor {
+	left:-1px;
+}
+
+.oneui .mblTooltipAfter .mblTooltipAnchor {
+	right:-1px;
+}
+
+.oneui .mblTooltipAbove .mblTooltipAnchor {
+	top:-1px;
+}
+
+.oneui .mblTooltipBelow .mblTooltipAnchor {
+	bottom:-1px;
+}
+
+.oneui .mblTooltipArrow {
+	position:absolute;
+	width:0;
+	height:0;
+	border:11px solid transparent;
+	line-height:0;
+}
+
+.oneui .mblTooltipBefore .mblTooltipArrow {
+	top:0;
+	right:1px;
+	bottom:auto;
+	left:auto;
+	border-right-color:#999;
+	border-left-width:0;
+}
+
+.oneui .mblTooltipAfter .mblTooltipArrow {
+	top:0;
+	right:auto;
+	bottom:auto;
+	left:1px;
+	border-right-width:0;
+	border-left-color:#999;
+}
+
+.oneui .mblTooltipAbove .mblTooltipArrow {
+	top:auto;
+	right:auto;
+	bottom:1px;
+	left:auto;
+	border-top-width:0;
+	border-bottom-color:#999;
+}
+
+.oneui .mblTooltipBelow .mblTooltipArrow {
+	top:1px;
+	right:auto;
+	bottom:auto;
+	left:auto;
+	border-top-color:#999;
+	border-bottom-width:0;
+}
+
+.oneui .mblTooltipInnerArrow {
+	position:absolute;
+	width:0;
+	height:0;
+	border:8px solid transparent;
+	line-height:0;
+}
+
+.oneui .mblTooltipBefore .mblTooltipInnerArrow {
+	top:3px;
+	right:0;
+	border-right-color:#fff;
+	border-left-width:0;
+}
+
+.oneui .mblTooltipAfter .mblTooltipInnerArrow {
+	top:3px;
+	left:0;
+	border-right-width:0;
+	border-left-color:#fff;
+}
+
+.oneui .mblTooltipAbove .mblTooltipInnerArrow {
+	bottom:0;
+	left:3px;
+	border-top-width:0;
+	border-bottom-color:#fff;
+}
+
+.oneui .mblTooltipBelow .mblTooltipInnerArrow {
+	top:0;
+	left:3px;
+	border-top-color:#fff;
+	border-bottom-width:0;
+}
+
+.oneui .mblTooltipHidden,.mblTooltipHidden * {
+	visibility:hidden!important;
+}
+
+.oneui .mblTooltipHidden {
+	top:-99999px!important;
+	left:-99999px!important;
+}
+
+.oneui .mblTooltip .mblHeading,
+.oneui.dj_tablet .mblTooltip .mblHeading {
+	padding-bottom:3px;
+	height:42px;
+	border-top:1px solid transparent;
+	border-bottom:1px solid transparent;
+	background-color:transparent;
+	background-image:none;
+	color:#444;
+	text-shadow:none;
+}
+
+.oneui .mblTooltip .mblHeading:after {
+	display:none;
+}
+
+.oneui .mblTooltip.mblOpener {
+	box-shadow:0 0 6px rgba(0,0,0,.25)!important;
+}
+
+/*
+.oneui .mblTooltip .mblHeading .mblColorDefault {
+	border-color:silver;
+	background-color: #dbdbdb;
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#f4f4f4),to(#dbdbdb));
+	box-shadow:0 1px 0 rgba(0,0,0,0.15);
+	color:#000;
+	text-shadow:0 1px 0 #fff;
+}
+*/

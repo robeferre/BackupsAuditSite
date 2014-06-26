@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+<title>Test idx.bidi.visual.ComboBoxVisBidi</title>
+<script type="text/javascript" src="../dojoVersion.js"></script>
+
+<script type="text/javascript">
+dojoCSSImport("../../../../@dojopath@/dijit/themes/claro/claro.css", "idxStyles");
+</script>
+<style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+</style>
+<script type="text/javascript">
+	var dojoConfig = currentDojoVersion.dojoConfig;
+</script>
+
+<script type="text/javascript">
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoScriptImport("./utils.js");
+</script>
+ 
+<script type="text/javascript" id="postDojo">
+var modules = [ "idx.bidi.visual.ComboBoxVisBidi",
+				"doh",
+				"doh.robot"]; 
+var combo, doh, robot;		
+
+function preParse(modules) {
+	console.log("Performing pre-parse");
+	combo = modules["idx/bidi/visual/ComboBoxVisBidi"];
+	doh = modules["doh"];
+	robot = modules["doh.robot"];
+}
+function postParse(modules){
+				var LRO = "\u202d";
+				var RLO = "\u202e";
+
+				doh.register("Test visual ComboBoxVisBidi", [ 
+				{
+						name:"Test ltr visual ComboBoxVisBidi: direction of options",
+						timeout:30000,
+
+						setUp: function(){
+							combo = dijit.byId("bidiSelect");							
+							modifier = dojo.isMac ? {meta: true} : {ctrl: true};
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							// Open drop down
+							combo.focusNode.focus();
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 100);
+							doh.robot.sequence(d.getTestCallback(function(){
+								var options = combo.store.data;          
+								for (var k = 0; k < options.length; k++) {
+									var text = options[k].name;
+									var hint = "Item: " + text;
+									if(text){
+										var node = combo.dropDown.domNode.childNodes[k];
+										doh.is("ltr", dojo.style(node,"direction"), hint);
+									}
+								}
+							}), 9000);
+							
+							return d;
+						},
+
+						tearDown: function(){
+							combo.closeDropDown();
+						}
+					},
+					
+					{
+						name:"Test rtl visual ComboBoxVisBidi: direction of optionss",
+						timeout:3000,
+	
+						setUp: function(){
+							combo = dijit.byId("bidiSelectRtl");
+							modifier = dojo.isMac ? {meta: true} : {ctrl: true};
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							// Open drop down
+							combo.focusNode.focus();
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 100);
+							
+							doh.robot.sequence(d.getTestCallback(function(){
+								var options = combo.store.data;          
+								for (var k = 0; k < options.length; k++) {
+									var text = options[k].name;
+									var hint = "Item: " + text;
+									if(text){
+										var node = combo.dropDown.domNode.childNodes[k];
+										doh.is("rtl", dojo.style(node,"direction"), hint);
+									}
+								}
+							}), 900);
+							
+							return d;
+						},
+	
+						tearDown: function(){
+							combo.closeDropDown();
+						}
+					},
+					{
+						name:"Test visual ltr ComboBoxVisBidi: start typing English ",
+						timeout:20000,
+	
+						setUp: function(){
+							combo = dijit.byId("bidiSelect");
+							combo.focusNode.focus();
+							combo.focusNode.value = "";
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							var firstVal, origVal = combo.value;
+							
+							doh.robot.keyPress(dojo.keys.BACKSPACE,300);
+							doh.robot.typeKeys("f",500,1500);
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 300);
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 300);
+			                doh.robot.keyPress(dojo.keys.ENTER,300);
+			                doh.robot.sequence(d.getTestCallback(function(){
+				                firstVal = combo.focusNode.value;			                	
+								doh.is((dojo.isIE? LRO : "") + "fifth",firstVal,"Type 'f', then down arrow twice check selected option");
+			                }), 1000);	
+							return d;
+						},
+	
+						tearDown: function(){
+							combo.closeDropDown();
+							combo.value = "";
+						}
+					},
+					{
+						name:"Test visual ltr ComboBoxVisBidi: start typing Hebrew ",
+						timeout:20000,
+	
+						setUp: function(){
+							combo = dijit.byId("bidiSelect");
+							combo.focusNode.value = "";
+							combo.focusNode.focus();
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							var firstVal, origVal = combo.value;
+							
+							doh.robot.keyPress("",200,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,300);
+							doh.robot.typeKeys("r",800,1500);  //ר
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 300);
+			                doh.robot.keyPress(dojo.keys.ENTER,300);
+							doh.robot.keyPress("",200,{alt:true,shift:true}); //to English
+			                doh.robot.sequence(d.getTestCallback(function(){
+				                firstVal = combo.focusNode.value;			                	
+								doh.is((dojo.isIE? LRO : "") + "ןושארsecond",firstVal,"Type 'ר', then down arrow and check selected option");
+			                }), 3000);	
+							return d;
+						},
+	
+						tearDown: function(){
+							combo.closeDropDown();
+							combo.value = "";
+						}
+					},
+					{
+						name:"Test visual rtl ComboBoxVisBidi: start typing English ",
+						timeout:20000,
+	
+						setUp: function(){
+							combo = dijit.byId("bidiSelectRtl");
+							combo.focusNode.value = "";
+							combo.focusNode.focus();
+					},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							var firstVal, origVal = combo.value;
+							
+							doh.robot.keyPress(dojo.keys.BACKSPACE,300);
+							doh.robot.typeKeys("f",500,1500);
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 300);
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 300);
+			                doh.robot.keyPress(dojo.keys.ENTER,300);
+			                doh.robot.sequence(d.getTestCallback(function(){
+				                firstVal = combo.focusNode.value;			                	
+								doh.is((dojo.isIE? RLO : "") + "htfif",firstVal,"Type 'f', then down arrow twice check selected option");
+			                }), 1000);	
+							return d;
+						},
+	
+						tearDown: function(){
+							combo.closeDropDown();
+							combo.value = "";
+						}
+					},
+					{
+						name:"Test visual rtl ComboBoxVisBidi: start typing Hebrew ",
+						timeout:20000,
+	
+						setUp: function(){
+							combo = dijit.byId("bidiSelectRtl");
+							combo.focusNode.value = "";
+							combo.focusNode.focus();
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							var firstVal, origVal = combo.value;
+							
+							doh.robot.keyPress("",200,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,300);
+							doh.robot.typeKeys("r",800,1500);  //ר
+							doh.robot.keyPress(dojo.keys.DOWN_ARROW, 300);
+			                doh.robot.keyPress(dojo.keys.ENTER,300);
+							doh.robot.keyPress("",200,{alt:true,shift:true}); //to English
+			                doh.robot.sequence(d.getTestCallback(function(){
+				                firstVal = combo.focusNode.value;			                	
+								doh.is((dojo.isIE? RLO : "") + "ראשוןdnoces",firstVal,"Type 'ר', then down arrow and check selected option");
+			                }), 1000);	
+							return d;
+						},
+	
+						tearDown: function(){
+							combo.closeDropDown();
+							combo.value = "";
+						}
+					},
+					{
+						name:"Test ltr visual TextBoxBidi: base direction and format",
+						timeout:5000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelect");
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();		
+							textBox.focusNode.focus();
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("tcds",100,500);    //אבגד
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							doh.robot.sequence(d.getTestCallback(function(){
+								var node = textBox.focusNode;
+								doh.is(dojo.style(node,"unicodeBidi"),"bidi-override", "Check visual format");
+								doh.is(dojo.style(node,"textAlign"),"left", "Check base direction (alignment)");
+								doh.is(dojo.style(node,"direction"),"ltr", "Check direction of input(push is off)");
+							}), 900);							
+							return d;
+						},
+
+						tearDown: function(){
+						var i = 1;
+							textBox.set("value","");
+						}
+						
+					},
+					{
+						name:"Test rtl visual TextBoxBidi: base direction and format",
+						timeout:3000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelectRtl");							
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();
+							textBox.focusNode.focus();
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("abcd", 100, 500);
+							
+							doh.robot.sequence(d.getTestCallback(function(){
+								var node = textBox.focusNode;
+								doh.is(dojo.style(node,"unicodeBidi"),"bidi-override", "Check visual format");
+								doh.is(dojo.style(node,"textAlign"),"right", "Check direction (alignment)");
+								doh.is(dojo.style(node,"direction"),"rtl", "Check direction of input(push is off)");								
+							}), 900);
+							
+							return d;
+						},
+
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					},
+					{
+						name:"Test ltr visual TextBoxBidi: autopush",
+						timeout:7000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelect");
+						},
+						
+						runTest:function(){		
+							var d = new doh.Deferred();		
+							var node = textBox.focusNode;
+							node.focus();
+							doh.robot.keyPress(dojo.keys.NUMPAD_DIVIDE,100,{alt: true});							
+							doh.robot.keyPress("",100,{alt:true,shift:true});
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("rtaui",100,300);    //ראשון
+							doh.robot.keyPress("",100,{alt:true,shift:true});
+							doh.robot.sequence(function(){
+								doh.is("rtl",dojo.getComputedStyle(node).direction,"Direction of hebrew input");
+							}, 300);
+							//doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("??", 100, 200);
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});							
+							doh.robot.sequence(function(){
+								doh.is("rtl",dojo.getComputedStyle(node).direction,"Direction of neutrals after hebrew input");
+							}, 500);														
+							doh.robot.typeKeys("second", 100, 500);
+							doh.robot.sequence(function(){
+								doh.is("ltr",dojo.getComputedStyle(node).direction,"Direction of latin input");
+							}, 300);														
+							doh.robot.typeKeys("!!", 100, 200);
+							doh.robot.sequence(d.getTestCallback(function(){
+								doh.is("ltr",dojo.getComputedStyle(node).direction,"Direction of neutrals after latin input");
+							}), 300);
+							return d;
+						
+						},
+
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					},
+					
+					{
+						name:"Test rtl visual TextBoxBidi: autopush",
+						timeout:7000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelectRtl");
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();		
+							var node = textBox.focusNode;
+							
+							node.focus();
+							
+							doh.robot.keyPress("",100,{alt:true,shift:true});  //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							utils.turnAutoPushON (doh.robot,  textBox);
+
+							doh.robot.typeKeys("rtaui",100,300);    //ראשון
+							doh.robot.keyPress("",100,{alt:true,shift:true});
+							doh.robot.sequence(function(){
+								doh.is("rtl",dojo.getComputedStyle(node).direction,"Direction of hebrew input");
+							}, 300);														
+							doh.robot.typeKeys("??", 100, 200);
+							doh.robot.sequence(function(){
+								doh.is("rtl",dojo.getComputedStyle(node).direction,"Direction of neutrals after hebrew input");
+							}, 300);														
+							doh.robot.typeKeys("second", 100, 600);
+							doh.robot.sequence(function(){
+								doh.is("ltr",dojo.getComputedStyle(node).direction,"Direction of latin input");
+							}, 300);														
+							doh.robot.typeKeys("!!", 100, 200);
+							doh.robot.sequence(d.getTestCallback(function(){
+								doh.is("ltr",dojo.getComputedStyle(node).direction,"Direction of neutrals after latin input");
+							}), 300);
+							return d;
+						
+						},
+
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					},
+					{
+						name:"Test Unicode Markers in IE LTR Visual TextBoxBidi autopush On/Off",
+						timeout:7000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelect");
+						},
+						runTest:function(){		
+							var d = new doh.Deferred();		
+							var node = textBox.focusNode;
+							node.focus();
+							utils.turnAutoPushOFF (doh.robot,  textBox);
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("tcds",100,300);    //אבגד
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							
+							doh.robot.sequence(function(){
+								if (dojo.isIE)
+									doh.is(LRO.charCodeAt(0),node.value.charCodeAt(0),"LRO marker");
+								else
+									doh.is(true,true,"Not IE");
+							}, 300);
+							utils.turnAutoPushON (doh.robot,  textBox);
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.typeKeys("tcds",100,300);    //אבגד
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							doh.robot.sequence(function(){
+								if (dojo.isIE)
+									doh.is(RLO.charCodeAt(0),node.value.charCodeAt(0),"RLO marker");
+								else
+									doh.is(true,true,"Not IE");
+									
+							}, 300);														
+
+							utils.turnAutoPushOFF (doh.robot,  textBox);
+							doh.robot.sequence(d.getTestCallback(function(){}),100);
+							return d;
+						
+						},						
+
+
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					},
+					{
+						name:"Test Unicode Markers in IE RTL Visual TextBoxBidi autopush On/Off",
+						timeout:7000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelectRtl");
+						},
+						
+						runTest:function(){
+							var d = new doh.Deferred();		
+							var node = textBox.focusNode;
+							
+							node.focus();
+							
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							utils.turnAutoPushOFF (doh.robot,  textBox);
+							doh.robot.typeKeys("abcd",100,300);    //abcd
+
+							doh.robot.sequence(function(){
+								if (dojo.isIE)
+									doh.is(RLO.charCodeAt(0),node.value.charCodeAt(0), "RLO marker");
+								else
+									doh.is(true,true,"Not IE");
+							}, 300);			
+
+							utils.turnAutoPushON (doh.robot,  textBox);
+							doh.robot.typeKeys("abcd", 100, 200);
+
+							doh.robot.sequence(d.getTestCallback(function(){
+								if (dojo.isIE)
+									doh.is(LRO.charCodeAt(0),node.value.charCodeAt(0),"LRO marker");
+								else
+									doh.is(true,true,"Not IE");
+							}), 300);
+							return d;
+						
+						},						
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					},
+					{
+						name:"Test buffer HebrewEnglish in LTR Visual TextBoxBidi Autopush Off",
+						timeout:7000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelect");
+						},
+						runTest:function(){		
+							var d = new doh.Deferred();		
+							var node = textBox.focusNode;
+							node.focus();
+							utils.turnAutoPushOFF (doh.robot,  textBox);
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("rtaui",100,300);    //ראשון
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							if (dojo.isIE)
+								doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("second",100,300);    
+							doh.robot.sequence(d.getTestCallback(function(){
+								if (dojo.isIE)
+									doh.is("ראשוןsecond",node.value.substring(1),"HebrewEnglish buffer");
+								else
+									doh.is("ראשוןsecond",node.value,"HebrewEnglish buffer");
+							}), 300);														
+							return d;
+						
+						},						
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					},
+					{
+						name:"Test buffer EnglishHebrew in RTL Visual TextBoxBidi Autopush Off",
+						timeout:7000,
+
+						setUp: function(){
+							textBox = dijit.registry.byId("bidiSelectRtl");
+						},
+						runTest:function(){		
+							var d = new doh.Deferred();		
+							var node = textBox.focusNode;
+							node.focus();
+							utils.turnAutoPushOFF (doh.robot,  textBox);
+							doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("first",100,300);    //first
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to Hebrew
+							if (dojo.isIE)
+								doh.robot.keyPress(dojo.keys.BACKSPACE,100,{});
+							doh.robot.typeKeys("abh",100,300);  //שני
+							doh.robot.keyPress("",100,{alt:true,shift:true}); //to English
+							doh.robot.sequence(d.getTestCallback(function(){
+								if (dojo.isIE)
+									doh.is("firstשני",node.value.substring(1),"EnglishHebrew buffer");
+								else
+									doh.is("firstשני",node.value,"EnglishHebrew buffer");
+									
+							}), 300);														
+							return d;
+						
+						},						
+						tearDown: function(){
+							textBox.set("value","");
+						}
+					}
+					
+				]);			
+
+				doh.run();
+			}
+			dojoRequireModules(modules, null, currentDojoVersion.async, preParse, postParse);
+			
+</script>
+
+<script type="text/javascript" src="../../../idx/tests/commonTest.js"></script>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0; padding: 0;">
+<script type="text/javascript">applyThemeToBody()</script>
+<a name="maincontent"></a>
+	<H1 align="center">ComboBoxVisBidi in visual mode</H1>
+	<table align="center">
+	<tr><td><h2 align="center">LTR</h2></td><td><h2 align="center">RTL</h2></td></tr>
+	<tr><td>
+		<select id="bidiSelect" name="bidiSelect" data-dojo-type="idx.bidi.visual.ComboBoxVisBidi" data-dojo-props="isVisualMode: true, autoPush: false">
+			<option value="AL">ראשוןsecond</option>
+			<option value="AK">firstשני</option>
+			<option value="AZ">שלישי</option>
+			<option value="AR">רביעי</option>
+			<option value="CA">fifth</option>
+		</select>
+	</td><td>
+		<select id="bidiSelectRtl" name="bidiSelectRtl" data-dojo-type="idx.bidi.visual.ComboBoxVisBidi" data-dojo-props="isVisualMode: true, dir: 'rtl', autoPush: false">
+			<option value="AL">ראשוןsecond</option>
+			<option value="AK">firstשני</option>
+			<option value="AZ">שלישי</option>
+			<option value="AR">רביעי</option>
+			<option value="CA">fifth</option>
+
+		</select>
+	</td></tr></table>
+</body>
+</html>

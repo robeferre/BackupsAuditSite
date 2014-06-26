@@ -1,0 +1,65 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/**Common styles for modal dialog as type of error/warning/information.**/
+.oneui.dark .idxModalDialog,.oneui.dark .idxConfirmDialog {
+	border-color: rgba(85,85,85,0.4);
+	-webkit-box-shadow:0 0 4px 1px rgba(34,34,34,0.2);
+	-moz-box-shadow:0 0 4px 1px rgba(34,34,34,0.2);
+	box-shadow:0 0 4px 1px rgba(34,34,34,0.2);
+}
+
+.oneui.dark .idxModalDialog,.oneui.dark .idxConfirmDialog {
+	background:#222;
+}
+
+.oneui.dark .idxModalDialog .messageSummary img,.oneui.dark .idxConfirmDialog .messageSummary img {
+	background-repeat:no-repeat;
+	background-image:url(images/msgIcons_24bit.png);
+}
+
+.dj_ie6 .oneui.dark .idxModalDialog .messageSummary img {
+	background-image:url(images/msgIcons_8bit.png);
+}
+
+.oneui.dark .idxModalDialog .messageErrorIcon,.oneui.dark .idxConfirmDialog .messageErrorIcon {
+	background-position:0 -18px;
+}
+
+.oneui.dark .idxModalDialog .messageInformationIcon,.oneui.dark .idxConfirmDialog .messageInformationIcon {
+	background-position:-96px -18px;
+}
+
+.oneui.dark .idxModalDialog .messageWarningIcon,.oneui.dark .idxConfirmDialog .messageWarningIcon {
+	background-position:-24px -18px;
+}
+
+.oneui.dark .idxModalDialog .messageSuccessIcon,.oneui.dark .idxConfirmDialog .messageSuccessIcon {
+	background-position:-72px -18px;
+}
+
+.oneui.dark .idxModalDialog .messageConfirmationIcon,.oneui.dark .idxConfirmDialog .messageConfirmationIcon {
+	background-position:-24px -18px;
+}
+
+.oneui.dark .idxModalDialog .messageQuestionIcon,.oneui.dark .idxConfirmDialog .messageQuestionIcon {
+	background-position:-48px -18px;
+}
+
+.oneui.dark .idxModalDialog .messageWrapper,.oneui.dark .idxConfirmDialog .messageWrapper {
+	border-top-color: #999;
+}
+
+.oneui.dark .idxModalDialog .messageDialogFooter,.oneui.dark .idxConfirmDialog .messageDialogFooter {
+	border-top-color: #555;
+}
+.oneui.dark .idxModalDialog a.messageIdOnly {
+	color:#eee!important;
+}
+
+.oneui.dark .idxModalDialog .messageTimeStamp,.oneui.dark .idxConfirmDialog .messageTimeStamp {
+	color:#078dc1;
+}

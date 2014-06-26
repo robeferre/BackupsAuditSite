@@ -1,0 +1,80 @@
+.oneui.dark .idxOneuiTriStateCheckBox, .oneui.dark .idxOneuiTriStateCheckBoxIcon {
+  background-image: url('images/checkboxRadioButtonStates.png');
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 14px;
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+.dj_ie6 .oneui.dark .idxOneuiTriStateCheckBox, .dj_ie6 .oneui.dark .idxOneuiTriStateCheckBoxIcon {
+  background-image: url('images/checkboxRadioButtonStates8bit.png');
+}
+.oneui.dark .idxOneuiTriStateCheckBox{
+  /* unchecked */
+  background-position: -17px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxChecked{
+  /* checked */
+
+  background-position: -1px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxMixed {
+  /* mixed */
+
+  background-position: -33px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxDisabled {
+  /* disabled and unchecked */
+
+  background-position: -65px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxCheckedDisabled {
+  /* disabled and checked */
+
+  background-position: -49px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxMixedDisabled {
+  /* disabled and mixed */
+
+  background-position: -81px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxHover {
+  /* hovering over and unchecked */
+
+  background-position: -113px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxCheckedHover {
+  /* hovering over and checked */
+
+  background-position: -97px;
+}
+.oneui.dark .idxOneuiTriStateCheckBoxMixedHover {
+  /* hovering over and mixed */
+
+  background-position: -129px;
+}
+
+.oneui.dark .idxOneuiTriStateCheckBoxActive {
+  /* hovering over an unchecked enabled checkbox */
+
+  background-position: -161px;
+}
+
+.oneui.dark .idxOneuiTriStateCheckBoxCheckedActive {
+  /* hovering over an unchecked enabled checkbox */
+
+  background-position: -145px;
+}
+
+.oneui.dark .idxOneuiTriStateCheckBoxMixedActive {
+  /* hovering over an unchecked enabled checkbox */
+
+  background-position: -129px;
+}
+
+.oneui.dark .idxOneuiTriStateCheckBoxFocused{
+	outline-color: #555;	
+}
+.dj_ie .oneui.dark .idxOneuiTriStateCheckBoxInput {
+	filter: alpha(opacity=0);
+}

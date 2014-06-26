@@ -1,0 +1,522 @@
+@-ms-viewport {
+	width: device-width;
+}
+.oneui .MCBorderContainer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.oneui .MCBorderContainer .configButton {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 9999;
+}
+
+.oneui .MCBorderContainer .hideButton {
+	position: absolute;
+	top: 5px;
+	right: 75px;
+	z-index: 9999;
+}
+
+.oneui .MCBorderContainer .layoutButton {
+	font-size: 16px;
+	font-weight: bold;
+	width: 38px;
+	height: 38px;
+}
+.oneui .MCBorderContainer .leftButton {
+	position: absolute;
+	left: 0;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	z-index: 9999;
+	background-color: #000;
+}
+.oneui .MCBorderContainer .rightButton {
+	position: absolute;
+	right: 0;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	z-index: 9999;
+	background-color: #000;
+}
+.oneui .MCBorderContainer .topButton {
+	position: absolute;
+	top: 0;
+	margin: auto;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	background-color: #000;
+}
+.oneui .MCBorderContainer .bottomButton {
+	position: absolute;
+	bottom: 0;
+	margin: auto;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	background-color: #000;
+}
+
+.oneui .MCBorderContainer .view {
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: auto;
+	display: block;
+	width: 25%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+}
+.oneui .MCBorderContainer .backButton {
+	visibility: hidden;
+}
+.oneui .MCBorderContainer .backButton.moreThanMaxPanes {
+	visibility: visible !important;
+}
+.oneui .MCBorderContainer > .view {
+	display: none;
+}
+.oneui .MCBorderContainer .centerPanes {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9100;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+}
+.oneui .MCBorderContainer .centerPanes .centerSlider {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 100%;
+}
+.oneui .MCBorderContainer .centerPanes .centerSlider > .view:last-child {
+	border: none;
+}
+
+.oneui .MCBorderContainer .centerPanes.left {
+	left: 275px;
+}
+.oneui .MCBorderContainer .centerPanes.right {
+	right: 275px;
+}
+.oneui .MCBorderContainer .centerPanes.top {
+	top: 100px;
+}
+.oneui .MCBorderContainer .centerPanes.bottom {
+	bottom: 100px;
+}
+
+.oneui .MCBorderContainer .centerPanes.overlayed {
+	min-width: 300px;
+}
+
+.oneui .MCBorderContainer .sidePane {
+	box-sizing: border-box;
+	/*height: 100%;
+	 width:100%;*/
+	position: absolute;
+	z-index: 9001;
+	display: none;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+}
+.oneui .MCBorderContainer .sidePane .view {
+	width: 100%;
+	border: 3px solid #aaa;
+}
+.oneui .MCBorderContainer .sidePane.left {
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 275px;
+}
+.oneui .MCBorderContainer .sidePane.right {
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 275px;
+}
+.oneui .MCBorderContainer .sidePane.left .view,
+.oneui .MCBorderContainer .sidePane.right .view{
+	border-top: none;
+	border-bottom: none;
+}
+.oneui .MCBorderContainer .sidePane.top {
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100px;
+}
+.oneui .MCBorderContainer .sidePane.bottom {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100px;
+}
+.oneui .MCBorderContainer .sidePane.top .view,
+.oneui .MCBorderContainer .sidePane.top .view{
+	border-left: none;
+	border-right: none;
+}
+
+.oneui .MCBorderContainer .sidePane.leftCut {
+	left: 275px;
+}
+.oneui .MCBorderContainer .sidePane.rightCut {
+	right: 275px;
+}
+.oneui .MCBorderContainer .sidePane.topCut {
+	top: 100px;
+}
+.oneui .MCBorderContainer .sidePane.bottomCut {
+	bottom: 100px;
+}
+
+.oneui .MCBorderContainer .MQmatch {
+	position: fixed;
+	top: -3000px;
+	left: -3000px;
+	width: 1px;
+	height: 1px;
+	visibility: hidden;
+}
+.oneui .MCBorderContainer .centerSlider.col1 {
+	width: 400%;
+}
+.oneui .MCBorderContainer .centerSlider.col2 {
+	width: 200%;
+}
+.oneui .MCBorderContainer .centerSlider.col3 {
+	width: 133.33333333333334%;
+}
+.oneui .MCBorderContainer .centerSlider.slideTransition {
+	-moz-transform: translateX(-25%);
+	-webkit-transform: translateX(-25%);
+	-o-transform: translateX(-25%);
+	-ms-transform: translateX(-25%);
+	transform: translateX(-25%);
+	-moz-transition: all 0.7s ease-in-out;
+	-webkit-transition: all 0.7s ease-in-out;
+	-o-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+}
+.oneui .MCBorderContainer .centerSlider.widthTransition {
+	-moz-transition: all 0.7s ease-in-out;
+	-webkit-transition: all 0.7s ease-in-out;
+	-o-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+}
+.oneui .MCBorderContainer .centerPanes.overlayed.sideTransition {
+	-moz-transition: all 0.7s ease-in-out;
+	-webkit-transition: all 0.7s ease-in-out;
+	-o-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+	z-index: 9100;
+}
+.oneui .MCBorderContainer .centerPanes.overlayed.sideTransition.left {
+	border-left: solid #aaa 1px;
+}
+.oneui .MCBorderContainer .centerPanes.overlayed.sideTransition.right {
+	border-right: solid #aaa 1px;
+}
+.oneui .MCBorderContainer .centerPanes.overlayed.sideTransition.top {
+	border-top: solid #aaa 1px;
+}
+.oneui .MCBorderContainer .centerPanes.overlayed.sideTransition.bottom {
+	border-bottom: solid #aaa 1px;
+}
+
+.oneui .MCBorderContainer .sidePane.beforeSideSlide.left {
+	-moz-transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+	-o-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+.oneui .MCBorderContainer .sidePane.beforeSideSlide.right {
+	-moz-transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	-o-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.oneui .MCBorderContainer .sidePane.beforeSideSlide.top {
+	-moz-transform: translateY(-100%);
+	-webkit-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.oneui .MCBorderContainer .sidePane.beforeSideSlide.bottom {
+	-moz-transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+	-o-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	transform: translateY(100%);
+}
+.oneui .MCBorderContainer .sidePane.sideSlideTransition {
+	-moz-transition: all 0.7s ease-in-out;
+	-webkit-transition: all 0.7s ease-in-out;
+	-o-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+	-moz-transform: translateX(0) translateY(0) !important;
+	-webkit-transform: translateX(0) translateY(0) !important;
+	-o-transform: translateX(0) translateY(0) !important;
+	-ms-transform: translateX(0) translateY(0) !important;
+	transform: translateX(0) translateY(0) !important;
+	z-index: 9100;
+}
+
+@media (max-width: 800px) and (min-width: 400px) {
+	.oneui .MCBorderContainer .backButton.moreThanTwoPanes, .oneui .MCBorderContainer .backButton.moreThanMaxPanes {
+		visibility: visible !important;
+	}
+	.oneui .MCBorderContainer .MQmatch {
+		width: 2px;
+	}
+	.oneui .MCBorderContainer .centerSlider > .view {
+		display: none;
+	}
+	.oneui .MCBorderContainer .centerSlider.slideTransition > .view:nth-last-child(-n+3) {
+		display: block;
+	}
+	.oneui .MCBorderContainer .centerSlider > .view:nth-last-child(-n+2) {
+		display: block;
+	}
+	.oneui .MCBorderContainer .centerSlider.col3 {
+		width: 200%;
+	}
+}
+@media (max-width: 400px) {
+	.oneui .MCBorderContainer .backButton.twoPanes, .oneui .MCBorderContainer .backButton.moreThanTwoPanes, .oneui .MCBorderContainer .backButton.moreThanMaxPanes {
+		visibility: visible !important;
+	}
+	.oneui .MCBorderContainer .MQmatch {
+		width: 3px;
+	}
+	.oneui .MCBorderContainer .centerSlider > .view {
+		display: none;
+	}
+	.oneui .MCBorderContainer .centerSlider.slideTransition > .view:nth-last-child(-n+2) {
+		display: block;
+	}
+	.oneui .MCBorderContainer .centerSlider > .view:last-child {
+		display: block;
+	}
+	.oneui .MCBorderContainer .centerSlider.col2 {
+		width: 400%;
+	}
+	.oneui .MCBorderContainer .centerSlider.col3 {
+		width: 400%;
+	}
+}
+@media (max-width: 1075px) and (min-width: 800px) {
+	.oneui .MCBorderContainer .overlayed .MQmatch {
+		width: 2px;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider > .view {
+		display: none;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider.slideTransition > .view:nth-last-child(-n+3) {
+		display: block;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider > .view:nth-last-child(-n+2) {
+		display: block;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider.col3 {
+		width: 200%;
+	}
+}
+@media (max-width: 400px) {
+	.oneui .MCBorderContainer .overlayed .MQmatch {
+		width: 3px;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider > .view {
+		display: none;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider.slideTransition > .view:nth-last-child(-n+2) {
+		display: block;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider > .view:last-child {
+		display: block;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider.col2 {
+		width: 400%;
+	}
+	.oneui .MCBorderContainer .overlayed .centerSlider.col3 {
+		width: 400%;
+	}
+}
+@media (min-width: 400px) and (max-width: 800px) {
+	.oneui .MCBorderContainer .MQmatch {
+		height: 2px;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed {
+		z-index: 0 !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.left {
+		margin-left: 0 !important;
+		left: 0 !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.right {
+		margin-right: 0 !important;
+		right: 0 !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.top {
+		margin-top: 0 !important;
+		top: 0 !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.bottom {
+		margin-bottom: 0 !important;
+		bottom: 0 !important;
+	}
+	.oneui .MCBorderContainer .sidePane {
+		box-shadow: 0px 0px 10px 2px #aaa;
+	}
+}
+@media (min-width: 315px) and (max-width: 400px) {
+	.oneui .MCBorderContainer .centerPanes.overlayed.left {
+		right: -275px !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.right {
+		left: -275px !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.top {
+		bottom: -100px !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.bottom {
+		top: -100px !important;
+	}
+}
+@media (max-width: 315px) {
+	.oneui .MCBorderContainer .centerPanes.overlayed {
+		position: absolute !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.left {
+		right: -260px !important;
+		left: auto !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.right {
+		left: -260px !important;
+		right: auto !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.top {
+		bottom: -100px !important;
+		top: auto !important;
+	}
+	.oneui .MCBorderContainer .centerPanes.overlayed.bottom {
+		top: -100px !important;
+		bottom: auto !important;
+	}
+	.oneui .MCBorderContainer .sidePane {
+		width: auto !important;
+		box-shadow: none;
+	}
+	.oneui .MCBorderContainer .sidePane.left {
+		right: 40px;
+	}
+	.oneui .MCBorderContainer .sidePane.right {
+		left: 40px;
+	}
+	.oneui .MCBorderContainer .sidePane.top {
+		bottom: 40px;
+	}
+	.oneui .MCBorderContainer .sidePane.bottom {
+		top: 40px;
+	}
+}
+/* TODO Ttable of the MQmatch div state with the corresponding meaning */
+/* for version hosted on github */
+.oneui .MCBorderContainer .mblBackground {
+	background-color: #c5ccd3;
+}
+@keyframes shake {
+0% {
+transform: translateX(4px);
+}
+50% {
+transform: translateX(-4px);
+}
+100% {
+transform: translateX(4px);
+}
+}
+@-moz-keyframes shake {
+0% {
+-moz-transform: translateX(4px);
+}
+50% {
+-moz-transform: translateX(-4px);
+}
+100% {
+-moz-transform: translateX(4px);
+}
+}
+@-webkit-keyframes shake {
+0% {
+-webkit-transform: translateX(4px);
+}
+50% {
+-webkit-transform: translateX(-4px);
+}
+100% {
+-webkit-transform: translateX(4px);
+}
+}
+.oneui .MCBorderContainer .shake {
+	animation-name: shake;
+	animation-duration: 0.1s;
+	transform-origin: 50% 50%;
+	animation-iteration-count: 3;
+	animation-timing-function: linear;
+	-moz-animation-name: shake;
+	-moz-animation-duration: 0.1s;
+	-moz-transform-origin: 50% 50%;
+	-moz-animation-iteration-count: 3;
+	-moz-animation-timing-function: linear;
+	-webkit-animation-name: shake;
+	-webkit-animation-duration: 0.1s;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-animation-iteration-count: 3;
+	-webkit-animation-timing-function: linear;
+}

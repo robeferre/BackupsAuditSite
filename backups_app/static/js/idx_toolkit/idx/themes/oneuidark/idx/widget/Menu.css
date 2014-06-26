@@ -1,0 +1,81 @@
+/* Message menus
+ * 
+ * Styling consists of:
+ *  - classes to mark menu items with the appropriate icons
+ *  
+ */
+/* Styles for menu item icons for each message class */
+.oneui.dark .dijitMenuTable .oneuiMenuColumn tr:first-child .dijitMenuArrowCell,.oneui.dark .dijitMenuTable .oneuiMenuColumn tr:first-child .dijitMenuItemIconCell,.oneui.dark .dijitMenuTable .oneuiMenuColumn tr:first-child .dijitMenuItemLabel,.oneui.dark .dijitMenuTable .oneuiMenuColumn tr:first-child .oneuiMenuHeadingLabel {
+	border-top-color:#222;
+}
+.oneuiErrorMenuItemIcon,.oneuiWarningMenuItemIcon,.oneuiConfirmationMenuItemIcon,.oneuiSuccessMenuItemIcon,.oneuiInformationMenuItemIcon {
+	background-image:url(images/msgIcons_24bit.png);
+}
+
+.dj_ie6 .oneuiErrorMenuItemIcon,.dj_ie6 .oneuiWarningMenuItemIcon,.dj_ie6 .oneuiConfirmationMenuItemIcon,.dj_ie6 .oneuiSuccessMenuItemIcon,.dj_ie6 .oneuiInformationMenuItemIcon {
+	background-image:url(images/msgIcons_8bit.png);
+}
+
+.oneuiErrorMenuItemIcon {
+	background-position:-1px -1px;
+}
+
+.oneuiWarningMenuItemIcon {
+	background-position:-19px -1px;
+}
+
+.oneuiConfirmationMenuItemIcon {
+	background-position:-37px -1px;
+}
+
+.oneuiSuccessMenuItemIcon {
+	background-position:-55px -1px;
+}
+
+.oneuiInformationMenuItemIcon {
+	background-position:-73px -1px;
+}
+
+.oneuiErrorMenuItemIcon,.oneuiAttentionMenuItemIcon,.oneuiComplianceMenuItemIcon {
+	background-image:url(images/alertIcons_24bit.png);
+}
+
+.dj_ie6 .oneuiErrorMenuItemIcon,.dj_ie6 .oneuiAttentionMenuItemIcon,.dj_ie6 .oneuiComplianceMenuItemIcon {
+	background-image:url(images/alertIcons_8bit.png);
+}
+
+.oneuiCriticalMenuItemIcon {
+	background-position:-1px 0;
+}
+
+.oneuiAttentionMenuItemIcon {
+	background-position:-37px 0;
+}
+
+.oneuiComplianceMenuItemIcon {
+	background-position:-55px 0;
+}
+
+/* Styles for menu items */
+.oneui.dark .oneuiMessageMenu .dijitMenuItem td,.oneui.dark .oneuiMessageMenu .oneuiMenuHeading td {
+	border-bottom-color: #222;
+}
+.oneui.dark .oneuiMessageMenu .dijitMenuItemHover {
+	background-color:#1673a6;
+}
+
+/**************************/
+/* Styles for MenuHeading */
+/**************************/
+.oneui.dark .dijitMenuBar .oneuiMenuHeading {
+	color:#eee;
+}
+.oneui.dark .oneuiMenuHeading td {
+	border-bottom-color: #222;
+}
+.oneui.dark .dijitMenuTable tr:first-child .oneuiMenuHeadingLabel {
+	border-top-color: #222;
+}
+.oneui.dark .dijitMenuTable .oneuiMenuHeading {
+	border-color: #222;
+}

@@ -1,0 +1,7 @@
+/* delegate to oneui common theme */
+@import url(../../common/dojox/ToolBarButton-compat.css);
+
+.oneui.dj_ie .mblHeading :not(.mblIdxHeadingSpinner).mblToolBarButtonBody { /* IE renders font 1px too high */
+	line-height: 33px;
+	height: 32px;
+}

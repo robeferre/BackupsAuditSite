@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gridx Chain</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+	<script type="text/javascript" src="support/commonImport.js"></script>
+	<style id="idxStyles" type="text/css">
+		@import "../../../gridx/resources/Gridx.css";
+		@import "../../themes/oneui/dijit/document.css";
+		@import "../../themes/oneui/oneui.css";
+		@import "support/common.css";
+		.gridx {
+			width: 350px;
+			height: 500px;
+			float: left;
+			margin: 30px;
+		}
+		.checker {
+			text-align: center !important;
+		}
+	</style>
+	<script type="text/javascript" src='demo_grid_chain.js'></script>
+</head>
+<body class='oneui'>
+	<div id="grid1" data-dojo-id="grid1" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store1,
+		structure: layout1,
+		barTop: barTop1,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Bar',
+			'gridx/modules/Filter',
+			'gridx/modules/select/Row',
+			'gridx/modules/HiddenColumns',
+			'gridx/modules/CellWidget'
+		]
+	"></div>
+	<div id="grid2" data-dojo-id="grid2" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store2,
+		structure: layout2,
+		barTop: barTop2,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Bar',
+			'gridx/modules/Filter',
+			'gridx/modules/select/Row',
+			'gridx/modules/HiddenColumns',
+			'gridx/modules/CellWidget'
+		]
+	"></div>
+	<div id="grid3" data-dojo-id="grid3" data-dojo-type="gridx/Grid" data-dojo-props="
+		cacheClass: 'gridx/core/model/cache/Async',
+		store: store3,
+		structure: layout3,
+		barTop: barTop3,
+		selectRowTriggerOnCell: true,
+		modules: [
+			'gridx/modules/Bar',
+			'gridx/modules/Filter',
+			'gridx/modules/select/Row',
+			'gridx/modules/HiddenColumns',
+			'gridx/modules/CellWidget'
+		]
+	"></div>
+</body>
+</html>

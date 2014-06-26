@@ -1,0 +1,23 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneui .idxResizeHandleText {
+	display: none;
+}
+.oneui.dijit_a11y .idxResizeHandleText {
+	display: inline-block;
+	font-size: 150%;
+	padding: 0px;
+	margin: 0px;
+	line-height: 100%;
+	text-align: right;
+	vertical-align: bottom;
+}
+
+.dijitRtl .oneui.dijit_a11y .idxResizeHandleText {
+	text-align: left;
+}

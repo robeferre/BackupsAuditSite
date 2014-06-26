@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+    <script type="text/javascript"> 
+       require(["dojo/parser", 
+			    "idx/app/LoginFrame"],  
+        function(dojoparser,
+			   idxappLoginFrame){
+			   // Customer code here. 
+		});
+		
+		 
+		var doSubmission=function(username, password){ 
+            alert(username); 
+            return true; 
+        };
+
+   </script> 
+
+{% endblock %}
+
+		
+{% block body %}
+
+        <div jsid="loginFrame" data-dojo-type="idx/app/LoginFrame" data-dojo-props='
+        onSubmit:doSubmission,
+        onCancel:"doCancellation" ,
+        formName:"testLogin",
+        loginSubTitle:"Please enter your information", 
+        inactivityMessage:"the system will sign you out automatically and ask you to sign in again.", 
+        loginCopyright:"Licensed Materials."'>
+        </div>
+
+{% endblock %}

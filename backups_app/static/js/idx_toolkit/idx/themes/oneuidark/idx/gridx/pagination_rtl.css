@@ -1,0 +1,38 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* Pagination RTL */
+
+
+.oneui.dark .gridxRtl .gridxPagerFirstPage {
+	background-position: -40px 4px;
+}
+.oneui.dark .gridxRtl .gridxPagerFirstPageDisable {
+	background-position: -40px -16px;
+}
+
+.oneui.dark .gridxRtl .gridxPagerPrevPage {
+	background-position: -19px 4px;
+}
+.oneui.dark .gridxRtl .gridxPagerPrevPageDisable {
+	background-position: -19px -16px;
+}
+
+.oneui.dark .gridxRtl .gridxPagerNextPage {
+	background-position: 1px 4px;
+}
+.oneui.dark .gridxRtl .gridxPagerNextPageDisable {
+	background-position: 1px -16px;
+}
+
+.oneui.dark .gridxRtl .gridxPagerLastPage {
+	background-position: -60px 4px;
+}
+
+.oneui.dark .gridxRtl .gridxPagerLastPageDisable {
+	background-position: -60px -16px;
+}

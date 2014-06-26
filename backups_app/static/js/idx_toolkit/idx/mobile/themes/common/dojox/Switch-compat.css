@@ -1,0 +1,34 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.Switch */
+/* Switch - common */
+
+.oneui .mblSwitchBg {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.oneui .mblSwitchBgLeft {
+	background-image: url(compat/switch-square-l.png);
+	background-image: -moz-linear-gradient(top, #085884, #008abf);
+	background-image: linear-gradient(to bottom, #085884, #008abf);
+}
+
+.oneui .mblSwitchBgRight {
+	background-image: url(compat/switch-square-r.png);
+	background-image: -moz-linear-gradient(top, #dbdbdb, #f4f4f4);
+	background-image: linear-gradient(to bottom, #dbdbdb, #f4f4f4);
+}
+
+.oneui .mblSwitchKnob {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-image: url(compat/switch-square-k.png);
+	background-image: -moz-linear-gradient(top, #f4f4f4, #dbdbdb);
+	background-image: linear-gradient(to bottom, #f4f4f4, #dbdbdb);
+}

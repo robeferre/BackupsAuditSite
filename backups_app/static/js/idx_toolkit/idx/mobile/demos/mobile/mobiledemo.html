@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US"> 
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+	<title>One UI mobile header standard demo</title>
+
+	<!-- Load deviceTheme.js here. We load this BEFORE loading dojo.js
+	     in order that the theme files are loaded before widgets initialise -->
+	<script src="../../deviceTheme.js"></script>
+
+	<!-- Common style definitions for the test cases -->	
+	<link rel="stylesheet" type="text/css" href="../../tests/tests.css" />
+	
+	<script src="../../tests/dojoVersion.js" data-dojo-config="async:true, parseOnLoad:true, isDebug:true"></script>
+	<script>
+		require(["idx/mobile/tests/_TestUtils",
+				 "dojox/mobile/parser",
+				 "dojox/mobile/compat",
+				 "dojox/mobile/Heading",
+				 "dojox/mobile/ScrollableView"]);
+	</script>
+ 
+</head>
+<body style="visibility:hidden;">
+	<div id="id_mainView" data-dojo-type="dojox/mobile/ScrollableView" data-dojo-props="selected: true">
+
+		<!-- Heading. --> 
+		<div id="id_heading" data-dojo-type="dojox/mobile/Heading" data-dojo-props="label: 'Simple mobile app', fixed:'top'">
+		</div>
+		
+		<!-- Content. -->
+		<div class="dummyViewContent">
+			This is a very simple mobile app to show basic use of the IDX One UI mobile theme.
+		</div> 
+	</div>
+</body>
+</html>

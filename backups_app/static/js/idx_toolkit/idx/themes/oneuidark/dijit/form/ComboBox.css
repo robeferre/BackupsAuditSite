@@ -1,0 +1,164 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .dijitComboBox,.oneui.dark .dijitComboBoxActive,.oneui.dark .dijitHasDropDownOpen .dijitComboBox {
+	border-color:#555;
+}
+
+.oneui.dark .dijitComboBox .dijitDownArrowButton {
+	border-color:#222;
+	background-color:#222;
+	background-image:-moz-linear-gradient(top,#777,#222);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#777),to(#222));
+	background-image:-webkit-linear-gradient(top,#777 0%,#222 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#777 0%,#222 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#777 0%,#222 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#777 0%,#222 100%);
+}
+
+.oneui.dark .dijitComboBox .dijitInputField .dijitInputInner,.oneui.dark .dijitComboBox .dijitArrowButtonInner {
+	color:#eee;
+}
+
+.oneui.dark .dijitComboBox .dijitArrowButtonInner {
+	background-image:url(images/comboButtonArrows.png);
+	background-repeat:no-repeat;
+	background-position:-149px 53%;
+}
+
+.dj_ie6 .oneui.dark .dijitComboBox .dijitArrowButtonInner {
+	background-image:url(images/comboButtonArrows8bit.png);
+}
+
+/* Focused */
+.oneui.dark .dijitComboBoxFocused {
+	border-color:#008abf;
+}
+
+/* Hover */
+.oneui.dark .dijitComboBoxHover {
+	background-color:#222;
+	background-image:none;
+}
+
+.oneui.dark .dijitComboBoxInputContainerHover {
+	border-color:#66d0e9;
+}
+
+.oneui.dark .dijitComboBox .dijitDownArrowButton.dijitDownArrowButtonHover {
+	border-color:#555;
+	background-color:#888;
+	background-image:-moz-linear-gradient(top,#999,#333);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#999),to(#333));
+	background-image:-webkit-linear-gradient(top,#999 0%,#333 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#999 0%,#333 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#999 0%,#333 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#999 0%,#333 100%);
+
+}
+
+/* ArrowButtonHover */
+.oneui.dark .dijitComboBox .dijitDownArrowButtonHover,.oneui.dark .dijitComboBoxFocused .dijitDownArrowButton {
+	border-color:#555;
+	background-image:none;
+	background-color:#333;
+	background-image:-moz-linear-gradient(top,#333,#bbb);
+	background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#333),to(#bbb));
+	background-image:-webkit-linear-gradient(top,#333 0%,#bbb 100%);
+/* Chrome10+,Safari5.1+ */
+	background-image:-o-linear-gradient(top,#333 0%,#bbb 100%);
+/* Opera 11.10+ */
+	background-image:-ms-linear-gradient(top,#333 0%,#bbb 100%);
+/* IE10+ */
+	background-image:linear-gradient(top,#333 0%,#bbb 100%);
+/* W3C */
+}
+
+.oneui.dark .dijitComboBox .dijitDownArrowButtonHover .dijitArrowButtonInner,.oneui.dark .dijitComboBox .dijitDownArrowButtonActive .dijitArrowButtonInner,.oneui.dark .dijitHasDropDownOpen .dijitComboBox .dijitArrowButtonInner {
+	background-position:-49px 53%;
+}
+
+/* ArrowButtonActive */
+.oneui.dark .dijitComboBox .dijitDownArrowButtonActive,.oneui.dark .dijitHasDropDownOpen .dijitComboBox .dijitDownArrowButton {
+	border-color:#555;
+	background-image:none;
+	background:#555;
+	background:-moz-linear-gradient(top,#222 0%,#343434 100%);
+/* FF3.6+ */
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#222),color-stop(100%,#343434));
+/* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top,#222 0%,#343434 100%);
+/* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top,#222 0%,#343434 100%);
+/* Opera 11.10+ */
+	background:-ms-linear-gradient(top,#222 0%,#343434 100%);
+/* IE10+ */
+	background:linear-gradient(top,#222 0%,#343434 100%);
+/* W3C */
+}
+
+/* Disabled */
+.oneui.dark .dijitComboBoxDisabled {
+	border-color:#555;
+	background:#222;
+}
+
+.oneui.dark .dijitComboBoxDisabled .dijitDownArrowButton {
+	border-color:#555;
+}
+
+.oneui.dark .dijitComboBoxDisabled,.oneui.dark .dijitComboBoxDisabled .dijitInputContainer,.oneui.dark .dijitComboBoxDisabled .dijitInputField .dijitInputInner,.oneui.dark .dijitComboBoxDisabled .dijitInputField .dijitPlaceHolder,.oneui.dark .dijitComboBoxDisabled .dijitDownArrowButton {
+	color:#777;
+	background:#222;
+}
+
+/* ReadOnly */
+.oneui.dark .dijitComboBoxReadOnly {
+	border-color:#555;
+}
+
+.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButton.dijitDownArrowButtonHover {
+	border-color:#222;
+}
+
+.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButton {
+	background:#222;
+}
+
+.oneui.dark .dijitComboBoxReadOnly .dijitArrowButtonInner,.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButtonActive .dijitArrowButtonInner,.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButtonHover .dijitArrowButtonInner {
+	background-position:-149px 53%;
+}
+
+.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButtonHover,.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButtonActive,.oneui.dark .dijitComboBoxReadOnlyFocused .dijitDownArrowButton {
+	border-color:#222;
+}
+
+.oneui.dark .dijitComboBoxReadOnly,.oneui.dark .dijitComboBoxReadOnly .dijitInputField .dijitInputInner,.oneui.dark .dijitComboBoxReadOnly .dijitInputField .dijitPlaceHolder,.oneui.dark .dijitComboBoxReadOnly .dijitDownArrowButton {
+	color:#777;
+}
+
+.oneui.dark .dijitComboBoxError {
+	border-color:#cd321a;
+}
+
+.oneui.dark .dijitComboBoxError .dijitDownArrowButton {
+	border-color:#2f2222;
+}
+
+/* *!important* syntax should be avoid to use!
+ * This class should be removed once the *!important* sytax in
+ * the class .oneui.dark .dijitTextBoxFocused .dijitButtonNode (Common.css) get
+ * revmoed by Jay Z.
+ *  */
+.oneui.dark .dijitComboBoxReadOnlyFocused .dijitButtonNode {
+	border-left-color:#222!important;
+}

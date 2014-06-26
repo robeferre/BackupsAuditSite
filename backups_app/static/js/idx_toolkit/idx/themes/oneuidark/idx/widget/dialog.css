@@ -1,0 +1,23 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxDialog {
+	border-color:#343434;
+	border-color:rgba(52,52,52,0.4);
+	-webkit-box-shadow:0 0 4px 1px rgba(34,34,34,0.2);
+	-moz-box-shadow:0 0 4px 1px rgba(34,34,34,0.2);
+	box-shadow:0 0 4px 1px rgba(34,34,34,0.2);
+	background:none repeat scroll 0 0 #222;
+}
+
+.oneui.dark .idxDialog .dijitDialogPaneContent {
+	background:none repeat scroll 0 0 #222;
+}
+
+.oneui.dark .idxDialog .dijitDialogPaneContentWrapper {
+	border-top-color: #343434;
+	border-bottom-color: #555;
+}

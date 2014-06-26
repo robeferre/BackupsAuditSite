@@ -1,0 +1,29 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+ 
+.oneui .idxPlatform_mobile.idxComposite .dijitTextArea {
+	padding:5px 6px 7px 6px;
+	border:1px solid #aaa;
+	border-width:1px;
+	border-radius:2px;
+	color:#222;
+	font-size:13px;
+}
+
+.oneui .idxPlatform_mobile.idxComposite .dijitTextAreaError{
+	background-color: #ffffff;
+	border: 1px solid #aaa;
+}
+.oneui .idxPlatform_mobile.idxTextareaWrapError .idxValidationContainer,
+.oneui .idxPlatform_mobile.idxTextareaWrapFocused .idxCompositeHelpContainer{
+	opacity: 1;
+}
+.oneui .idxPlatform_mobile.idxTextareaWrapError .idxCompositeHelpContainer{
+	opacity:0;
+	z-index:0;
+}
+

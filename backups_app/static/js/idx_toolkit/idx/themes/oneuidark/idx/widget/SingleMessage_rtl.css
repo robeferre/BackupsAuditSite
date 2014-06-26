@@ -1,0 +1,29 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .idxSingleMessageRtl .idxMessageIcon {
+	background-image:url(images/msgIcons_24bit_rtl.png);
+}
+
+.dj_ie6 .oneui.dark .idxSingleMessageRtl .idxMessageIcon {
+	background-image:url(images/msgIcons_8bit_rtl.png);
+}
+
+.oneui.dark.idx_i18n_il .idxSingleMessageRtl .idxMessageIcon {
+	background-image:url(images/msgIcons_24bit_rtl_il.png);
+}
+
+.dj_ie6 .idx_i18n_il .idxSingleMessageRtl .idxMessageIcon {
+	background-image:url(images/msgIcons_8bit_rtl_il.png);
+}
+
+.oneui.dark .idxSingleMessageRtl.criticalMessage .idxMessageIcon,.oneui.dark .idxSingleMessageRtl.attentionMessage .idxMessageIcon,.oneui.dark .idxSingleMessageRtl.complianceMessage .idxMessageIcon {
+	background-image:url(images/alertIcons_24bit.png);
+}
+
+.dijitRtl .oneui.dark .criticalMessage .idxMessageIcon,.dijitRtl .oneui.dark .attentionMessage .idxMessageIcon,.dijitRtl .oneui.dark .complianceMessage .idxMessageIcon {
+	background-image:url(images/alertIcons_8bit.png);
+}

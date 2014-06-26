@@ -1,0 +1,160 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.ListItem */
+
+/* Reset common styles. */
+.oneui .mblListItem,
+.oneui .mblListItem * {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblListItem {
+	position:relative;
+	overflow:hidden;
+/* for focus frame */
+	padding:0 15px;
+	height:43px;
+	border-bottom:1px solid #ddd;
+	background-color:#fff;
+	list-style-type:none;
+	font-weight:700;
+	line-height:43px;
+	outline: none;
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+.oneui .mblListItem.mblVariableHeight {
+	padding:10px 15px;
+	height:auto;
+	line-height:normal;
+}
+
+.oneui .mblListItemSelected {
+	background-color: #f0f0f0;
+}
+
+.oneui .mblListItemSelected .mblDomButton div {
+	border-color:#fff;
+}
+
+.oneui .mblListItemLabelSelected {
+	background-color:#048bf4;
+}
+
+/*.mblListItemChecked {
+	color:#314e84;
+}*/
+
+.oneui .mblListItemChecked .mblListItemRightIcon {
+	visibility:visible;
+}
+
+.oneui .mblListItemChecked .mblListItemUncheckIcon {
+	position:absolute;
+	visibility:hidden;
+}
+
+.oneui .mblListItemUnchecked .mblListItemRightIcon {
+	visibility:hidden;
+}
+
+.oneui .mblListItemUnchecked .mblListItemUncheckIcon {
+	visibility:visible;
+}
+
+.oneui .mblListItemDeleteIcon {
+	position:relative;
+	float:left;
+	margin-top:7px;
+	margin-right:11px;
+	margin-bottom:-7px;
+	line-height:normal;
+}
+
+.oneui .mblListItemIcon {
+	position:relative;
+	float:left;
+	margin-top:7px;
+	margin-right:11px;
+	margin-bottom:-7px;
+	line-height:normal;
+}
+
+.oneui .mblListItemRightIcon,.mblListItemRightIcon2,.mblListItemUncheckIcon {
+	position:relative;
+	float:right;
+	margin-top:7px;
+	margin-bottom:-7px;
+	line-height:normal;
+}
+
+.oneui .mblListItemRightText {
+	position:relative;
+	float:right;
+	margin-top:12px;
+	margin-right:4px;
+	color:#777;
+	font-weight:400;
+	line-height:normal;
+}
+
+.oneui .mblListItemLabel {
+	position:relative;
+	overflow:hidden;
+	height:100%;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.oneui .mblVariableHeight .mblListItemLabel {
+	white-space:normal;
+}
+
+.oneui .mblListItemSubText {
+	color:gray;
+	font-size:14px;
+}
+
+.oneui .mblListItemLayoutLeft {
+	position:relative;
+	float:left;
+	margin-right:11px;
+}
+
+.oneui .mblListItemLayoutCenter {
+	position:absolute;
+	width:100%;
+	text-align:center;
+}
+
+.oneui .mblListItemLayoutRight {
+	position:relative;
+	float:right;
+}
+
+/* dojox.mobile._EditableListMixin */
+.oneui .mblListItemFloat {
+	position:absolute;
+	border:1px solid gray;
+	-webkit-border-radius:0!important;
+	-moz-border-radius:0!important;
+	-webkit-box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+	opacity:.5;
+}

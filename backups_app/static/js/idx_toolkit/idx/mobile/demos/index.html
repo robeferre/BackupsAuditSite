@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+	Licensed Materials - Property of IBM
+	(C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>IDX One UI for mobile platforms</title>
+	
+	<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+
+	<script type="text/javascript">
+		dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+		dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+	</script>
+
+    <style id="idxStyles" type="text/css">
+		@import "../../themes/oneui/oneui.css";
+        @import "../../demos/demo.css";
+    </style>
+
+	<script type="text/javascript">
+		var dojoConfig = currentDojoVersion.dojoConfig;
+		dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+	</script>
+
+	<script type="text/javascript" id="postDojo">
+		var modules = [
+			"idx.app.Header",
+			"idx.widget.MenuBar",
+			"dijit.MenuBarItem",
+			"dijit.layout.StackContainer",
+			"idx.demos._PageProxyContentPane"];
+			
+		dojoRequireModules(modules, null, currentDojoVersion.async, null, null);
+	</script>
+	
+	<script type="text/javascript" src="../../tests/commonTest.js"></script>
+</head>
+<body>
+	<a class="dijitOffScreen" role="navigation" href="#maincontent">Skip to main content</a>
+	<script type="text/javascript">applyThemeToBody("oneui");</script><!-- only oneui theme is supported -->
+
+	<div id="_nav" data-dojo-type="idx.widget.MenuBar">
+		<div data-dojo-type="dijit.MenuBarItem" onclick="location.href='http://uxd.torolab.ibm.com/uxd/uxd_oneui.jsp?site=uxd';">UXD</div>
+		<div data-dojo-type="dijit.MenuBarItem" onclick="location.href='http://uxd.torolab.ibm.com/uxd/uxd_oneui.jsp?site=ibmoneui';">IBM One UI</div>
+		<div data-dojo-type="dijit.MenuBarItem" onclick="location.href='http://maqetta.austin.ibm.com/maqetta/';">Maqetta</div>
+	</div>
+	
+	<div data-dojo-type="idx.app.Header" data-dojo-props="
+		primaryTitle: 'IBM Design',
+		navigation: '_nav',
+		primaryBannerType: 'thin',
+		secondaryTitle: 'IDX One UI for mobile platforms',
+		secondaryBannerType: 'lightGray'
+	"></div>
+
+	<h3>
+		Examples and documentation for using the IDX One UI enablement
+		for mobile platforms in applications.
+	</h3>
+	
+	<p>
+		The following features are available in this directory:
+		
+		<ul>
+		
+			<li><a href="mobile.html">mobile.html</a> &mdash;
+			getting started with using the IDX One UI enablement for mobile platforms.</li>
+			
+			<li><a href="galleryviewer.html">galleryviewer.html</a> &mdash;
+			a widget gallery and theme tester for the One UI mobile theme.</li>
+			
+			<li><a href="gallery.html">gallery.html</a> &mdash;
+			a widget gallery and theme tester for the One UI mobile theme (full browser mode).</li>
+			
+			<li><a href="header.html">header.html</a> &mdash;
+			overview, primer and demo for the IDX support for the One UI "header" standard.</li>
+			
+			<li><a href="launch.html">launch.html</a> &mdash;
+			overview, primer and demo for the IDX support for the One UI "launch" standard.</li>
+			
+			<li><a href="login.html">login.html</a> &mdash;
+			overview, primer and demo for the IDX support for the One UI "login" standard.</li>
+			
+			<li><a href="about.html">about.html</a> &mdash;
+			overview, primer and demo for the IDX support for the One UI "about" standard.</li>
+			
+		</ul>
+
+</body>
+</html>

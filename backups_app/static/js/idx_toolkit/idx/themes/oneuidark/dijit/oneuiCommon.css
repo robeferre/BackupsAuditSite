@@ -1,0 +1,46 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+.oneui.dark .dijitRequired .idxLabel .idxRequiredIcon {
+	color:#e87820;
+}	
+}
+
+.oneui.dark .idxComposite .idxHint {
+	display:none;
+}
+
+.oneui.dark .idxComposite .dijitValidationContainer .dijitValidationIcon {
+	background-image:url(../idx/widget/images/msgIcons_24bit.png);
+	background-position:-2px -2px;
+}
+
+.dj_ie6 .oneui.dark .idxComposite .dijitValidationContainer .dijitValidationIcon {
+	background-image:url(../idx/widget/images/msgIcons_8bit.png);
+}
+
+.oneui.dark .idxComposite .dijitValidationContainer input {
+	background-color:transparent!important;
+}
+
+/* Drag and Drop */
+.oneui.dark .idxDndAvatar {
+	background-color:transparent;
+}
+
+.oneui.dark .idxDndAvatarBody {
+	background:#222;
+	background:rgba(0,0,0,0.8);
+	color:#eee;
+}
+
+.oneui.dark .idxDndAvatar .dropIndicator {
+	background:url(images/dndSource_16px.png);
+}
+
+.oneui.dark .idxDndAvatar.idxDndAvatarCanDrop .dropIndicator {
+	background:transparent;
+}

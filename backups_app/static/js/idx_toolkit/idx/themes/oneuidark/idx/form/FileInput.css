@@ -1,0 +1,37 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+.oneuiFileInputWrap .dijitFileInput .dijitFileInputVisible{
+	border-color: #B5BCC7;
+}
+.dj_ie6 .oneui.dark .dijitFakeInput INPUT{
+	background-image: none;
+}
+.oneuiFileInputWrap .dijitFileInput .dijitFileInputButton, .oneuiFileInputWrap .dijitFileInput .dijitFileInputText{
+	background-color: #222;	
+	background-image: -moz-linear-gradient(top, #343434, #222);
+	background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#343434),to(#222));
+	background-image: -webkit-linear-gradient(top,  #343434 0%,#222 100%); /* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(top,  #343434 0%,#222 100%); /* Opera 11.10+ */
+	background-image: -ms-linear-gradient(top,  #343434 0%,#222 100%); /* IE10+ */
+	background-image: linear-gradient(top,  #343434 0%,#222 100%); /* W3C */
+	/*
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr='#343434', endColorstr='#222'); 
+	*/
+	border-color: #343434;
+	-webkit-box-shadow: 0px 1px 0px rgba(234, 234, 234, 0.1);	
+	-moz-box-shadow: 0px 1px 0px rgba(234, 234, 234, 0.1);
+	box-shadow: 0px 1px 0px rgba(234, 234, 234, 0.1);
+	color: #eeeeee;	
+	text-shadow:0px 1px 0px #222;	
+}
+.oneuiFileInputWrap .dijitFakeInput input {
+    background-color: #222;	
+    background-position: left top;
+    background-repeat: repeat-x;
+    border-color: #343f4d;	
+}

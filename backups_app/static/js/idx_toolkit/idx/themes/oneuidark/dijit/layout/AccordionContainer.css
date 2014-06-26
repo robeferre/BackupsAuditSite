@@ -1,0 +1,89 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Accordion
+ * 
+ * Styling AccordionContainer basically means styling the accordion pane (dijitAccordionInnerContainer)
+ * and the title inside of it (dijitAccordionTitle).   There are 4 basic states to style:
+ * 
+ * 1. closed pane (and default styling): 
+ * 		.dijitAccordionInnerContainer - container for each accordion child
+ * 		.dijitAccordionTitle - title for each accordion child
+ *
+ * 2. active closed pane (ie, mouse down on a title bar)
+ * 		.dijitAccordionInnerContainerActive - for background-color, border
+ * 		.dijitAccordionInnerContainerActive dijitAccordionTitle - for text color
+ * 
+ * 3. open pane (expanded child)
+ *		.dijitAccordionChildWrapper - wraps around the child widget (typically ContentPane)
+ *			setting a margin so that there's blue trim all the way around the child
+ *
+ * 		These rules need to override the closed pane active:
+ *
+ * 		.dijitAccordionInnerContainerSelected - for background-color, border
+ * 		.dijitAccordionInnerContainerSelected .dijitAccordionTitle - for text color
+ * 
+ * 4. hovered pane, open or closed
+ * 		The selectors below affect hovering over both a closed pane (ie, hovering a title bar),
+ * 		and hovering over an open pane.   Also, treat mouse down on an open pane as a hover:
+ *
+ * 		.dijitAccordionInnerContainerHover, .dijitAccordionInnerContainerSelectedActive - for background-color, border
+ * 		.dijitAccordionInnerContainerHover .dijitAccordionTitle - for text color
+ */
+.oneui.dark .dijitAccordionInnerContainer {
+	background-color:#222;
+	border-color:#777;
+}
+
+.oneui.dark .dijitAccordionContainer .dijitAccordionChildWrapper {
+	background-color:#222;
+	border-top-color:#555;
+}
+
+/* Active state for closed pane */
+.oneui.dark .dijitAccordionInnerContainerActive {
+	border-color:#777;
+	background:#333;
+}
+
+.oneui.dark .dijitAccordionInnerContainerActive .dijitAccordionTitle {
+	background: #222222;
+	background: -moz-linear-gradient(top,  #222222 0%, #343434 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#222222), color-stop(100%,#343434));
+	background: -webkit-linear-gradient(top,  #222222 0%,#343434 100%);
+	background: -o-linear-gradient(top,  #222222 0%,#343434 100%);
+	background: -ms-linear-gradient(top,  #222222 0%,#343434 100%);
+	background: linear-gradient(to bottom,  #222222 0%,#343434 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222222', endColorstr='#343434',GradientType=0 );
+
+}
+
+/* Open (a.k.a. selected) pane */
+.oneui.dark .dijitAccordionInnerContainerSelected {
+	border-color:#777;
+	background-color:#222;
+}
+
+.oneui.dark .dijitAccordionInnerContainerHover {
+	border-color:#777;
+	background:#222;
+/* Old browsers */
+}
+
+.oneui.dark .dijitAccordionInnerContainerHover .dijitAccordionTitle {
+	background: #343434;
+	background: -moz-linear-gradient(top,  #343434 0%, #222222 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222222));
+	background: -webkit-linear-gradient(top,  #343434 0%,#222222 100%);
+	background: -o-linear-gradient(top,  #343434 0%,#222222 100%);
+	background: -ms-linear-gradient(top,  #343434 0%,#222222 100%);
+	background: linear-gradient(to bottom,  #343434 0%,#222222 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222222',GradientType=0 );
+}
+
+.oneui.dark .dijitAccordionInnerContainerSelectedHover,.oneui.dark .dijitAccordionInnerContainerSelectedActive {
+	background-color:none;
+}

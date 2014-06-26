@@ -1,0 +1,39 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/* dojox.mobile.RoundRect */
+
+/* Reset common styles. */
+.oneui .mblRoundRect,
+.oneui .mblRoundRectContainer,
+.oneui .mblRoundCorner {
+	margin: 0;
+	border: none;
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	text-shadow: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	box-shadow: none;
+}
+
+.oneui .mblRoundRect {
+	margin:5px 10px 15px;
+	padding:8px 10px;
+	border:1px solid #ddd;
+	border-radius:3px;
+	background-color:#fff;
+	color:#000;
+}
+
+.oneui .mblRoundRect.mblShadow {
+}

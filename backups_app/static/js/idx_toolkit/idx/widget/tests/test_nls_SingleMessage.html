@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+  Licensed Materials - Property of IBM
+  (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+  US Government Users Restricted Rights - Use, duplication or 
+  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<html>
+<head>
+<title>Test nls/SingleMessage</title>
+<script type="text/javascript" src="../../tests/dojoVersion.js"></script>
+<script type="text/javascript" src="../../tests/test_nls.js"></script>
+<script type="text/javascript">
+var dojoConfig = currentDojoVersion.dojoConfig;
+dojoScriptImport("../../../../@dojopath@/dojo/dojo.js", "postDojo");
+dojoCSSImport("../../../../@dojopath@/dojo/resources/dojo.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit.css", "idxStyles");
+dojoCSSImport("../../../../@dojopath@/dijit/themes/dijit_rtl.css", "idxStyles");
+</script>
+<style type="text/css" id="idxStyles">
+@import "../../themes/oneui/oneui.css";
+@import "../../tests/test_nls.css";
+</style>
+<script type="text/javascript" id="postDojo">
+require([
+	"dojo/dom",
+	"dojo/ready",
+	"idx/widget/SingleMessage"
+], function(dom, ready, SingleMessage){
+	ready(function(){
+		new SingleMessage({
+			type: 'error',
+			title: 'Error message with short timestamp',
+			dateFormat:{selector: 'time'},
+			messageId: 'CAT123456',
+			messageNumber: 7,
+			collapsed: false,
+			style: 'width: 970px;',
+			description: 'Here is the detail message description, it can be configured via setting the \'description\' parameter of a SingleMessage widget. By default the message description is the same as the message title.'
+		}, "testWidget");
+	});
+});
+</script>
+<script src="../../tests/commonTest.js"></script>
+<script src="../../gridx/tests/support/common.js"></script>
+</head>
+<body>
+<script type="text/javascript">applyThemeToBody("oneui");</script>
+<h1 class="testTitle">widget/nls/SingleMessage</h1>
+<table class="testInstruction"><tbody>
+	<tr><th>Resource</th><th>Verification</th></tr>
+	<tr><td>viewAll</td><td>
+		Verify that the text next to the close button is translated.
+	</td></tr>
+	<tr><td>viewDetails</td><td>
+		Verify that the text after the message description is translated.
+	</td></tr>
+	<tr><td>refresh</td><td>
+		Verify that the text at the right bottom corner is translated.
+	</td></tr>
+	<tr><td>showDetails</td><td>
+		(This resource can not be saw). Collapse message.
+		<br/>
+		Verify that the "aria-label" attrbuite of message title is translated.
+	</td></tr>
+	<tr><td>hideDetails</td><td>
+		(This resource can not be saw). Expand message.
+		<br/>
+		Verify that the "aria-label" attrbuite of message title is translated.
+	</td></tr>
+</tbody></table>
+<hr/>
+<div style="padding: 10px;">
+<div id="testWidget"></div>
+</div>
+</body>
+</html>

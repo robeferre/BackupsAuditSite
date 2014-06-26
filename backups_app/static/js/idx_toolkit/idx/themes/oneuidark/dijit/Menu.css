@@ -1,0 +1,269 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+/* Menu 
+
+There are three areas of styling for the Menu:  
+ 
+ 1. The menu 
+ 	There are three types of menus:
+ 	i)Context Menu
+ 	ii)Drop down Menu
+ 	iii) Navigation Menu
+ 	All three types of menus are affected by the .dijitMenu class in which you can set the background-color, padding and border
+ 	.dijitMenu affects the drop down menu in TimeTextBox, Calendar, ComboBox and FilteringSelect
+  .dijitMenuTable - for padding - also affects Select widget 	
+  	
+ 2. The menu bar
+ 	.dijitMenuBar - for border, margins, padding, background-color of the menu bar
+ 	.dijitMenuBar .dijitMenuItem - for padding, text color of menu items in the menu bar (overrides .dijitMenuItem) 
+ 	
+ 3. Menu items - items in the menu.  
+ 	.dijitMenuItem - for color
+ 	.dijitMenuItemHover, .dijitMenuItemSelected - for background-color, border, text color, padding of a menu item or menubar item that has been hovered over or selected	
+ 	.dijitMenuItemActive - for bacgkround-color of an active (mousedown) menu item
+	td.dijitMenuItemIconCell - for padding around a  menu item's icon
+	td.dijitMenuItemLabel - for padding around a menu item's label	
+	.dijitMenuSeparatorTop - for border, top border, of the separator
+	.dijitMenuSeparatorBottom - for bottom margin of the separator
+	
+	Styles specific to ComboBox and FilteringSelect widgets: 
+	.dijitComboBoxMenu .dijitMenuItem - for padding and border of a menu item in a ComboBox or FilteringSelect widget's menu
+	.dijitComboBoxMenu .dijitMenuItemSelected- for text color, background-color and border of a menu item in a ComboBox or FilteringSelect widget's menu
+*/
+.oneui.dark .dijitMenuBar {
+	background: #343434;
+	background: -moz-linear-gradient(top,  #343434 0%, #222222 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#343434), color-stop(100%,#222222));
+	background: -webkit-linear-gradient(top,  #343434 0%,#222222 100%);
+	background: -o-linear-gradient(top,  #343434 0%,#222222 100%);
+	background: -ms-linear-gradient(top,  #343434 0%,#222222 100%);
+	background: linear-gradient(to bottom,  #343434 0%,#222222 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343434', endColorstr='#222222',GradientType=0 );
+	border-color: #111111;
+}
+
+.oneui.dark .dijitMenu {
+	background-color:#222;
+/* so adjoining borders of MenuBar/ComboBox and Menu overlap, avoiding double border */
+	border-color:#222;
+	-webkit-box-shadow:0 0 2px 2px rgba(0,0,0,0.35);
+	-moz-box-shadow:0 0 2px 2px rgba(0,0,0,0.35);
+	box-shadow:0 0 2px 2px rgba(0,0,0,0.35);
+}
+
+.oneui.dark .dijitMenuBar .dijitMenuItem {
+	color:#eee;
+}
+
+/* this prevents jiggling upon hover of a menu item */
+.oneui.dark .dijitMenuTable {
+	background-color:#222;
+}
+
+.oneui.dark .dijitMenuItem td {
+	border-bottom:1px solid #222;
+}
+
+.dijit_a11y .dijitMenuItem td {
+	border-bottom:none;
+}
+
+.oneui.dark .dijitMenuBar .dijitMenuItemDisabled {
+	opacity:1;
+	color:#777;
+	text-shadow:1px 0 0 #222;
+}
+
+/* hover over a MenuBarItem */
+.oneui.dark .dijitMenuBar .dijitMenuItemHover,.oneui.dark .dijitMenuBar .dijitMenuItemActive,.oneui.dark .dijitMenuBar .dijitMenuItemSelected {
+	border-left-color:#555;
+	border-right-color:#555;
+}
+
+.oneui.dark .dijitMenuBar .dijitMenuItemHover,.oneui.dark .dijitMenuBar .dijitMenuItemFocused {
+	background: #666666;
+	background: -moz-linear-gradient(top,  #666666 0%, #111111 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#666666), color-stop(100%,#111111));
+	background: -webkit-linear-gradient(top,  #666666 0%,#111111 100%);
+	background: -o-linear-gradient(top,  #666666 0%,#111111 100%);
+	background: -ms-linear-gradient(top,  #666666 0%,#111111 100%);
+	background: linear-gradient(to bottom,  #666666 0%,#111111 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#111111',GradientType=0 );
+}
+
+.oneui.dark .dijitMenuBar .dijitMenuItemActiveFocused,.oneui.dark .dijitMenuActive .dijitMenuItemSelected {
+	background: #222222;
+	background: -moz-linear-gradient(top,  #222222 0%, #343434 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#222222), color-stop(100%,#343434));
+	background: -webkit-linear-gradient(top,  #222222 0%,#343434 100%);
+	background: -o-linear-gradient(top,  #222222 0%,#343434 100%);
+	background: -ms-linear-gradient(top,  #222222 0%,#343434 100%);
+	background: linear-gradient(to bottom,  #222222 0%,#343434 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222222', endColorstr='#343434',GradientType=0 );
+}
+
+.oneui.dark .dijitMenuTable .dijitMenuItemSelected,.oneui.dark .dijitMenuTable .dijitMenuItemChecked {
+	color:#eee;
+	background:#078dc1;
+}
+
+/* hover over or select a MenuItem */
+.oneui.dark .dijitMenuTable .dijitMenuItemHover,.oneui.dark .dijitMenuTable .dijitMenuItemActive,.oneui.dark .dijitMenuTable .dijitMenuItemFocused {
+	color:#eee;
+	background:#1673a6;
+	text-shadow:1px 0 1px #07496c;
+}
+
+/* MenuBarItem that has been selected and menu drops down from it */
+.oneui.dark .dijitMenuActive .dijitMenuItemHover,.oneui.dark .dijitMenuActive .dijitMenuItemSelected {
+	color:#eee;
+}
+
+/* Menu item elements*/
+/* Following code is designed for dijit.Menu,
+ * it's commented as they are confilict with idx.widget.Menu
+.oneui.dark .dijitMenuTable tr:first-child .dijitMenuArrowCell,
+.oneui.dark .dijitMenuTable tr:first-child .dijitMenuItemIconCell,
+.oneui.dark .dijitMenuTable tr:first-child .dijitMenuItemLabel{
+	border-top: 1px solid #222;	
+}
+*/
+.oneui.dark .dijitMenuItem .dijitMenuArrowCell {
+	border-right-color:#222;
+}
+
+.oneui.dark td.dijitMenuItemIconCell {
+	border-left-color:#222;
+}
+
+.oneui.dark div.dijitMenu td.dijitMenuItemIconCell {
+	border-left:none;
+}
+
+/* the icon image in the menu item is embedded in text.
+   ensure that the font descender doesn't distort the
+   centering/alignment of the icon */
+.oneui.dark .dijitMenuItemDisabled .dijitMenuItemLabel {
+	color:#777;
+}
+
+.oneui.dark .dijitMenuItemDisabled .dijitMenuItemSelected,.oneui.dark .dijitMenuItemDisabled .dijitMenuItemChecked {
+	color:red;
+	text-shadow:1px 0 1px #07496c;
+}
+
+.oneui.dark .dijitMenuExpand {
+	background-image:url(images/spriteArrows.png);
+	background-position:-14px 0;
+}
+
+.oneui.dark .dijitMenuItemDisabled .dijitMenuExpand {
+	background-position:-42px 0;
+}
+
+.oneui.dark .dijitMenuItemDisabled .dijitMenuItemIconCell {
+	opacity:1;
+}
+
+.oneui.dark .dijitMenuSeparatorTop {
+	border-bottom-color:#222;
+}
+
+.oneui.dark .dijitCheckedMenuItemIcon {
+	background-image:url(form/images/checkboxRadioButtonStates.png);
+	background-repeat:no-repeat;
+	background-position:-17px 50%;
+}
+
+.dj_ie6 .oneui.dark .dijitCheckedMenuItemIcon {
+	background-image:url(form/images/checkboxRadioButtonStates8bit.png);
+}
+
+.oneui.dark .dijitCheckedMenuItemChecked .dijitCheckedMenuItemIcon {
+	background-position:-1px 50%;
+}
+
+.oneui.dark .dijitMenuItemHover .dijitCheckedMenuItemIcon {
+	background-position:-113px;
+}
+
+.oneui.dark .dijitMenuItemActive .dijitCheckedMenuItemIcon {
+	background-position:-161px;
+}
+
+.oneui.dark .dijitMenuItemCheckedHover .dijitCheckedMenuItemIcon {
+	background-position:-97px;
+}
+
+.oneui.dark .dijitMenuItemCheckedActive .dijitCheckedMenuItemIcon {
+	background-position:-145px;
+}
+
+.oneui.dark .dijitMenuItemReadOnly .dijitCheckedMenuItemIcon {
+	background-position:-65px;
+}
+
+.oneui.dark .dijitMenuItemCheckedReadOnly .dijitCheckedMenuItemIcon {
+	background-position:-49px;
+}
+
+.oneui.dark .dijitMenuItemDisabled .dijitCheckedMenuItemIcon {
+	background-position:-65px;
+}
+
+.oneui.dark .dijitMenuItemCheckedDisabled .dijitCheckedMenuItemIcon {
+	background-position:-49px;
+}
+
+/*ComboBox Menu*/
+.oneui.dark .dijitComboBoxMenu {
+	background-image:none;
+	border-color:#555;
+	-webkit-box-shadow:0 0 2px 2px rgba(0,0,0,0.35);
+	-moz-box-shadow:0 0 2px 2px rgba(0,0,0,0.35);
+	box-shadow:0 0 2px 2px rgba(0,0,0,0.35);
+}
+
+.oneui.dark .dijitComboBoxMenu .dijitMenuItemSelected {
+	color:#333;
+	background-color:#078dc1;
+}
+
+.oneui.dark .dijitComboBoxMenu .dijitMenuItemHover,.oneui.dark .dijitComboBoxMenu .dijitMenuItemActive {
+	color:#eee;
+	background-color:#1673a6;
+}
+
+.oneui.dark .dijitMenuTable .dijitMenuItem {
+	border-color:#222;
+}
+
+.oneui.dark .dijitMenuItemReadOnly {
+	color:#777;
+	background:#222;
+}
+
+/* Overwrite dijit.css*/
+.dijitMenuItemDisabled * {
+	opacity:1;
+}
+
+.dj_ie .dijitMenuItemDisabled *,.dj_ie .dijitMenuItemDisabled td {
+	filter:none;
+}
+
+/*
+ * Following code is used to fix ticket #15241(http:
+ */
+.dijitMenuItem:focus {
+	outline:none;
+}
+
+.dj_a11y .dijitMenuItemSelected {
+	border-color:#000!important;
+/* for 2.0 use outline instead, to prevent jitter */
+}

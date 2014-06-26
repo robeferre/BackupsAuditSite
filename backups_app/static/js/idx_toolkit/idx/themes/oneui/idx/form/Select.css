@@ -1,0 +1,48 @@
+/*
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corp. 2010, 2012 All Rights Reserved
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*
+ * Validation
+ */
+/*
+ * Error
+ */
+.oneui .idxSelectWrapError .dijitSelectError{
+    border: 1px solid #cd321a;
+}
+
+.oneui .idxSelectWrapError .dijitSelectError .dijitButtonContents {
+	background: #fff3f3;
+}
+.oneui .dijitSelectError .dijitButtonContents .dijitButtonText {
+	display: block !important;
+}
+.oneui .idxSelectWrapLabel{
+	vertical-align: top;
+}
+
+.oneui .idxSelectWrap .dijitValidationContainer{
+   display: none;
+}
+
+.oneui .idxSelectWrapError .dijitValidationContainer{
+	display: inline-block;
+}
+
+.oneui .idxSelectWrapMenu .dijitMenuItemIconCell{
+	padding:1px;
+}
+/*
+ * Incompelete
+ */
+/*.oneui .idxSelectWrapIncomplete .dijitSelectIncomplete{
+    border: 1px solid rgba(221, 115, 28, 0.75);
+}
+
+.oneui .idxSelectWrapIncomplete .dijitSelectIncomplete .dijitButtonContents {
+	background: #ffffec;
+}*/

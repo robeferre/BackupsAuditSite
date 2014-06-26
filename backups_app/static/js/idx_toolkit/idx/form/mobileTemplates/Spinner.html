@@ -1,0 +1,32 @@
+<div id="widget_${id}" class="dijitInline dijitReset dijitLeft idxComposite idxNumberSpinnerWrap"
+	><div class="idxLabel dijitInline dijitHidden"  dojoAttachPoint="labelWrap"
+		><span class="idxRequiredIcon">*&nbsp</span
+		><label dojoAttachPoint="compLabelNode"></label
+	></div
+	><div class="idxCompositeField dijitInline" dojoAttachPoint="fieldWrap"
+		><div class="dijitReset idxCompositeHelpContainer" dojoAttachPoint="helpContainer">
+			<div class='dijitInline idxHelpIcon'>
+				<span class='idxHelpIconAltText'>?</span>
+			</div>
+			<span dojoAttachPoint="helpMessage"></span>
+		</div
+		><div dojoAttachPoint='stateNode,oneuiBaseNode' class="dijitInline dijitReset dijitInlineTable dijitLeft" role="presentation" 
+			><div class="dijitReset dijitInline dijitUpArrowButton" dojoAttachPoint="upArrowNode"
+				><span class="dijitReset" tabIndex="-1" readonly="readonly" role="presentation" ${_buttonInputDisabled} >+</span
+			></div
+			><div class="dijitReset dijitInline idxSpinnerContainer"
+				><input class='idxTextBoxInput' dojoAttachPoint="textbox,focusNode,inputNode" type="${type}" dojoAttachEvent="onkeypress:_onKeyPress" role="spinbutton" autocomplete="off" ${!nameAttrSetting}	/
+			></div
+			><div class="dijitReset dijitInline dijitDownArrowButton" dojoAttachPoint="downArrowNode" 
+				><span class="dijitReset" tabIndex="-1" readonly="readonly" role="presentation" ${_buttonInputDisabled}>-</span
+			></div
+		></div
+		><div class='dijitReset idxValidationContainer'>
+			<div class="idxValidationIcon dijitInline">
+				<span class="dijitReset idxValidationInner" tabIndex="-1" readonly="readonly" role="presentation">&#935; </span>
+			</div>
+			<span dojoAttachPoint="validationMessage"></span>
+		</div
+	></div
+	><div id="${id}_unit" class="idxUnit dijitInline dijitHidden" dojoAttachPoint="compUnitNode"></div
+></div>

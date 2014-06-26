@@ -1,0 +1,85 @@
+.oneui .idxWizard {
+	width: 100%;
+	height: 100%;
+}
+
+.oneui .idxWizard .idxWizardBorderContainer {
+	width: 100%;
+	height: 100%;
+}
+
+.oneui .idxWizard .idxWizardPane {
+	padding: 20px;
+}
+
+.oneui .idxWizard .idxWizardButtonContainer {
+	border-top: 1px solid #CCC;
+	text-align: right;
+	padding: 20px;
+}
+.dijitRtl .oneui .idxWizard .idxWizardButtonContainer {
+	text-align: left;
+}
+
+/* Table of contents */
+.oneui .idxWizard .idxWizardTOC {
+	width: 230px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList {
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList li {
+    padding: 3px 2px 2px 20px;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem {
+	color: #008ABF;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem.idxWizardSubstep {
+	margin-left: 25px;
+}
+.dijitRtl .oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem.idxWizardSubstep {
+	margin-right: 25px;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem.idxWizardVisited .idxWizardIcon  {
+	background: url(images/wiz_step_complete_16.png) 0 no-repeat;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem.idxWizardVisited.idxWizardSelected .idxWizardIcon  {
+	background: url(images/wiz_cur_step_16.png) 0 no-repeat;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem .idxWizardText  {
+	color: #222222;
+	padding-left: 18px;
+}
+.dijitRtl .oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem .idxWizardText  {
+	padding-right: 18px;
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem.idxWizardSelected  {
+    /* font-weight: bold; */
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem.idxWizardDisabled .idxWizardText {
+    color: #555555; 
+}
+
+.oneui .idxWizard .idxWizardTOC .idxWizardTOCList .idxWizardNavListItem:hover {
+    background-color: #cce8f2;
+    cursor: pointer;
+}
